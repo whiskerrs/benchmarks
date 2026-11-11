@@ -30,46 +30,6 @@ final class JourneyTests: XCTestCase {
         app.terminate()
     }
 
-    /// Cold launch from the Home Screen icon, for the side-by-side launch video.
-    func testTapLaunch() {
-        app.terminate()
-        XCUIDevice.shared.press(.home)
-        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
-        let icon = springboard.icons["Everbloom"]
-        for _ in 0..<8 where !icon.isHittable {
-            springboard.swipeLeft()
-            sleep(1)
-        }
-        do {
-            // A fresh install lands next to other apps; dragging it past the last page gives it a
-            // page of its own, which goes away again when the app is uninstalled.
-            icon.press(forDuration: 1.2)
-            let edit = springboard.buttons.matching(NSPredicate(format: "label IN %@", ["ホーム画面を編集", "Edit Home Screen"])).firstMatch
-            XCTAssertTrue(edit.waitForExistence(timeout: 5), "no Edit Home Screen menu")
-            edit.tap()
-            sleep(2)
-            let edge = springboard.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: 0.5))
-            icon.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
-                .press(forDuration: 0.6, thenDragTo: edge, withVelocity: .slow, thenHoldForDuration: 2.5)
-            sleep(2)
-            XCUIDevice.shared.press(.home)
-            sleep(1)
-            for _ in 0..<8 where !icon.isHittable {
-                springboard.swipeLeft()
-                sleep(1)
-            }
-        }
-        sleep(3)
-        mark("tap icon")
-        icon.tap()
-        wait("best-seller-0", timeout: 30)
-        // The screen recording stops shortly after the last UI query, so keep querying.
-        for _ in 0..<12 {
-            sleep(1)
-            _ = element("best-seller-0").exists
-        }
-    }
-
     func testJourney() {
         phase("launch") {
             app.launch()
