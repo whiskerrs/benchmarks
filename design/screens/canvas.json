@@ -1,0 +1,23 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-11-10T09:00:00Z"},
+  "title": "Shop Benchmark App Design",
+  "launch": {"view": "canvas"},
+  "pages": [],
+  "boards": {
+    "Main.dc.html": {"x": 0, "y": 0, "w": 390, "h": 1420, "title": "01 Home", "is_interactive": true, "radius": 24},
+    "Collection.dc.html": {"x": 470, "y": 0, "w": 390, "h": 844, "title": "02 Collection", "is_interactive": true, "radius": 24},
+    "Product.dc.html": {"x": 940, "y": 0, "w": 390, "h": 1300, "title": "03 Product", "is_interactive": true, "radius": 24},
+    "Search.dc.html": {"x": 1410, "y": 0, "w": 390, "h": 844, "title": "04 Search", "is_interactive": true, "radius": 24},
+    "Cart.dc.html": {"x": 1880, "y": 0, "w": 390, "h": 844, "title": "05 Cart", "is_interactive": true, "radius": 24},
+    "States.dc.html": {"x": 0, "y": 1640, "w": 1250, "h": 844, "title": "06 States: loading / empty cart / error"},
+    "Tokens.dc.html": {"x": 1330, "y": 1640, "w": 940, "h": 1080, "title": "07 Design tokens"}
+  },
+  "order": ["Main.dc.html", "Collection.dc.html", "Product.dc.html", "Search.dc.html", "Cart.dc.html", "States.dc.html", "Tokens.dc.html"],
+  "notes": {
+    "screens": {"x": 0, "y": -300, "text": "Everbloom: benchmark shop app screens", "kind": "title1", "maxW": 2270},
+    "scrollnote": {"x": 2350, "y": 0, "w": 300, "text": "Home and Product are drawn at full scroll height. The tab bar (Home) and the Add to cart bar (Product) are fixed to the bottom of the viewport. Data: apparel-large-catalog.mock.shop Storefront API. Product images are 4:7 portraits shown cropped to 3:4.", "fill": "orange", "size": "m"},
+    "system": {"x": 0, "y": 1340, "text": "States and tokens", "kind": "title1", "maxW": 2270}
+  },
+  "designSystems": []
+}

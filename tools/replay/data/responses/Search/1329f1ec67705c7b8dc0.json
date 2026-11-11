@@ -1,0 +1,526 @@
+{
+ "operationName": "Search",
+ "variables": {
+  "after": "eyJjIjoiaWQiLCJ2Ijo1NjI2LCJpIjo1NjI2fQ",
+  "first": 24,
+  "query": "j"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "search": {
+    "totalCount": 252,
+    "pageInfo": {
+     "hasNextPage": true,
+     "endCursor": "eyJjIjoiaWQiLCJ2Ijo1NzU3LCJpIjo1NzU3fQ"
+    },
+    "nodes": [
+     {
+      "id": "gid://shopify/Product/5650",
+      "handle": "antique-sand-relaxed-linen-trousers",
+      "title": "Antique Sand Relaxed Linen Trousers",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/7dfe0c7c2b08ebb08718a1168b7cd62f.png?v=14957653",
+       "altText": "Relaxed linen trousers in antique sand, Default product shot is a refined three-quarter angle on a mannequin or model..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "670.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5652",
+      "handle": "traje-fluido-de-lino-italiano",
+      "title": "Italian linen fluid suit",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/062ba4396fc8c551ba6761d97053a4c2.png?v=15053203",
+       "altText": "Florence linen fluid suit, Single-garment shots on invisible mannequins or elegantly arranged on palette-matched linen..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "1190.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5656",
+      "handle": "tailored-cream-set-with-wide-leg-trousers",
+      "title": "Tailored Cream Set with Wide-Leg Trousers",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/9e4f3c7a9130f70406bb4ee298a3f855.png?v=14995271",
+       "altText": "Tailored cream set, Three-quarter angle on garments draped on dress forms or elegantly styled on models against softly..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "790.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5663",
+      "handle": "handwoven-linen-suit-set-in-ecru",
+      "title": "Handwoven Linen Suit Set in Ecru",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/5dd08a66e6a8a870a4d5b5ea57736e64.png?v=15045955",
+       "altText": "Handwoven linen suit set, Default angle is a clean 3/4 view on a seamless backdrop in soft ivory cotton or chai latte..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "278.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5666",
+      "handle": "traje-dos-piezas-lino-blanco-seda",
+      "title": "White linen and silk two-piece suit",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/2f3b39c07618a19ea2feed1312e5ea3e.png?v=14762188",
+       "altText": "White linen and silk two-piece suit, Preferred angle: three-quarter front view at chest level for tops;..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "248.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5670",
+      "handle": "cotton-linen-tailored-ensemble-with-tote",
+      "title": "Cotton-Linen Tailored Ensemble With Tote",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/5ed7251720ab36a2abe3b58c88a39f90.png?v=14873008",
+       "altText": "Monday cotton-linen blend tailored ensemble with coordinating tote and shoes, Default to 3/4 angle for outfit sets on..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "179.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5673",
+      "handle": "amber-wool-blend-suit-set",
+      "title": "Amber wool blend suit set",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/e28171b2d8f83b99217f766683c45c6d.png?v=14962970",
+       "altText": "Amber wool blend suit set, Opt for three-quarter angle shots of suits on simple textured backgrounds (e.g., linen drapes..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "590.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5683",
+      "handle": "pull-leger-olive-shadow",
+      "title": "Olive shadow lightweight pullover",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/3642cc621ad30bfa634c7d86d233742c.png?v=14951532",
+       "altText": "Olive Shadow lightweight pullover, Single product featured in situ: e.g., leggings folded on a pale linen bench near..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "72.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5684",
+      "handle": "cask-brown-lightweight-knit-sweater",
+      "title": "Cask Brown Lightweight Knit Sweater",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/4f4662c4c4923fd4bb0e296f01ae922c.png?v=14980902",
+       "altText": "Cask brown lightweight knit sweater, Default product shots use a single product styled on a matte stone plinth or against..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "135.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5694",
+      "handle": "ribbed-knit-crewneck-top",
+      "title": "Ribbed Knit Crewneck Top",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/22e4ae41b11f6af99521b118aef707c1.png?v=14920279",
+       "altText": "Knit crewneck top, Default to a three-quarter angle on a matte neutral surface (Pebble or Warm Linen tone), using soft..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "46.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "59.8",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5695",
+      "handle": "accent-tangerine-street-knit-tee",
+      "title": "Accent Tangerine Street Knit Tee",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/5a223cc6cfaa177395d14aec21e9e33f.png?v=15072179",
+       "altText": "Accent tangerine street knit tee, subtle concrete wall). Layout allows for cropping without losing garment integrity.,..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "58.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5699",
+      "handle": "pebble-toned-knit-lounge-sweater",
+      "title": "Pebble-toned knit lounge sweater",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/3f7122b2cff030dc1104eaa7f84536bd.png?v=14976972",
+       "altText": "Pebble-toned knit lounge sweater, Single-product focus using a 3/4 angle that highlights both form and function\u2014placed on..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "68.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "88.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5701",
+      "handle": "sueter-crewneck-de-la-taupe",
+      "title": "Taupe wool crewneck sweater",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/3b55bc53a73375ee10a20dd1e30c8d35.png?v=15083712",
+       "altText": "Stone taupe wool crewneck sweater, Default to slightly above eye-level 3/4 angle for garments on hanger or laid flat;..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "132.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "171.6",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5703",
+      "handle": "terracotta-ribbed-knit-pullover",
+      "title": "Terracotta ribbed knit pullover",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/53d8e0bbbd726190d6c13b936a2a569d.png?v=14595848",
+       "altText": "Terracotta ribbed knit pullover, Single product per shot on a matte monochrome background pulled from the palette..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "159.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5722",
+      "handle": "clay-open-front-cardigan",
+      "title": "Clay open-front cardigan",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/6c1554f138af8316c776d67d003742f2.png?v=15077187",
+       "altText": "Clay open-front cardigan, Hero cardigan laid flat or gently draped on tabletop at 3/4 angle; camera at table height for..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "225.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5724",
+      "handle": "rose-quartz-knit-cardigan",
+      "title": "Rose Quartz knit cardigan",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/18f899a4294f4f896b93811079446b7e.png?v=14946612",
+       "altText": "Rose Quartz knit cardigan, Product shots are intimate: 3/4 angle or straight-on flat lays of garments gently folded or..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "36.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5726",
+      "handle": "lightweight-cardigan-in-taupe",
+      "title": "Lightweight cardigan in taupe",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/d3975d0c8b6d26a721a4c1a677d59b36.png?v=14948725",
+       "altText": "Lightweight cardigan in taupe, Default to 3/4 angle on garments laid flat on textured neutral surfaces (linen duvet covers..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "82.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5730",
+      "handle": "moss-mint-relaxed-fit-cardigan",
+      "title": "Moss Mint Relaxed Fit Cardigan",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/de998888a0dd231901bfa3eb5c6853f1.png?v=14696200",
+       "altText": "Moss mint relaxed fit cardigan, 3/4 angle shots featuring full outfit on model against a soft blush or off-white seamless..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "54.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5732",
+      "handle": "almond-knit-cardigan-with-patch-pockets",
+      "title": "Almond Knit Cardigan with Patch Pockets",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/9524c9af30a00c821b011901110de910.png?v=14820282",
+       "altText": "Almond knit cardigan, seated at kitchen table or standing by window), shot at chest-to-knee crop for clear garment shape..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "54.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5745",
+      "handle": "peach-blush-textured-knit-cardigan",
+      "title": "Peach Blush Textured Knit Cardigan",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/f1c29d0eb5985e7735421f0d43bee23d.png?v=14649464",
+       "altText": "Peach Blush textured knit cardigan, Three-quarter product angle on child mannequins or lay-flat arrangements; garments..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "62.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5747",
+      "handle": "technical-crop-top-in-misty-blue",
+      "title": "Technical Crop Top in Misty Blue",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/ac18339f5b6ab1959d3a01c4da4a52a5.png?v=14998402",
+       "altText": "Misty Blue technical crop top, Hero product shot at 3/4 angle on seamless backdrop in 'Sunlit Sand' or 'Warm Taupe'..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "54.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5753",
+      "handle": "technical-crop-top-in-eggshell",
+      "title": "Technical Crop Top in Eggshell",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/22abd7e537a51ebd0de3dc7c009c5059.png?v=14886425",
+       "altText": "Eggshell Technical Crop Top, Default to 3/4 angle for apparel sets\u2014showing technical details like seams and fabric drape..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "54.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5755",
+      "handle": "tailored-workout-top-in-breathable-jersey",
+      "title": "Tailored Workout Top In Breathable Jersey",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/61f04ada739624618cfa1c9058656ee1.png?v=14686183",
+       "altText": "Tailored workout top, subtly draped on matte stone plinths or hanging from simple wooden pegs to echo tactile luxury...."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "58.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5757",
+      "handle": "performance-tank-top-with-mesh-back",
+      "title": "Performance Tank Top with Mesh Back",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/e255a27eda499a56a7ac37561862099b.png?v=14820455",
+       "altText": "Performance tank top, Three-quarter angle as default\u2014product worn by model standing naturally near window or seated..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "52.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

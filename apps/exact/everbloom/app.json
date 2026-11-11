@@ -1,0 +1,36 @@
+{
+  "$schema": "../vendor/exact2/scripts/app.schema.json",
+  "name": "Everbloom",
+  "short_name": "Everbloom",
+  "id": "dev.whiskerrs.shopbench.exact",
+  "start_url": "/",
+  "display": "standalone",
+  "app": {
+    "id": "dev.whiskerrs.shopbench.exact",
+    "name": "Everbloom"
+  },
+  "host": {
+    "web": {},
+    "ios": {
+      "minimumOS": "17.0",
+      "deviceFamily": [
+        "iphone"
+      ],
+      "appTransportSecurity": {
+        "allowsArbitraryLoads": true
+      }
+    },
+    "android": {}
+  },
+  "deploy": {
+    "store": {
+      "web": "0",
+      "ios": "0"
+    }
+  },
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "env": [
+    "SHOP_API_URL"
+  ]
+}

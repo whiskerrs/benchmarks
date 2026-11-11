@@ -1,0 +1,532 @@
+{
+ "operationName": "CollectionProducts",
+ "variables": {
+  "after": "eyJjIjoicG9zaXRpb24iLCJ2Ijo0OCwiaSI6NTQ3NX0",
+  "first": 24,
+  "handle": "urban-transit-essentials",
+  "reverse": false,
+  "sortKey": "BEST_SELLING"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "collection": {
+    "id": "gid://shopify/Collection/653",
+    "title": "Urban Transit Essentials",
+    "description": "Functional layers crafted with earthy muted tones, a minimalist mood, and organic linen and cotton material language for daily commutes.",
+    "products": {
+     "pageInfo": {
+      "hasNextPage": true,
+      "endCursor": "eyJjIjoicG9zaXRpb24iLCJ2Ijo3MiwiaSI6NTQ5OX0"
+     },
+     "nodes": [
+      {
+       "id": "gid://shopify/Product/5521",
+       "handle": "layered-cotton-jacket",
+       "title": "Layered Cotton Jacket",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/dacdacf94df6da57e85fcee3243912fc.png?v=13178850",
+        "altText": "Layered cotton jacket in Slate Sky, centered against a Soft Sand backdrop. The lighting is soft and even, highlighting the..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "120.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "156.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5522",
+       "handle": "easy-access-pocket-utility-jacket",
+       "title": "Easy-Access Pocket Utility Jacket",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/388b9cef86a1ad591e5151ed72e595c3.png?v=14992356",
+        "altText": "Easy-access pocket utility jacket, Default to clean three-quarter angle shots on seamless backgrounds pulled from the..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "98.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5523",
+       "handle": "washed-taupe-minimalist-layer-jacket",
+       "title": "Washed Taupe Minimalist Layer Jacket",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/176a7c4ae3a688a5079dfd1e4d3ff829.png?v=14694094",
+        "altText": "Washed taupe minimalist layer jacket, Single garment per shot on model or as flat lay\u20143/4 angle preferred to show..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "168.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "218.4",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5524",
+       "handle": "simple-linen-outerwear-jacket",
+       "title": "Simple Linen Outerwear Jacket",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/b537feb9fb9e7326359a98cf9cfd3500.png?v=14905961",
+        "altText": "Simple linen outerwear jacket, Single product per shot on a matte Cloud Mist background; garments displayed flat or softly..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "145.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5525",
+       "handle": "faded-truffle-streetwear-coat",
+       "title": "Faded truffle streetwear coat",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/b3795772f2dea6ebcab9dae31f3fa1b0.png?v=14870648",
+        "altText": "Faded Truffle Streetwear Coat, Default to 3/4 angle on garments displayed on model (or laid flat if required), always..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "295.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5526",
+       "handle": "sand-bronze-lightweight-vest",
+       "title": "Sand bronze lightweight vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/69497ede29e81e8a909bb8357361d17f.png?v=14641003",
+        "altText": "Sand Bronze lightweight vest, Default angle is a clean 3/4 product view at chest height, allowing appreciation of..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "198.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "257.4",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5527",
+       "handle": "veste-d-artiste-coton-ocre-dore",
+       "title": "Golden ochre cotton artist's jacket",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/daf078ed4e70c78bd7c2f4ea9d5bab48.png?v=14861924",
+        "altText": "Gold ochre cotton artist's vest, 3/4 angle is preferred for most garments/accessories, allowing appreciation of both form..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "185.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5528",
+       "handle": "gilet-de-compression-lin-ivoire",
+       "title": "Ivory linen compression vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/3c746ef09c0dab4d16cac0aceb0a2d37.png?v=14603204",
+        "altText": "Ivory Linen men's compression gilet, Single gilet photographed on a matte hanger against Ivory Linen or Slate backdrop;..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "124.5",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5529",
+       "handle": "charcoal-oversized-technical-vest",
+       "title": "Charcoal oversized technical vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/419e6c186a84bd97c64749ec5bc55766.png?v=15073251",
+        "altText": "Charcoal oversized technical vest, Three-quarter \u2018hero\u2019 angle as default \u2014 vest fully visible on model against neutral..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "165.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "214.5",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5530",
+       "handle": "ripstop-technical-vest-with-molle-webbing",
+       "title": "Ripstop Technical Vest with MOLLE Webbing",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/1bf86c3933f1023f7a244bbd33f89394.png?v=14627980",
+        "altText": "Ripstop technical vest, Standard: 3/4 angle at eye-level for bags and accessories; garments laid flat with subtle..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "119.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5531",
+       "handle": "minimalist-expedition-utility-vest",
+       "title": "Minimalist Expedition Utility Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/21c082224ad1f8f7866a6feeebe95c5f.png?v=14962795",
+        "altText": "Minimalist Expedition Utility Vest, Default arrangement: product laid flat or hung against a neutral stone grey or..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "74.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5532",
+       "handle": "abrasion-resistant-tool-vest",
+       "title": "Abrasion-Resistant Tool Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/8426d54de612237363943e29df99d64e.png?v=14680673",
+        "altText": "Abrasion-resistant tool vest, Single-garment focus at 3/4 angle on a workbench or hung on a nail in context (e.g., against..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "42.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5533",
+       "handle": "cedar-brown-utility-vest",
+       "title": "Cedar Brown Utility Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/5a8242dcbdba6d93749f1b1ee27c4692.png?v=13686284",
+        "altText": "Cedar brown utility vest, Heroic 3/4 angle is default \u2014 items perched on matte black plinths or suspended against charcoal..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "75.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5534",
+       "handle": "reinforced-canvas-vest",
+       "title": "Reinforced Canvas Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/eb47659cb16039da2461742183062edd.png?v=15049626",
+        "altText": "Reinforced canvas vest, 3/4 angle as default, capturing both garment shape and tactile details (collar structure,..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "69.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5535",
+       "handle": "steel-grey-premium-utility-vest",
+       "title": "Steel Grey Premium Utility Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/8467c8a67fdb5e2b73b53b0cc8bda8fe.png?v=14708132",
+        "altText": "Steel grey premium utility vest, Single product featured at a time; 3/4 angle as default to capture both silhouette and..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "165.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "214.5",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5536",
+       "handle": "gilet-utilitaire-accent-bronze-brosse",
+       "title": "Brushed bronze accent utility vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/a6f499ad2af74316516b590d674a1442.png?v=15070145",
+        "altText": "Brushed bronze accent utility vest, Hero angle: three-quarter view from slightly above eye-level to highlight shoulders..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "195.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5537",
+       "handle": "colete-taxi-amber-cropped-em-tiragem-limitada",
+       "title": "Taxi Amber cropped vest in limited run",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/2e064c952fd76c43d868c2770f816f15.png?v=15014929",
+        "altText": "Taxi Amber cropped utility vest, limited run, Three-quarter angle product shots on matte Streetlight Silver backgrounds..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "92.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5538",
+       "handle": "contemporary-hunting-vest",
+       "title": "Contemporary Hunting Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/a8480589c68f860bb9921febbe6b13cf.png?v=14907022",
+        "altText": "Contemporary hunting vest, Default to three-quarter angle product shots on seamless Soft Sage or Pale Olive backgrounds..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "64.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "83.2",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5539",
+       "handle": "chaleco-trabajo-minimalista-termico",
+       "title": "Minimalist thermal work vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/ac12397f4f80b0a2ac6eb29d2f5b27ea.png?v=14585041",
+        "altText": "Minimalist work vest, Default: 3/4 angle from slightly above eye-level\u2014shows garment fit and texture while allowing..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "34.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5540",
+       "handle": "technical-blend-utility-vest",
+       "title": "Technical Blend Utility Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/d12190f3a3359e8d0ae55f94d527af96.png?v=14678614",
+        "altText": "Technical blend utility vest, perfectly centered horizontally and vertically with equal negative space above and below,..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "228.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5541",
+       "handle": "workwear-vest-with-tool-pockets",
+       "title": "Workwear Vest with Tool Pockets",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/fa05273ac65e97d0889363a050f1da97.png?v=12788259",
+        "altText": "A straight-on, centered shot of a clay-colored workwear vest with tool pockets on a neutral stone grey background. The..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "45.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5542",
+       "handle": "sand-longline-vest",
+       "title": "Sand longline vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/032a81b8f0b0aa29f57cb625c36a6741.png?v=14644722",
+        "altText": "Sand longline vest, Default arrangement is single garment displayed on invisible mannequin or flat lay atop monochrome..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "98.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5543",
+       "handle": "lightweight-modular-trail-vest",
+       "title": "Lightweight Modular Trail Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/916ace24ac9b108a96c2e37a64de431a.png?v=14997702",
+        "altText": "Lightweight Modular Trail Vest, capturing both form and texture. Arrange items with subtle layering (e.g., a pack..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "98.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "127.4",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5544",
+       "handle": "gilet-technique-nylon-ripstop-leger",
+       "title": "Lightweight ripstop nylon technical vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/23e2e5cec7d37b4ef88b6fd3e0d86d39.png?v=14833174",
+        "altText": "Technical ripstop nylon vest, Default angle is 3/4 overhead \u2014 product laid out or gently draped, allowing full..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "169.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "219.7",
+         "currencyCode": "USD"
+        }
+       }
+      }
+     ]
+    }
+   }
+  }
+ }
+}

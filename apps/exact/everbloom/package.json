@@ -1,0 +1,11 @@
+{
+  "name": "everbloom",
+  "private": true,
+  "scripts": {
+    "build": "bun exact.mjs web-build --out dist",
+    "start": "bun exact.mjs serve dist"
+  },
+  "dependencies": {
+    "@exact/in-app-browser": "file:../vendor/exact2/packages/in-app-browser"
+  }
+}

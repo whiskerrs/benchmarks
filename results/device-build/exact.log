@@ -1,0 +1,115 @@
+host/apple: no Metal toolchain, so no ExactSvgFilter.metallib: SVG filter pictures draw with Core Image. Install it with `xcodebuild -downloadComponent MetalToolchain`.
+host/apple: no Metal toolchain, so no Canvas 2D GPU module: canvases draw with Core Graphics. Install it with `xcodebuild -downloadComponent MetalToolchain`.
+warning: everbloom: app.contract:179:73 warning [lower-colour-one-scheme] `#FFFFFF` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:179:100 warning [lower-colour-one-scheme] `#1C1B19` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:187:84 warning [lower-colour-one-scheme] `#FFFFFF` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:199:108 warning [lower-colour-one-scheme] `#F4F1EC` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:201:96 warning [lower-colour-one-scheme] `#1C1B19` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:205:49 warning [lower-colour-one-scheme] `#F4F1EC` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:207:97 warning [lower-colour-one-scheme] `rgba(28, 27, 25, 0.72)` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:208:106 warning [lower-colour-one-scheme] `#FFFFFF` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:209:73 warning [lower-colour-one-scheme] `#FFFFFF` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:210:60 warning [lower-colour-one-scheme] `#FFFFFF` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:218:103 warning [lower-colour-one-scheme] `#F4F1EC` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:219:94 warning [lower-colour-one-scheme] `#1C1B19` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: parts.contract:68:84 warning [lower-colour-one-scheme] `#1C1B19` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: parts.contract:69:93 warning [lower-colour-one-scheme] `#F4F1EC` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: parts.contract:56:49 warning [lower-colour-one-scheme] `#B4361E`, `#1C1B19` on `color` stay the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: parts.contract:58:35 warning [lower-colour-one-scheme] `#6E6A63` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: parts.contract:91:12 warning [lower-colour-one-scheme] `#6E6A63` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: parts.contract:94:83 warning [lower-colour-one-scheme] `#6E6A63` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: parts.contract:96:62 warning [lower-colour-one-scheme] `#1C1B19` on `border-color` stays the same in dark mode: name a role (`-exact-separator`) or leave it unsaid
+warning: everbloom: parts.contract:96:85 warning [lower-colour-one-scheme] `#FFFFFF` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: parts.contract:97:51 warning [lower-colour-one-scheme] `#1C1B19` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: parts.contract:42:57 warning [lower-colour-one-scheme] `#EDE9E3` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:240:100 warning [lower-colour-one-scheme] `#EDE9E3` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:251:105 warning [lower-colour-one-scheme] `#1C1B19` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:257:124 warning [lower-colour-one-scheme] `#6E6A63` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:263:29 warning [lower-colour-one-scheme] `#1C1B19`, `#E6E1D9` on `border-color` stay the same in dark mode: name a role (`-exact-separator`) or leave it unsaid
+warning: everbloom: app.contract:263:81 warning [lower-colour-one-scheme] `#1C1B19`, `#FFFFFF` on `background-color` stay the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:265:115 warning [lower-colour-one-scheme] `#FFFFFF`, `#1C1B19` on `color` stay the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:285:88 warning [lower-colour-one-scheme] `#1C1B19` on `border-color` stays the same in dark mode: name a role (`-exact-separator`) or leave it unsaid
+warning: everbloom: app.contract:285:111 warning [lower-colour-one-scheme] `#FFFFFF` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:286:77 warning [lower-colour-one-scheme] `#1C1B19` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:294:73 warning [lower-colour-one-scheme] `#EDE9E3` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:297:73 warning [lower-colour-one-scheme] `#EDE9E3` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: product.contract:34:70 warning [lower-colour-one-scheme] `#F4F1EC` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: product.contract:45:61 warning [lower-colour-one-scheme] `#1C1B19`, `rgba(28, 27, 25, 0.25)` on `background-color` stay the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: product.contract:49:64 warning [lower-colour-one-scheme] `#B4361E`, `#1C1B19` on `color` stay the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: product.contract:51:52 warning [lower-colour-one-scheme] `#6E6A63` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: product.contract:56:61 warning [lower-colour-one-scheme] `#6E6A63` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: product.contract:61:75 warning [lower-colour-one-scheme] `#1C1B19`, `#E6E1D9` on `border-color` stay the same in dark mode: name a role (`-exact-separator`) or leave it unsaid
+warning: everbloom: product.contract:62:21 warning [lower-colour-one-scheme] `#FFFFFF` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: product.contract:63:98 warning [lower-colour-one-scheme] `#1C1B19` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: product.contract:66:69 warning [lower-colour-one-scheme] `#3D3A35` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: parts.contract:81:95 warning [lower-colour-one-scheme] `#1C1B19` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: parts.contract:82:80 warning [lower-colour-one-scheme] `#F4F1EC` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: product.contract:76:9 warning [lower-colour-one-scheme] `#FFFFFF` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: product.contract:76:97 warning [lower-colour-one-scheme] `#1C1B19` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: product.contract:79:9 warning [lower-colour-one-scheme] `#FFFFFF` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: product.contract:79:80 warning [lower-colour-one-scheme] `#E6E1D9` on `border-top-color` stays the same in dark mode: name a role (`-exact-separator`) or leave it unsaid
+warning: everbloom: product.contract:81:38 warning [lower-colour-one-scheme] `#1C1B19` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: product.contract:83:80 warning [lower-colour-one-scheme] `#FFFFFF` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:308:111 warning [lower-colour-one-scheme] `#1C1B19` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:317:64 warning [lower-colour-one-scheme] `#EDE9E3` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:323:27 warning [lower-colour-one-scheme] `#FFFFFF` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:323:115 warning [lower-colour-one-scheme] `#1C1B19` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:328:54 warning [lower-colour-one-scheme] `#F4F1EC` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:328:141 warning [lower-colour-one-scheme] `#6E6A63` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:332:122 warning [lower-colour-one-scheme] `#1C1B19` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:335:77 warning [lower-colour-one-scheme] `#6E6A63` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:337:165 warning [lower-colour-one-scheme] `#6E6A63` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:345:106 warning [lower-colour-one-scheme] `#F4F1EC` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:347:85 warning [lower-colour-one-scheme] `#1C1B19` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:349:84 warning [lower-colour-one-scheme] `#B4361E`, `#1C1B19` on `color` stay the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:351:72 warning [lower-colour-one-scheme] `#6E6A63` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:359:88 warning [lower-colour-one-scheme] `#1C1B19` on `border-color` stays the same in dark mode: name a role (`-exact-separator`) or leave it unsaid
+warning: everbloom: app.contract:359:111 warning [lower-colour-one-scheme] `#FFFFFF` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:360:77 warning [lower-colour-one-scheme] `#1C1B19` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:372:30 warning [lower-colour-one-scheme] `#6E6A63` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:375:96 warning [lower-colour-one-scheme] `#6E6A63` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:377:44 warning [lower-colour-one-scheme] `#1C1B19` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:378:78 warning [lower-colour-one-scheme] `#FFFFFF` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:383:153 warning [lower-colour-one-scheme] `#E6E1D9` on `border-bottom-color` stays the same in dark mode: name a role (`-exact-separator`) or leave it unsaid
+warning: everbloom: app.contract:384:100 warning [lower-colour-one-scheme] `#F4F1EC` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:388:63 warning [lower-colour-one-scheme] `#6E6A63` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:390:96 warning [lower-colour-one-scheme] `#E6E1D9` on `border-color` stays the same in dark mode: name a role (`-exact-separator`) or leave it unsaid
+warning: everbloom: app.contract:392:119 warning [lower-colour-one-scheme] `#1C1B19` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:396:119 warning [lower-colour-one-scheme] `#1C1B19` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:399:92 warning [lower-colour-one-scheme] `#E6E1D9` on `border-top-color` stays the same in dark mode: name a role (`-exact-separator`) or leave it unsaid
+warning: everbloom: app.contract:399:119 warning [lower-colour-one-scheme] `#FFFFFF` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:403:92 warning [lower-colour-one-scheme] `#6E6A63` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:404:110 warning [lower-colour-one-scheme] `#1C1B19` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:406:73 warning [lower-colour-one-scheme] `#FFFFFF` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:408:54 warning [lower-colour-one-scheme] `#FFFFFF` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:408:125 warning [lower-colour-one-scheme] `#E6E1D9` on `border-top-color` stays the same in dark mode: name a role (`-exact-separator`) or leave it unsaid
+warning: everbloom: app.contract:411:11 warning [lower-colour-one-scheme] `#1C1B19`, `#6E6A63` on `color` stay the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:416:11 warning [lower-colour-one-scheme] `#1C1B19`, `#6E6A63` on `color` stay the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:421:11 warning [lower-colour-one-scheme] `#1C1B19`, `#6E6A63` on `color` stay the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:426:33 warning [lower-colour-one-scheme] `#B4361E` on `background-color` stays the same in dark mode: name a role (`-exact-secondary-grouped-background`, `-exact-fill`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:427:73 warning [lower-colour-one-scheme] `#FFFFFF` on `color` stays the same in dark mode: name a role (`-exact-label`, `-exact-secondary-label`, `AccentColor`) or leave it unsaid
+warning: everbloom: app.contract:179:73 warning [lower-colour-one-scheme] these 88 literal colours stay the same in dark mode while the platform's text and controls change, so a light card keeps its colour under the platform's white text: name a role for each or leave it unsaid. Leave the accent unsaid (the platform's; a brand is an `app.tamber`), or write it as a role or one `light-dark(light, dark)` pair on `accent-color`. A forced `color-scheme` is no repair: the app then has no dark mode (docs/contract-for-agents.md, "Colours: say a role, not a value")
+warning: patch `accesskit_windows v0.35.2 (/Users/itome/shopbench-runs/exact/vendor/exact2/vendor/accesskit-windows)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+   Compiling ibex2 v0.1.0 (/Users/itome/shopbench-runs/exact/vendor/exact2/vendor/ibex/crates/ibex2)
+   Compiling exact-js v0.1.0 (/Users/itome/shopbench-runs/exact/vendor/exact2/js)
+   Compiling ibex2-sqlite v0.1.0 (/Users/itome/shopbench-runs/exact/vendor/exact2/vendor/ibex/crates/ibex2-sqlite)
+   Compiling exact-js-bake v0.1.0 (/Users/itome/shopbench-runs/exact/vendor/exact2/js/bake)
+   Compiling everbloom-apple v0.1.0 (/Users/itome/shopbench-runs/exact/everbloom/.exact/shells/apple)
+    Finished `release` profile [optimized] target(s) in 1m 34s
+host/apple: baked L=0; Swift embedded composition
+host/apple: the plan cannot change (production, store level 0) and reaches no canvas, svg, video, web, sound, midi, listen module: left out of this build
+host/apple: the app's Swift modules compile as they are now (1 copied); an edit from here on needs another build
+Building for production...
+[1 / 9]
+Build complete! (1.02 sec)
+Building for production...
+[1 / 7] ExactKit
+[2 / 3] ExactIOS-product
+[3 / 3] ExactIOS-product
+Build complete! (2.10 sec)
+host/apple: /Users/itome/shopbench-runs/exact/everbloom/target/clients/0c8221d016abb5c995d89cc2/dev.whiskerrs.shopbench.exact/ios/aarch64-apple-ios/embedded/production/standalone/Everbloom.app (cargo 96.3 s, swift 3.7 s, arms 0.0 s, modules 0.0 s, package 0.8 s); built and signed, installed on nothing (--no-install)
+/Users/itome/shopbench-runs/exact/build/ios-device/Everbloom.app

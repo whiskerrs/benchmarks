@@ -1,0 +1,21 @@
+// Offline checks of the shell; the catalog flows are driven by hand (NOTES.md).
+test "the first frame is the skeleton"
+  before data
+  expect tree has "home-loading"
+
+test "tabs, the empty search and the empty cart"
+  tap "tab-search"
+  expect tree has "search-input"
+  expect tree missing "search-results"
+  tap "tab-cart"
+  expect tree has "cart-empty"
+  expect tree missing "cart-badge"
+  tap "start-shopping"
+  expect state nav.tab == "home"
+
+test "Home shows the error state when the API is unreachable"
+  fail fetch "https://apparel-large-catalog.mock.shop"
+  before data
+  clock +1
+  clock data
+  expect tree has "error-retry"

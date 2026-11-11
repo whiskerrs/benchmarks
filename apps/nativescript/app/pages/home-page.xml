@@ -1,0 +1,104 @@
+<Page actionBarHidden="true" navigatingTo="onNavigatingTo" xmlns:ui="components/icon">
+  <GridLayout>
+    <ScrollView testID="home-scroll" iosOverflowSafeArea="false" visibility="{{ mainVisibility }}">
+      <StackLayout paddingBottom="24">
+        <GridLayout class="header">
+          <Label text="Everbloom" class="wordmark" />
+        </GridLayout>
+
+        <!-- Skeleton (first frame, before Home returns) -->
+        <StackLayout visibility="{{ skeletonVisibility }}">
+          <StackLayout orientation="horizontal" padding="8 16 12 16">
+            <StackLayout width="52" height="36" borderRadius="18" class="sk" marginRight="8" />
+            <StackLayout width="110" height="36" borderRadius="18" class="sk" marginRight="8" />
+            <StackLayout width="96" height="36" borderRadius="18" class="sk" marginRight="8" />
+            <StackLayout width="80" height="36" borderRadius="18" class="sk" />
+          </StackLayout>
+          <StackLayout height="240" margin="4 16 0 16" borderRadius="12" class="sk" />
+          <StackLayout padding="28 16 12 16">
+            <StackLayout width="120" height="18" borderRadius="4" class="sk" horizontalAlignment="left" />
+          </StackLayout>
+          <StackLayout orientation="horizontal" padding="0 16">
+            <StackLayout width="140" height="175" borderRadius="8" class="sk" marginRight="12" />
+            <StackLayout width="140" height="175" borderRadius="8" class="sk" marginRight="12" />
+            <StackLayout width="140" height="175" borderRadius="8" class="sk" />
+          </StackLayout>
+        </StackLayout>
+
+        <!-- Loaded content -->
+        <StackLayout visibility="{{ contentVisibility }}">
+          <ScrollView orientation="horizontal" scrollBarIndicatorVisible="false">
+            <Repeater items="{{ collections }}">
+              <Repeater.itemsLayout>
+                <StackLayout orientation="horizontal" padding="8 8 12 16" />
+              </Repeater.itemsLayout>
+              <Repeater.itemTemplate>
+                <Label text="{{ title }}" class="chip" testID="{{ chipID }}" tap="onCollectionTap" />
+              </Repeater.itemTemplate>
+            </Repeater>
+          </ScrollView>
+
+          <GridLayout testID="featured-collection" tap="onFeaturedTap" height="240" margin="4 16 0 16" borderRadius="12" backgroundColor="#F4F1EC">
+            <Image src="{{ featuredImage }}" stretch="aspectFill" loadMode="async" />
+            <StackLayout verticalAlignment="bottom" padding="16" backgroundColor="rgba(28, 27, 25, 0.72)">
+              <Label text="Featured collection" color="#FFFFFF" fontSize="12" fontWeight="600" letterSpacing="0.05" textTransform="uppercase" />
+              <Label text="{{ featuredTitle }}" color="#FFFFFF" fontSize="20" fontWeight="700" marginTop="2" textWrap="true" />
+              <Label text="Shop now" color="#FFFFFF" fontSize="14" marginTop="2" />
+            </StackLayout>
+          </GridLayout>
+
+          <Label text="Collections" class="section-title" padding="28 16 12 16" />
+          <ScrollView orientation="horizontal" scrollBarIndicatorVisible="false">
+            <Repeater items="{{ collections }}">
+              <Repeater.itemsLayout>
+                <StackLayout orientation="horizontal" padding="0 4 0 16" />
+              </Repeater.itemsLayout>
+              <Repeater.itemTemplate>
+                <StackLayout width="140" marginRight="12" testID="{{ cardID }}" tap="onCollectionTap">
+                  <Image src="{{ image }}" width="140" height="175" stretch="aspectFill" class="img" loadMode="async" />
+                  <Label text="{{ title }}" fontSize="14" fontWeight="600" marginTop="8" textWrap="true" />
+                </StackLayout>
+              </Repeater.itemTemplate>
+            </Repeater>
+          </ScrollView>
+
+          <Label text="Best sellers" class="section-title" padding="28 16 12 16" />
+          <Repeater items="{{ bestSellers }}">
+            <Repeater.itemTemplate>
+              <GridLayout columns="*, 12, *" padding="0 16 20 16">
+                <StackLayout col="0" testID="{{ lTestID }}" tap="onCardTap" side="l" accessible="true" accessibilityLabel="{{ lTitle }}" visibility="{{ lVisibility }}">
+                  <Image src="{{ lImage }}" height="{{ lImageHeight }}" stretch="aspectFill" class="img" loadMode="async" />
+                  <Label text="{{ lTitle }}" class="card-title" maxLines="2" textWrap="true" />
+                  <StackLayout orientation="horizontal" marginTop="8">
+                    <Label text="{{ lPrice }}" class="{{ lPriceClass }}" />
+                    <Label text="{{ lCompare }}" class="compare" visibility="{{ lCompareVisibility }}" verticalAlignment="bottom" marginBottom="1" />
+                  </StackLayout>
+                </StackLayout>
+                <StackLayout col="2" testID="{{ rTestID }}" tap="onCardTap" side="r" accessible="true" accessibilityLabel="{{ rTitle }}" visibility="{{ rVisibility }}">
+                  <Image src="{{ rImage }}" height="{{ rImageHeight }}" stretch="aspectFill" class="img" loadMode="async" />
+                  <Label text="{{ rTitle }}" class="card-title" maxLines="2" textWrap="true" />
+                  <StackLayout orientation="horizontal" marginTop="8">
+                    <Label text="{{ rPrice }}" class="{{ rPriceClass }}" />
+                    <Label text="{{ rCompare }}" class="compare" visibility="{{ rCompareVisibility }}" verticalAlignment="bottom" marginBottom="1" />
+                  </StackLayout>
+                </StackLayout>
+              </GridLayout>
+            </Repeater.itemTemplate>
+          </Repeater>
+        </StackLayout>
+      </StackLayout>
+    </ScrollView>
+
+    <GridLayout rows="auto, *" visibility="{{ errorVisibility }}">
+      <GridLayout class="header">
+        <Label text="Everbloom" class="wordmark" />
+      </GridLayout>
+      <StackLayout row="1" class="state">
+        <ui:Icon name="alert" stroke="1.25" iconColor="#6E6A63" width="48" height="48" horizontalAlignment="center" />
+        <Label text="Couldn’t load products" class="state-title" />
+        <Label text="Check your connection and try again." class="state-text" textWrap="true" />
+        <Button text="Retry" testID="error-retry" class="btn-secondary" tap="onRetry" horizontalAlignment="center" marginTop="20" />
+      </StackLayout>
+    </GridLayout>
+  </GridLayout>
+</Page>

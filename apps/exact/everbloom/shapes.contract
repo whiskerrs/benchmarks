@@ -1,0 +1,46 @@
+// Shapes shared by the screens.
+shape Card
+  id: string
+  handle: string
+  title: string
+  image: string
+  price: string
+  compare: string
+  index: number
+
+shape CardRow
+  key: string
+  kind: string
+  cards: Card[]
+
+shape ResultRow
+  key: string
+  kind: string
+  card: Card
+
+shape OptionValue
+  name: string
+  value: string
+
+shape ProductOption
+  name: string
+  values: string[]
+
+shape Variant
+  id: string
+  title: string
+  available: bool
+  options: OptionValue[]
+  price: string
+  compare: string
+
+shape ProductDetail
+  handle: string
+  status: string
+  title: string
+  description: string
+  images: string[]
+  options: ProductOption[]
+  variants: Variant[]
+  initialVariant: string
+  recs: Card[]

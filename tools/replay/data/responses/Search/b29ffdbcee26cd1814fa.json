@@ -1,0 +1,211 @@
+{
+ "operationName": "Search",
+ "variables": {
+  "after": "eyJjIjoiaWQiLCJ2Ijo2MTk5LCJpIjo2MTk5fQ",
+  "first": 24,
+  "query": "jac"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "search": {
+    "totalCount": 81,
+    "pageInfo": {
+     "hasNextPage": false,
+     "endCursor": "eyJjIjoiaWQiLCJ2Ijo2MjE4LCJpIjo2MjE4fQ"
+    },
+    "nodes": [
+     {
+      "id": "gid://shopify/Product/6202",
+      "handle": "reinforced-cotton-canvas-work-jacket",
+      "title": "Reinforced Cotton Canvas Work Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/1f25a9405c5a8af9962b57b87b5a0cb6.png?v=14932424",
+       "altText": "Reinforced cotton canvas work jacket, Three-quarter angle emphasizing product's contour and material texture; product..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "119.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "154.7",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6204",
+      "handle": "canvas-chore-jacket-in-heavyweight",
+      "title": "Canvas Chore Jacket in Heavyweight",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/25c17eea2d45f37cb27c92e59d89303e.png?v=14982475",
+       "altText": "Heavyweight canvas chore jacket, Default to 3/4 angle product shots on neutral Dawn Canvas backdrops with subtle texture..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "168.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "218.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6205",
+      "handle": "stone-beige-chore-jacket",
+      "title": "Stone Beige Chore Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/add3527569932a2d02f622e7cb57f8d0.png?v=14855083",
+       "altText": "Stone beige chore jacket, 3/4 angle is default \u2014 captures the front and side profile in one view, showing key design..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "119.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "154.7",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6206",
+      "handle": "hand-stitched-chore-jacket-in-antique-gold",
+      "title": "Hand-Stitched Chore Jacket in Antique Gold",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/34748bd960c4f2b16a739966ebd7fe53.png?v=14716827",
+       "altText": "Antique gold hand-stitched chore jacket, Single jacket per shot on a softly textured neutral surface (like undyed linen),..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "325.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6208",
+      "handle": "duck-canvas-chore-jacket",
+      "title": "Duck Canvas Chore Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/65d535add0f2c4689943359b54cab3b2.png?v=15049626",
+       "altText": "Duck canvas chore jacket, 3/4 angle as default, capturing both garment shape and tactile details (collar structure,..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "119.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6212",
+      "handle": "heavy-canvas-chore-jacket",
+      "title": "Heavy Canvas Chore Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/ae5e5206edf4076974fc44a78dbd129d.png?v=14855079",
+       "altText": "Heavy canvas chore jacket, 3/4 angle product shots on sturdy wood or raw concrete surfaces that highlight garment..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "129.95",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6213",
+      "handle": "canvas-chore-jacket-with-reinforced-seams",
+      "title": "Canvas Chore Jacket with Reinforced Seams",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/f85876c8be0eb8aeb4759ea697c9fd03.png?v=14886095",
+       "altText": "Canvas chore jacket, Three-quarter tabletop angle focusing on one folded or softly draped garment per shot against raw..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "189.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6216",
+      "handle": "tailored-linen-work-jacket-with-horn-buttons",
+      "title": "Tailored Linen Work Jacket with Horn Buttons",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/b9a1e2b8f3f2127d68a4613ed3cc5ad1.png?v=15042861",
+       "altText": "Tailored linen work jacket, 3/4 angle product shots on simple stone-grey or raw canvas backdrops that echo workshop..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "240.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "312.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6218",
+      "handle": "brushed-cotton-work-jacket",
+      "title": "Brushed cotton work jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/518aeba71dc50a81e404fc171f6147c0.png?v=14967335",
+       "altText": "Brushed cotton work jacket, perfectly centered horizontally and vertically with equal negative space above and below,..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "168.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

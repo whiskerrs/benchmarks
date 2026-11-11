@@ -1,0 +1,107 @@
+<Page actionBarHidden="true" navigatingTo="onNavigatingTo" xmlns:ui="components/icon">
+  <GridLayout rows="*, auto">
+    <ScrollView row="0" iosOverflowSafeArea="true" visibility="{{ contentVisibility }}">
+      <StackLayout paddingBottom="24">
+        <GridLayout height="{{ carouselHeight }}" backgroundColor="#F4F1EC">
+          <ScrollView id="carousel" testID="product-carousel" orientation="horizontal" scrollBarIndicatorVisible="false" loaded="onCarouselLoaded" scroll="onCarouselScroll">
+            <Repeater items="{{ images }}">
+              <Repeater.itemsLayout>
+                <StackLayout orientation="horizontal" />
+              </Repeater.itemsLayout>
+              <Repeater.itemTemplate>
+                <Image src="{{ url }}" width="{{ width }}" height="{{ height }}" stretch="aspectFill" loadMode="async" backgroundColor="#F4F1EC" />
+              </Repeater.itemTemplate>
+            </Repeater>
+          </ScrollView>
+          <Repeater items="{{ dots }}" verticalAlignment="bottom" horizontalAlignment="center" marginBottom="12" isUserInteractionEnabled="false">
+            <Repeater.itemsLayout>
+              <StackLayout orientation="horizontal" />
+            </Repeater.itemsLayout>
+            <Repeater.itemTemplate>
+              <GridLayout width="24" height="24">
+                <StackLayout width="8" height="8" borderRadius="4" backgroundColor="{{ color }}" />
+              </GridLayout>
+            </Repeater.itemTemplate>
+          </Repeater>
+        </GridLayout>
+
+        <StackLayout padding="20 16 0 16">
+          <Label text="{{ title }}" fontSize="22" fontWeight="700" textWrap="true" lineHeight="4" />
+          <StackLayout orientation="horizontal" marginTop="6">
+            <Label text="{{ price }}" fontSize="20" fontWeight="700" color="{{ priceColor }}" />
+            <Label text="{{ compare }}" visibility="{{ compareVisibility }}" class="compare" fontSize="15" verticalAlignment="bottom" marginBottom="2" marginLeft="8" />
+          </StackLayout>
+        </StackLayout>
+
+        <Repeater items="{{ options }}">
+          <Repeater.itemTemplate>
+            <StackLayout padding="24 16 0 16">
+              <StackLayout orientation="horizontal" marginBottom="12">
+                <Label text="{{ label }}" fontSize="15" fontWeight="600" />
+                <Label text="{{ selected }}" fontSize="15" color="#6E6A63" />
+              </StackLayout>
+              <Repeater items="{{ values }}">
+                <Repeater.itemsLayout>
+                  <WrapLayout />
+                </Repeater.itemsLayout>
+                <Repeater.itemTemplate>
+                  <Label text="{{ name }}" testID="{{ testID }}" class="{{ className }}" tap="onPillTap" />
+                </Repeater.itemTemplate>
+              </Repeater>
+            </StackLayout>
+          </Repeater.itemTemplate>
+        </Repeater>
+
+        <StackLayout padding="24 16 0 16" visibility="{{ descriptionVisibility }}">
+          <Label text="Description" fontSize="15" fontWeight="600" marginBottom="8" />
+          <Label text="{{ description }}" fontSize="15" lineHeight="4" color="#3D3A35" textWrap="true" />
+        </StackLayout>
+
+        <StackLayout paddingTop="32" visibility="{{ recsVisibility }}">
+          <Label text="You may also like" class="section-title" padding="0 16 12 16" />
+          <ScrollView orientation="horizontal" scrollBarIndicatorVisible="false">
+            <Repeater items="{{ recommendations }}">
+              <Repeater.itemsLayout>
+                <StackLayout orientation="horizontal" padding="0 4 0 16" />
+              </Repeater.itemsLayout>
+              <Repeater.itemTemplate>
+                <StackLayout width="140" marginRight="12" testID="{{ testID }}" tap="onRecommendationTap">
+                  <Image src="{{ image }}" width="140" height="187" stretch="aspectFill" class="img" loadMode="async" />
+                  <Label text="{{ title }}" fontSize="14" marginTop="6" maxLines="2" textWrap="true" />
+                  <StackLayout orientation="horizontal" marginTop="6">
+                    <Label text="{{ price }}" fontSize="14" fontWeight="700" class="{{ priceClass }}" />
+                    <Label text="{{ compare }}" class="compare" visibility="{{ compareVisibility }}" verticalAlignment="bottom" />
+                  </StackLayout>
+                </StackLayout>
+              </Repeater.itemTemplate>
+            </Repeater>
+          </ScrollView>
+        </StackLayout>
+      </StackLayout>
+    </ScrollView>
+
+    <!-- Loading -->
+    <GridLayout row="0" visibility="{{ skeletonVisibility }}">
+      <ActivityIndicator busy="true" color="#6E6A63" />
+    </GridLayout>
+
+    <!-- Error -->
+    <StackLayout row="0" class="state" visibility="{{ errorVisibility }}">
+      <ui:Icon name="alert" stroke="1.25" iconColor="#6E6A63" width="48" height="48" horizontalAlignment="center" />
+      <Label text="Couldn’t load products" class="state-title" />
+      <Label text="Check your connection and try again." class="state-text" textWrap="true" />
+      <Button text="Retry" testID="error-retry" class="btn-secondary" tap="onRetry" horizontalAlignment="center" marginTop="20" />
+    </StackLayout>
+
+    <!-- Back button over the image -->
+    <GridLayout row="0" testID="back" tap="onBack" width="40" height="40" borderRadius="20" backgroundColor="#FFFFFF"
+                horizontalAlignment="left" verticalAlignment="top" marginLeft="12" iosOverflowSafeArea="false" accessibilityLabel="Back" accessibilityRole="button">
+      <ui:Icon name="back" width="22" height="22" horizontalAlignment="center" verticalAlignment="middle" />
+    </GridLayout>
+
+    <!-- Bottom bar -->
+    <StackLayout row="1" padding="12 16" backgroundColor="#FFFFFF" borderTopWidth="1" borderTopColor="#E6E1D9" visibility="{{ contentVisibility }}">
+      <Button text="{{ addLabel }}" testID="add-to-cart" class="btn-primary" isEnabled="{{ addEnabled }}" tap="onAddToCart" />
+    </StackLayout>
+  </GridLayout>
+</Page>

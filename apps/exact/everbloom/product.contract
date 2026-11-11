@@ -1,0 +1,83 @@
+// The product screen: carousel, variant options, description, recommendations, Add to cart.
+use BackIcon, MiniCard, Price from "./parts.contract"
+use ProductDetail, Variant from "./shapes.contract"
+
+fn valueOf(v: Variant, name: string): string = match first(v.options.filter(o => o.name == name)) { case some(o) => o.value, case none => "" }
+fn noVariant(): Variant = Variant(id="", title="", available=false, options=[], price="", compare="")
+
+component ProductScreen
+  props
+    detail: ProductDetail
+    scrollId: string
+    busy: bool
+    add: action
+    open: action
+    back: action
+  state variantId = detail.initialVariant
+  state page = 0
+  derive selected = match first(detail.variants.filter(v => v.id == variantId)) { case some(v) => v, case none => noVariant() }
+
+  action choose(name: string, value: string)
+    let exact = detail.variants.filter(v => v.options.filter(o => o.name == name ? o.value == value : o.value == valueOf(selected, o.name)).length == v.options.length)
+    let loose = detail.variants.filter(v => valueOf(v, name) == value)
+    variantId = match first(exact) { case some(v) => v.id, case none => match first(loose) { case some(v) => v.id, case none => variantId } }
+  action paged(x: number, y: number, e: ScrollEvent)
+    page = e.clientWidth > 0 ? round(x / e.clientWidth) : 0
+  action addSelected
+    if selected.id != "" and not busy
+      add(selected.id)
+
+  view
+    column flex=1 min-height=0 position="relative"
+      scroll id=scrollId flex=1 min-height=0
+        column padding-bottom=24
+          view width="100%" aspect-ratio="3 / 4" position="relative" background-color="#F4F1EC"
+            scroll testId="product-carousel" overflow-x="auto" overflow-y="hidden" scroll-snap-type="x mandatory" scroll=paged
+              position="absolute" inset=0
+              row height="100%"
+                for img, i in detail.images key=img
+                  image img flex-shrink=0 width="100%" height="100%" object-fit="cover" scroll-snap-align="start"
+                    alt=`${detail.title}, image ${i + 1} of ${detail.images.length}`
+            if detail.images.length > 1
+              row position="absolute" left=0 right=0 bottom=12 justify-content="center" gap=4 pointer-events="none"
+                for img, i in detail.images key=img
+                  view width=24 height=24 display="flex" align-items="center" justify-content="center"
+                    view width=8 height=8 border-radius=999 background-color=(i == page ? "#1C1B19" : "rgba(28, 27, 25, 0.25)")
+          column padding-top=20 padding-left=16 padding-right=16 gap=6
+            text detail.title role="heading" aria-level=1 font-size=22 line-height="28px" font-weight=700 testId="product-title"
+            row gap=6 align-items="baseline"
+              text selected.price font-size=20 font-weight=700 color=(selected.compare != "" ? "#B4361E" : "#1C1B19") testId="product-price"
+              if selected.compare != ""
+                text selected.compare font-size=15 color="#6E6A63" text-decoration-line="line-through" testId="product-compare"
+          for o in detail.options key=o.name
+            column padding-top=24 padding-left=16 padding-right=16
+              row padding-bottom=12 gap=4
+                text `${o.name}:` font-size=15 font-weight=600
+                text valueOf(selected, o.name) font-size=15 color="#6E6A63" testId=`option-label-${o.name}`
+              row gap=8 flex-wrap="wrap"
+                for v in o.values key=v
+                  button press=choose(o.name, v) testId=`option-${o.name}-${v}` aria-label=`${o.name} ${v}` aria-pressed=(valueOf(selected, o.name) == v) appearance="none"
+                    min-width=56 height=44 padding-left=16 padding-right=16 box-sizing="border-box" border-radius=12 border-style="solid"
+                    border-width=(valueOf(selected, o.name) == v ? 2 : 1) border-color=(valueOf(selected, o.name) == v ? "#1C1B19" : "#E6E1D9")
+                    background-color="#FFFFFF" display="flex" align-items="center" justify-content="center"
+                    text v font-size=15 font-weight=(valueOf(selected, o.name) == v ? 600 : 500) color="#1C1B19" white-space="nowrap"
+          column padding-top=24 padding-left=16 padding-right=16 gap=8
+            text "Description" role="heading" aria-level=2 font-size=15 font-weight=600
+            text detail.description font-size=15 line-height="22px" color="#3D3A35"
+          if detail.recs.length > 0
+            column padding-top=32
+              text "You may also like" role="heading" aria-level=2 font-size=17 font-weight=700 padding-left=16 padding-right=16 padding-bottom=12
+              scroll overflow-x="auto" overflow-y="hidden"
+                row gap=12 padding-left=16 padding-right=16 align-items="flex-start"
+                  for r in detail.recs key=r.id
+                    MiniCard(card=r, testId=`recommendation-${r.index}`, open=open)
+      button id="back" press=back testId="back" aria-label="Back" appearance="none"
+        position="absolute" top="env(safe-area-inset-top)" left=12 width=40 height=40 border-radius=999
+        background-color="#FFFFFF" display="flex" align-items="center" justify-content="center" color="#1C1B19"
+        BackIcon(size=22)
+      column padding-top=12 padding-left=16 padding-right=16 padding-bottom="calc(12px + env(safe-area-inset-bottom))"
+        background-color="#FFFFFF" border-top-width=1 border-top-style="solid" border-top-color="#E6E1D9"
+        button press=addSelected disabled=(busy or selected.id == "") testId="add-to-cart" appearance="none"
+          height=52 border-radius=12 background-color="#1C1B19" opacity=(busy ? 0.6 : 1)
+          display="flex" align-items="center" justify-content="center"
+          text `Add to cart · ${selected.price}` font-size=16 font-weight=600 color="#FFFFFF"

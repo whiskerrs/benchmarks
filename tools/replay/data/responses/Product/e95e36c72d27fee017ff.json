@@ -1,0 +1,314 @@
+{
+ "operationName": "Product",
+ "variables": {
+  "handle": "marine-slate-soy-candle"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "product": {
+    "id": "gid://shopify/Product/4971",
+    "handle": "marine-slate-soy-candle",
+    "title": "Marine Slate Soy Candle",
+    "description": "Steady as stone, this candle grounds your space with a scent inspired by quiet strength. Deep marine notes mingle with cool slate for a tranquil, anchoring aroma Hand-poured soy wax ensures a clean, even burn through long evenings of reflection Minimalist matte glass jar with subtle military accents brings a sense of order and calm wherever it sits",
+    "images": {
+     "nodes": [
+      {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/a8a34dfc3becd69012c492701fd869a0.png?v=15081713",
+       "altText": "Marine Slate scented candle in matte glass jar, Primary angle is a clean 3/4 view at eye-level to slightly above \u2014 this..."
+      }
+     ]
+    },
+    "options": [
+     {
+      "name": "Scent",
+      "optionValues": [
+       {
+        "name": "Cedar"
+       },
+       {
+        "name": "Sage"
+       },
+       {
+        "name": "Sea Salt"
+       }
+      ]
+     }
+    ],
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/27098",
+       "title": "Cedar",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Scent",
+         "value": "Cedar"
+        }
+       ],
+       "price": {
+        "amount": "44.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": {
+        "amount": "57.2",
+        "currencyCode": "USD"
+       }
+      },
+      {
+       "id": "gid://shopify/ProductVariant/27099",
+       "title": "Sage",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Scent",
+         "value": "Sage"
+        }
+       ],
+       "price": {
+        "amount": "44.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": {
+        "amount": "57.2",
+        "currencyCode": "USD"
+       }
+      },
+      {
+       "id": "gid://shopify/ProductVariant/27100",
+       "title": "Sea Salt",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Scent",
+         "value": "Sea Salt"
+        }
+       ],
+       "price": {
+        "amount": "44.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": {
+        "amount": "57.2",
+        "currencyCode": "USD"
+       }
+      }
+     ]
+    }
+   },
+   "productRecommendations": [
+    {
+     "id": "gid://shopify/Product/4954",
+     "handle": "stick-deodorant",
+     "title": "Stick Deodorant",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/c68c58be45812f48831f2bf6ae10b74d.png?v=12769090",
+      "altText": "A perfectly centered product shot of a Sophisticated Echelon stick deodorant. The stick is showcased against a clean,..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "15.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4955",
+     "handle": "hiking-boot-maintenance-kit",
+     "title": "Hiking Boot Maintenance Kit",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/92d914e0776cc25082377b99a1de5926.png?v=13052810",
+      "altText": "Hiking boot maintenance kit, featuring a durable case with tools and solutions tailored for rugged footwear. The..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "49.99",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4956",
+     "handle": "minimalist-grooming-kit",
+     "title": "Minimalist Grooming Kit",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/2e85b02c3120d2a684efe69931c621cc.png?v=13190965",
+      "altText": "Grooming Kit, Focus on 3/4 angles that showcase the sleek, minimalist design of the products. Use a neutral, organic..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4957",
+     "handle": "curated-sunrise-ritual-kit-for-morning-renewal",
+     "title": "Curated sunrise ritual kit for morning renewal",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/4ef6484ec4d80320fe90dc30b622a1dc.png?v=14800349",
+      "altText": "Curated Sunrise Ritual Kit, Hero product shots at a refined three-quarter angle with products arranged on clean matte..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "149.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "193.7",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4958",
+     "handle": "premium-grooming-kit",
+     "title": "Premium Grooming Kit",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/1159a03d00d9b225c3cc675a00096621.png?v=12257639",
+      "altText": "Show a luxury grooming kit in a straight-on, highlighting the kit's eco-friendly packaging and premium appeal. Include a..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "150.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4959",
+     "handle": "daily-renewal-serum-with-clinical-peptides",
+     "title": "Daily renewal serum with clinical peptides",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/66b45e7908c952f6459dfcd3c9629b3b.png?v=14997038",
+      "altText": "Clinical Calm Daily Renewal Serum, Single product centered or in a minimalist row on a matte stone or porcelain surface...."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "68.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4960",
+     "handle": "sleek-shaving-kit",
+     "title": "Sleek Shaving Kit",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/d69262bb347f940434e0b24362ba17fd.png?v=13203280",
+      "altText": "Showcasing the premium design. The lighting is soft and even, highlighting the kit's contours without harsh shadows. The..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4961",
+     "handle": "sensitive-skin-aftershave",
+     "title": "Sensitive Skin Aftershave",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/94c51225d2d4d8c44ef2f78aff0b8b30.png?v=13087833",
+      "altText": "Sensitive skin aftershave, use a 3/4 angle to capture the product's design details effectively. Place products on a..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "19.99",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4962",
+     "handle": "eau-de-parfum-vetiver-cristal-no-7",
+     "title": "Vetiver crystal eau de parfum No. 7",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/558278c386ec5c1b5b2abab908866f54.png?v=14960066",
+      "altText": "No. 7 Vetiver Glass Eau de Parfum, Three-quarter angle for bottles and jars, aligned at slight diagonal to camera for..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "212.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4963",
+     "handle": "premium-beard-grooming-kit-with-argan-oil",
+     "title": "Premium beard grooming kit with argan oil",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/78ce88e14df8a166e962d266728e9994.png?v=14941338",
+      "altText": "Premium beard grooming kit, Soft Pearl wall). Arrangement feels casual but intentional\u2014products slightly angled as if just..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "48.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    }
+   ]
+  }
+ }
+}

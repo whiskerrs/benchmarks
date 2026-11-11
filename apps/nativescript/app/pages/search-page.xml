@@ -1,0 +1,51 @@
+<Page actionBarHidden="true" navigatingTo="onNavigatingTo" xmlns:ui="components/icon">
+  <GridLayout rows="auto, auto, *">
+    <GridLayout row="0" columns="auto, *" margin="4 16 12 16" padding="0 12" height="44" borderRadius="12" backgroundColor="#F4F1EC">
+      <ui:Icon col="0" name="search" width="20" height="20" iconColor="#6E6A63" verticalAlignment="middle" marginRight="8" />
+      <TextField col="1" id="search" testID="search-input" hint="Search products" textChange="onTextChange"
+                 returnKeyType="search" autocorrect="false" autocapitalizationType="none" fontSize="16" color="#1C1B19"
+                 placeholderColor="#6E6A63" backgroundColor="transparent" borderWidth="0" padding="0" />
+    </GridLayout>
+
+    <Label row="1" text="{{ countText }}" visibility="{{ countVisibility }}" padding="4 16 8 16" fontSize="13" class="muted" />
+
+    <ListView row="2" iosOverflowSafeArea="false" testID="search-results" items="{{ rows }}" itemLoading="onItemLoading"
+              itemTap="onResultTap" loaded="onGridLoaded" unloaded="onGridUnloaded" separatorColor="transparent" rowHeight="101">
+      <ListView.itemTemplates>
+        <template key="row">
+          <GridLayout>
+          <GridLayout id="row" columns="64, *" padding="8 16" accessible="true">
+            <Image col="0" id="img" width="64" height="85" stretch="aspectFill" loadMode="async" loaded="onListImageLoaded" />
+            <StackLayout col="1" marginLeft="12" verticalAlignment="middle">
+              <Label id="title" fontSize="15" lineHeight="2" textWrap="true" maxLines="3" />
+              <StackLayout orientation="horizontal" marginTop="4">
+                <Label id="price" class="price" />
+                <Label id="compare" class="compare" visibility="collapsed" verticalAlignment="bottom" marginBottom="1" />
+              </StackLayout>
+            </StackLayout>
+          </GridLayout>
+          </GridLayout>
+        </template>
+        <template key="loader">
+          <GridLayout>
+            <ActivityIndicator busy="true" width="24" height="24" color="#6E6A63" />
+          </GridLayout>
+        </template>
+      </ListView.itemTemplates>
+    </ListView>
+
+    <Label row="2" text="Search across 995 products by name." visibility="{{ emptyVisibility }}" padding="48 32" fontSize="15"
+           class="muted" textAlignment="center" textWrap="true" verticalAlignment="top" />
+
+    <GridLayout row="2" visibility="{{ skeletonVisibility }}" backgroundColor="#FFFFFF">
+      <ActivityIndicator busy="true" color="#6E6A63" verticalAlignment="top" marginTop="48" />
+    </GridLayout>
+
+    <StackLayout row="1" rowSpan="2" class="state" visibility="{{ errorVisibility }}" backgroundColor="#FFFFFF">
+      <ui:Icon name="alert" stroke="1.25" iconColor="#6E6A63" width="48" height="48" horizontalAlignment="center" />
+      <Label text="Couldn’t load products" class="state-title" />
+      <Label text="Check your connection and try again." class="state-text" textWrap="true" />
+      <Button text="Retry" testID="error-retry" class="btn-secondary" tap="onRetry" horizontalAlignment="center" marginTop="20" />
+    </StackLayout>
+  </GridLayout>
+</Page>

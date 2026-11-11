@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Design tokens</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#1C1B19}a:hover{color:#1C1B19}
+</style>
+</helmet>
+<div style="width: 940px; height: 1080px; box-sizing: border-box; padding: 48px; background: #FFFFFF; color: #1C1B19; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', Roboto, 'Helvetica Neue', Arial, sans-serif; display: flex; flex-direction: column; gap: 36px">
+  <div style="display: flex; flex-direction: column; gap: 6px">
+    <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -0.5px">Design tokens</h1>
+    <p style="margin: 0; font-size: 15px; color: #6E6A63">Font: the platform system font (SF Pro on iOS, Roboto on Android). No bundled web fonts. All sizes in pt/dp.</p>
+  </div>
+  <section style="display: flex; flex-direction: column; gap: 14px">
+    <h2 style="margin: 0; font-size: 17px; font-weight: 700">Color</h2>
+    <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 12px">
+      <sc-for list="{{colors}}" as="c" hint-placeholder-count="7">
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <div style="height: 64px; border-radius: 8px; border: 1px solid #E6E1D9; background: {{c.hex}}"></div>
+          <span style="font-size: 13px; font-weight: 600">{{c.name}}</span>
+          <span style="font-size: 12px; color: #6E6A63; font-family: ui-monospace, Menlo, monospace">{{c.hex}}</span>
+          <span style="font-size: 12px; color: #6E6A63; line-height: 16px">{{c.use}}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px">
+    <section style="display: flex; flex-direction: column; gap: 14px">
+      <h2 style="margin: 0; font-size: 17px; font-weight: 700">Type</h2>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #E6E1D9; padding-bottom: 8px"><span style="font-size: 22px; font-weight: 700">Screen title</span><span style="font-size: 12px; color: #6E6A63">22 / 28 · 700</span></div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #E6E1D9; padding-bottom: 8px"><span style="font-size: 17px; font-weight: 700">Section heading</span><span style="font-size: 12px; color: #6E6A63">17 / 22 · 700</span></div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #E6E1D9; padding-bottom: 8px"><span style="font-size: 17px; font-weight: 600">Nav bar title</span><span style="font-size: 12px; color: #6E6A63">17 / 22 · 600</span></div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #E6E1D9; padding-bottom: 8px"><span style="font-size: 15px">Body</span><span style="font-size: 12px; color: #6E6A63">15 / 22 · 400</span></div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #E6E1D9; padding-bottom: 8px"><span style="font-size: 14px">Card title (2 lines max)</span><span style="font-size: 12px; color: #6E6A63">14 / 18 · 400</span></div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #E6E1D9; padding-bottom: 8px"><span style="font-size: 15px; font-weight: 700">Price</span><span style="font-size: 12px; color: #6E6A63">15 · 700</span></div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #E6E1D9; padding-bottom: 8px"><span style="font-size: 13px; color: #6E6A63">Caption</span><span style="font-size: 12px; color: #6E6A63">13 / 18 · 400</span></div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 11px; font-weight: 600">Tab label</span><span style="font-size: 12px; color: #6E6A63">11 · 600 active / 500</span></div>
+      </div>
+    </section>
+    <section style="display: flex; flex-direction: column; gap: 14px">
+      <h2 style="margin: 0; font-size: 17px; font-weight: 700">Spacing and layout</h2>
+      <dl style="margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; row-gap: 10px; column-gap: 16px; font-size: 14px">
+        <sc-for list="{{layout}}" as="r" hint-placeholder-count="10">
+          <dt style="color: #3D3A35">{{r.k}}</dt>
+          <dd style="margin: 0; font-weight: 600; font-family: ui-monospace, Menlo, monospace; font-size: 13px">{{r.v}}</dd>
+        </sc-for>
+      </dl>
+    </section>
+  </div>
+  <section style="display: flex; flex-direction: column; gap: 14px">
+    <h2 style="margin: 0; font-size: 17px; font-weight: 700">Components</h2>
+    <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap">
+      <button type="button" style="height: 52px; padding: 0 28px; border-radius: 12px; border: 0; background: #1C1B19; color: #FFFFFF; font: inherit; font-size: 16px; font-weight: 600">Primary button</button>
+      <button type="button" style="height: 48px; padding: 0 24px; border-radius: 12px; border: 1px solid #1C1B19; background: #FFFFFF; color: #1C1B19; font: inherit; font-size: 16px; font-weight: 600">Secondary button</button>
+      <span style="height: 36px; padding: 0 14px; border-radius: 999px; background: #1C1B19; color: #FFFFFF; font-size: 14px; font-weight: 600; display: flex; align-items: center">Chip selected</span>
+      <span style="height: 36px; padding: 0 14px; border-radius: 999px; background: #F4F1EC; font-size: 14px; font-weight: 500; display: flex; align-items: center">Chip</span>
+      <span style="min-width: 56px; height: 44px; box-sizing: border-box; padding: 0 16px; border-radius: 12px; border: 2px solid #1C1B19; font-size: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center">S</span>
+      <span style="min-width: 56px; height: 44px; box-sizing: border-box; padding: 0 16px; border-radius: 12px; border: 1px solid #E6E1D9; font-size: 15px; display: flex; align-items: center; justify-content: center">M</span>
+      <span style="display: flex; gap: 6px; align-items: baseline"><span style="font-size: 15px; font-weight: 700; color: #B4361E">$45.00</span><s style="font-size: 13px; color: #6E6A63">$58.50</s></span>
+      <span style="min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: #B4361E; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":940,"height":1080}}'>
+class Component extends DCLogic {
+renderVals() {
+return {
+colors: [
+{ name: 'background', hex: '#FFFFFF', use: 'Screen background' },
+{ name: 'surface', hex: '#F4F1EC', use: 'Image placeholder, chips, search field' },
+{ name: 'skeleton', hex: '#EDE9E3', use: 'Loading blocks' },
+{ name: 'border', hex: '#E6E1D9', use: 'Dividers, outlines, bars' },
+{ name: 'text', hex: '#1C1B19', use: 'Text, primary button, selection' },
+{ name: 'textMuted', hex: '#6E6A63', use: 'Secondary text, inactive tabs' },
+{ name: 'sale', hex: '#B4361E', use: 'Sale price, cart badge' }
+],
+layout: [
+{ k: 'Screen horizontal padding', v: '16' },
+{ k: 'Spacing scale', v: '4 8 12 16 20 24 28 32' },
+{ k: 'Product grid', v: '2 columns' },
+{ k: 'Grid column / row gap', v: '12 / 20' },
+{ k: 'Product image ratio', v: '3:4 cover' },
+{ k: 'Carousel card', v: '140 wide' },
+{ k: 'Header / nav bar height', v: '44' },
+{ k: 'Tab bar height', v: '49 + safe area' },
+{ k: 'Radius image / button / chip', v: '8 / 12 / full' },
+{ k: 'Minimum touch target', v: '44' }
+]
+};
+}
+}
+</script>
+</body>
+</html>

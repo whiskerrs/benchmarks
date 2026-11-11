@@ -1,0 +1,37 @@
+name: ShopBenchRunner
+options:
+  bundleIdPrefix: dev.whiskerrs.shopbench.runner
+settings:
+  base:
+    IPHONEOS_DEPLOYMENT_TARGET: '17.0'
+    SWIFT_VERSION: '5.0'
+    TARGETED_DEVICE_FAMILY: '1'
+    DEVELOPMENT_TEAM: ${DEVELOPMENT_TEAM}
+    CODE_SIGN_STYLE: Automatic
+targets:
+  RunnerHost:
+    type: application
+    platform: iOS
+    sources: [Host]
+    info:
+      path: Host/Info.plist
+      properties:
+        UILaunchScreen: {}
+  ShopBenchUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [UITests]
+    settings:
+      base:
+        TEST_TARGET_NAME: RunnerHost
+        GENERATE_INFOPLIST_FILE: YES
+    dependencies:
+      - target: RunnerHost
+schemes:
+  ShopBenchRunner:
+    build:
+      targets:
+        RunnerHost: all
+        ShopBenchUITests: [test]
+    test:
+      targets: [ShopBenchUITests]

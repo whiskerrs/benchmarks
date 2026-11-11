@@ -1,0 +1,20 @@
+{
+ "operationName": "Search",
+ "variables": {
+  "first": 24,
+  "query": "jacket\u304f\u304f\u304f\u304f\u304f\u304f\u304f\u304f\u304f\u304f"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}",
+ "response": {
+  "data": {
+   "search": {
+    "totalCount": 0,
+    "pageInfo": {
+     "hasNextPage": false,
+     "endCursor": null
+    },
+    "nodes": []
+   }
+  }
+ }
+}

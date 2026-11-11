@@ -1,0 +1,8 @@
+Starting recording with the Animation Hitches template and os_log Instrument. Targeting All Processes. 
+Ctrl-C to stop the recording
+Stopping recording...
+Run issues were detected (trace is still ready to be viewed):
+* [Error] Failed to stop recording session: Data Providers emitted errors: Logging 
+
+Recording failed with errors. Saving output file...
+Output file saved as: journey.trace

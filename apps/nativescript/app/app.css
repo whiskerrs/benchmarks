@@ -1,0 +1,213 @@
+/* Design tokens: background #FFFFFF, surface #F4F1EC, skeleton #EDE9E3,
+   border #E6E1D9, text #1C1B19, textMuted #6E6A63, sale #B4361E */
+
+Page, .root {
+  background-color: #FFFFFF;
+  color: #1C1B19;
+}
+
+Label {
+  color: #1C1B19;
+}
+
+/* Tab bar */
+.tabbar {
+  height: 49;
+  background-color: #FFFFFF;
+  border-top-width: 1;
+  border-top-color: #E6E1D9;
+}
+.tab {
+  vertical-align: middle;
+  horizontal-alignment: center;
+}
+.tab Icon {
+  horizontal-alignment: center;
+}
+.tab-label {
+  font-size: 11;
+  font-weight: 500;
+  color: #6E6A63;
+  text-align: center;
+  margin-top: 2;
+}
+.tab-label.active {
+  font-weight: 600;
+  color: #1C1B19;
+}
+.badge {
+  vertical-align: top;
+  horizontal-alignment: center;
+  margin-top: 4;
+  margin-left: 30;
+  min-width: 18;
+  height: 18;
+  padding: 0 5;
+  border-radius: 9;
+  background-color: #B4361E;
+  color: #FFFFFF;
+  font-size: 11;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Headers */
+.header {
+  height: 44;
+  padding: 0 16;
+}
+.wordmark {
+  font-size: 22;
+  font-weight: 700;
+  letter-spacing: -0.018;
+  vertical-align: middle;
+}
+.screen-title {
+  font-size: 22;
+  font-weight: 700;
+  vertical-align: middle;
+}
+.navbar {
+  height: 44;
+  padding: 0 8;
+}
+.nav-back {
+  width: 44;
+  height: 44;
+}
+.nav-title {
+  font-size: 17;
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+}
+.section-title {
+  font-size: 17;
+  font-weight: 700;
+}
+
+/* Chips */
+.chip {
+  height: 36;
+  padding: 0 14;
+  margin-right: 8;
+  border-radius: 18;
+  background-color: #F4F1EC;
+  font-size: 14;
+  font-weight: 500;
+  vertical-align: middle;
+}
+.sort-chip {
+  height: 32;
+  padding: 0 12;
+  margin-right: 8;
+  border-radius: 16;
+  border-width: 1;
+  border-color: #E6E1D9;
+  background-color: #FFFFFF;
+  font-size: 13;
+  font-weight: 500;
+}
+.sort-chip.selected {
+  border-color: #1C1B19;
+  background-color: #1C1B19;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* Images */
+.img {
+  background-color: #F4F1EC;
+  border-radius: 8;
+}
+
+/* Product card */
+.card-title {
+  font-size: 14;
+  margin-top: 8;
+}
+.price {
+  font-size: 15;
+  font-weight: 700;
+}
+.sale {
+  color: #B4361E;
+}
+.compare {
+  font-size: 13;
+  color: #6E6A63;
+  text-decoration: line-through;
+  margin-left: 6;
+}
+
+/* Skeleton */
+.sk {
+  background-color: #EDE9E3;
+}
+
+/* Buttons */
+.btn-primary {
+  height: 52;
+  border-radius: 12;
+  background-color: #1C1B19;
+  color: #FFFFFF;
+  font-size: 16;
+  font-weight: 600;
+  text-transform: none;
+}
+.btn-primary:disabled {
+  opacity: 0.5;
+}
+.btn-secondary {
+  height: 48;
+  padding: 0 24;
+  border-radius: 12;
+  border-width: 1;
+  border-color: #1C1B19;
+  background-color: #FFFFFF;
+  color: #1C1B19;
+  font-size: 16;
+  font-weight: 600;
+  text-transform: none;
+}
+
+/* States */
+.state {
+  padding: 0 32;
+  vertical-align: middle;
+}
+.state-title {
+  font-size: 17;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 12;
+}
+.state-text {
+  font-size: 15;
+  color: #6E6A63;
+  text-align: center;
+  margin-top: 12;
+}
+.muted {
+  color: #6E6A63;
+}
+
+/* Option pills */
+.pill {
+  min-width: 56;
+  height: 44;
+  padding: 0 16;
+  margin: 0 8 8 0;
+  border-radius: 12;
+  border-width: 1;
+  border-color: #E6E1D9;
+  font-size: 15;
+  font-weight: 500;
+  text-align: center;
+  vertical-align: middle;
+}
+.pill.selected {
+  border-width: 2;
+  border-color: #1C1B19;
+  font-weight: 600;
+}

@@ -1,0 +1,97 @@
+// Small pieces drawn on several screens.
+use Card from "./shapes.contract"
+
+// The design's four icons (home, search, cart, back) plus the stepper's minus and plus.
+component Icon
+  props
+    name: string
+    size: number
+    stroke: number
+  view
+    svg width=size height=size viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=stroke stroke-linecap="round" stroke-linejoin="round" flex-shrink=0
+      if name == "home"
+        path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"
+      else if name == "search"
+        circle cx=11 cy=11 r=7
+        path d="m20 20-3.5-3.5"
+      else if name == "cart"
+        path d="M6 7h12l-1 13H7z"
+        path d="M9 7a3 3 0 0 1 6 0"
+      else if name == "minus"
+        path d="M5 12h14"
+      else if name == "plus"
+        path d="M12 5v14M5 12h14"
+      else if name == "alert"
+        circle cx=12 cy=12 r=9
+        path d="M12 7.5v5.5"
+        path d="M12 16.5h.01"
+
+component BackIcon
+  props
+    size: number
+  view
+    svg width=size height=size viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=1.75 stroke-linecap="round" stroke-linejoin="round" flex-shrink=0
+      path d="m15 5-7 7 7 7"
+
+component Skeleton
+  props
+    width: number
+    height: number
+    radius: number
+  view
+    view width=width height=height border-radius=radius background-color="#EDE9E3" flex-shrink=0
+
+component Spinner
+  view
+    progress aria-label="Loading" testId="loading"
+
+// The price, in the sale colour with the compare-at price struck through when it is higher.
+component Price
+  props
+    price: string
+    compare: string
+    size: number
+  view
+    row gap=6 align-items="baseline"
+      text price font-size=size font-weight=700 color=(compare != "" ? "#B4361E" : "#1C1B19")
+      if compare != ""
+        text compare font-size=13 color="#6E6A63" text-decoration-line="line-through"
+
+// A grid card: Home's best sellers and a collection's products.
+component ProductCard
+  props
+    card: Card
+    testId: string
+    open: action
+  view
+    button press=open(card.handle) testId=testId aria-label=card.title appearance="none"
+      width="100%" display="flex" flex-direction="column" gap=8 text-align="start" color="#1C1B19"
+      image card.image width="100%" aspect-ratio="3 / 4" object-fit="cover" border-radius=8 background-color="#F4F1EC" alt=""
+      text card.title font-size=14 line-height="18px" line-clamp=2 overflow="hidden"
+      Price(price=card.price, compare=card.compare, size=15)
+
+// A carousel card: "You may also like".
+component MiniCard
+  props
+    card: Card
+    testId: string
+    open: action
+  view
+    button press=open(card.handle) testId=testId aria-label=card.title appearance="none"
+      flex-shrink=0 width=140 display="flex" flex-direction="column" gap=6 text-align="start" color="#1C1B19"
+      image card.image width=140 height=187 object-fit="cover" border-radius=8 background-color="#F4F1EC" alt=""
+      text card.title font-size=14 line-height="18px" line-clamp=2 overflow="hidden"
+      Price(price=card.price, compare=card.compare, size=14)
+
+component ErrorState
+  props
+    retry: action
+  view
+    column flex=1 align-items="center" justify-content="center" gap=12 padding-left=32 padding-right=32 text-align="center" testId="error-state"
+      view color="#6E6A63"
+        Icon(name="alert", size=48, stroke=1.25)
+      text "Couldn’t load products" font-size=17 font-weight=700
+      text "Check your connection and try again." font-size=15 line-height="22px" color="#6E6A63"
+      button press=retry testId="error-retry" appearance="none" margin-top=8 height=48 padding-left=24 padding-right=24
+        border-radius=12 border-width=1 border-style="solid" border-color="#1C1B19" background-color="#FFFFFF" display="flex" align-items="center"
+        text "Retry" font-size=16 font-weight=600 color="#1C1B19"

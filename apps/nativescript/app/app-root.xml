@@ -1,0 +1,22 @@
+<GridLayout rows="*, auto" class="root" loaded="onRootLoaded" xmlns:ui="components/icon">
+  <GridLayout id="frames" row="0">
+    <Frame id="frame-home" defaultPage="pages/home-page" />
+  </GridLayout>
+  <GridLayout id="tabbar" row="1" columns="*, *, *" class="tabbar">
+    <StackLayout col="0" class="tab" testID="tab-home" tap="onTabHome" accessibilityLabel="Home" accessibilityRole="button">
+      <ui:Icon id="tab-icon-home" name="home" width="24" height="24" iconColor="#1C1B19" />
+      <Label id="tab-label-home" text="Home" class="tab-label active" />
+    </StackLayout>
+    <StackLayout col="1" class="tab" testID="tab-search" tap="onTabSearch" accessibilityLabel="Search" accessibilityRole="button">
+      <ui:Icon id="tab-icon-search" name="search" width="24" height="24" iconColor="#6E6A63" />
+      <Label id="tab-label-search" text="Search" class="tab-label" />
+    </StackLayout>
+    <GridLayout col="2" testID="tab-cart" tap="onTabCart" accessibilityLabel="Cart" accessibilityRole="button">
+      <StackLayout class="tab">
+        <ui:Icon id="tab-icon-cart" name="cart" width="24" height="24" iconColor="#6E6A63" />
+        <Label id="tab-label-cart" text="Cart" class="tab-label" />
+      </StackLayout>
+      <Label id="cart-badge" testID="cart-badge" class="badge" visibility="collapsed" />
+    </GridLayout>
+  </GridLayout>
+</GridLayout>

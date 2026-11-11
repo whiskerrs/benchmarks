@@ -1,0 +1,59 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+		A10000000000000000000001 /* StubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000002 /* StubApp.swift */; };
+		A10000000000000000000002 /* StubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubApp.swift; sourceTree = "<group>"; };
+		A10000000000000000000003 /* Stub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10000000000000000000004 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		A10000000000000000000005 = {isa = PBXGroup; children = (A10000000000000000000006 /* Stub */, A10000000000000000000007 /* Products */); sourceTree = "<group>"; };
+		A10000000000000000000006 /* Stub */ = {isa = PBXGroup; children = (A10000000000000000000002 /* StubApp.swift */); path = Stub; sourceTree = "<group>"; };
+		A10000000000000000000007 /* Products */ = {isa = PBXGroup; children = (A10000000000000000000003 /* Stub.app */); name = Products; sourceTree = "<group>"; };
+		A10000000000000000000008 /* Stub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1000000000000000000000C;
+			buildPhases = (A10000000000000000000009 /* Sources */, A10000000000000000000004 /* Frameworks */);
+			buildRules = ();
+			dependencies = ();
+			name = Stub;
+			productName = Stub;
+			productReference = A10000000000000000000003 /* Stub.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A10000000000000000000009 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000001 /* StubApp.swift in Sources */); runOnlyForDeploymentPostprocessing = 0; };
+		A1000000000000000000000A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {LastUpgradeCheck = 1600; TargetAttributes = {A10000000000000000000008 = {ProvisioningStyle = Automatic;};};};
+			buildConfigurationList = A1000000000000000000000B;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, Base);
+			mainGroup = A10000000000000000000005;
+			productRefGroup = A10000000000000000000007 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (A10000000000000000000008 /* Stub */);
+		};
+		A1000000000000000000000B = {isa = XCConfigurationList; buildConfigurations = (A1000000000000000000000D /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		A1000000000000000000000C = {isa = XCConfigurationList; buildConfigurations = (A1000000000000000000000E /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		A1000000000000000000000D /* Release */ = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; SDKROOT = iphoneos; IPHONEOS_DEPLOYMENT_TARGET = 17.0; SWIFT_VERSION = 5.0;}; name = Release; };
+		A1000000000000000000000E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(STUB_BUNDLE_ID)";
+				PRODUCT_NAME = Stub;
+				TARGETED_DEVICE_FAMILY = 1;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+	};
+	rootObject = A1000000000000000000000A /* Project object */;
+}

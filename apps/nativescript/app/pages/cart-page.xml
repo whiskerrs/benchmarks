@@ -1,0 +1,52 @@
+<Page actionBarHidden="true" navigatingTo="onNavigatingTo" xmlns:ui="components/icon">
+  <GridLayout rows="auto, *, auto">
+    <GridLayout row="0" class="header">
+      <Label text="Cart" class="screen-title" />
+    </GridLayout>
+
+    <ScrollView row="1" iosOverflowSafeArea="false" visibility="{{ linesVisibility }}">
+      <Repeater items="{{ lines }}">
+        <Repeater.itemsLayout>
+          <StackLayout padding="0 16" />
+        </Repeater.itemsLayout>
+        <Repeater.itemTemplate>
+          <GridLayout columns="80, *" padding="16 0" borderBottomWidth="1" borderBottomColor="#E6E1D9" testID="{{ testID }}">
+            <Image col="0" src="{{ image }}" width="80" height="107" stretch="aspectFill" class="img" loadMode="async" verticalAlignment="top" />
+            <GridLayout col="1" rows="auto, auto, *, auto" marginLeft="12" height="107">
+              <Label row="0" text="{{ title }}" fontSize="15" fontWeight="600" lineHeight="2" textWrap="true" maxLines="2" />
+              <Label row="1" text="{{ variant }}" visibility="{{ variantVisibility }}" fontSize="13" class="muted" marginTop="4" />
+              <GridLayout row="3" columns="auto, *, auto" marginTop="4">
+                <GridLayout col="0" columns="36, auto, 36" height="36" borderWidth="1" borderColor="#E6E1D9" borderRadius="12">
+                  <GridLayout col="0" testID="{{ decID }}" tap="onDec" accessibilityLabel="Decrease quantity" accessibilityRole="button" backgroundColor="transparent">
+                    <ui:Icon name="minus" stroke="2" width="16" height="16" horizontalAlignment="center" verticalAlignment="middle" />
+                  </GridLayout>
+                  <Label col="1" text="{{ quantity }}" minWidth="24" fontSize="15" fontWeight="600" textAlignment="center" verticalAlignment="middle" />
+                  <GridLayout col="2" testID="{{ incID }}" tap="onInc" accessibilityLabel="Increase quantity" accessibilityRole="button" backgroundColor="transparent">
+                    <ui:Icon name="plus" stroke="2" width="16" height="16" horizontalAlignment="center" verticalAlignment="middle" />
+                  </GridLayout>
+                </GridLayout>
+                <Label col="2" text="{{ total }}" fontSize="15" fontWeight="700" verticalAlignment="middle" />
+              </GridLayout>
+            </GridLayout>
+          </GridLayout>
+        </Repeater.itemTemplate>
+      </Repeater>
+    </ScrollView>
+
+    <StackLayout row="2" padding="16" backgroundColor="#FFFFFF" borderTopWidth="1" borderTopColor="#E6E1D9" visibility="{{ linesVisibility }}">
+      <GridLayout columns="*, auto">
+        <Label col="0" text="Subtotal" fontSize="15" verticalAlignment="bottom" />
+        <Label col="1" text="{{ subtotal }}" testID="cart-subtotal" fontSize="17" fontWeight="700" />
+      </GridLayout>
+      <Label text="Taxes and shipping are calculated at checkout." fontSize="13" class="muted" marginTop="12" textWrap="true" />
+      <Button text="Check out" testID="checkout" class="btn-primary" tap="onCheckout" marginTop="12" />
+    </StackLayout>
+
+    <StackLayout row="1" class="state" visibility="{{ emptyVisibility }}">
+      <ui:Icon name="cart" stroke="1.25" iconColor="#6E6A63" width="48" height="48" horizontalAlignment="center" />
+      <Label text="Your cart is empty" class="state-title" />
+      <Label text="Items you add will appear here." class="state-text" textWrap="true" />
+      <Button text="Start shopping" class="btn-primary" height="48" padding="0 24" tap="onStartShopping" horizontalAlignment="center" marginTop="20" />
+    </StackLayout>
+  </GridLayout>
+</Page>

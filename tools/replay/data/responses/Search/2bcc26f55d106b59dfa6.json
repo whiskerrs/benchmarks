@@ -1,0 +1,526 @@
+{
+ "operationName": "Search",
+ "variables": {
+  "after": "eyJjIjoiaWQiLCJ2Ijo1NTI0LCJpIjo1NTI0fQ",
+  "first": 24,
+  "query": "jac"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "search": {
+    "totalCount": 81,
+    "pageInfo": {
+     "hasNextPage": true,
+     "endCursor": "eyJjIjoiaWQiLCJ2Ijo2MTk5LCJpIjo2MTk5fQ"
+    },
+    "nodes": [
+     {
+      "id": "gid://shopify/Product/5525",
+      "handle": "faded-truffle-streetwear-coat",
+      "title": "Faded truffle streetwear coat",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/b3795772f2dea6ebcab9dae31f3fa1b0.png?v=14870648",
+       "altText": "Faded Truffle Streetwear Coat, Default to 3/4 angle on garments displayed on model (or laid flat if required), always..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "295.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5527",
+      "handle": "veste-d-artiste-coton-ocre-dore",
+      "title": "Golden ochre cotton artist's jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/daf078ed4e70c78bd7c2f4ea9d5bab48.png?v=14861924",
+       "altText": "Gold ochre cotton artist's vest, 3/4 angle is preferred for most garments/accessories, allowing appreciation of both form..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "185.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5532",
+      "handle": "abrasion-resistant-tool-vest",
+      "title": "Abrasion-Resistant Tool Vest",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/8426d54de612237363943e29df99d64e.png?v=14680673",
+       "altText": "Abrasion-resistant tool vest, Single-garment focus at 3/4 angle on a workbench or hung on a nail in context (e.g., against..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5546",
+      "handle": "wheat-khaki-military-field-vest",
+      "title": "Wheat khaki military field vest",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/0ba18257244adee8ed4229e504ec8038.png?v=14954002",
+       "altText": "Wheat Khaki military-inspired field vest, Single-hero garment photographed front-on at slight 3/4 angle to reveal..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "168.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5548",
+      "handle": "hi-vis-ochre-safety-vest",
+      "title": "Hi-Vis Ochre Safety Vest",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/138e714402abcf963d4af64ddb587f66.png?v=14722007",
+       "altText": "Field-Tested Collective hi-vis ochre construction vest, 3/4 angle product shots on neutral Dust White backdrops with..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "38.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5549",
+      "handle": "gilet-de-terrain-a-renforts-cordura",
+      "title": "Field vest with Cordura reinforcements",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/d3dc76ab0a23880e33dc1aaa3de9b407.png?v=14809216",
+       "altText": "Reinforced Field Vest, 3/4 angle product shots on neutral 'Worksite Dust' backdrop (off-white/very light gray) with soft..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "89.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5652",
+      "handle": "traje-fluido-de-lino-italiano",
+      "title": "Italian linen fluid suit",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/062ba4396fc8c551ba6761d97053a4c2.png?v=15053203",
+       "altText": "Florence linen fluid suit, Single-garment shots on invisible mannequins or elegantly arranged on palette-matched linen..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "1190.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5656",
+      "handle": "tailored-cream-set-with-wide-leg-trousers",
+      "title": "Tailored Cream Set with Wide-Leg Trousers",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/9e4f3c7a9130f70406bb4ee298a3f855.png?v=14995271",
+       "altText": "Tailored cream set, Three-quarter angle on garments draped on dress forms or elegantly styled on models against softly..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "790.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5663",
+      "handle": "handwoven-linen-suit-set-in-ecru",
+      "title": "Handwoven Linen Suit Set in Ecru",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/5dd08a66e6a8a870a4d5b5ea57736e64.png?v=15045955",
+       "altText": "Handwoven linen suit set, Default angle is a clean 3/4 view on a seamless backdrop in soft ivory cotton or chai latte..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "278.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5666",
+      "handle": "traje-dos-piezas-lino-blanco-seda",
+      "title": "White linen and silk two-piece suit",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/2f3b39c07618a19ea2feed1312e5ea3e.png?v=14762188",
+       "altText": "White linen and silk two-piece suit, Preferred angle: three-quarter front view at chest level for tops;..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "248.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5670",
+      "handle": "cotton-linen-tailored-ensemble-with-tote",
+      "title": "Cotton-Linen Tailored Ensemble With Tote",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/5ed7251720ab36a2abe3b58c88a39f90.png?v=14873008",
+       "altText": "Monday cotton-linen blend tailored ensemble with coordinating tote and shoes, Default to 3/4 angle for outfit sets on..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "179.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5673",
+      "handle": "amber-wool-blend-suit-set",
+      "title": "Amber wool blend suit set",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/e28171b2d8f83b99217f766683c45c6d.png?v=14962970",
+       "altText": "Amber wool blend suit set, Opt for three-quarter angle shots of suits on simple textured backgrounds (e.g., linen drapes..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "590.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5684",
+      "handle": "cask-brown-lightweight-knit-sweater",
+      "title": "Cask Brown Lightweight Knit Sweater",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/4f4662c4c4923fd4bb0e296f01ae922c.png?v=14980902",
+       "altText": "Cask brown lightweight knit sweater, Default product shots use a single product styled on a matte stone plinth or against..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "135.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5695",
+      "handle": "accent-tangerine-street-knit-tee",
+      "title": "Accent Tangerine Street Knit Tee",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/5a223cc6cfaa177395d14aec21e9e33f.png?v=15072179",
+       "altText": "Accent tangerine street knit tee, subtle concrete wall). Layout allows for cropping without losing garment integrity.,..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "58.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5703",
+      "handle": "terracotta-ribbed-knit-pullover",
+      "title": "Terracotta ribbed knit pullover",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/53d8e0bbbd726190d6c13b936a2a569d.png?v=14595848",
+       "altText": "Terracotta ribbed knit pullover, Single product per shot on a matte monochrome background pulled from the palette..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "159.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5747",
+      "handle": "technical-crop-top-in-misty-blue",
+      "title": "Technical Crop Top in Misty Blue",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/ac18339f5b6ab1959d3a01c4da4a52a5.png?v=14998402",
+       "altText": "Misty Blue technical crop top, Hero product shot at 3/4 angle on seamless backdrop in 'Sunlit Sand' or 'Warm Taupe'..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "54.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5753",
+      "handle": "technical-crop-top-in-eggshell",
+      "title": "Technical Crop Top in Eggshell",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/22abd7e537a51ebd0de3dc7c009c5059.png?v=14886425",
+       "altText": "Eggshell Technical Crop Top, Default to 3/4 angle for apparel sets\u2014showing technical details like seams and fabric drape..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "54.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5757",
+      "handle": "performance-tank-top-with-mesh-back",
+      "title": "Performance Tank Top with Mesh Back",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/e255a27eda499a56a7ac37561862099b.png?v=14820455",
+       "altText": "Performance tank top, Three-quarter angle as default\u2014product worn by model standing naturally near window or seated..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "52.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5763",
+      "handle": "cropped-technical-top-blush-ember",
+      "title": "Cropped Technical Top\u2014Blush Ember",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/baeae78a6c66231a2a47bd4497635747.png?v=14938463",
+       "altText": "Blush Ember cropped technical top, 3/4 angle as default; garments displayed on model against seamless pale backdrop with..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "64.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5768",
+      "handle": "flexfit-technical-workout-top",
+      "title": "FlexFit Technical Workout Top",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/05d1fdc2f6ed7fa2d300abc5c06bfe56.png?v=14980658",
+       "altText": "Stretch FlexFit Technical Workout Top, Hero product shots at 3/4 angle on waist-high plinth or simple bench in..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5808",
+      "handle": "high-rise-performance-leggings-with-sunrise-stretch",
+      "title": "High-rise performance leggings with sunrise stretch",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/337f336fffb989f48ba11181d54fc427.png?v=14836076",
+       "altText": "High-rise performance leggings, Three-quarter angle as default; garments draped or worn naturally on mannequin or model..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "88.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "114.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6020",
+      "handle": "cashmere-crewneck-with-ribbed-cuffs",
+      "title": "Cashmere crewneck with ribbed cuffs",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/5011a588d013c19e17c42fbef15d712a.png?v=15005665",
+       "altText": "Olive sage cotton romper for children, Single garment presented heroically on linen-draped form or lay-flat atop a..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "149.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6193",
+      "handle": "chore-jacket-tobacco-tan-duck-canvas",
+      "title": "Chore Jacket Tobacco Tan Duck Canvas",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/d22391ad3b338bcb304d79d8dad32f7d.png?v=14698772",
+       "altText": "Tobacco tan chore jacket, Single-garment shots styled as if naturally set down between use: shirt draped on workbench..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "128.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "166.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6199",
+      "handle": "branded-ripstop-workwear-set",
+      "title": "Branded ripstop workwear set",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/7d153294f2817cfc1a470aca45aaa525.png?v=14655510",
+       "altText": "Branded workwear set (jacket and pants), Single product/equipment shots at 3/4 angle on clean yet contextually relevant..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "179.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,28 @@
+{
+  "message": "Xcode 27.2 is now installed as the system Xcode (/Applications/Xcode.app, replacing 26.6). The iOS 27.2 Simulator runtime is downloading and should be available shortly. Continue: build for iOS and finish the remaining Done items.",
+  "sent_utc": "2026-11-10T12:54:49Z",
+  "transcript": "transcript-resume-1.jsonl",
+  "ended_utc": "2026-11-10T13:46:00Z",
+  "wall_seconds": 3070.8,
+  "exit_code": 0,
+  "result": {
+    "results": 1,
+    "final_subtype": "success",
+    "is_error": false,
+    "total_cost_usd": 25.42354759999999,
+    "num_turns": 108,
+    "duration_api_ms": 1868731,
+    "usage": {
+      "input_tokens": 206,
+      "cache_creation_input_tokens": 462167,
+      "cache_read_input_tokens": 40935444,
+      "output_tokens": 58090
+    },
+    "tool_calls": {
+      "Bash": 91,
+      "Read": 14,
+      "Write": 1
+    },
+    "final_message": "With Xcode 27.2 the iOS app builds and every Done item checks out on the iOS 27.2 Simulator, except the signed device build, which I didn't run. I checked the identifiers and the walkthrough with an XCUITest that drives the installed release build by bundle ID.\n\n**Done items on the release simulator build:**\n- **Identifiers:** XCUITest found every identifier in the spec's table.\n- **Walkthrough:** passes in full.\n  - Home loads, and each of the four sorts reloads the collection.\n  - The collection grid scrolls to the end of its products (4 pages).\n  - The product carousel swipes, the option pills switch the variant, a recommendation opens another product, and Back returns.\n  - Add to cart switches to Cart with the badge showing 1, and the stepper changes the subtotal from $75.00 to $150.00.\n  - Check out opens the checkout page in Safari's in-app view.\n  - Reducing the quantity to 0 removes the line and badge and shows the empty cart.\n  - Search returns results and scrolls.\n- **Error state:** launched with `SHOP_API_URL` pointing at a stopped local proxy, Home shows the error state. After I started the proxy, Retry loaded Home, and the proxy logged the request. That also confirms the launch-time endpoint override works.\n- **Log marker:** `SHOPBENCH home_ready` appears exactly once per launch (checked over two launches). The only other log lines from the app come from Apple's frameworks.\n- **First frame:** the app's first frame is the Home skeleton.\n- **Android:** after these changes the release APK still launches on the emulator and Home loads.\n\n**Bugs found on iOS and fixed:**\n- **Home was persisted between launches.** Exact saves the last answer of any data request that touches the native (Swift) module and shows it at the next launch. The endpoint lookup touched it, so Home came back from the previous session. That broke the no-persistence rule, the skeleton first frame, and the error state. The endpoint is now looked up once at launch in a separate step, and the data requests no longer touch the native module.\n- **The Cart summary sat under the tab bar on iOS**, because iOS lays each screen out full-height. The tab bar now sits over the screens, as in the design, and each tab screen leaves room for it.\n- **The cart badge** now has an accessibility label with the count, so XCUITest reads \"1\".\n\n**What's not verified, and one deviation:**\n- **Signed device build:** not run. No iPhone has been paired with this Mac, and running it would register the bundle ID and a provisioning profile in your Apple Developer account, which I didn't want to do without asking. The no-team device build does compile and package an arm64 release app (ad-hoc signed).\n- **Placeholder icon (deviation from \"no custom app icon\"):** for the no-team device build only, the script temporarily adds a plain white app icon and then restores `app.json`. That build has to use Exact's App Store-style packaging, which refuses to run without an icon. The signed, benchmarked build has no icon.\n- **Phone must be paired for the signed build:** Exact's signed device build needs the iPhone to have been connected to the Mac at least once. This is noted in `BUILD.md`.\n- **Cart error alert:** not seen, because nothing in the UI makes mock.shop return a cart error.\n- **Variant prices:** no mock.shop product has variants with different prices, so I could only confirm the price shown is the selected variant's.\n\nI also created a simulator named \"Everbloom iPhone 17 Pro (27.2)\" for these checks; you can delete it. `BUILD.md` and `NOTES.md` are updated with the toolchain versions and these results.\n\nFiles are in `/Users/itome/shopbench-runs/exact`:\n- `BUILD.md`\n- `NOTES.md`\n- `build/ios-simulator/Everbloom.app`\n- `build/ios-device/Everbloom.app`\n- `build/android/Everbloom-release.apk`"
+  }
+}

@@ -1,0 +1,531 @@
+{
+ "operationName": "CollectionProducts",
+ "variables": {
+  "first": 24,
+  "handle": "urban-transit-essentials",
+  "reverse": false,
+  "sortKey": "BEST_SELLING"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "collection": {
+    "id": "gid://shopify/Collection/653",
+    "title": "Urban Transit Essentials",
+    "description": "Functional layers crafted with earthy muted tones, a minimalist mood, and organic linen and cotton material language for daily commutes.",
+    "products": {
+     "pageInfo": {
+      "hasNextPage": true,
+      "endCursor": "eyJjIjoicG9zaXRpb24iLCJ2IjoyNCwiaSI6NTQ1MX0"
+     },
+     "nodes": [
+      {
+       "id": "gid://shopify/Product/4744",
+       "handle": "linen-blend-jacket",
+       "title": "Linen Blend Jacket",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/679f951ee6dd6d2dfec6073edb67ec5c.png?v=12702595",
+        "altText": "With soft, even, shadowless illumination. The product is perfectly centered with subtle soft shadow beneath for grounding...."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "75.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4745",
+       "handle": "organic-cotton-jacket",
+       "title": "Organic Cotton Jacket",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/91fdd7c32c1b8fb546313e016569c372.png?v=13105984",
+        "altText": "Saddle brown organic cotton jacket, 3/4 angle shots to capture the full silhouette and texture of the apparel. Use of..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "120.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4746",
+       "handle": "taupe-jacket",
+       "title": "Taupe Jacket",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/8353926d88dc935d0ae7b01037e02716.png?v=13166193",
+        "altText": "Taupe Jacket, Focus on a 3/4 angle to showcase the silhouette and fabric texture of each piece. Use a seamless white or..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "120.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4747",
+       "handle": "unisex-cotton-blend-jacket",
+       "title": "Unisex Cotton Blend Jacket",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/f910aa7e9ed2942816e53275701c547b.png?v=13089481",
+        "altText": "A unisex cotton blend jacket, emphasizing breathability and style, perfectly centered with soft, ensuring a contemporary..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "75.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4748",
+       "handle": "minimalist-linen-trench-coat-in-mushroom",
+       "title": "Minimalist linen trench coat in mushroom",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/1955e047651cbca3a0c3d03e34ec3d8d.png?v=14942365",
+        "altText": "Mushroom minimalist linen trench coat, Garment elegantly draped over a matte plaster block or hung from a simple wooden..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "264.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4749",
+       "handle": "casual-relaxed-fit-jacket",
+       "title": "Casual Relaxed Fit Jacket",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/089f56a1023b28c5992af211b2681f03.png?v=13012593",
+        "altText": "A casual jacket in Slate Blue, centered on a Soft Gray background, highlighting its relaxed fit and minimalist design. The..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "75.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4750",
+       "handle": "relaxed-fit-cotton-jacket",
+       "title": "Relaxed-Fit Cotton Jacket",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/85d8c4c545619b9dcc3142713b48da09.png?v=12759486",
+        "altText": "A relaxed-fit cotton jacket in warm taupe, perfectly centered on a solid sand beige background. The jacket is illuminated..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "75.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4751",
+       "handle": "oversized-cotton-jacket",
+       "title": "Oversized Cotton Jacket",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/50d4f5635d2318a0b3f870c566ecbafd.png?v=13187185",
+        "altText": "With soft, even illumination and a subtle soft shadow beneath it. The focus is on the jacket\u2019s layering and texture..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "120.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4752",
+       "handle": "contemporary-jacket",
+       "title": "Contemporary Jacket",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/58542dbff004fcae71619b84d1c7bf6e.png?v=13085761",
+        "altText": "Contemporary jacket, Focus on 3/4 camera angle to highlight the contours and details of the outfits. Use a clean,..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "120.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4753",
+       "handle": "terracotta-coat",
+       "title": "Terracotta Coat",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/931fbfbf002e582ad9a0d89b719894bc.png?v=13082865",
+        "altText": "Terracotta coat, Use a 3/4 angle to capture the complete silhouette and structure of the outerwear, showcasing key details..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "120.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4754",
+       "handle": "riverbank-taupe-heavy-cotton-field-coat",
+       "title": "Riverbank Taupe Heavy Cotton Field Coat",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/651c215c5e95fbcc503475378fe95e83.png?v=14816156",
+        "altText": "Riverbank Taupe heavy cotton field coat, Outerwear displayed on model at a three-quarter angle standing against a clean..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "265.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4755",
+       "handle": "earth-beige-vest",
+       "title": "Earth Beige Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/2a7e1fd4540d1c4f39b7a5886d956b50.png?v=13154273",
+        "altText": "Earth Beige vest, For product shots, use a 3/4 angle to capture the vest's texture and details. Backgrounds should be..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "45.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4756",
+       "handle": "saddle-brown-cotton-vest",
+       "title": "Saddle Brown Cotton Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/5caed4340e67f5e1047a39b2dd3a6652.png?v=13012536",
+        "altText": "A Saddle Brown cotton vest perfectly centered in the frame against a neutral light beige background. The vest is..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "45.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4757",
+       "handle": "utility-vest",
+       "title": "Utility Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/63401e26fdff77d741efa2116465f91d.png?v=13054160",
+        "altText": "A sturdy utility vest in Utility White displayed on a light gray background. The vest is centered in the frame,..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "75.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4758",
+       "handle": "arbeitsweste-canvas-sandfarben",
+       "title": "Sand-colored canvas work vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/0aee3616c94774cd7c1616c043c5f0be.png?v=14664935",
+        "altText": "Tan Canvas Work Vest, 3/4 angle product shots on textured neutral surfaces (rough wood table or concrete slab), perfectly..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "89.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4759",
+       "handle": "sandstone-cotton-drill-vest",
+       "title": "Sandstone Cotton Drill Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/f5bfebc1b1da7c2c14880b6052729f32.png?v=12781777",
+        "altText": "Sandstone cotton drill vest, perfectly centered on an ivory background. The vest is well-lit with soft, even illumination,..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "75.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4760",
+       "handle": "heavyweight-cotton-workwear-vest",
+       "title": "Heavyweight Cotton Workwear Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/298e1456515e99c1fb962eee6a93215e.png?v=12669998",
+        "altText": "A versatile workwear vest, made from heavyweight cotton, displayed on a simple teal green background. The vest is..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "45.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4761",
+       "handle": "unisex-cotton-vest",
+       "title": "Unisex Cotton Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/ce99e8fd60bcb98355b9b73a7c43c76c.png?v=13025976",
+        "altText": "A versatile, unisex cotton vest in chestnut brown, positioned centrally against an ivory mist backdrop. Soft, even..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "45.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4762",
+       "handle": "terracotta-vest",
+       "title": "Terracotta Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/a8e1c13111aac4bde677ff713a233e66.png?v=12614648",
+        "altText": "A perfectly centered shot of a Terracotta vest on a mannequin against a simple white backdrop. The vest's stylish design..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "75.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4763",
+       "handle": "utility-vest-in-faded-terracotta",
+       "title": "Utility vest in faded terracotta",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/c91400682c642b79095a4f6a7b85845c.png?v=14595230",
+        "altText": "Faded Terracotta utility vest, Three-quarter product portraits on textured matte surfaces in daylight \u2014 each garment..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "72.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4764",
+       "handle": "sleek-travel-vest",
+       "title": "Sleek Travel Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/38732e54c3c015c3d85b265a0278fbc7.png?v=13208148",
+        "altText": "A travel vest displayed in a perfectly centered, straight-on side view against a neutral, slightly textured backdrop,..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "75.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5494",
+       "handle": "oversized-cotton-coat-in-shadowed-bark",
+       "title": "Oversized Cotton Coat in Shadowed Bark",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/22ce6fb8cf0609e570446b62426df513.png?v=15023385",
+        "altText": "Shadowed Bark oversized cotton coat, Hero angle: 45-degree product portraits or close-up flat lays on textured neutral..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "249.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5495",
+       "handle": "tan-trend-jacket",
+       "title": "Tan Trend Jacket",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/991ea6fa820679fd87421abbda9a4314.png?v=13184660",
+        "altText": "Tan Trend Jacket, Focus on a 3/4 angle shot for clothing items, like Urban Slate, to provide contrast and make the product..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "75.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5496",
+       "handle": "winter-insulated-cotton-overcoat",
+       "title": "Winter Insulated Cotton Overcoat",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/cf3bdfe335b3787aac3f6eeb67de4c29.png?v=15076206",
+        "altText": "Winter insulated cotton overcoat, Default to a three-quarter angle that highlights garment layering and fabric texture..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "168.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "218.4",
+         "currencyCode": "USD"
+        }
+       }
+      }
+     ]
+    }
+   }
+  }
+ }
+}

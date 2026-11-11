@@ -1,0 +1,526 @@
+{
+ "operationName": "Search",
+ "variables": {
+  "after": "eyJjIjoiaWQiLCJ2Ijo0OTA4LCJpIjo0OTA4fQ",
+  "first": 24,
+  "query": "j"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "search": {
+    "totalCount": 252,
+    "pageInfo": {
+     "hasNextPage": true,
+     "endCursor": "eyJjIjoiaWQiLCJ2Ijo1NDk4LCJpIjo1NDk4fQ"
+    },
+    "nodes": [
+     {
+      "id": "gid://shopify/Product/4909",
+      "handle": "adjustable-bracelet",
+      "title": "Adjustable Bracelet",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/4558a26a81d7c1be13d25bb3ee562ef6.png?v=13186472",
+       "altText": "Adjustable bracelet, use a 3/4 angle that highlights the texture and craftsmanship of each piece. Arrange necklaces and..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "75.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "97.5",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4910",
+      "handle": "collier-superpose-gres-creme",
+      "title": "Cream sandstone layered necklace",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/ee1d2dfe13afdf15d2fa8ca4b81a2bc0.png?v=15025519",
+       "altText": "Sandstone Cream layered necklace, Three-quarter angle on product placed atop stone or draped over linen; background softly..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "78.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4911",
+      "handle": "statement-semi-precious-stone-necklace",
+      "title": "Statement Semi-Precious Stone Necklace",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/3f4d70a6ce528db921b8ad9456cef3b6.png?v=14753180",
+       "altText": "Statement semi-precious stone necklace, Hero product shots: 3/4 angle on sculptural ring or earring placed on..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "225.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4914",
+      "handle": "linen-family-coordinated-set",
+      "title": "Linen family coordinated set",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/6bfae103231668db7f43866e8148cf04.png?v=14696072",
+       "altText": "Coordinated linen family clothing set, Single product or coordinated set on seamless matte backdrop in 'Cloud White' or..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "142.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4915",
+      "handle": "children-s-linen-jumpsuit-with-motif-tag",
+      "title": "Children's Linen Jumpsuit with Motif Tag",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/afa168515cf813e0317373d726369466.png?v=14958223",
+       "altText": "Children's linen jumpsuit with hand-drawn motif tag, Hero product shots use a 3/4 angle on torso mannequins or flat lays..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "54.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "70.2",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4917",
+      "handle": "eco-friendly-pajama-shorts",
+      "title": "Eco-friendly Pajama Shorts",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/abfe1bc555a47adcf29078667fe8d0f9.png?v=13165638",
+       "altText": "Eco-friendly pajama shorts, Opt for a 3/4 angle to showcase the fabric's texture and craftsmanship. Arrange sleepwear sets..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "35.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "45.5",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4926",
+      "handle": "heathered-fleece-hoodie-with-kangaroo-pocket",
+      "title": "Heathered Fleece Hoodie with Kangaroo Pocket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/782186acd4d6b6440edfda77af4ca920.png?v=14825037",
+       "altText": "Heathered fleece hoodie, Default angle is a clean 3/4 front shot on tabletop or draped over a back of a chair\u2014shows..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "68.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "88.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4933",
+      "handle": "latte-suede-mesh-40mm-watch",
+      "title": "Latte suede mesh 40mm watch",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/5282a65d35f64616ebe009b01a4e411e.png?v=15080892",
+       "altText": "Latte Suede Mesh 40mm watch, Watch product shots use a 3/4 wrist angle on a neutral-toned surface or worn on a wrist..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "560.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4938",
+      "handle": "reloj-analogico-correa-cuero-ocre",
+      "title": "Ochre leather strap analog watch",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/d0341d0d5399e07b329274efa7dae500.png?v=15012692",
+       "altText": "Ochre Clay leather strap analog wristwatch, 3/4 angle hero shot is default: watch positioned elegantly atop linen-draped..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "89.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4943",
+      "handle": "slate-stainless-steel-quartz-watch",
+      "title": "Slate Stainless Steel Quartz Watch",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/9e2d84b6cc583f15c2c585a94514356e.png?v=14772000",
+       "altText": "Slate stainless steel quartz watch, Default angle: 3/4 view of watch on wrist atop textured surface (linen or wood),..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "28.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "36.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4945",
+      "handle": "stone-beige-heritage-edition-wristwatch",
+      "title": "Stone beige heritage edition wristwatch",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/0e43597f7b1e44f7fb29077d764b63a3.png?v=14971369",
+       "altText": "Stone Beige Heritage Edition wristwatch, hands naturally posed (never stiff). Occasional macro shots highlight dial..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "1950.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4950",
+      "handle": "thinline-watch-with-gold-plated-case",
+      "title": "Thinline watch with gold-plated case",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/9450afc7db06a9f30aa9bd2260408602.png?v=14736196",
+       "altText": "Hamilton Jazzmaster Thinline watch, Default: three-quarter angle on single watch elevated on a linen pad or marble plinth..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "780.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4963",
+      "handle": "premium-beard-grooming-kit-with-argan-oil",
+      "title": "Premium beard grooming kit with argan oil",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/78ce88e14df8a166e962d266728e9994.png?v=14941338",
+       "altText": "Premium beard grooming kit, Soft Pearl wall). Arrangement feels casual but intentional\u2014products slightly angled as if just..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "48.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4971",
+      "handle": "marine-slate-soy-candle",
+      "title": "Marine Slate Soy Candle",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/a8a34dfc3becd69012c492701fd869a0.png?v=15081713",
+       "altText": "Marine Slate scented candle in matte glass jar, Primary angle is a clean 3/4 view at eye-level to slightly above \u2014 this..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "44.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "57.2",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4975",
+      "handle": "combinaison-de-travail-coton-renforce",
+      "title": "Reinforced cotton work coverall",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/f4730d2f9a72f2609dac401f7fe703b8.png?v=14939436",
+       "altText": "Workwear coverall, Default to 3/4 angle shots that show garment structure and fit clearly on body forms or live models;..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "34.5",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4979",
+      "handle": "steel-jumpsuit",
+      "title": "Steel Jumpsuit",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/e17d7c9ffb8abb8fb4754771dfd3675b.png?v=13100292",
+       "altText": "Steel jumpsuit, For product shots, use a three-quarter angle to showcase the jumpsuits' tailoring and detailing. The..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "75.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "97.5",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4983",
+      "handle": "charcoal-brown-textured-jacket",
+      "title": "Charcoal Brown Textured Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/b2eb5ae5e5d427718df6bb57d6d1da1a.png?v=13170651",
+       "altText": "A Charcoal Brown jacket perfectly centered on an earthy-toned backdrop. Soft, with the 50mm lens capturing a detailed and..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "120.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4984",
+      "handle": "tan-jumpsuit",
+      "title": "Tan Jumpsuit",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/81eb59b39e0067af4f5a9aece6fa8cdc.png?v=13147761",
+       "altText": "Tan jumpsuit, Use a 3/4 camera angle to capture the jumpsuit's silhouette and innovative features like hidden pockets and..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "75.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4993",
+      "handle": "soft-cotton-chore-jacket-indigo-wash",
+      "title": "Soft Cotton Chore Jacket Indigo Wash",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/5b583291083e413a4d50d75fabd9f5e7.png?v=15055989",
+       "altText": "Soft cotton chore jacket, Default: 3/4 angle product portraits on seamless backgrounds in Wheat Flour or Sage..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "129.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5494",
+      "handle": "oversized-cotton-coat-in-shadowed-bark",
+      "title": "Oversized Cotton Coat in Shadowed Bark",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/22ce6fb8cf0609e570446b62426df513.png?v=15023385",
+       "altText": "Shadowed Bark oversized cotton coat, Hero angle: 45-degree product portraits or close-up flat lays on textured neutral..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "249.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5495",
+      "handle": "tan-trend-jacket",
+      "title": "Tan Trend Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/991ea6fa820679fd87421abbda9a4314.png?v=13184660",
+       "altText": "Tan Trend Jacket, Focus on a 3/4 angle shot for clothing items, like Urban Slate, to provide contrast and make the product..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "75.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5496",
+      "handle": "winter-insulated-cotton-overcoat",
+      "title": "Winter Insulated Cotton Overcoat",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/cf3bdfe335b3787aac3f6eeb67de4c29.png?v=15076206",
+       "altText": "Winter insulated cotton overcoat, Default to a three-quarter angle that highlights garment layering and fabric texture..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "168.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "218.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5497",
+      "handle": "linen-lightweight-outerwear-jacket-with-natural-texture",
+      "title": "Linen Lightweight Outerwear Jacket with Natural Texture",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/2a5cabaaeaf474ada9870bf160feb05f.png?v=14636148",
+       "altText": "Linen lightweight outerwear jacket, Hero product shots at 45\u00b0 (3/4) angle on elevated surfaces like driftwood planks or..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "129.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "167.7",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5498",
+      "handle": "blazer-desestructurado-botones-metalicos",
+      "title": "Unstructured blazer with metallic buttons",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/83cc434c5d07921f22d36f5412d29265.png?v=15097371",
+       "altText": "Unstructured blazer with metallic buttons, Three-quarter angle as default for apparel (on invisible mannequin or flat..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "149.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

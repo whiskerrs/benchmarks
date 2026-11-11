@@ -1,0 +1,50 @@
+Application, 0x107c730c0, pid: 94062, label: 'Everbloom' <App element pid: 94062>
+  Window (Main), 0x107c726c0, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 94062, elementOrHash.elementID: 4710547456.4>
+    Other, 0x107c72300, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 94062, elementOrHash.elementID: 4719333760.5>
+      Other, 0x107c71b80, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 94062, elementOrHash.elementID: 4719334400.6>
+        Other, 0x107c72940, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 94062, elementOrHash.elementID: 4719382464.7>
+          Other, 0x107c72800, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 94062, elementOrHash.elementID: 4345293312.8>
+            Other, 0x107c73c00, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 94062, elementOrHash.elementID: 4345293760.9>
+              Other, 0x107c72e40, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 94062, elementOrHash.elementID: 482463214592.5152>
+                Other, 0x107c73d40, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 94062, elementOrHash.elementID: 482464956416.5153>
+                  Other, 0x107c73e80, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 94062, elementOrHash.elementID: 482464944640.5155>
+                    Other, 0x107c72a80, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 94062, elementOrHash.elementID: 482464960000.5157>
+                      Other, 0x107c73840, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 94062, elementOrHash.elementID: 482464960896.5158>
+                        Other, 0x107c72440, {{0.0, 0.0}, {402.0, 106.0}} <AX element pid: 94062, elementOrHash.elementID: 482464961344.5159>
+                          StaticText, 0x107c72bc0, {{16.0, 71.0}, {370.0, 26.3}}, label: 'Cart' <AX element pid: 94062, elementOrHash.elementID: 482463231872.5162>
+                        ScrollView, 0x107c73700, {{0.0, 106.0}, {402.0, 589.0}} <AX element pid: 94062, elementOrHash.elementID: 482248943616.5160>
+                          Other, 0x107c72d00, {{0.0, 106.0}, {402.0, 589.0}} <AX element pid: 94062, elementOrHash.elementID: 482464962688.5163>
+                            Other, 0x107c73980, {{0.0, 106.0}, {402.0, 589.0}} <AX element pid: 94062, elementOrHash.elementID: 482464963136.5169>
+                              Other, 0x107c73ac0, {{16.0, 106.0}, {370.0, 140.0}}, identifier: 'cart-line-0' <AX element pid: 94062, elementOrHash.elementID: 482464965376.5175>
+                                Image, 0x107c71540, {{16.0, 122.0}, {80.0, 107.0}} <AX element pid: 94062, elementOrHash.elementID: 482464976640.5176>
+                                Other, 0x107c708c0, {{108.0, 122.0}, {278.0, 107.0}} <AX element pid: 94062, elementOrHash.elementID: 482464965824.5177>
+                                  StaticText, 0x104de7340, {{108.0, 122.0}, {278.0, 18.0}}, label: 'Linen Blend Jacket' <AX element pid: 94062, elementOrHash.elementID: 482464977280.5178>
+                                  StaticText, 0x104de7200, {{108.0, 144.0}, {278.0, 15.7}}, label: 'Matte' <AX element pid: 94062, elementOrHash.elementID: 482464977920.5179>
+                                  Other, 0x104de7980, {{108.0, 193.0}, {278.0, 36.0}} <AX element pid: 94062, elementOrHash.elementID: 482464966272.5180>
+                                    Other, 0x104de7ac0, {{108.0, 193.0}, {98.0, 36.0}} <AX element pid: 94062, elementOrHash.elementID: 482464966720.5181>
+                                      Other, 0x104de5180, {{109.0, 194.0}, {36.0, 34.0}}, identifier: 'qty-dec-0', label: 'Decrease quantity' <AX element pid: 94062, elementOrHash.elementID: 482464967168.5183>
+                                        Other, 0x104de6f80, {{119.0, 203.0}, {16.0, 16.0}} <AX element pid: 94062, elementOrHash.elementID: 482464967616.5186>
+                                      Other, 0x104de70c0, {{169.0, 194.0}, {36.0, 34.0}}, identifier: 'qty-inc-0', label: 'Increase quantity' <AX element pid: 94062, elementOrHash.elementID: 482464968064.5184>
+                                        Other, 0x104de52c0, {{179.0, 203.0}, {16.0, 16.0}} <AX element pid: 94062, elementOrHash.elementID: 482464968512.5187>
+                                      StaticText, 0x104de7840, {{145.0, 202.0}, {24.0, 18.0}}, label: '1' <AX element pid: 94062, elementOrHash.elementID: 482464978560.5185>
+                                    StaticText, 0x104de6e40, {{333.7, 202.0}, {52.3, 18.0}}, label: '$75.00' <AX element pid: 94062, elementOrHash.elementID: 482464979200.5182>
+                          Other, 0x112574000, {{369.0, 106.0}, {30.0, 589.0}}, label: 'Vertical scroll bar, 1 page', value: 0% <AX element pid: 94062, elementOrHash.elementID: 482464948224.5164>
+                            Other, 0x112574140, {{396.0, 685.0}, {3.0, 7.0}} <AX element pid: 94062, elementOrHash.elementID: 482464969408.5170>
+                          Other, 0x112574280, {{0.0, 662.0}, {402.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0% <AX element pid: 94062, elementOrHash.elementID: 482464947200.5165>
+                            Other, 0x1125743c0, {{392.0, 689.0}, {7.0, 3.0}} <AX element pid: 94062, elementOrHash.elementID: 482464968960.5171>
+                          Other, 0x112574500, {{369.0, 106.0}, {30.0, 589.0}}, label: 'Vertical scroll bar, 1 page', value: 0% <AX element pid: 94062, elementOrHash.elementID: 482464948224.5164>
+                            Other, 0x112574640, {{396.0, 685.0}, {3.0, 7.0}} <AX element pid: 94062, elementOrHash.elementID: 482464969408.5170>
+                          Other, 0x112574780, {{0.0, 662.0}, {402.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0% <AX element pid: 94062, elementOrHash.elementID: 482464947200.5165>
+                            Other, 0x1125748c0, {{392.0, 689.0}, {7.0, 3.0}} <AX element pid: 94062, elementOrHash.elementID: 482464968960.5171>
+                        Other, 0x112574a00, {{0.0, 695.0}, {402.0, 179.0}} <AX element pid: 94062, elementOrHash.elementID: 482464963584.5161>
+                          Other, 0x112574b40, {{16.0, 712.0}, {370.0, 20.3}} <AX element pid: 94062, elementOrHash.elementID: 482464964032.5166>
+                            StaticText, 0x112574c80, {{16.0, 714.3}, {312.0, 18.0}}, label: 'Subtotal' <AX element pid: 94062, elementOrHash.elementID: 482464973440.5172>
+                            StaticText, 0x112574dc0, {{328.0, 712.0}, {58.0, 20.3}}, identifier: 'cart-subtotal', label: '$75.00' <AX element pid: 94062, elementOrHash.elementID: 482464974080.5173>
+                          StaticText, 0x112574f00, {{16.0, 744.3}, {370.0, 15.7}}, label: 'Taxes and shipping are calculated at checkout.' <AX element pid: 94062, elementOrHash.elementID: 482464974720.5167>
+                          Button, 0x112575040, {{16.0, 772.0}, {370.0, 52.0}}, identifier: 'checkout', label: 'Check out' <AX element pid: 94062, elementOrHash.elementID: 482177013888.5168>
+                            StaticText, 0x112575180, {{162.7, 788.0}, {77.0, 20.0}}, label: 'Check out' <AX element pid: 94062, elementOrHash.elementID: 482464946176.5174>
+                Toolbar, 0x1125752c0, {{0.0, 0.0}, {402.0, 874.0}}, identifier: 'Toolbar', label: 'Toolbar' <AX element pid: 94062, elementOrHash.elementID: 482464942592.5154>
+                  Other, 0x112575400, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 94062, elementOrHash.elementID: 482464824320.5156>
+  Window, 0x112575540, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 94062, elementOrHash.elementID: 482173540608.3110>
+    Other, 0x112575680, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 94062, elementOrHash.elementID: 482174874624.3112>
+      Other, 0x1125757c0, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 94062, elementOrHash.elementID: 482174875648.3114>

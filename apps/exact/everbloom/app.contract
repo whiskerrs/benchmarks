@@ -1,0 +1,431 @@
+// Everbloom: the view. app.ts answers what it asks for (the Storefront API).
+use openBrowser, BrowserResult from "@exact/in-app-browser"
+use Icon, BackIcon, ProductCard, MiniCard, Skeleton, ErrorState, Spinner from "./parts.contract"
+use Card, CardRow, ResultRow, ProductDetail, Variant from "./shapes.contract"
+use ProductScreen from "./product.contract"
+
+routes nav
+  tab home "/"
+    collection "/collection/:handle"
+    product "/product/:handle"
+  tab search "/search"
+  tab cart "/cart"
+
+shape Collection
+  id: string
+  handle: string
+  title: string
+  banner: string
+  image: string
+
+shape Home
+  loaded: bool
+  collections: Collection[]
+  best: Card[]
+
+shape CollectionPage
+  key: string
+  loaded: bool
+  title: string
+  description: string
+  hasNext: bool
+  rows: CardRow[]
+
+shape SearchPage
+  query: string
+  loaded: bool
+  total: number
+  hasNext: bool
+  results: ResultRow[]
+
+shape Products
+  items: ProductDetail[]
+
+shape Line
+  id: string
+  index: number
+  title: string
+  variant: string
+  image: string
+  quantity: number
+  total: string
+
+shape Cart
+  id: string
+  checkoutUrl: string
+  totalQuantity: number
+  subtotal: string
+  lines: Line[]
+
+shape CartReply
+  seq: number
+  ok: bool
+  error: string
+  cart: Cart
+
+shape Ack
+  ok: bool
+
+shape Endpoint
+  url: string
+
+shape SortChip
+  id: string
+  label: string
+
+fn sortChips(): SortChip[] = [SortChip(id="featured", label="Featured"), SortChip(id="best-selling", label="Best selling"), SortChip(id="price-asc", label="Price: low to high"), SortChip(id="price-desc", label="Price: high to low")]
+fn collectionTitle(cs: Collection[], handle: string): string = match first(cs.filter(c => c.handle == handle)) { case some(c) => c.title, case none => "" }
+fn emptyCart(): Cart = Cart(id="", checkoutUrl="", totalQuantity=0, subtotal="$0.00", lines=[])
+
+component App
+  state sort = "featured"
+  state pages = 1
+  state query = ""
+  state submitted = ""
+  state searchPages = 1
+  state goCartAfter = false
+  state readyLogged = false
+  state alertText = ""
+  derive collectionHandle = match first(nav.tabs.filter(t => t.name == "home").map(t => t.stack).flat().filter(e => e.name == "collection")) { case some(e) => e.params.handle, case none => "" }
+  derive productHandles = nav.tabs.map(t => t.stack.filter(e => e.name == "product").map(e => e.params.handle)).flat()
+  // The endpoint comes from a mutation, so no resource reads the native module: Exact keeps a
+  // device-reading resource's answer across launches, and this app persists nothing.
+  mutation configured as shape Endpoint
+  derive api = match configured { case some(e) => e.url, case none => "" }
+  resource home = loadHome(api) as shape Home else empty(loaded=false)
+  resource coll = loadCollection(api, collectionHandle, sort, pages) as shape CollectionPage else empty(loaded=false)
+  resource found = searchProducts(api, submitted, searchPages) as shape SearchPage else empty(loaded=false)
+  resource products = loadProducts(api, productHandles) as shape Products else empty()
+  mutation cartOp as shape CartReply queue then afterCart
+  mutation logged as shape Ack
+  mutation browsed as shape BrowserResult
+  derive cart = match cartOp { case some(r) => r.cart, case none => emptyCart() }
+  derive collKey = `${collectionHandle}|${sort}`
+  derive collReady = coll.loaded and coll.key == collKey
+  derive searchReady = found.loaded and found.query == submitted.trim()
+  derive hideTabs = top(nav).name == "product"
+
+  task configure mount
+    after(1, configure)
+  task ready when home.loaded and not readyLogged
+    after(1, markReady)
+  task debounce when query != submitted key=query
+    after(300, commitQuery)
+
+  action configure
+    send configured = shopEndpoint()
+  action markReady
+    readyLogged = true
+    send logged = homeReady()
+  action pick(name: string)
+    nav = select(nav, name)
+  action follow(url: string)
+    nav = go(nav, url)
+  action goBack
+    nav = back(nav)
+  action openCollection(handle: string)
+    sort = "featured"
+    pages = 1
+    nav = push(nav, path("collection", handle))
+  action openProduct(handle: string)
+    nav = push(nav, path("product", handle))
+  action retryHome
+    refresh home
+  action pickSort(id: string)
+    sort = id
+    pages = 1
+  action moreCollection
+    if collReady and coll.hasNext and not pending(coll) and not failed(coll)
+      pages = pages + 1
+  action retryCollection
+    refresh coll
+  action typed(v: string)
+    query = v
+  action commitQuery
+    submitted = query
+    searchPages = 1
+  action moreSearch
+    if searchReady and found.hasNext and not pending(found) and not failed(found)
+      searchPages = searchPages + 1
+  action retrySearch
+    refresh found
+  action retryProducts
+    refresh products
+  action add(variantId: string)
+    goCartAfter = true
+    send cartOp = addToCart(api, variantId)
+  action setQuantity(lineId: string, quantity: number)
+    send cartOp = updateLine(api, lineId, quantity)
+  action afterCart
+    match cartOp
+      case some(r)
+        if r.error != ""
+          alertText = r.error
+          goCartAfter = false
+          showModal("cart-alert")
+        else if goCartAfter
+          goCartAfter = false
+          nav = select(nav, "cart")
+      case none
+        goCartAfter = false
+  action checkout
+    if cart.checkoutUrl != ""
+      send browsed = openBrowser(url=cart.checkoutUrl)
+  action shop
+    nav = select(nav, "home")
+
+  view
+    main viewport-fit="cover" navigationKey=`${top(nav).id}` navigationBack="back" navigate=follow testId="app"
+      width="100%" height="100%" display="flex" flex-direction="column" background-color="#FFFFFF" color="#1C1B19"
+      column flex=1 min-height=0 position="relative"
+        for t in nav.tabs key=t.name
+          column role="tabpanel" id=`panel-${t.name}` position="absolute" inset=0
+            for e in t.stack key=e.id
+              // The tab bar lies over the screens (on iOS each route is laid out full-screen behind it), so a
+              // screen that shows it leaves room for it.
+              column navigationKey=`${e.id}` navigationBar="none" navigationScroll=`content-${e.id}`
+                position="absolute" inset=0 display="flex" flex-direction="column" background-color="#FFFFFF"
+                padding-bottom=(e.name == "product" ? "0px" : "calc(49px + env(safe-area-inset-bottom))")
+                if e.name == "home"
+                  if home.loaded
+                    scroll id=`content-${e.id}` testId="home-scroll" flex=1 min-height=0
+                      column padding-top="env(safe-area-inset-top)" padding-bottom=24
+                        row height=44 padding-left=16 padding-right=16 align-items="center"
+                          text "Everbloom" font-size=22 font-weight=700 letter-spacing=-0.4
+                        scroll overflow-x="auto" overflow-y="hidden"
+                          row gap=8 padding-top=8 padding-bottom=12 padding-left=16 padding-right=16
+                            for c, i in home.collections key=c.id
+                              button press=openCollection(c.handle) testId=`collection-chip-${i}` aria-label=c.title appearance="none"
+                                flex-shrink=0 height=36 padding-left=14 padding-right=14 border-radius=999 background-color="#F4F1EC"
+                                display="flex" align-items="center"
+                                text c.title font-size=14 font-weight=500 white-space="nowrap" color="#1C1B19"
+                        for c in home.collections.slice(0, 1) key=c.id
+                          button press=openCollection(c.handle) testId="featured-collection" aria-label=c.title appearance="none"
+                            margin-top=4 margin-left=16 margin-right=16 height=240 border-radius=12 overflow="hidden"
+                            position="relative" background-color="#F4F1EC" display="block" text-align="start"
+                            image c.banner width="100%" height="100%" object-fit="cover" alt=""
+                            column position="absolute" left=0 right=0 bottom=0 padding=16 gap=2 background-color="rgba(28, 27, 25, 0.72)"
+                              text "FEATURED COLLECTION" font-size=12 font-weight=600 letter-spacing=0.6 color="#FFFFFF"
+                              text c.title font-size=20 font-weight=700 color="#FFFFFF"
+                              text "Shop now" font-size=14 color="#FFFFFF"
+                        row padding-top=28 padding-bottom=12 padding-left=16 padding-right=16
+                          text "Collections" role="heading" aria-level=2 font-size=17 font-weight=700
+                        scroll overflow-x="auto" overflow-y="hidden"
+                          row gap=12 padding-left=16 padding-right=16 align-items="flex-start"
+                            for c, i in home.collections key=c.id
+                              button press=openCollection(c.handle) testId=`collection-card-${i}` aria-label=c.title appearance="none"
+                                flex-shrink=0 width=140 display="flex" flex-direction="column" gap=8 text-align="start"
+                                image c.image width=140 height=175 object-fit="cover" border-radius=8 background-color="#F4F1EC" alt=""
+                                text c.title font-size=14 font-weight=600 line-height="18px" color="#1C1B19"
+                        row padding-top=28 padding-bottom=12 padding-left=16 padding-right=16
+                          text "Best sellers" role="heading" aria-level=2 font-size=17 font-weight=700
+                        view display="grid" grid-template-columns="minmax(0, 1fr) minmax(0, 1fr)" column-gap=12 row-gap=20
+                          padding-left=16 padding-right=16
+                          for p in home.best key=p.id
+                            ProductCard(card=p, testId=`best-seller-${p.index}`, open=openProduct)
+                  else if failed(home) and not pending(home)
+                    column flex=1 min-height=0 padding-top="env(safe-area-inset-top)"
+                      row height=44 padding-left=16 padding-right=16 align-items="center"
+                        text "Everbloom" font-size=22 font-weight=700 letter-spacing=-0.4
+                      ErrorState(retry=retryHome)
+                  else
+                    column flex=1 min-height=0 padding-top="env(safe-area-inset-top)" overflow="hidden" testId="home-loading"
+                      row height=44 padding-left=16 padding-right=16 align-items="center"
+                        text "Everbloom" font-size=22 font-weight=700 letter-spacing=-0.4
+                      row gap=8 padding-top=8 padding-bottom=12 padding-left=16 padding-right=16
+                        Skeleton(width=52, height=36, radius=999)
+                        Skeleton(width=110, height=36, radius=999)
+                        Skeleton(width=96, height=36, radius=999)
+                        Skeleton(width=80, height=36, radius=999)
+                      view margin-top=4 margin-left=16 margin-right=16 height=240 border-radius=12 background-color="#EDE9E3"
+                      row padding-top=28 padding-bottom=12 padding-left=16
+                        Skeleton(width=120, height=18, radius=4)
+                      row gap=12 padding-left=16
+                        Skeleton(width=140, height=175, radius=8)
+                        Skeleton(width=140, height=175, radius=8)
+                        Skeleton(width=140, height=175, radius=8)
+                if e.name == "collection"
+                  column flex=1 min-height=0 padding-top="env(safe-area-inset-top)"
+                    row height=44 padding-left=8 padding-right=8 align-items="center"
+                      button id="back" press=goBack testId="back" aria-label="Back" appearance="none"
+                        width=44 height=44 display="flex" align-items="center" justify-content="center" color="#1C1B19"
+                        BackIcon(size=24)
+                      text (collReady ? coll.title : collectionTitle(home.collections, e.params.handle)) role="heading" aria-level=1
+                        flex=1 min-width=0 text-align="center" font-size=17 font-weight=600 white-space="nowrap" overflow="hidden" text-overflow="ellipsis"
+                      view width=44 height=44
+                    if collReady and coll.description != ""
+                      text coll.description padding-top=4 padding-left=16 padding-right=16 font-size=14 line-height="20px" color="#6E6A63"
+                    scroll overflow-x="auto" overflow-y="hidden" flex-shrink=0
+                      row gap=8 padding=12 padding-left=16 padding-right=16 role="radiogroup" aria-label="Sort" appearance="none"
+                        for s in sortChips() key=s.id
+                          button role="radio" aria-checked=(sort == s.id) press=pickSort(s.id) testId=`sort-${s.id}` appearance="none"
+                            flex-shrink=0 height=32 padding-left=12 padding-right=12 border-radius=999 border-width=1 border-style="solid"
+                            border-color=(sort == s.id ? "#1C1B19" : "#E6E1D9") background-color=(sort == s.id ? "#1C1B19" : "#FFFFFF")
+                            display="flex" align-items="center"
+                            text s.label font-size=13 font-weight=(sort == s.id ? 600 : 500) white-space="nowrap" color=(sort == s.id ? "#FFFFFF" : "#1C1B19")
+                    if collReady
+                      list id=`content-${e.id}` virtualized=true appearance="none" testId="product-grid" flex=1 min-height=0
+                        reachend=moreCollection reach-margin="100%" estimated-item-height=330
+                        for r in coll.rows.concat(pending(coll) ? [CardRow(key="loading", kind="loading", cards=[])] : failed(coll) ? [CardRow(key="error", kind="error", cards=[])] : []) key=r.key
+                          column
+                            if r.kind == "cards"
+                              row gap=12 padding-left=16 padding-right=16 padding-bottom=20 align-items="flex-start"
+                                for p in r.cards key=p.id
+                                  column flex=1 min-width=0
+                                    ProductCard(card=p, testId=`product-card-${p.index}`, open=openProduct)
+                                if r.cards.length == 1
+                                  view flex=1 min-width=0
+                            else if r.kind == "loading"
+                              row justify-content="center" padding=16
+                                Spinner()
+                            else
+                              column align-items="center" gap=8 padding=16
+                                text "Couldn’t load products" font-size=15 font-weight=600
+                                button press=retryCollection testId="error-retry" appearance="none" height=40 padding-left=20 padding-right=20
+                                  border-radius=12 border-width=1 border-style="solid" border-color="#1C1B19" background-color="#FFFFFF"
+                                  text "Retry" font-size=15 font-weight=600 color="#1C1B19"
+                    else if failed(coll) and not pending(coll)
+                      ErrorState(retry=retryCollection)
+                    else
+                      column flex=1 min-height=0 overflow="hidden" padding-left=16 padding-right=16 gap=20
+                        for i in [0, 1, 2] key=i
+                          row gap=12
+                            column flex=1 min-width=0 gap=8
+                              view aspect-ratio="3 / 4" border-radius=8 background-color="#EDE9E3"
+                              Skeleton(width=120, height=14, radius=4)
+                            column flex=1 min-width=0 gap=8
+                              view aspect-ratio="3 / 4" border-radius=8 background-color="#EDE9E3"
+                              Skeleton(width=120, height=14, radius=4)
+                if e.name == "product"
+                  match first(products.items.filter(p => p.handle == e.params.handle))
+                    case some(p)
+                      if p.status == "ok"
+                        ProductScreen(detail=p, scrollId=`content-${e.id}`, busy=pending(cartOp), add=add, open=openProduct, back=goBack)
+                      else
+                        column flex=1 min-height=0 padding-top="env(safe-area-inset-top)"
+                          row height=44 padding-left=8 align-items="center"
+                            button id="back" press=goBack testId="back" aria-label="Back" appearance="none"
+                              width=44 height=44 display="flex" align-items="center" justify-content="center" color="#1C1B19"
+                              BackIcon(size=24)
+                          if pending(products)
+                            column flex=1 align-items="center" justify-content="center"
+                              Spinner()
+                          else
+                            ErrorState(retry=retryProducts)
+                    case none
+                      column flex=1 min-height=0 overflow="hidden"
+                        view width="100%" aspect-ratio="3 / 4" background-color="#EDE9E3"
+                        column padding=16 gap=10
+                          Skeleton(width=240, height=24, radius=4)
+                          Skeleton(width=90, height=20, radius=4)
+                        button id="back" press=goBack testId="back" aria-label="Back" appearance="none"
+                          position="absolute" top="env(safe-area-inset-top)" left=12 width=40 height=40 border-radius=999
+                          background-color="#FFFFFF" display="flex" align-items="center" justify-content="center" color="#1C1B19"
+                          BackIcon(size=22)
+                if e.name == "search"
+                  column flex=1 min-height=0 padding-top="env(safe-area-inset-top)"
+                    view padding-top=4 padding-left=16 padding-right=16 padding-bottom=12
+                      row height=44 border-radius=12 background-color="#F4F1EC" align-items="center" gap=8 padding-left=12 padding-right=12 color="#6E6A63"
+                        Icon(name="search", size=20, stroke=1.75)
+                        input type="search" value=query input=typed placeholder="Search products" aria-label="Search products"
+                          testId="search-input" enterkeyhint="search" autocapitalize="none" autocomplete="off"
+                          appearance="none" flex=1 min-width=0 border="none" background-color="transparent" font-size=16 color="#1C1B19"
+                    if query.trim() == ""
+                      text "Search across 995 products by name." padding-top=48 padding-bottom=48 padding-left=32 padding-right=32
+                        text-align="center" font-size=15 line-height="22px" color="#6E6A63"
+                    else if searchReady
+                      text `${found.total} ${found.total == 1 ? "result" : "results"}` padding-top=4 padding-bottom=8 padding-left=16 padding-right=16 font-size=13 color="#6E6A63" testId="search-count"
+                      list id=`content-${e.id}` virtualized=true appearance="none" testId="search-results" flex=1 min-height=0
+                        reachend=moreSearch reach-margin="100%" estimated-item-height=101
+                        for r in found.results.concat(pending(found) ? [ResultRow(key="loading", kind="loading", card=Card(id="", handle="", title="", image="", price="", compare="", index=0))] : failed(found) ? [ResultRow(key="error", kind="error", card=Card(id="", handle="", title="", image="", price="", compare="", index=0))] : []) key=r.key
+                          column
+                            if r.kind == "card"
+                              button press=openProduct(r.card.handle) testId=`search-result-${r.card.index}` aria-label=r.card.title appearance="none"
+                                display="flex" flex-direction="row" gap=12 align-items="center" padding-top=8 padding-bottom=8 padding-left=16 padding-right=16 text-align="start"
+                                image r.card.image width=64 height=85 object-fit="cover" border-radius=8 background-color="#F4F1EC" flex-shrink=0 alt=""
+                                column flex=1 min-width=0 gap=4
+                                  text r.card.title font-size=15 line-height="20px" color="#1C1B19"
+                                  row gap=6 align-items="baseline"
+                                    text r.card.price font-size=15 font-weight=700 color=(r.card.compare != "" ? "#B4361E" : "#1C1B19")
+                                    if r.card.compare != ""
+                                      text r.card.compare font-size=13 color="#6E6A63" text-decoration-line="line-through"
+                            else if r.kind == "loading"
+                              row justify-content="center" padding=16
+                                Spinner()
+                            else
+                              column align-items="center" gap=8 padding=16
+                                text "Couldn’t load products" font-size=15 font-weight=600
+                                button press=retrySearch testId="error-retry" appearance="none" height=40 padding-left=20 padding-right=20
+                                  border-radius=12 border-width=1 border-style="solid" border-color="#1C1B19" background-color="#FFFFFF"
+                                  text "Retry" font-size=15 font-weight=600 color="#1C1B19"
+                    else if failed(found) and not pending(found)
+                      ErrorState(retry=retrySearch)
+                    else
+                      column flex=1 align-items="center" padding-top=48
+                        Spinner()
+                if e.name == "cart"
+                  column flex=1 min-height=0 padding-top="env(safe-area-inset-top)"
+                    row height=44 padding-left=16 padding-right=16 align-items="center"
+                      text "Cart" role="heading" aria-level=1 font-size=22 font-weight=700
+                    if cart.lines.length == 0
+                      column flex=1 align-items="center" justify-content="center" gap=12 padding-left=32 padding-right=32 text-align="center" testId="cart-empty"
+                        view color="#6E6A63"
+                          Icon(name="cart", size=48, stroke=1.25)
+                        text "Your cart is empty" font-size=17 font-weight=700
+                        text "Items you add will appear here." font-size=15 line-height="22px" color="#6E6A63"
+                        button press=shop testId="start-shopping" appearance="none" margin-top=8 height=48 padding-left=24 padding-right=24
+                          border-radius=12 background-color="#1C1B19" display="flex" align-items="center"
+                          text "Start shopping" font-size=16 font-weight=600 color="#FFFFFF"
+                    else
+                      scroll id=`content-${e.id}` flex=1 min-height=0
+                        column padding-left=16 padding-right=16
+                          for l in cart.lines key=l.id
+                            row testId=`cart-line-${l.index}` gap=12 padding-top=16 padding-bottom=16 border-bottom-width=1 border-bottom-style="solid" border-bottom-color="#E6E1D9"
+                              image l.image width=80 height=107 object-fit="cover" border-radius=8 background-color="#F4F1EC" flex-shrink=0 alt=""
+                              column flex=1 min-width=0 gap=4
+                                text l.title font-size=15 line-height="20px" font-weight=600
+                                if l.variant != ""
+                                  text l.variant font-size=13 color="#6E6A63"
+                                row margin-top="auto" align-items="center" justify-content="space-between"
+                                  row align-items="center" border-width=1 border-style="solid" border-color="#E6E1D9" border-radius=12 height=36 box-sizing="border-box"
+                                    button press=setQuantity(l.id, l.quantity - 1) testId=`qty-dec-${l.index}` aria-label="Decrease quantity" appearance="none"
+                                      width=36 height=34 display="flex" align-items="center" justify-content="center" color="#1C1B19"
+                                      Icon(name="minus", size=16, stroke=2)
+                                    text `${l.quantity}` min-width=24 text-align="center" font-size=15 font-weight=600 font-variant-numeric="tabular-nums" testId=`qty-${l.index}`
+                                    button press=setQuantity(l.id, l.quantity + 1) testId=`qty-inc-${l.index}` aria-label="Increase quantity" appearance="none"
+                                      width=36 height=34 display="flex" align-items="center" justify-content="center" color="#1C1B19"
+                                      Icon(name="plus", size=16, stroke=2)
+                                  text l.total font-size=15 font-weight=700 testId=`line-total-${l.index}`
+                      column padding=16 gap=12 border-top-width=1 border-top-style="solid" border-top-color="#E6E1D9" background-color="#FFFFFF"
+                        row justify-content="space-between" align-items="baseline"
+                          text "Subtotal" font-size=15
+                          text cart.subtotal font-size=17 font-weight=700 testId="cart-subtotal"
+                        text "Taxes and shipping are calculated at checkout." font-size=13 color="#6E6A63"
+                        button press=checkout testId="checkout" appearance="none" height=52 border-radius=12 background-color="#1C1B19"
+                          display="flex" align-items="center" justify-content="center"
+                          text "Check out" font-size=16 font-weight=600 color="#FFFFFF"
+      row role="tablist" appearance="none" testId="tabs" display=(hideTabs ? "none" : "flex") position="absolute" left=0 right=0 bottom=0
+        padding-bottom="env(safe-area-inset-bottom)" background-color="#FFFFFF" border-top-width=1 border-top-style="solid" border-top-color="#E6E1D9"
+        button role="tab" aria-controls="panel-home" aria-selected=(nav.tab == "home") press=pick("home") testId="tab-home" aria-label="Home" appearance="none"
+          flex=1 height=49 display="flex" flex-direction="column" align-items="center" justify-content="center" gap=2
+          color=(nav.tab == "home" ? "#1C1B19" : "#6E6A63")
+          Icon(name="home", size=24, stroke=1.75)
+          text "Home" font-size=11 font-weight=(nav.tab == "home" ? 600 : 500)
+        button role="tab" aria-controls="panel-search" aria-selected=(nav.tab == "search") press=pick("search") testId="tab-search" aria-label="Search" appearance="none"
+          flex=1 height=49 display="flex" flex-direction="column" align-items="center" justify-content="center" gap=2
+          color=(nav.tab == "search" ? "#1C1B19" : "#6E6A63")
+          Icon(name="search", size=24, stroke=1.75)
+          text "Search" font-size=11 font-weight=(nav.tab == "search" ? 600 : 500)
+        button role="tab" aria-controls="panel-cart" aria-selected=(nav.tab == "cart") press=pick("cart") testId="tab-cart" aria-label="Cart" appearance="none"
+          flex=1 height=49 display="flex" flex-direction="column" align-items="center" justify-content="center" gap=2 position="relative"
+          color=(nav.tab == "cart" ? "#1C1B19" : "#6E6A63")
+          Icon(name="cart", size=24, stroke=1.75)
+          text "Cart" font-size=11 font-weight=(nav.tab == "cart" ? 600 : 500)
+          if cart.totalQuantity > 0
+            view position="absolute" top=4 left="calc(50% + 6px)" min-width=18 height=18 padding-left=5 padding-right=5 box-sizing="border-box"
+              border-radius=999 background-color="#B4361E" display="flex" align-items="center" justify-content="center" testId="cart-badge" aria-label=`${cart.totalQuantity}`
+              text `${cart.totalQuantity}` font-size=11 font-weight=700 color="#FFFFFF"
+      dialog id="cart-alert" role="alertdialog" aria-label="Couldn’t update cart"
+        text alertText
+        button commandfor="cart-alert" command="close"
+          text "OK"

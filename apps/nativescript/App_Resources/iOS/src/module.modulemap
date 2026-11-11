@@ -1,0 +1,4 @@
+module SBNative {
+    header "SBNative.h"
+    export *
+}

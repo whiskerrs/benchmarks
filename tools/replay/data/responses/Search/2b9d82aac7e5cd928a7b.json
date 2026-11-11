@@ -1,0 +1,526 @@
+{
+ "operationName": "Search",
+ "variables": {
+  "after": "eyJjIjoiaWQiLCJ2Ijo1ODk3LCJpIjo1ODk3fQ",
+  "first": 24,
+  "query": "j"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "search": {
+    "totalCount": 252,
+    "pageInfo": {
+     "hasNextPage": true,
+     "endCursor": "eyJjIjoiaWQiLCJ2Ijo1OTc4LCJpIjo1OTc4fQ"
+    },
+    "nodes": [
+     {
+      "id": "gid://shopify/Product/5899",
+      "handle": "linen-drawstring-shorts-golden-dune",
+      "title": "Linen Drawstring Shorts Golden Dune",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/cde8451d28cf23f9b5a0cd3713e51f44.png?v=14957723",
+       "altText": "Linen drawstring shorts in Golden Dune, Hero product shots use a clean 3/4 angle on a textured neutral surface (sand-hued..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "54.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5902",
+      "handle": "relaxed-fit-lounge-shorts-in-modal-jersey",
+      "title": "Relaxed fit lounge shorts in modal jersey",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/6782b9e5e83a0026db6c49dec3c1b98a.png?v=14813814",
+       "altText": "Relaxed fit lounge shorts, Hero product angle is a 3/4 lay-flat on textured neutral fabric (e.g., linen in Eggshell), shot..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "36.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5903",
+      "handle": "driftwood-beige-casual-shorts",
+      "title": "Driftwood Beige casual shorts",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/faa88f198f0ed295e146a0badefcdf31.png?v=14672444",
+       "altText": "Driftwood Beige casual shorts, Default angle is a relaxed 3/4\u2014items draped over dock railing or laid flat on sun-bleached..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "54.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5907",
+      "handle": "nature-inspired-linen-dress",
+      "title": "Nature-inspired linen dress",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/39d22a698fbf0804baef7c55e3cf2cb1.png?v=15071407",
+       "altText": "Nature-inspired linen dress, Product shots use a gentle three-quarter angle for journals and affirmation boxes\u2014resting on..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "89.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5910",
+      "handle": "cotton-wrap-dress-in-muted-oat",
+      "title": "Cotton wrap dress in muted oat",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/48ae4b486e70f45397d5fe8dc873e497.png?v=14913311",
+       "altText": "Muted oat cotton wrap dress, Default angle: three-quarter view on mannequin or model, capturing both silhouette and..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "112.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "145.6",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5916",
+      "handle": "clay-peach-cotton-dress-with-story-tag",
+      "title": "Clay peach cotton dress with story tag",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/5ac4b01fdddeef87ef946d261fa95795.png?v=14868120",
+       "altText": "Clay peach cotton dress with story tag, 3/4 angle preferred for single garments on dress forms or flat-lays; ensure..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "62.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5917",
+      "handle": "sandstone-relaxed-fit-linen-dress",
+      "title": "Sandstone relaxed-fit linen dress",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/a7ff9271b6fe5a3358f42ea0ded306e4.png?v=14780450",
+       "altText": "Relaxed-fit linen dress in Sandstone, 3/4 angle emphasizing fabric drape or product volume; garments laid on linen-draped..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "89.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "115.7",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5923",
+      "handle": "silver-taupe-japanese-cotton-dress",
+      "title": "Silver Taupe Japanese Cotton Dress",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/bc635349c8a42f244e4aebeb48b001b4.png?v=14665066",
+       "altText": "Silver Taupe Japanese cotton dress, Three-quarter angle for apparel on invisible mannequin or model, straight-on for..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "490.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5932",
+      "handle": "linen-wrap-dress-with-tie-waist",
+      "title": "Linen Wrap Dress With Tie Waist",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/d8b1907611fc2803de69f8ae647845c7.png?v=14968293",
+       "altText": "Linen wrap dress, 3/4 angle for fashion items on tabletop or hung against Pale Linen backdrop; shoes presented on low..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "98.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5940",
+      "handle": "austen-inspired-linen-scarf",
+      "title": "Austen-Inspired Linen Scarf",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/999f738256e9a9fecb27038acddf0295.png?v=15009316",
+       "altText": "Austen-inspired linen scarf, Three-quarter angle or front-on product shots placed on parchment-toned linen surfaces or..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "48.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5943",
+      "handle": "textured-silk-scarf-with-hand-rolled-edges",
+      "title": "Textured Silk Scarf With Hand-Rolled Edges",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/766fb8e4919cb0744734a466b80cabc6.png?v=14765299",
+       "altText": "Textured silk scarf, Default angle is 45-degree 3/4 view for handbags/wallets, emphasizing edges and material transitions;..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "285.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5957",
+      "handle": "obi-dore-vieilli-couture-gris-brume",
+      "title": "Aged gold obi with fog grey stitching",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/4ba7fde425e571bea0fc91eb4e09258d.png?v=14825597",
+       "altText": "Aged Gold obi belt with subtle Fog Grey stitching, Hero product at 3/4 angle on tatami mat or low pedestal; background..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "68.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5959",
+      "handle": "woven-artisanal-belt-with-tassels",
+      "title": "Woven Artisanal Belt With Tassels",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/d37a1714821e5d43cc59e4f4e954ad0f.png?v=14684593",
+       "altText": "Woven artisanal belt with tassels, Three-quarter angle as default to showcase garment drape and texture; always shot on..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "38.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "49.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5962",
+      "handle": "brushed-metallic-accent-belt",
+      "title": "Brushed metallic accent belt",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/60be112ef4f1ab05b3872c4bdf1da83a.png?v=15097717",
+       "altText": "Brushed metallic accent belt, Single accessory per shot (or set if intended as a collection), captured at a graceful..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "54.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5965",
+      "handle": "textile-wrapped-statement-belt",
+      "title": "Textile-Wrapped Statement Belt",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/0e4136295668e0048a18af0367194f68.png?v=14719892",
+       "altText": "Textile-wrapped statement belt, perfectly centered horizontally and vertically with equal negative space above and below,..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "72.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5966",
+      "handle": "sand-beige-braided-rope-belt",
+      "title": "Sand Beige Braided Rope Belt",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/44fc6baadeffeb04354e0ecc4dcdb250.png?v=14820802",
+       "altText": "Sand beige braided rope belt, Default angle is 3/4 product portrait \u2014 slightly above eye-level to showcase dimensionality..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "68.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5967",
+      "handle": "sailing-rope-belt-with-weathered-canvas-detail",
+      "title": "Sailing Rope Belt with Weathered Canvas Detail",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/36d2bffe8272c49c8c7367fb3f85b689.png?v=15042540",
+       "altText": "Weathered Canvas sailing rope belt, 3/4 angle as default\u2014belt coiled with visible buckle facing camera on a neutral matte..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "55.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "71.5",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5971",
+      "handle": "clay-orange-field-belt-hand-stitched",
+      "title": "Clay Orange Field Belt Hand-Stitched",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/314de58feedf6d0faed536a141be7404.png?v=14656651",
+       "altText": "Clay orange field belt, Default angle is 3/4 product portrait on a textured natural surface (raw wood or linen), shot..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "59.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5972",
+      "handle": "taupe-blend-sculptural-belt",
+      "title": "Taupe Blend Sculptural Belt",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/b5ffcda433e3426e1dcb9a4d2a7579ed.png?v=14593540",
+       "altText": "Taupe blend sculptural belt, Default to a 3/4 angle at waist height for garments on form or model\u2014showing drape and..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "125.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5973",
+      "handle": "all-terrain-adjustable-belt-matte-hardware",
+      "title": "All-Terrain Adjustable Belt Matte Hardware",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/9ef8c034112fe2c8f98af3bc99327127.png?v=14949623",
+       "altText": "All-Terrain Adjustable Belt in Moss Tint with matte metal hardware., Straight-on or subtle 3/4 angle emphasizing belt..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "52.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "67.6",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5975",
+      "handle": "minimalist-metallic-buckle-belt",
+      "title": "Minimalist Metallic Buckle Belt",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/dcf082cdc5d228f3ae30b92a76b68753.png?v=14751107",
+       "altText": "Minimalist metallic buckle belt, Single product per frame, shot at a slight three-quarter angle for dimensionality; camera..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "78.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5976",
+      "handle": "textured-linen-mat-strap-adjustable-length",
+      "title": "Textured Linen Mat Strap Adjustable Length",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/2b8d9a5aef713c0393aa454ea8f520f0.png?v=14573786",
+       "altText": "Textured linen mat strap, Hero angle is a 3/4 macro shot highlighting embossed logos or tactile features\u2014shot at slight..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "38.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5977",
+      "handle": "collar-llamativo-de-crin-tejido",
+      "title": "Woven horsehair statement necklace",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/87d42e9b7074f46e7eac418586113769.png?v=14637769",
+       "altText": "Horsehair statement necklace, 3/4 angle on accessories placed atop linen-draped tables or held gently by artisan hands (no..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "98.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5978",
+      "handle": "leather-journal-with-lay-flat-binding",
+      "title": "Leather journal with lay-flat binding",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/4aeb3e7b6d8ae8724aa23a9d4f85a361.png?v=15030178",
+       "altText": "Desert Sand Woven Layers choker, 3/4 close-up angle centered on collarbones and neck to showcase choker details; models\u2019..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "54.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "70.2",
+        "currencyCode": "USD"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

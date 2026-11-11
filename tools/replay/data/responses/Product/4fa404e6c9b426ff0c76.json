@@ -1,0 +1,305 @@
+{
+ "operationName": "Product",
+ "variables": {
+  "handle": "austen-inspired-linen-scarf"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "product": {
+    "id": "gid://shopify/Product/5940",
+    "handle": "austen-inspired-linen-scarf",
+    "title": "Austen-Inspired Linen Scarf",
+    "description": "Drape yourself in the gentle wit of Jane Austen with a scarf woven from soft, breathable linen and adorned with hand-lettered passages from her novels. Featherlight fabric adds warmth without weight for strolls or story time Subtle script pattern lends a knowing nod to fellow book lovers Washed finish grows softer with every cozy wear",
+    "images": {
+     "nodes": [
+      {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/999f738256e9a9fecb27038acddf0295.png?v=15009316",
+       "altText": "Austen-inspired linen scarf, Three-quarter angle or front-on product shots placed on parchment-toned linen surfaces or..."
+      }
+     ]
+    },
+    "options": [
+     {
+      "name": "Material",
+      "optionValues": [
+       {
+        "name": "Leather"
+       },
+       {
+        "name": "Cotton"
+       },
+       {
+        "name": "Wool"
+       }
+      ]
+     }
+    ],
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/29129",
+       "title": "Leather",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Material",
+         "value": "Leather"
+        }
+       ],
+       "price": {
+        "amount": "48.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      },
+      {
+       "id": "gid://shopify/ProductVariant/29130",
+       "title": "Cotton",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Material",
+         "value": "Cotton"
+        }
+       ],
+       "price": {
+        "amount": "48.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      },
+      {
+       "id": "gid://shopify/ProductVariant/29131",
+       "title": "Wool",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Material",
+         "value": "Wool"
+        }
+       ],
+       "price": {
+        "amount": "48.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      }
+     ]
+    }
+   },
+   "productRecommendations": [
+    {
+     "id": "gid://shopify/Product/4891",
+     "handle": "raffia-belt",
+     "title": "Raffia Belt",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/0482143713147cdde913da6b9b912df4.png?v=13222870",
+      "altText": "A perfectly centered, straight-on shot of a raffia belt. The belt is displayed on a neutral surface with a 'Slate Gray'..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "45.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4892",
+     "handle": "beige-linen-bracelet",
+     "title": "Beige Linen Bracelet",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/5cbc1bf8e61eaa97cfec74030570e50a.png?v=12886091",
+      "altText": "A Beige Linen bracelet displayed in a perfectly centered, with balanced negative space surrounding it. No logos, no brand..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "45.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4893",
+     "handle": "cinturon-trenzado-algodon-terracota",
+     "title": "Terracotta braided cotton belt",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/d70b36a8172bd7c09f40e82a6861ad3e.png?v=14881099",
+      "altText": "Braided cotton belt, Default: 3/4 angle close-up emphasizing product texture and structure; arranged on matte..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "62.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4894",
+     "handle": "sculptural-leather-belt-with-matte-finish",
+     "title": "Sculptural leather belt with matte finish",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/512fe27f48482b6afb8aa16910b4f799.png?v=14709265",
+      "altText": "Sculptural leather belt, perfectly centered horizontally and vertically with equal negative space above and below, color..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "285.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4895",
+     "handle": "upcycled-rope-belt-in-stone-lichen",
+     "title": "Upcycled Rope Belt in Stone Lichen",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/87b23d7afae80f556e2e2b66f8b13294.png?v=15042540",
+      "altText": "Stone Lichen upcycled rope belt, 3/4 angle as default\u2014belt coiled with visible buckle facing camera on a neutral matte..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "52.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4896",
+     "handle": "saffron-straw-woven-belt",
+     "title": "Saffron straw woven belt",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/7090f25d2820946a6c74794fd1b796b2.png?v=14711384",
+      "altText": "Saffron Straw woven belt, Single product hero on a matte stone or linen surface; 3/4 angle preferred for dimensionality,..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "68.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "88.4",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4897",
+     "handle": "ergonomic-yoga-strap",
+     "title": "Ergonomic Yoga Strap",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/2a861b788ff894175455ba8f062e2ccd.png?v=12776187",
+      "altText": "An ergonomic yoga strap displayed against a Cloud White backdrop, perfectly centered and illuminated with soft, shadowless..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "15.99",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4898",
+     "handle": "hand-loomed-silk-scarf",
+     "title": "Hand-loomed silk scarf",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/f3d19a996649a999a40066c5d3b2717b.png?v=14719184",
+      "altText": "Hand-loomed silk scarf, Default to three-quarter tabletop angle: product placed on stone or pale wood surface with soft..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "420.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "546.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4899",
+     "handle": "terracotta-accent-linen-scarf",
+     "title": "Terracotta Accent Linen Scarf",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/a3b2edacb09d90d6b09debbd597e8f87.png?v=14829619",
+      "altText": "Terracotta Accent linen scarf, Default angle: straight-on or gentle 3/4 view that reveals silhouette and texture equally..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "39.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "50.7",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4900",
+     "handle": "terracotta-cotton-gauze-scarf",
+     "title": "Terracotta Cotton Gauze Scarf",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/57b6cfe9155fdeb7b91aa43fa24221d2.png?v=14760208",
+      "altText": "Terracotta cotton gauze scarf, Hero product shots at 45-degree angles to reveal texture and shape\u2014garments artfully folded..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "48.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    }
+   ]
+  }
+ }
+}

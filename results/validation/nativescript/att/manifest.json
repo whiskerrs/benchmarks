@@ -1,0 +1,3374 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "59DC760C-6AC7-44CB-8F03-AE86FA289805.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "App UI hierarchy for dev.whiskerrs.shopbench_0_D4C6468D-C8DD-487C-BE18-F30235223408.nativescript",
+        "timestamp" : 1794323042.185
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "4F88D308-EE1B-43C2-A455-001C469BC6C6",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.04.02 AM",
+        "timestamp" : 1794323042.186
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "5AED8FFD-3368-48D4-A203-DD93A05903EE.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"tab-search\" Any`_0_513BDEB0-5A6C-49D3-A82A-2C6429A7FA1E.txt",
+        "timestamp" : 1794323042.08
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0A5C0590-8825-4C43-BBC3-DC9DCC2D42BF.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"tab-search\" Any`_0_9DA2080F-B767-4165-A637-32FF5417594E.txt",
+        "timestamp" : 1794323041.154
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "DBB9BF2E-4C38-422B-9339-7E9F0222CAFB.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"tab-search\" Any`_0_B13C62AF-A530-4FFA-B155-A041369C715D.txt",
+        "timestamp" : 1794323040.189
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0DB38C95-153A-46C5-AF47-51F761511404.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"tab-search\" Any`_0_83981148-D442-4699-80D4-AE0698C9D74A.txt",
+        "timestamp" : 1794323039.17
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "710053A9-0127-4B51-A8FB-BC7885645BF6.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"tab-search\" Any`_0_B7F950A0-A8EA-435D-A91C-4CDD81A6FCC0.txt",
+        "timestamp" : 1794323038.106
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "CB9E06FA-772D-41B5-8A53-48C53218F610.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"tab-search\" Any`_0_C219086B-5CB3-418F-974F-481008618553.txt",
+        "timestamp" : 1794323037.138
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "841A41E4-FDA3-4530-90B6-C30AF7F77AE9.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"tab-search\" Any`_0_3C7FE84B-DC85-4740-88DF-C65EBFB2C5DE.txt",
+        "timestamp" : 1794323036.085
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "24CD50C3-CED5-479C-A531-B347D9B87BF5.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"tab-search\" Any`_0_1901EB2B-4667-4830-8BB1-E7EB59A041EF.txt",
+        "timestamp" : 1794323035.098
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0B6953D5-7A65-450D-A209-C96F4E8E6F79.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"tab-search\" Any`_0_DD79E68A-6B2D-4B01-8AC3-484F9D379A64.txt",
+        "timestamp" : 1794323034.125
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "30DFB467-B04B-4A93-816D-DD068ABB8C19.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"tab-search\" Any`_0_9EE4671C-6866-4791-A795-622BDF091C03.txt",
+        "timestamp" : 1794323033.161
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "C2C1DE4D-0F1F-41DD-9778-3796C9809558.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"tab-search\" Any`_0_FFFD3494-2E10-41D6-B0E4-AAA46C1BA546.txt",
+        "timestamp" : 1794323032.086
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "2268024F-3AB6-4FB2-AF97-37CB5F8CAC6B.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"tab-search\" Any`_0_44E48DEC-3D60-4922-8A49-7472BA6251E8.txt",
+        "timestamp" : 1794323031.128
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "7D2334B1-6712-466E-A8BD-A1B608A46202.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"tab-search\" Any`_0_54C41EAB-F8A0-4F53-B29D-B9533E4A7262.txt",
+        "timestamp" : 1794323030.148
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "74368C73-40D7-4DC0-AC82-04BE9486BD16.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"tab-search\" Any`_0_3B6C2E00-B1AF-4D2D-8C7A-1EC91B1F0A2D.txt",
+        "timestamp" : 1794323029.182
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "DF1D48A0-1B74-4DE3-BDD2-30E95D911C18.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"tab-search\" Any`_0_3369A4B9-D2A7-4000-826B-0A6F3A67D0DD.txt",
+        "timestamp" : 1794323028.09
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "091146A2-2ED8-4410-8607-EE5313DB1639",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.03.45 AM",
+        "timestamp" : 1794323025.366
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "4EDD5C53-B9EB-4DD4-A93E-513C4F670B98",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.03.45 AM",
+        "timestamp" : 1794323025.665
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "761BA183-0344-4BB3-8D53-B337A69A9CA1",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.03.43 AM",
+        "timestamp" : 1794323023.542
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8D5F8626-1E40-423C-BE78-1E445A79558F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.03.43 AM",
+        "timestamp" : 1794323023.843
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "AC915411-76F5-4E32-96FA-8A5B9448AAF0",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.03.37 AM",
+        "timestamp" : 1794323017.018
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "1824B952-381C-401E-B993-86B9F5DF3017",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.03.37 AM",
+        "timestamp" : 1794323017.775
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "2FEBFA23-E56C-49BE-8CC5-E1C79BC74335",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.03.34 AM",
+        "timestamp" : 1794323014.728
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "DE8A8FF0-EDB5-40B9-AB07-0CDD624C4832",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.03.35 AM",
+        "timestamp" : 1794323015.458
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "450E342B-0E5D-4727-BACA-91B349DFB4E7",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.03.32 AM",
+        "timestamp" : 1794323012.453
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "F87E09BA-9B2E-4C15-88E2-BE4FE021A170",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.03.33 AM",
+        "timestamp" : 1794323013.192
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "B22AD783-12E4-402B-95BB-98E21EEE13BD",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.03.30 AM",
+        "timestamp" : 1794323010.153
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "477B22F9-A412-497C-A3C6-0502063CA9B1",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.03.30 AM",
+        "timestamp" : 1794323010.911
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "6213A63C-9DCB-4F29-A55D-119D278237B5",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.03.27 AM",
+        "timestamp" : 1794323007.981
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "D8C4B089-D9BD-4E8A-A3F5-5098353B2BF4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.03.28 AM",
+        "timestamp" : 1794323008.617
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "5C86B7B4-89AC-4165-B7D6-7B1182B286D9",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.03.25 AM",
+        "timestamp" : 1794323005.929
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "AF531378-CF8F-419E-A009-7BBD2C16B276",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.03.26 AM",
+        "timestamp" : 1794323006.541
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "E10DA813-73F0-43AF-BA3F-4B10A5D85955",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.03.23 AM",
+        "timestamp" : 1794323003.783
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "A3B4FC4B-D7FE-4CF5-909F-8BA912690723",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.03.24 AM",
+        "timestamp" : 1794323004.49
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "61B4FADD-B7F5-4445-A42C-C7F7FAC5EBFE",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.03.21 AM",
+        "timestamp" : 1794323001.654
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8688BF12-ED46-45DC-B98C-2A0993AC2114",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.03.22 AM",
+        "timestamp" : 1794323002.254
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "58B82F5F-759D-4E19-AE3F-63B9B095730A",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.03.17 AM",
+        "timestamp" : 1794322997.419
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "F1897441-83EE-447A-AF43-71D19E0D008A",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.03.18 AM",
+        "timestamp" : 1794322998.026
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8BCE9530-69DC-4A87-85E4-8E8C05380D5B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.03.13 AM",
+        "timestamp" : 1794322993.052
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "EBFFE1AE-9C5E-484A-BA7C-E113F17CCC65",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.03.13 AM",
+        "timestamp" : 1794322993.692
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "E9174DA0-B2D5-4C40-85C1-3E009B32D1F5",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.03.08 AM",
+        "timestamp" : 1794322988.614
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "849FBD6E-71C4-44E8-AFAD-266E4606424B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.03.09 AM",
+        "timestamp" : 1794322989.358
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "744E44BC-258F-4685-A08A-C3446D25E366",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.03.04 AM",
+        "timestamp" : 1794322984.191
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "F4DB4683-3353-4A89-8B80-69B61EAA5719",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.03.04 AM",
+        "timestamp" : 1794322984.883
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "A2E4955B-B441-44CE-A6CF-5A5AB3B387CD",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.03.02 AM",
+        "timestamp" : 1794322982.004
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "762FF3D9-A034-4118-95D1-2B5C1C6ED01A",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.03.02 AM",
+        "timestamp" : 1794322982.697
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "77CF002D-5792-4D6A-B21B-B92021ECBBCE",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.59 AM",
+        "timestamp" : 1794322979.841
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "32DA5802-AF7C-471E-90EA-0BA59D2CCC54",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.03.00 AM",
+        "timestamp" : 1794322980.514
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "E45EF5D6-4AF2-4665-8F2C-F8677BCBFB7B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.57 AM",
+        "timestamp" : 1794322977.649
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "14AE0AAA-A3D2-4855-A785-2E83AD791D7C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.58 AM",
+        "timestamp" : 1794322978.355
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "DC4EAF64-AC29-4B31-9015-449B4348D53D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.55 AM",
+        "timestamp" : 1794322975.47
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "7C84A3E8-CD15-4021-A7D8-FD36216CE4AF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.56 AM",
+        "timestamp" : 1794322976.158
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8F7A73B4-618E-4B9E-B27F-6FE3C634B243",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.53 AM",
+        "timestamp" : 1794322973.315
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "2F59376D-48DD-4DF1-9F90-B0C5CF9C005E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.53 AM",
+        "timestamp" : 1794322973.965
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "67459AFC-0A00-43BB-B945-A5424673DF82",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.51 AM",
+        "timestamp" : 1794322971.285
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "07B878EF-3446-465C-BB7B-27B6A11B71B7",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.51 AM",
+        "timestamp" : 1794322971.864
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "F279A899-F904-40AB-B78E-2F81A30F67B2",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.49 AM",
+        "timestamp" : 1794322969.036
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "A8EE6A4D-9563-4398-AE63-34229822C011",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.49 AM",
+        "timestamp" : 1794322969.721
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "AA00098A-9FEF-4431-90AA-40972F8AFF84",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.44 AM",
+        "timestamp" : 1794322964.737
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "2DC7F56D-67BF-44D5-B994-E0E6CD03B42B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.45 AM",
+        "timestamp" : 1794322965.366
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8C5CF60C-9B29-4E35-91CC-7CBE4A45AA0D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.40 AM",
+        "timestamp" : 1794322960.128
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "3DA094BE-BD21-46AA-9973-4ACE5FD98412",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.40 AM",
+        "timestamp" : 1794322960.906
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "D3B99414-335C-4F30-BD94-11388B68B953",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.35 AM",
+        "timestamp" : 1794322955.895
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "DA84F0DD-2F62-4887-B263-682EBE3532AC",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.36 AM",
+        "timestamp" : 1794322956.522
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "44768F3C-DED2-47DA-A0A5-28325B7DD801",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.31 AM",
+        "timestamp" : 1794322951.392
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "B3335271-7B13-4BCA-92A8-A7E305C9C3FC",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.31 AM",
+        "timestamp" : 1794322951.913
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "20140713-F98C-4A9F-ACE5-71004C7CAE01",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.27 AM",
+        "timestamp" : 1794322947.343
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "CAC697D8-C49B-4562-9C5F-D2D2A710F510",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.27 AM",
+        "timestamp" : 1794322947.856
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "7DC3C205-0CDC-49D8-B9E0-AB20C37DDA7D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.24 AM",
+        "timestamp" : 1794322944.292
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "2CDEA616-B00B-4DCE-82CB-78625BF85B1B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.24 AM",
+        "timestamp" : 1794322944.617
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "053DB460-80E0-4844-B981-0932691868A4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.22 AM",
+        "timestamp" : 1794322942.867
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "01FE003F-411E-4A0D-A521-E3E5C1CFFEF5",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.23 AM",
+        "timestamp" : 1794322943.166
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "E24ACE38-9460-47B0-909E-B41474881CD7",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.21 AM",
+        "timestamp" : 1794322941.471
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "CA17E577-1F18-4DD2-84CF-4655FE693A8A",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.21 AM",
+        "timestamp" : 1794322941.765
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "4FB65066-C7FA-46C6-BE46-753A298E18F6",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.18 AM",
+        "timestamp" : 1794322938.136
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "E4D4E659-0B66-4BA7-B759-65A899A22344",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.18 AM",
+        "timestamp" : 1794322938.435
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0206B8BD-F3CA-4AEB-9699-8BE038F0A124",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.15 AM",
+        "timestamp" : 1794322935.088
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "396E5024-CE00-49A3-B5D2-5F3078A0FA94",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.15 AM",
+        "timestamp" : 1794322935.383
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "4D7BBDB4-7CB4-401F-B574-1B667B91EF68",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.12 AM",
+        "timestamp" : 1794322932.105
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "48F53075-82D9-4979-ADCC-A9F70B814B34",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.12 AM",
+        "timestamp" : 1794322932.412
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "B81D679C-404C-4996-B7D9-167D78C9EE3A",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.09 AM",
+        "timestamp" : 1794322929.189
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "ECD8CBCB-F0BB-4946-9A3F-B3CEFF7A5FC9",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.09 AM",
+        "timestamp" : 1794322929.691
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "CE25F6F9-EF03-4399-A5E1-92664084BA16",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.07 AM",
+        "timestamp" : 1794322927.327
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "48D2C72B-A8C1-4CB9-8C3B-70A8548EF0B4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.07 AM",
+        "timestamp" : 1794322927.831
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "876293B3-6BD2-47DA-922D-43ABC09B7651",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.05 AM",
+        "timestamp" : 1794322925.476
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "3401E124-FBBB-4C9E-8216-8733A7069ECF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.05 AM",
+        "timestamp" : 1794322925.921
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "FEE20F6F-5FA7-4EBA-BCEF-B94DD021B97D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.04 AM",
+        "timestamp" : 1794322924.333
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "F952D316-2533-46C6-ADC4-7677E42A3291",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.04 AM",
+        "timestamp" : 1794322924.888
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "236ADD72-794C-4BF2-94AF-5E64B9406C63",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.03 AM",
+        "timestamp" : 1794322923.175
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "2B61DD63-48F4-4139-B194-BD182F96A7C1",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.03 AM",
+        "timestamp" : 1794322923.75
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "4DA9A1BF-88EF-44FA-8B55-8FBAD450289B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.02.01 AM",
+        "timestamp" : 1794322921.367
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "D8CB2436-4F74-49E2-A8B9-D68F8A333AD7",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.02.01 AM",
+        "timestamp" : 1794322921.67
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "9DCC06D4-F0F6-4D7C-81F6-26D29975ECDF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.57 AM",
+        "timestamp" : 1794322917.994
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "4E979438-3FEE-4CA8-8FF4-E7F834B9C099",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.58 AM",
+        "timestamp" : 1794322918.282
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "26C6C239-4669-4175-A120-A9BF15D7CC86",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.55 AM",
+        "timestamp" : 1794322915.169
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "97084A82-5592-4C5F-810E-24D24EED828D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.55 AM",
+        "timestamp" : 1794322915.456
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0F07F808-C4D7-4393-9BFF-A760331BC000",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.52 AM",
+        "timestamp" : 1794322912.321
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "5DA97C83-2FEF-451D-A73F-7B0E481F6C70",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.52 AM",
+        "timestamp" : 1794322912.614
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "AB715935-2C35-4B8C-A87C-BF1ACB0CD87D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.49 AM",
+        "timestamp" : 1794322909.476
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "C1F116CD-BD13-4DD7-B195-7ACE775FEDDC",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.49 AM",
+        "timestamp" : 1794322909.947
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "688804A3-4445-44C9-9F21-E781161031A9",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.47 AM",
+        "timestamp" : 1794322907.697
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "722D55A8-3B65-4A2A-99CB-FA3D0D7BFDC3",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.48 AM",
+        "timestamp" : 1794322908.166
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "C3FCFE2C-6EC9-4A97-805B-1DD4DB6CEBDB",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.45 AM",
+        "timestamp" : 1794322905.891
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "F985B32D-8E02-4194-B8F2-DC4C59E17816",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.46 AM",
+        "timestamp" : 1794322906.331
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "EFFD907C-C5A4-4115-9062-423578336262",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.44 AM",
+        "timestamp" : 1794322904.744
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "A9AED9CA-6519-4A92-8226-11FA0594829B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.45 AM",
+        "timestamp" : 1794322905.296
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "71BB6285-24F7-45CE-AF1A-275955AC3938",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.43 AM",
+        "timestamp" : 1794322903.616
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "D1910D3D-B4B0-4E57-915A-0FDF505D2E25",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.44 AM",
+        "timestamp" : 1794322904.165
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "1EDFADDE-ADA1-4F97-9638-A7B7ABDD2C0C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.41 AM",
+        "timestamp" : 1794322901.885
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "EBF1BC1E-FA65-4C74-8D5B-775FAD75FC54",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.42 AM",
+        "timestamp" : 1794322902.176
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "9F836315-9F22-4A1B-A70E-AA48577A15E7",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.38 AM",
+        "timestamp" : 1794322898.634
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "DE48F99F-92EE-4A68-BFE3-89A8BE7F99AD",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.38 AM",
+        "timestamp" : 1794322898.922
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "3C372FA5-946F-485D-A184-B2CEAA85F55E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.35 AM",
+        "timestamp" : 1794322895.815
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "BDE87BDE-4364-4466-855A-099AD4617C71",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.36 AM",
+        "timestamp" : 1794322896.102
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "40EB4577-33C3-42EC-B988-EB51E46156A3",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.32 AM",
+        "timestamp" : 1794322892.857
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "408CC04A-01F4-4ECB-B322-3514BA185FEA",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.33 AM",
+        "timestamp" : 1794322893.156
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "E4F4CBD3-1D7E-4D07-A2C0-6439396DDD4F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.29 AM",
+        "timestamp" : 1794322889.976
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "452462FD-41CF-4D14-9AE4-318D5F961B24",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.30 AM",
+        "timestamp" : 1794322890.458
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "22254D37-0974-4B9B-8047-AAE7B3ADA4F7",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.28 AM",
+        "timestamp" : 1794322888.131
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "5285E1A9-5269-49A2-8ADB-FE3C7A2ED997",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.28 AM",
+        "timestamp" : 1794322888.638
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "DC43B3E1-3386-453E-BBAA-EBD8F9BA49DB",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.26 AM",
+        "timestamp" : 1794322886.234
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8E92DF36-3BD1-4082-B0A9-AA03BE87A5BA",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.26 AM",
+        "timestamp" : 1794322886.699
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "A785F047-D7D6-43A1-8113-9B4154D0CD62",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.25 AM",
+        "timestamp" : 1794322885.057
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "14F1BF0A-EC02-4DA4-8383-548F9B5F3A2E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.25 AM",
+        "timestamp" : 1794322885.611
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "182912DA-5D5A-4F40-875D-8E9057643BA6",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.23 AM",
+        "timestamp" : 1794322883.881
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "834A55E1-3F88-4BCC-87C9-8FBC65553C4B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.24 AM",
+        "timestamp" : 1794322884.472
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "12835079-8942-48FD-B6CA-C5718E3B2205",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.22 AM",
+        "timestamp" : 1794322882.109
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "D4049267-8E8B-4A2D-82AB-EC9AEB235977",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.22 AM",
+        "timestamp" : 1794322882.412
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0D6C61FB-27A1-4620-958F-9B2E475E122B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.18 AM",
+        "timestamp" : 1794322878.679
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8543E7A8-B8FC-4A94-BFA5-53B07F0C5451",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.18 AM",
+        "timestamp" : 1794322878.977
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "916FB2E5-0589-4C47-B716-7116C1187AB8",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.15 AM",
+        "timestamp" : 1794322875.741
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "6BB517D0-6DB2-48A7-9AC1-7EF06E7E258D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.16 AM",
+        "timestamp" : 1794322876.041
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "445798EF-B9B2-45FE-B184-B1A930AFE4F2",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.12 AM",
+        "timestamp" : 1794322872.759
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "17BAA7D3-2D09-4073-BBF6-47B09D744D2B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.13 AM",
+        "timestamp" : 1794322873.058
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "C50AE785-F933-4BCB-AA03-A29836D59791",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.09 AM",
+        "timestamp" : 1794322869.825
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "3BCEE5FC-C9E9-4DE5-81C2-476820016D27",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.10 AM",
+        "timestamp" : 1794322870.332
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "E4A59D7C-5EB8-4811-BE19-2B7022F87634",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.07 AM",
+        "timestamp" : 1794322867.875
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "A1F1C20E-EEE5-40AB-90D7-CA206014234B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.08 AM",
+        "timestamp" : 1794322868.463
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "EA06EEC7-D5A6-4AED-90EA-2EA7B4698FD3",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.05 AM",
+        "timestamp" : 1794322865.792
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "884FB8FC-604D-4EA3-9E89-E2D8F4D82A8C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.06 AM",
+        "timestamp" : 1794322866.307
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "6711673E-E016-4BCD-8595-3A141CE59215",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.04 AM",
+        "timestamp" : 1794322864.483
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0CF60853-67C5-44F2-AB43-993FE4ED6CD5",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.05 AM",
+        "timestamp" : 1794322865.148
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "327DB7DC-BC54-4261-8D73-1E7C25760138",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.03 AM",
+        "timestamp" : 1794322863.216
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "C7422CB3-E0D5-48D2-8415-FC20863DAF44",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.03 AM",
+        "timestamp" : 1794322863.856
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "BECC7862-E3BF-4B78-8F82-2F664808FC82",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.01.01 AM",
+        "timestamp" : 1794322861.333
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0B8A7335-5AAA-4342-BB5B-DDCE64729F35",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.01.01 AM",
+        "timestamp" : 1794322861.635
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8D5D7935-625E-4B24-961E-3F21048D7A27",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.57 AM",
+        "timestamp" : 1794322857.677
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "6A51B98E-B971-4B6F-AEBE-F529CEE47C07",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.57 AM",
+        "timestamp" : 1794322857.981
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "55C30C91-6EBE-420C-A02B-BF6B077FB02E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.54 AM",
+        "timestamp" : 1794322854.656
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "77D7DEDD-1A17-4E22-9199-FFDD8A23962F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.54 AM",
+        "timestamp" : 1794322854.96
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8220C3D0-2411-44BA-84FE-F66765063158",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.51 AM",
+        "timestamp" : 1794322851.594
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "15FB6CC5-5C6E-4315-AC74-A248E8534C34",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.51 AM",
+        "timestamp" : 1794322851.9
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "D7215C2F-7617-4F66-820E-D9FB7681B824",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.48 AM",
+        "timestamp" : 1794322848.613
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "E366F408-2406-47D8-9D2D-6BFC4A0F84E7",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.49 AM",
+        "timestamp" : 1794322849.132
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "518C65E9-3239-4C63-A86A-426294BC934D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.46 AM",
+        "timestamp" : 1794322846.697
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "FC1E0626-3739-480B-B3AE-0EFC0AC66A8C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.47 AM",
+        "timestamp" : 1794322847.219
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "BA26E590-E461-48EB-8C55-A4D0D6CB6819",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.44 AM",
+        "timestamp" : 1794322844.748
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "D229723E-B92A-4BF4-AE69-F1DE5A91B98C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.45 AM",
+        "timestamp" : 1794322845.26
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "1ED5A1C1-7CF2-4583-870B-EB3420D708BF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.43 AM",
+        "timestamp" : 1794322843.396
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "607A4428-F4E1-4D19-B483-D23E9BAD2F15",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.44 AM",
+        "timestamp" : 1794322844.027
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "D7D207AC-FD87-4801-95EA-17DC1B496A32",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.42 AM",
+        "timestamp" : 1794322842.174
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "B171DEA4-2554-4ECC-8526-6B26BCD00014",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.42 AM",
+        "timestamp" : 1794322842.789
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "7DC60900-A1CE-445B-B127-02857BF7E8C5",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.40 AM",
+        "timestamp" : 1794322840.33
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "C15474C9-5A71-44D9-AEB8-79139A95EB7B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.40 AM",
+        "timestamp" : 1794322840.629
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "4E1B2A28-6FB8-4FE0-A608-E984EF0910BA",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.34 AM",
+        "timestamp" : 1794322834.331
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "6CFECE5B-DFB1-48FE-9C80-8F47DBBA7060",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.34 AM",
+        "timestamp" : 1794322834.803
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "EF88CCB5-24DE-4D99-94C8-3E4D3004510E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.30 AM",
+        "timestamp" : 1794322830.331
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "6131C704-28DA-40A2-973E-AAA1A6F4A774",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.30 AM",
+        "timestamp" : 1794322830.843
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "E1D11A7D-256E-4F29-AB05-9B6515B2AC73",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.26 AM",
+        "timestamp" : 1794322826.208
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "7889F4AC-8E5F-4F23-B4F9-A71E9D8EDDB1",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.26 AM",
+        "timestamp" : 1794322826.718
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "376D8093-DB78-4608-80F2-EF8B164FB120",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.22 AM",
+        "timestamp" : 1794322822.162
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "7EA96598-27E6-4861-94A4-27014D84D1AA",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.22 AM",
+        "timestamp" : 1794322822.664
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "90D9C74E-3B39-41C6-8DC6-7A92C1DDE379",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.17 AM",
+        "timestamp" : 1794322817.82
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "3F38EB0A-D0CF-4FDC-846A-6D2D82A4CD00",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.18 AM",
+        "timestamp" : 1794322818.276
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "05C8144F-63C9-450D-992C-FB19FE696ACA",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.13 AM",
+        "timestamp" : 1794322813.928
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8307E474-D628-4E47-B200-E9011E636924",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.14 AM",
+        "timestamp" : 1794322814.359
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "D02502D4-CA2E-49CF-B954-28902E50C471",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.12 AM",
+        "timestamp" : 1794322812.318
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "978FD761-3D42-4A29-8CD7-EF564E3D1269",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.12 AM",
+        "timestamp" : 1794322812.612
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "5EB2B45B-EF94-41B8-8227-7948439CE425",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.08 AM",
+        "timestamp" : 1794322808.287
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "677F3964-BA71-4D48-BDEB-7367820879BD",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.08 AM",
+        "timestamp" : 1794322808.82
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "6A32E4FC-C85F-41EF-9125-C4801130509E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.06 AM",
+        "timestamp" : 1794322806.339
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "E69FD845-39D2-46BB-AEDE-3FB8F9400F00",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.06 AM",
+        "timestamp" : 1794322806.904
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "FC44381A-AB24-4CA9-BBFA-0C3CB3566425",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.04 AM",
+        "timestamp" : 1794322804.368
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "BE0C0AAE-DE87-4279-BC50-60A4F3A73BBA",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.04 AM",
+        "timestamp" : 1794322804.864
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "A2BA4049-74BF-44A5-9B70-97459ED9E70B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.02 AM",
+        "timestamp" : 1794322802.467
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "3E4BCBD5-B6E6-4E36-BE16-A4C4BBFD3DFD",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.03 AM",
+        "timestamp" : 1794322803.021
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "844FBE3E-2B22-486B-88F8-2D6E28F7A411",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-11 at 12.00.00 AM",
+        "timestamp" : 1794322800.561
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "EC2AE53A-DDB7-4E34-845F-4B12BA6E47C8",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-11 at 12.00.01 AM",
+        "timestamp" : 1794322801.106
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "EA80822A-D365-4B54-B4A4-C61218E2E641",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.58 PM",
+        "timestamp" : 1794322798.621
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "497E73E0-DE63-4D00-A92B-B0FC2C57EDA7",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.59 PM",
+        "timestamp" : 1794322799.146
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "4B423D62-DDDA-4982-99B2-BA816183D17D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.56 PM",
+        "timestamp" : 1794322796.729
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "FDA843A3-A42F-47DE-BF26-EA98FF1AA612",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.57 PM",
+        "timestamp" : 1794322797.249
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "BE7941D6-82D0-410F-B0C3-4437200907DC",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.54 PM",
+        "timestamp" : 1794322794.901
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "DFBF5903-5E82-4523-B2D9-01045103E228",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.55 PM",
+        "timestamp" : 1794322795.379
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "43769865-6529-4838-AFBC-D2657571F2D4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.53 PM",
+        "timestamp" : 1794322793.066
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "9AC9BCA0-3684-433B-BB24-1B0C769AE0D9",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.53 PM",
+        "timestamp" : 1794322793.574
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "622D11B5-BF90-4FF0-B660-AB451D71982F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.51 PM",
+        "timestamp" : 1794322791.178
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "3C6673B5-85B5-49A8-894D-31D90DAF5A22",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.51 PM",
+        "timestamp" : 1794322791.709
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "BA9F0B2C-248A-4AF2-915E-DB3A3338BE5D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.49 PM",
+        "timestamp" : 1794322789.248
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "B707C46A-5516-485E-983E-CAF4C8342A56",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.49 PM",
+        "timestamp" : 1794322789.789
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0AACC900-92AC-405D-9C3C-A1C5CCA619F4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.47 PM",
+        "timestamp" : 1794322787.303
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8A95C4D1-DA44-495A-BE9D-9879730D26CA",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.47 PM",
+        "timestamp" : 1794322787.851
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "87C845A0-EA2D-4AA4-AE59-90C0E34BD92A",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.45 PM",
+        "timestamp" : 1794322785.362
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "EB518BFD-6EE4-46E9-ACD5-8A364D2C30EA",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.45 PM",
+        "timestamp" : 1794322785.891
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "68C75194-2A83-4E48-9345-38883408460E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.41 PM",
+        "timestamp" : 1794322781.296
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "D7C6D68A-66FD-4BDC-923A-A94DC6D01C72",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.41 PM",
+        "timestamp" : 1794322781.797
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0689C0FA-A68E-48C3-B216-4C13F852773E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.37 PM",
+        "timestamp" : 1794322777.228
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "F5F8CB59-2046-400E-9869-72A12E9489AE",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.37 PM",
+        "timestamp" : 1794322777.765
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "DF768F28-410F-46A1-90AC-4817F01619FB",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.33 PM",
+        "timestamp" : 1794322773.177
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "A701351F-E109-4ECC-9378-36988DD70F8E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.33 PM",
+        "timestamp" : 1794322773.672
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "BD60091B-53E9-4F0E-BB4C-23BB1CAC7766",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.29 PM",
+        "timestamp" : 1794322769.138
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "F6D61B3B-A0EB-45DE-9AE1-91C93D2C5AED",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.29 PM",
+        "timestamp" : 1794322769.663
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "6ACBA8DD-FD97-4D45-8117-EE059243B1A3",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.25 PM",
+        "timestamp" : 1794322765.044
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "F75EF40B-9975-46B9-BE5B-C0CE2A61AC7E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.25 PM",
+        "timestamp" : 1794322765.546
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "526B9B94-C69D-48AA-804A-8EDEE5766C6E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.21 PM",
+        "timestamp" : 1794322761.06
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "381CF9CE-2C34-4F59-B5BA-45DACB0D437F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.21 PM",
+        "timestamp" : 1794322761.536
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "2A5A6E22-C9B5-439B-B676-D463F720E69C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.17 PM",
+        "timestamp" : 1794322757.06
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "C2EBE142-5449-4347-BEBC-B06E34566F1C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.17 PM",
+        "timestamp" : 1794322757.591
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "AFDA56B0-52B0-473E-A402-BFCF25518C2D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.15 PM",
+        "timestamp" : 1794322755.181
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "30D66388-3A07-4854-914F-FDA97A9641C5",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.15 PM",
+        "timestamp" : 1794322755.695
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "3D42F6A2-E318-4962-87E9-02E3663C64F5",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.13 PM",
+        "timestamp" : 1794322753.35
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0B43B56B-E8A6-47FB-9AC2-9E00DE90CD5A",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.13 PM",
+        "timestamp" : 1794322753.829
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "FED7B40D-646E-4549-8AE1-969F28A9BD01",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.11 PM",
+        "timestamp" : 1794322751.558
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0FEBAE61-F6C8-4BE0-B5E5-77E8DEA87A2C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.12 PM",
+        "timestamp" : 1794322752.023
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0C54428E-537A-4A66-BFF5-17DE66E342F2",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.09 PM",
+        "timestamp" : 1794322749.745
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "6F2E0FA5-EED4-4421-92B7-261A139A416B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.10 PM",
+        "timestamp" : 1794322750.24
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "CAA71198-47E7-43E5-A4A6-AFE612D6B562",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.07 PM",
+        "timestamp" : 1794322747.933
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "7CEAE629-5447-4FA9-B306-9225C8FBE11E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.08 PM",
+        "timestamp" : 1794322748.412
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "23264AC2-E24D-4315-9B4F-34F709081E98",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.06 PM",
+        "timestamp" : 1794322746.101
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "41AA5169-C021-489A-88CB-8E6C62F942CA",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.06 PM",
+        "timestamp" : 1794322746.605
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "F80CDD33-83A3-4242-A62E-E39A31C98818",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.04 PM",
+        "timestamp" : 1794322744.263
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "6D79745A-C152-4BC9-8FD1-B83CB698F7D8",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.04 PM",
+        "timestamp" : 1794322744.762
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "371DA30F-975A-4F67-B87E-EB5DF3934721",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.02 PM",
+        "timestamp" : 1794322742.423
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "4C7295E4-2E4A-46F4-9371-C665F04422D9",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.02 PM",
+        "timestamp" : 1794322742.92
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "112AFC92-7F78-41CA-B6BF-E39E61E78A13",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.59.00 PM",
+        "timestamp" : 1794322740.601
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0DCCF5E0-7F36-4D9C-839D-DBB38D24105D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.59.01 PM",
+        "timestamp" : 1794322741.079
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0A460A1B-2F38-4E35-A112-B381C14D8B3C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.58 PM",
+        "timestamp" : 1794322738.783
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "B25EAD51-7DAC-4969-A4D0-49E9281A0CDF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.59 PM",
+        "timestamp" : 1794322739.274
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0CA61B4F-C251-441D-BB53-42A46FC84834",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.56 PM",
+        "timestamp" : 1794322736.925
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "395ED89B-CD55-4477-AC54-C94F5D0EFB69",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.57 PM",
+        "timestamp" : 1794322737.446
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "7A89E8F4-99D3-4360-BD24-A40149636FE4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.55 PM",
+        "timestamp" : 1794322735.086
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "05248D51-6E0F-4F1B-A1F3-F9C7601DF583",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.55 PM",
+        "timestamp" : 1794322735.579
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "732AE2CD-3EC4-45B2-8A4B-2F156952CB9F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.53 PM",
+        "timestamp" : 1794322733.174
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "98C3DFD3-B836-451A-94FD-CD1D92E63CFD",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.53 PM",
+        "timestamp" : 1794322733.658
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "B4F7C1F7-9389-44E6-9402-F4DB1C276FF0",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.49 PM",
+        "timestamp" : 1794322729.178
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "F8B76364-1343-48FB-B6CB-8055782280A4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.49 PM",
+        "timestamp" : 1794322729.653
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "5D85F327-6518-46C3-A3B2-A6177E4A5264",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.45 PM",
+        "timestamp" : 1794322725.212
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "06092FCA-6BAB-4ED2-98BA-F89C54F9A4EE",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.45 PM",
+        "timestamp" : 1794322725.709
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "7407FC93-D89A-466F-ADDA-099B07DAD5AD",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.41 PM",
+        "timestamp" : 1794322721.243
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "9DBB05BB-8CBA-4584-BFCC-ED9C552EDE79",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.41 PM",
+        "timestamp" : 1794322721.707
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "2AE31F78-C0A8-40DD-AC61-9CAD33776B5A",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.37 PM",
+        "timestamp" : 1794322717.326
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "80431399-F763-4DB0-BA7E-F490C623F87C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.37 PM",
+        "timestamp" : 1794322717.804
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8AEF564E-2BCC-4E12-B0C4-D39D06D8F586",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.33 PM",
+        "timestamp" : 1794322713.373
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "FD401BDC-B840-4908-9D08-BF828E21FA0E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.33 PM",
+        "timestamp" : 1794322713.866
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "377BD291-3C96-4897-9714-952B468E899C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.29 PM",
+        "timestamp" : 1794322709.398
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8E29DC54-E9FE-4D42-8069-B75F234CCF28",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.29 PM",
+        "timestamp" : 1794322709.879
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "D9CCC24D-D13F-4B30-8097-13ABE139FDDF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.25 PM",
+        "timestamp" : 1794322705.469
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8D60D100-4AED-4188-B24D-5A2EF1CE9701",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.25 PM",
+        "timestamp" : 1794322705.93
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "E9A9C66B-4CDF-4449-9286-FB13D69F41FD",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.23 PM",
+        "timestamp" : 1794322703.555
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "69E75389-8473-425C-B1B5-86F2233B212D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.24 PM",
+        "timestamp" : 1794322704.053
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "F48E8900-BDB3-4BD2-8D65-8BAEC4058030",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.21 PM",
+        "timestamp" : 1794322701.714
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "15BFDB03-4658-4109-A9C5-3B591E27BFC9",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.22 PM",
+        "timestamp" : 1794322702.202
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "376D70FD-FB8A-4985-8580-63106951137B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.19 PM",
+        "timestamp" : 1794322699.906
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8FC18287-4C39-4EBC-9700-A8002444AA24",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.20 PM",
+        "timestamp" : 1794322700.379
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "891CDE95-B161-4550-8528-58615B822FD2",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.18 PM",
+        "timestamp" : 1794322698.096
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "644B031A-3750-42AB-B24A-62B14132FFF4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.18 PM",
+        "timestamp" : 1794322698.564
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0E46C69A-464E-4E11-B6F1-1A785482DF68",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.16 PM",
+        "timestamp" : 1794322696.314
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "E255C1A5-DFAC-4AB3-8C07-2498EC2475D0",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.16 PM",
+        "timestamp" : 1794322696.767
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "91AF42EA-85BE-4200-8EBB-0A1F8DB91EAA",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.14 PM",
+        "timestamp" : 1794322694.554
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "29AF4AC4-7F6B-446A-A751-F977D41F714F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.15 PM",
+        "timestamp" : 1794322695.007
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "95445B9E-2834-41A2-BEF1-DC021DB08F2F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.12 PM",
+        "timestamp" : 1794322692.814
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "16869259-0E79-40E3-BFC0-594E803A8E52",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.13 PM",
+        "timestamp" : 1794322693.263
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "6555A913-F434-4A9B-AD38-49EB65027D1B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.11 PM",
+        "timestamp" : 1794322691.056
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "F401ED78-BA35-4A12-B723-CE57ABC214F7",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.11 PM",
+        "timestamp" : 1794322691.5
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "4EF49C9A-4666-455E-AFA9-D8F02C55DF5F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.09 PM",
+        "timestamp" : 1794322689.312
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "4774FBEE-97D3-4824-B0FF-2067FD443DFD",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.09 PM",
+        "timestamp" : 1794322689.762
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "887749E2-2AF3-42A5-A851-A74C68C43964",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.07 PM",
+        "timestamp" : 1794322687.543
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "81B006AC-E8A1-469C-B521-E1826E99464E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.07 PM",
+        "timestamp" : 1794322687.983
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8F1D6E53-6266-42F2-87A0-32CF56648CCE",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.05 PM",
+        "timestamp" : 1794322685.791
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "A9ACCB09-1388-44FF-8BCC-F8E563295411",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.06 PM",
+        "timestamp" : 1794322686.229
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "FF08D7BF-16D2-4C80-8F6A-7FEB27F104B6",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.04 PM",
+        "timestamp" : 1794322684.04
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "EA4ACDC0-0B59-4C2A-A55C-1DFA9E01CA50",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.04 PM",
+        "timestamp" : 1794322684.48
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "2971549E-1979-48CD-AB63-296EA27D12EC",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.58.02 PM",
+        "timestamp" : 1794322682.146
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "B3C409B8-71DC-4222-8B84-F46C6D156B90",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.58.02 PM",
+        "timestamp" : 1794322682.589
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "DE08D7A8-5B20-443C-A41A-CD0D3E7F3524",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.58 PM",
+        "timestamp" : 1794322678.262
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "7DCAD188-8A7E-4981-A6C1-13DEEE1067E8",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.58 PM",
+        "timestamp" : 1794322678.699
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "B942483B-D38C-459E-99A5-CBDB3B44D77E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.54 PM",
+        "timestamp" : 1794322674.378
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "6350A795-22C6-4556-A7DE-1942CDB569A9",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.54 PM",
+        "timestamp" : 1794322674.815
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "44CFCA75-AD1C-4CAC-B06A-674B419FA648",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.50 PM",
+        "timestamp" : 1794322670.478
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "16C735F0-9D92-46F2-A23E-7EE916F005BF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.50 PM",
+        "timestamp" : 1794322670.922
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "7C777A11-5501-499E-9253-6524173E7037",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.46 PM",
+        "timestamp" : 1794322666.585
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "12FD88E2-0734-49FA-AF2D-2EAC0A00C11D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.47 PM",
+        "timestamp" : 1794322667.023
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8C38DFD6-B491-4D1A-802B-AF45C4733EDF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.42 PM",
+        "timestamp" : 1794322662.652
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "CD7FAF94-20D0-412B-AEBB-D0D80EF9A5A2",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.43 PM",
+        "timestamp" : 1794322663.142
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "9711721B-477C-43EE-B166-D7B4D69B8DA5",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.38 PM",
+        "timestamp" : 1794322658.657
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "263428A2-19C2-45AC-999A-88F77080C417",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.39 PM",
+        "timestamp" : 1794322659.129
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "EADEF965-F55C-4FEE-B426-8BEDD4015335",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.34 PM",
+        "timestamp" : 1794322654.742
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "D3EA0F64-8651-40D1-8415-9A1F22F7DB30",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.35 PM",
+        "timestamp" : 1794322655.229
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "746639E6-2534-4086-9CC0-8D494C3C75CE",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.32 PM",
+        "timestamp" : 1794322652.888
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "4B1A4307-5425-44FE-96B7-E3B006A2BBE2",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.33 PM",
+        "timestamp" : 1794322653.403
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "84210FC9-A83C-4615-A0CB-84D6E06F6EDF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.31 PM",
+        "timestamp" : 1794322651.019
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "A9F76E71-E03F-49A8-B610-F173E3A62929",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.31 PM",
+        "timestamp" : 1794322651.523
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "D3154FD8-77BD-4093-8AD6-3E6B87D6A9DD",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.29 PM",
+        "timestamp" : 1794322649.174
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "5E0E8CD5-9D54-4BC1-A8B3-2C49F4B26AA7",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.29 PM",
+        "timestamp" : 1794322649.679
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "6688A7A2-8C14-42F7-83F2-F39317FF9590",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.27 PM",
+        "timestamp" : 1794322647.315
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "69C79AB2-487C-40D1-A09E-5C70B2F175D1",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.27 PM",
+        "timestamp" : 1794322647.812
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "C41A93AE-2164-4FD7-8E7D-C0DBC04B7D61",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.25 PM",
+        "timestamp" : 1794322645.422
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "581CD3E2-CA15-4ECA-90B4-C12962DC411C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.25 PM",
+        "timestamp" : 1794322645.956
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "C406276B-B59A-4D91-887C-5631FB0CC4C6",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.23 PM",
+        "timestamp" : 1794322643.532
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "FBE93E7A-DC1A-41E7-A23D-43946E4F7259",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.24 PM",
+        "timestamp" : 1794322644.047
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8BE93688-BCB1-49F0-B5A7-7E59C1886A17",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.21 PM",
+        "timestamp" : 1794322641.629
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "2C29A47A-63F8-4777-8BBF-1F2D5D026B22",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.22 PM",
+        "timestamp" : 1794322642.172
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "49AF1095-C3C3-4469-829B-259BA0217D50",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.19 PM",
+        "timestamp" : 1794322639.663
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "105CFC96-9E46-4B5B-A19A-AD726156381B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.20 PM",
+        "timestamp" : 1794322640.229
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "E6182625-36AF-4E38-A3B0-783E84093A1E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.17 PM",
+        "timestamp" : 1794322637.719
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "B80DA568-5B51-491B-812D-581C54D6388A",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.18 PM",
+        "timestamp" : 1794322638.25
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "EF8A02D5-EED7-4DBD-8B28-B6C96B7C235B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.15 PM",
+        "timestamp" : 1794322635.764
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "C5FA8BEE-CA34-4D57-B781-04812AA1870A",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.16 PM",
+        "timestamp" : 1794322636.345
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "901894F8-B8BD-43E8-896C-BC4D7EAEB974",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.13 PM",
+        "timestamp" : 1794322633.77
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "70571740-3D97-4DF2-8E3D-CA9E7F2A238F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.14 PM",
+        "timestamp" : 1794322634.346
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "7919BC71-73AF-4C75-9C19-29C140A0843E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.11 PM",
+        "timestamp" : 1794322631.871
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "FBD944AE-3C40-4307-9CA5-F588E22FA45F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.12 PM",
+        "timestamp" : 1794322632.354
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "BB41A897-884E-4C21-B526-14AA5506A8F5",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.09 PM",
+        "timestamp" : 1794322629.853
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "D20A3006-8EDC-449C-8704-67630129B4CF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.10 PM",
+        "timestamp" : 1794322630.353
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "93FA7603-D122-42F0-8C32-781ADC61D7DE",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.05 PM",
+        "timestamp" : 1794322625.823
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "3FDC3021-1B29-4A2B-A735-841066DF1880",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.06 PM",
+        "timestamp" : 1794322626.319
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "A4CDC80F-2F26-48E5-9FEC-FAC0EFB37EFC",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.57.01 PM",
+        "timestamp" : 1794322621.275
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "E6A36857-94C9-4126-91BF-82224E41952A",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.57.01 PM",
+        "timestamp" : 1794322621.745
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "8C7F80C5-40E0-4806-9C29-7B46BB514201",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.57 PM",
+        "timestamp" : 1794322617.282
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "FE409064-2B97-4C9D-BA73-EAD8AF5AEA53",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.57 PM",
+        "timestamp" : 1794322617.78
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "6B39A643-5AE2-45FC-953F-831459CFD4E1",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.52 PM",
+        "timestamp" : 1794322612.847
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "9FDC4D82-36CF-4C1D-8A7D-DFAF397E7015",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.53 PM",
+        "timestamp" : 1794322613.295
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "B1BD47B3-678B-420F-BDDC-03C004866264",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.48 PM",
+        "timestamp" : 1794322608.924
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "26B023B0-B2D7-40A6-BBBC-55545CB5C7F3",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.49 PM",
+        "timestamp" : 1794322609.386
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "ED8ACEFC-CBF1-4A0D-93A4-E5AECA0F5655",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.44 PM",
+        "timestamp" : 1794322604.731
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "88278FAC-5B04-4EB8-8AAF-10DEDEDF3BB7",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.45 PM",
+        "timestamp" : 1794322605.172
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "FD899B8D-4A83-4C01-AF07-5F659CAD272C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.40 PM",
+        "timestamp" : 1794322600.829
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "85DDC236-26BD-43F1-A766-679B16FAC273",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.41 PM",
+        "timestamp" : 1794322601.286
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "0D021FB5-09BD-4A6D-A9DD-0B4F6D29F21B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.37 PM",
+        "timestamp" : 1794322597.724
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "C95ABAB0-8DE0-41F8-9123-7CCEDB06F8FD",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.38 PM",
+        "timestamp" : 1794322598.025
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "9D234A6D-C3BE-49E9-BDB4-B15A36A3F4F0",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.34 PM",
+        "timestamp" : 1794322594.837
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "52E69059-BE70-4EC2-A6C0-6CD7C3501933",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.35 PM",
+        "timestamp" : 1794322595.321
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "4AF17845-3E80-4080-979A-9C4BAFB59529",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.32 PM",
+        "timestamp" : 1794322592.999
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "F6408ABB-82EE-40B9-ADFC-C28F95360624",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.33 PM",
+        "timestamp" : 1794322593.481
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "DDD77556-375F-4A7C-8B05-1736645D2423",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.31 PM",
+        "timestamp" : 1794322591.16
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "29AB9BDA-2A7C-455B-977A-AA5B12470402",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.31 PM",
+        "timestamp" : 1794322591.646
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "283F63D3-2981-4312-B586-6C75E6ECFDB1",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.29 PM",
+        "timestamp" : 1794322589.312
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "520D6AD3-6313-47B6-875E-1C8B3CD8B49F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.29 PM",
+        "timestamp" : 1794322589.814
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "75D7AB73-F758-44CD-A9C3-691AB77C5E31",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.27 PM",
+        "timestamp" : 1794322587.435
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "2CE35583-2923-48E1-AACF-ECCB9BA62336",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.27 PM",
+        "timestamp" : 1794322587.955
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "A62CF123-08BF-4A63-B5AF-2E01AC80EE93",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.25 PM",
+        "timestamp" : 1794322585.533
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "D847EAF8-B342-42AD-9F81-E62B6CF67576",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.26 PM",
+        "timestamp" : 1794322586.048
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "A933AEF7-8952-4C8B-BC42-EE749DA3CBAB",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.23 PM",
+        "timestamp" : 1794322583.624
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "35487811-B3A3-4D09-8E6D-B7832F271080",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.24 PM",
+        "timestamp" : 1794322584.154
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "81621052-69E0-4451-9369-0732546B17DA",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.21 PM",
+        "timestamp" : 1794322581.066
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "991B2912-1696-4CFD-8B35-BAD552183716",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.21 PM",
+        "timestamp" : 1794322581.584
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "6B09BF89-D73F-463E-B001-ECE93CC7F5BB",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.19 PM",
+        "timestamp" : 1794322579.148
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "57151C92-1DE1-453A-B8DE-000F5F39DFC3",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.19 PM",
+        "timestamp" : 1794322579.688
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "2583F5D7-C097-4806-9B94-19B690E521B9",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.17 PM",
+        "timestamp" : 1794322577.223
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "185535C8-9723-4AC1-8531-49D5C09C3BE8",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.17 PM",
+        "timestamp" : 1794322577.753
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "12D1616A-1DA6-4743-A111-CEAC7E2D4828",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.15 PM",
+        "timestamp" : 1794322575.316
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "13BD9A42-A945-4EAB-977E-9CF27DA29E3F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.15 PM",
+        "timestamp" : 1794322575.831
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "5420144E-F00F-404B-A76A-D8F84948E60B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.13 PM",
+        "timestamp" : 1794322573.415
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "5DF36E37-9333-4732-89C5-46E4326418F3",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.13 PM",
+        "timestamp" : 1794322573.942
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "B51BEF79-2AB9-43DE-9060-2CB6EC5C54F5",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.11 PM",
+        "timestamp" : 1794322571.489
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "432C1940-78CB-4EA2-A7E6-0AF40A0BA7E0",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.12 PM",
+        "timestamp" : 1794322572.014
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "39339A26-561B-494A-AA0A-6947B71F8D02",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.09 PM",
+        "timestamp" : 1794322569.569
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "67D7725B-B617-4F46-8FA7-963204DBDBB4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.10 PM",
+        "timestamp" : 1794322570.096
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "A40E835F-080F-439B-B426-87FDEC066106",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.07 PM",
+        "timestamp" : 1794322567.631
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "484571B8-991D-479F-B5A6-B720BC16D884",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.08 PM",
+        "timestamp" : 1794322568.181
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "AAC08E3E-9409-43B2-811E-15B4E84A7DE9",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-10 at 11.56.05 PM",
+        "timestamp" : 1794322565.029
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "A0964018-5670-4A5B-9429-97616A6F2607",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-10 at 11.56.05 PM",
+        "timestamp" : 1794322565.568
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "C280378B-BDC3-4F47-AB83-CB7D85C11EB9",
+        "deviceName" : "ShopBench iPhone 17 Pro (27.2)",
+        "exportedFileName" : "675A17FE-2084-4D91-B450-3FB4E739C676.mp4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Screen Recording 2026-11-10 at 11.55.50 PM.mp4",
+        "timestamp" : 1794322550.001
+      }
+    ],
+    "testIdentifier" : "JourneyTests/testJourney()",
+    "testIdentifierURL" : "test://com.apple.xcode/ShopBenchRunner/ShopBenchUITests/JourneyTests/testJourney"
+  }
+]

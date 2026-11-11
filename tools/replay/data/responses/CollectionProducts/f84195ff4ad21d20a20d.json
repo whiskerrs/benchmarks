@@ -1,0 +1,280 @@
+{
+ "operationName": "CollectionProducts",
+ "variables": {
+  "after": "eyJjIjoicG9zaXRpb24iLCJ2Ijo3MiwiaSI6NTQ5OX0",
+  "first": 24,
+  "handle": "urban-transit-essentials",
+  "reverse": false,
+  "sortKey": "COLLECTION_DEFAULT"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "collection": {
+    "id": "gid://shopify/Collection/653",
+    "title": "Urban Transit Essentials",
+    "description": "Functional layers crafted with earthy muted tones, a minimalist mood, and organic linen and cotton material language for daily commutes.",
+    "products": {
+     "pageInfo": {
+      "hasNextPage": false,
+      "endCursor": "eyJjIjoicG9zaXRpb24iLCJ2Ijo4NCwiaSI6NTUxMX0"
+     },
+     "nodes": [
+      {
+       "id": "gid://shopify/Product/5545",
+       "handle": "rock-taupe-weather-resistant-canvas-work-vest",
+       "title": "Rock Taupe Weather-Resistant Canvas Work Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/7c24290e5dc403ae9fdf198789601111.png?v=15024015",
+        "altText": "Rock taupe weather-resistant canvas work vest, Default angle is 3/4 with garments arranged on matte risers at chest-to-eye..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "165.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5546",
+       "handle": "wheat-khaki-military-field-vest",
+       "title": "Wheat khaki military field vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/0ba18257244adee8ed4229e504ec8038.png?v=14954002",
+        "altText": "Wheat Khaki military-inspired field vest, Single-hero garment photographed front-on at slight 3/4 angle to reveal..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "168.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5547",
+       "handle": "heavyweight-cotton-work-vest-with-snap-closure",
+       "title": "Heavyweight Cotton Work Vest with Snap Closure",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/ca881e0b1950c94542ff7a63039f0868.png?v=14892021",
+        "altText": "Heavyweight cotton work vest, Default is 3/4 angle at tabletop height for apparel and bags \u2014 allows depth and reveals..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "115.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5548",
+       "handle": "hi-vis-ochre-safety-vest",
+       "title": "Hi-Vis Ochre Safety Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/138e714402abcf963d4af64ddb587f66.png?v=14722007",
+        "altText": "Field-Tested Collective hi-vis ochre construction vest, 3/4 angle product shots on neutral Dust White backdrops with..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "38.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5549",
+       "handle": "gilet-de-terrain-a-renforts-cordura",
+       "title": "Field vest with Cordura reinforcements",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/d3dc76ab0a23880e33dc1aaa3de9b407.png?v=14809216",
+        "altText": "Reinforced Field Vest, 3/4 angle product shots on neutral 'Worksite Dust' backdrop (off-white/very light gray) with soft..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "89.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5550",
+       "handle": "waterfowl-hunting-vest-in-waxed-canvas",
+       "title": "Waterfowl Hunting Vest in Waxed Canvas",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/e7103083299d5a80a9b64cba60b6ff08.png?v=15025585",
+        "altText": "Waterfowl hunting vest in waxed canvas, Three-quarter angle on a mid-height surface (e.g., weathered wood table) with..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "245.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "318.5",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5551",
+       "handle": "steel-blue-utility-vest",
+       "title": "Steel Blue Utility Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/c05fd91d4baca85b0b6bcb2864bb150c.png?v=14978991",
+        "altText": "Steel blue technical utility vest, Three-quarter angle as default to showcase fit and tailoring: model stands against a..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "130.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5552",
+       "handle": "modular-running-vest-with-breathable-mesh",
+       "title": "Modular Running Vest with Breathable Mesh",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/aaa92d510290a8aaed971f01ede6ef7f.png?v=14708398",
+        "altText": "Modular running vest, Three-quarter angle as default for both beauty products and gear \u2014 reveals key features while..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "82.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5553",
+       "handle": "technical-hunting-vest-in-sage-green",
+       "title": "Technical hunting vest in sage green",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/62a00f50f3d54ebc5dda76203a67bf5a.png?v=14700626",
+        "altText": "Sage Green technical hunting vest, Single product isolated against Prairie Ivory backdrop; shot at a slight 3/4 angle for..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "129.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5554",
+       "handle": "stone-modular-technical-vest",
+       "title": "Stone Modular Technical Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/365416d78341e5e08a61789e6ea2fa12.png?v=14657692",
+        "altText": "Stone modular technical vest, 3/4 product angles emphasizing construction: garments draped or folded on textured stone or..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "118.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5555",
+       "handle": "shadow-bronze-layered-utility-vest",
+       "title": "Shadow Bronze Layered Utility Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/c30a6e9a4f5eb873bfa06afe426c4961.png?v=14962121",
+        "altText": "Shadow Bronze layered utility vest, Three-quarter angle as default\u2014the best view for sculptural menswear detailing. Shot..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "320.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5556",
+       "handle": "modular-field-vest-in-technical-blend",
+       "title": "Modular Field Vest in Technical Blend",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/1e8517d43c62d01d3c8075b81e7991ef.png?v=15044702",
+        "altText": "Fieldcraft Heritage Modular Field Vest, Three-quarter angle as default, showing garment details like pocket systems and..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "112.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      }
+     ]
+    }
+   }
+  }
+ }
+}

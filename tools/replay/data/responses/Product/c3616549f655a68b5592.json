@@ -1,0 +1,305 @@
+{
+ "operationName": "Product",
+ "variables": {
+  "handle": "set-ropa-interior-moss-grey"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "product": {
+    "id": "gid://shopify/Product/5596",
+    "handle": "set-ropa-interior-moss-grey",
+    "title": "Moss grey underwear set",
+    "description": "A moss grey underwear set designed so you forget you are wearing it. No annoying labels or seams, just comfort directly against the body. Soft-touch cotton for sensitive skin Flexible elastic, does not mark or squeeze Moss grey tone, discreet and modern",
+    "images": {
+     "nodes": [
+      {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/b97ef584cc36bd48ea4c56f98238efb6.png?v=15064195",
+       "altText": "Moss Grey underwear set, Default to three-quarter product shots on matte tabletops in Soft Oat or Ash Taupe backgrounds...."
+      }
+     ]
+    },
+    "options": [
+     {
+      "name": "Size",
+      "optionValues": [
+       {
+        "name": "S"
+       },
+       {
+        "name": "M"
+       },
+       {
+        "name": "L"
+       }
+      ]
+     }
+    ],
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/28160",
+       "title": "S",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ],
+       "price": {
+        "amount": "28.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      },
+      {
+       "id": "gid://shopify/ProductVariant/28161",
+       "title": "M",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ],
+       "price": {
+        "amount": "28.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      },
+      {
+       "id": "gid://shopify/ProductVariant/28162",
+       "title": "L",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ],
+       "price": {
+        "amount": "28.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      }
+     ]
+    }
+   },
+   "productRecommendations": [
+    {
+     "id": "gid://shopify/Product/4765",
+     "handle": "linen-loungewear-robe",
+     "title": "Linen Loungewear Robe",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/5d9a9b808349ef1c075f931eb3abf7bd.png?v=13154883",
+      "altText": "A Cozy Sanctuary Linen loungewear robe elegantly displayed in a studio setting, centered on a neutral Seashell background...."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "85.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4766",
+     "handle": "everyday-robe-in-deep-charcoal",
+     "title": "Everyday Robe in Deep Charcoal",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/d7059cda1d1f4bc359fe1b9e238cd377.png?v=14682161",
+      "altText": "Deep Charcoal Everyday Robe, Default to eye-level 3/4 angles that accentuate garment form on body or carefully arranged..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "178.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4767",
+     "handle": "women-s-bamboo-robe-warm-taupe",
+     "title": "Women's Bamboo Robe - Warm Taupe",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/b3dc4e02391effe17a7302d0d93125ac.png?v=13057791",
+      "altText": "A women's bamboo robe in Warm Taupe color, perfectly centered on a soft, even, and shadowless, with a slight golden hue to..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "97.5",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4768",
+     "handle": "misty-rose-lounge-robe",
+     "title": "Misty Rose Lounge Robe",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/5ebd9a75a139c1d85844837169e757eb.png?v=12945162",
+      "altText": "A Misty Rose lounge robe positioned centrally in the frame, captured with a straight-on view using a 50mm lens. The robe..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4769",
+     "handle": "bamboo-blend-robe-in-rosewood",
+     "title": "Bamboo Blend Robe in Rosewood",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/ce2c28df9641dec9f465fbcd77169e57.png?v=12419235",
+      "altText": "Photograph a bamboo blend robe in rosewood, maintaining a serene and elegant appearance. No logos, no brand names, no..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "97.5",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4770",
+     "handle": "bamboo-robe",
+     "title": "Bamboo Robe",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/c80aed59850f3a86ca2e13ff9c45d374.png?v=12568080",
+      "altText": "Photograph a bamboo robe positioned centrally on a minimalist surface against a Concrete Grey background. The lighting is..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4771",
+     "handle": "blush-sand-robe",
+     "title": "Blush Sand Robe",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/eb5ddd3ddbad3ba89a36c38d8756c2e0.png?v=13127527",
+      "altText": "Blush Sand robe, perfectly centered horizontally and vertically with equal negative space above and below, color palette:..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "85.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4772",
+     "handle": "cotton-robe-in-soft-clay",
+     "title": "Cotton Robe in Soft Clay",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/9a370aa208d0e886a98c700f131aa6c8.png?v=13172894",
+      "altText": "An elegant cotton robe in Soft Clay, centered on a plain Dusty Teal background. The robe is displayed with soft,..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4773",
+     "handle": "women-s-linen-relaxation-robe",
+     "title": "Women's Linen Relaxation Robe",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/e0a062eb1eb5097ecec84fc15be38d01.png?v=12925367",
+      "altText": "Photograph a women's Cream Linen relaxation robe, centered on a smooth, emphasizing the soft texture and elegant drape of..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4774",
+     "handle": "modal-lounge-robe",
+     "title": "Modal Lounge Robe",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/e51e9f8f9e69bfa848e2a3490f511dad.png?v=13018064",
+      "altText": "A perfectly centered product shot of a modal lounge robe in Mocha Latte, showcased against a soft, neutral backdrop in..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "88.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    }
+   ]
+  }
+ }
+}

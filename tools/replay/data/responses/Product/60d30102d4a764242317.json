@@ -1,0 +1,305 @@
+{
+ "operationName": "Product",
+ "variables": {
+  "handle": "cozy-linen-overalls-with-adjustable-straps"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "product": {
+    "id": "gid://shopify/Product/6029",
+    "handle": "cozy-linen-overalls-with-adjustable-straps",
+    "title": "Cozy linen overalls with adjustable straps",
+    "description": "These linen overalls invite play and rest alike, offering comfort that feels as natural as a hug. Breathable linen keeps your child cool and cozy throughout the day Adjustable shoulder straps grow gracefully with your little one Earthy beige tones evoke calm and blend beautifully with other pieces",
+    "images": {
+     "nodes": [
+      {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/7e7499bd46650b5adb44bdc98e227215.png?v=14899666",
+       "altText": "Cozy linen overalls, Single pieces photographed at a gentle 3/4 angle on soft-textured neutral backdrops (cotton mat or..."
+      }
+     ]
+    },
+    "options": [
+     {
+      "name": "Size",
+      "optionValues": [
+       {
+        "name": "2T"
+       },
+       {
+        "name": "4T"
+       },
+       {
+        "name": "6T"
+       }
+      ]
+     }
+    ],
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/29396",
+       "title": "2T",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "2T"
+        }
+       ],
+       "price": {
+        "amount": "68.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      },
+      {
+       "id": "gid://shopify/ProductVariant/29397",
+       "title": "4T",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "4T"
+        }
+       ],
+       "price": {
+        "amount": "68.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      },
+      {
+       "id": "gid://shopify/ProductVariant/29398",
+       "title": "6T",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "6T"
+        }
+       ],
+       "price": {
+        "amount": "68.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      }
+     ]
+    }
+   },
+   "productRecommendations": [
+    {
+     "id": "gid://shopify/Product/4912",
+     "handle": "unisex-patterned-cotton-shirt",
+     "title": "Unisex Patterned Cotton Shirt",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/9603d077cffa46b46b0acdb5926ffa3d.png?v=12908110",
+      "altText": "A perfectly centered, straight-on view of a Cotton Comfort unisex patterned shirt. The shirt is displayed against a soft,..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "25.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4913",
+     "handle": "linen-romper-with-wooden-buttons",
+     "title": "Linen Romper With Wooden Buttons",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/6a5aee7564f9821b8d49e7d3b21c94a2.png?v=15048965",
+      "altText": "Classic linen romper, Hero product shown at 3/4 angle on linen-clad riser or pale stone block; camera slightly above..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "98.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4914",
+     "handle": "linen-family-coordinated-set",
+     "title": "Linen family coordinated set",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/6bfae103231668db7f43866e8148cf04.png?v=14696072",
+      "altText": "Coordinated linen family clothing set, Single product or coordinated set on seamless matte backdrop in 'Cloud White' or..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "142.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4915",
+     "handle": "children-s-linen-jumpsuit-with-motif-tag",
+     "title": "Children's Linen Jumpsuit with Motif Tag",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/afa168515cf813e0317373d726369466.png?v=14958223",
+      "altText": "Children's linen jumpsuit with hand-drawn motif tag, Hero product shots use a 3/4 angle on torso mannequins or flat lays..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "54.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "70.2",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4916",
+     "handle": "linen-baby-romper",
+     "title": "Linen Baby Romper",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/3f0e6c87cdb339eb66d580c6bf17d1e8.png?v=13059539",
+      "altText": "With soft, shadowless illumination enhancing its elegant texture and craftsmanship. The image captures the sophisticated..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "45.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4917",
+     "handle": "eco-friendly-pajama-shorts",
+     "title": "Eco-friendly Pajama Shorts",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/abfe1bc555a47adcf29078667fe8d0f9.png?v=13165638",
+      "altText": "Eco-friendly pajama shorts, Opt for a 3/4 angle to showcase the fabric's texture and craftsmanship. Arrange sleepwear sets..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "35.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "45.5",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4918",
+     "handle": "children-s-cotton-playsuit-in-sand",
+     "title": "Children's Cotton Playsuit in Sand",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/bf6c32b4ed005cd00d69fc50f6bf229b.png?v=14833962",
+      "altText": "Children's cotton playsuit, Default to a straight-on or slightly elevated 3/4 angle showing garments gently draped or..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "46.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "59.8",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4919",
+     "handle": "comfortable-loungewear-set",
+     "title": "Comfortable Loungewear Set",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/38291e813da99501797489cfd296ccb0.png?v=13177024",
+      "altText": "A mix-and-match loungewear set perfectly centered against a pebble gray backdrop. The set is illuminated with soft, even,..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4920",
+     "handle": "modest-children-s-set-in-organic-cotton",
+     "title": "Modest children's set in organic cotton",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/7491ea5c77a3a98db91f880ecd7d98af.png?v=14788448",
+      "altText": "Modest children's set, Product shots use a 3/4 angle at eye-level to slightly above, capturing material drape and..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "66.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4921",
+     "handle": "golden-wheat-kids-shirt-and-shorts-set",
+     "title": "Golden Wheat Kids' Shirt and Shorts Set",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/9b4ad9a77eac13431be8d81f4ba4912b.png?v=15005486",
+      "altText": "Child's Golden Wheat short-sleeve shirt and matching shorts set, Default angle is a classic straight-on or slightly angled..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "48.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    }
+   ]
+  }
+ }
+}

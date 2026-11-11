@@ -1,0 +1,526 @@
+{
+ "operationName": "Search",
+ "variables": {
+  "after": "eyJjIjoiaWQiLCJ2Ijo1NTAwLCJpIjo1NTAwfQ",
+  "first": 24,
+  "query": "jacke"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "search": {
+    "totalCount": 81,
+    "pageInfo": {
+     "hasNextPage": true,
+     "endCursor": "eyJjIjoiaWQiLCJ2Ijo1NTI0LCJpIjo1NTI0fQ"
+    },
+    "nodes": [
+     {
+      "id": "gid://shopify/Product/5501",
+      "handle": "cotton-jacket",
+      "title": "Cotton Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/e239f51df55410353c21217674caafda.png?v=13117523",
+       "altText": "A Plum Haze cotton jacket is displayed on a clean, light-colored backdrop, perfectly centered and illuminated with soft,..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "120.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5502",
+      "handle": "linen-button-up-relaxed-fit-shirt",
+      "title": "Linen Button-Up Relaxed Fit Shirt",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/97296e926267ab12434ae5a5ebe65d74.png?v=15010680",
+       "altText": "Layering jacket in Concrete Veil, Three-quarter angle as default; garments draped naturally on a mannequin or hung against..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "78.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "101.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5503",
+      "handle": "warm-clay-unstructured-jacket",
+      "title": "Warm Clay Unstructured Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/d002e4f2d89480236ff7bd35dd95ea79.png?v=15021653",
+       "altText": "Warm Clay unstructured jacket, Three-quarter angle as default to capture silhouette and drape; garments presented on..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "92.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5504",
+      "handle": "lightweight-utility-jacket-with-zip-pockets",
+      "title": "Lightweight Utility Jacket With Zip Pockets",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/62c386d8194bec6989f6458a76c64b97.png?v=14961777",
+       "altText": "Lightweight utility jacket, 3/4 angle product shots that mimic the intimacy of a portrait \u2014 garments displayed on hangers..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "118.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "153.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5505",
+      "handle": "cropped-sidewalk-grey-outerwear",
+      "title": "Cropped Sidewalk Grey Outerwear",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/baf94e43d3cb697640351dcbd674a57d.png?v=15004794",
+       "altText": "Cropped sidewalk grey outerwear, Default angle is straight-on at chest-to-head level (for tops) or 3/4 for..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "168.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5506",
+      "handle": "relaxed-baumwoll-leinen-blazer-in-schieferblau",
+      "title": "Relaxed Cotton-Linen Blazer in Slate Blue",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/8376b094a6baf088e5acd5ee41848f3d.png?v=14828215",
+       "altText": "Relaxed cotton-linen blazer in Slate Blue, Three-quarter angle is default for garments\u2014showing tailoring lines and fabric..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "198.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5507",
+      "handle": "layered-oversized-jacket",
+      "title": "Layered Oversized Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/fd5b7404d9b193a1509cdd1b9b8b67a0.png?v=13163567",
+       "altText": "Deep Slate layered jacket, neutral backdrop that complements the Sand and Cream tones, ensuring the focus remains on the..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "120.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "156.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5508",
+      "handle": "layered-cotton-blazer-in-mustard-yellow",
+      "title": "Layered Cotton Blazer in Mustard Yellow",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/4f7900d3641414878fa4bf4b07457fb9.png?v=13172731",
+       "altText": "Layered cotton blazer in Mustard Yellow, centered against a textured concrete backdrop. The blazer is perfectly lit with..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "120.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5509",
+      "handle": "giacca-strutturata-in-canapa-compatta",
+      "title": "Structured compact hemp jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/107ac7ef86dc9877a4a54d52771b03b3.png?v=14682775",
+       "altText": "Hemp structured jacket, Three-quarter angle on torso or upper body for core pieces; hero garment naturally draped or in..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "195.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5510",
+      "handle": "linen-jacket",
+      "title": "Linen Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/6cb6836a8e52264b5452bddd57a5331f.png?v=13102394",
+       "altText": "Clay Brown linen jacket, use a 3/4 angle to showcase the fabric's drape and fit, with a focus on key features like seam..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "120.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5511",
+      "handle": "parka-jacket",
+      "title": "Parka Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/1b6436c3a6f1ddd5d177ba524a5cd2d3.png?v=13125767",
+       "altText": "Photograph a Japandi parka jacket from a 3/4 camera angle, perfectly centered against a soft stone backdrop. The jacket's..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "195.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5512",
+      "handle": "south-shore-lightweight-linen-jacket",
+      "title": "South Shore Lightweight Linen Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/34a122429c9214bbdcb17afd0e5b7f0a.png?v=14697461",
+       "altText": "South Shore Lightweight Linen Jacket, Three-quarter angle as default\u2014product draped on mannequin or flat against a..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "78.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5513",
+      "handle": "versatile-commuter-jacket",
+      "title": "Versatile Commuter Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/febba2726b5b1bddc1ebd67c085aa3a9.png?v=12406978",
+       "altText": "A commuter jacket designed for versatility and style, displayed straight-on in a studio setting against a 'Beige Comfort'..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "129.99",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "168.99",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5514",
+      "handle": "chore-coat-in-heavyweight-olive-cotton",
+      "title": "Chore coat in heavyweight olive cotton",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/f9311ef449c0f0238a3c1addb728258d.png?v=15089642",
+       "altText": "Olive drab heavyweight cotton chore coat, perfectly centered horizontally and vertically with equal negative space above..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "258.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5515",
+      "handle": "oversized-cotton-jacket-in-urban-coral",
+      "title": "Oversized Cotton Jacket in Urban Coral",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/09b74f5a64153f919da7811f275b79aa.png?v=14737694",
+       "altText": "Urban Coral oversized structured cotton jacket, Three-quarter angle product shots on neutral but textural backgrounds..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "168.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5516",
+      "handle": "signal-orange-minimalist-jacket",
+      "title": "Signal Orange Minimalist Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/924023e6af2b85fbc52a0f1e369eced7.png?v=14915518",
+       "altText": "Signal Orange minimalist jacket with Mural Cream accent stitching, Three-quarter angle on garments draped naturally on..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "129.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5517",
+      "handle": "unisex-oversized-cotton-jacket",
+      "title": "Unisex Oversized Cotton Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/9e04c7e0f261a79a7093a37938cacd17.png?v=13013851",
+       "altText": "A unisex cotton jacket is presented against a dusty mint background. The jacket is perfectly centered, no brand names, no..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "75.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5518",
+      "handle": "technical-cotton-work-jacket",
+      "title": "Technical Cotton Work Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/bce0d089c4e90313e8c3a529b1cfbf01.png?v=14700845",
+       "altText": "Technical cotton work jacket, Heroic 3/4 angle product shots on seamless backgrounds color-matched to charcoal or concrete..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "198.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "257.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5519",
+      "handle": "stone-beige-unstructured-blazer",
+      "title": "Stone Beige Unstructured Blazer",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/9d030c8b18267232b63d5995001f74f0.png?v=15020731",
+       "altText": "Stone beige unstructured blazer, Three-quarter product portraits on neutral Stone Beige backdrops with soft fall-off for..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "210.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5520",
+      "handle": "unstructured-light-jacket-charcoal",
+      "title": "Unstructured Light Jacket Charcoal",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/9922426c1301462cc600fe36aa2b5a65.png?v=15007816",
+       "altText": "Unstructured light jacket in Charcoal, Single item shot at a slight 3/4 angle on a neutral matte surface (Ivory Canvas or..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "98.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "127.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5521",
+      "handle": "layered-cotton-jacket",
+      "title": "Layered Cotton Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/dacdacf94df6da57e85fcee3243912fc.png?v=13178850",
+       "altText": "Layered cotton jacket in Slate Sky, centered against a Soft Sand backdrop. The lighting is soft and even, highlighting the..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "120.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "156.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5522",
+      "handle": "easy-access-pocket-utility-jacket",
+      "title": "Easy-Access Pocket Utility Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/388b9cef86a1ad591e5151ed72e595c3.png?v=14992356",
+       "altText": "Easy-access pocket utility jacket, Default to clean three-quarter angle shots on seamless backgrounds pulled from the..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "98.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5523",
+      "handle": "washed-taupe-minimalist-layer-jacket",
+      "title": "Washed Taupe Minimalist Layer Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/176a7c4ae3a688a5079dfd1e4d3ff829.png?v=14694094",
+       "altText": "Washed taupe minimalist layer jacket, Single garment per shot on model or as flat lay\u20143/4 angle preferred to show..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "168.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "218.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5524",
+      "handle": "simple-linen-outerwear-jacket",
+      "title": "Simple Linen Outerwear Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/b537feb9fb9e7326359a98cf9cfd3500.png?v=14905961",
+       "altText": "Simple linen outerwear jacket, Single product per shot on a matte Cloud Mist background; garments displayed flat or softly..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "145.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

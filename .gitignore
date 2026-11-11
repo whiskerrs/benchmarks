@@ -1,0 +1,14 @@
+# Large or binary run artifacts (kept locally)
+*.trace
+*.xcresult
+*.mp4
+attachments/
+results/device-journey/
+results/tap-launch/
+results/tap-launch-v1/
+tools/replay/data/images/
+tools/runner/build/
+__pycache__/
+.DS_Store
+# Identifies the test iPhone (serial, ECID)
+device.json

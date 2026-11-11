@@ -1,0 +1,292 @@
+{
+ "operationName": "Product",
+ "variables": {
+  "handle": "men-s-analog-fashion-watch-with-date-display"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "product": {
+    "id": "gid://shopify/Product/6102",
+    "handle": "men-s-analog-fashion-watch-with-date-display",
+    "title": "Men\u2019s Analog Fashion Watch with Date Display",
+    "description": "This watch makes a statement with its clean analog face and handy date window\u2014grab attention at work or weekend hangs. Sleek metal case pops against bold, modern numerals Comfortable adjustable strap fits wrists of all sizes Date feature keeps your schedule on track in style",
+    "images": {
+     "nodes": [
+      {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/6c02861ba8170e49e9976fa4d6a41d04.png?v=15064330",
+       "altText": "Men\u2019s analog fashion watch, gentle blur of a textured wall or textile). Products should be styled with one complementary..."
+      }
+     ]
+    },
+    "options": [
+     {
+      "name": "Finish",
+      "optionValues": [
+       {
+        "name": "Brushed Steel"
+       },
+       {
+        "name": "Matte Black"
+       }
+      ]
+     }
+    ],
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/29574",
+       "title": "Brushed Steel",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Finish",
+         "value": "Brushed Steel"
+        }
+       ],
+       "price": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": {
+        "amount": "54.6",
+        "currencyCode": "USD"
+       }
+      },
+      {
+       "id": "gid://shopify/ProductVariant/29575",
+       "title": "Matte Black",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Finish",
+         "value": "Matte Black"
+        }
+       ],
+       "price": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": {
+        "amount": "54.6",
+        "currencyCode": "USD"
+       }
+      }
+     ]
+    }
+   },
+   "productRecommendations": [
+    {
+     "id": "gid://shopify/Product/4933",
+     "handle": "latte-suede-mesh-40mm-watch",
+     "title": "Latte suede mesh 40mm watch",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/5282a65d35f64616ebe009b01a4e411e.png?v=15080892",
+      "altText": "Latte Suede Mesh 40mm watch, Watch product shots use a 3/4 wrist angle on a neutral-toned surface or worn on a wrist..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "560.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4934",
+     "handle": "sand-beige-modern-analog-watch",
+     "title": "Sand Beige Modern Analog Watch",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/2f519553f45e5e76034ae0d81d5438a7.png?v=15096820",
+      "altText": "Sand Beige Modern analog watch, Default angle is 3/4 top-down (about 25\u201335 degrees off horizontal), highlighting the watch..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "139.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4935",
+     "handle": "montre-analogique-minimaliste-gris-olive",
+     "title": "olive gray minimalist analog watch",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/d4d9bca5ee896965aeafbcf46713957e.png?v=15093942",
+      "altText": "Minimalist olive-gray analog watch, Three-quarter angle as default for accessories and products \u2014 positioned on textured..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "89.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4936",
+     "handle": "analog-watch-with-sage-green-dial",
+     "title": "Analog Watch with Sage Green Dial",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/a1f46da7f56958659e1566be01eecc28.png?v=13123155",
+      "altText": "A perfectly centered analog watch with a sage green dial and stainless steel case, casting a subtle shadow directly..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "199.99",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4937",
+     "handle": "sand-tone-minimalist-women-s-watch",
+     "title": "Sand-Tone Minimalist Women's Watch",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/cf8ce0d85d5c365cc276a43fce0f6222.png?v=15048079",
+      "altText": "Refined sand-tone minimalist women's watch, Hero angle is 45-degree 3/4 view toward the crown side of the watch, resting..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "295.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "383.5",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4938",
+     "handle": "reloj-analogico-correa-cuero-ocre",
+     "title": "Ochre leather strap analog watch",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/d0341d0d5399e07b329274efa7dae500.png?v=15012692",
+      "altText": "Ochre Clay leather strap analog wristwatch, 3/4 angle hero shot is default: watch positioned elegantly atop linen-draped..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "89.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4939",
+     "handle": "modern-artisanal-watch",
+     "title": "Modern Artisanal Watch",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/8a9207ab76c89ce454bcb0f35de4818a.png?v=13072705",
+      "altText": "Modern artisanal watch, Focus on 3/4 angles for product shots, which show depth and detail akin to a portrait. Use a..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "1250.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4940",
+     "handle": "dove-gray-wristwatch",
+     "title": "Dove Gray Wristwatch",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/2dd74f744ba9420b6282646112233bca.png?v=13206322",
+      "altText": "Dove Gray wristwatch, use a 3/4 angle to highlight the watch face and band details. Background should be a soft beige..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "175.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "227.5",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4941",
+     "handle": "earthy-taupe-luxury-watch",
+     "title": "Earthy Taupe Luxury Watch",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/9e6613f6815acd5ca686fab0ae13b702.png?v=13108133",
+      "altText": "Photograph an Earthy Taupe luxury watch in a straight-on view against a Cloud White gradient background. The watch is..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "1250.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4942",
+     "handle": "classic-watch-with-lavender-mist-dial",
+     "title": "Classic Watch with Lavender Mist Dial",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/871387eb907d042c6eb7dabab65d3540.png?v=13155596",
+      "altText": "Lavender Mist Classic Watch, Focus on a 3/4 angle that captures the watch face and band, highlighting the material and..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "275.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    }
+   ]
+  }
+ }
+}

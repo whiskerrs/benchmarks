@@ -1,0 +1,286 @@
+{
+ "operationName": "Product",
+ "variables": {
+  "handle": "olive-mist-lounge-shorts"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "product": {
+    "id": "gid://shopify/Product/5879",
+    "handle": "olive-mist-lounge-shorts",
+    "title": "Olive Mist Lounge Shorts",
+    "description": "Breathe easy in these lounge shorts, rendered in a soothing olive mist shade that whispers relaxation. Their generous cut and smooth fabric invite slow mornings and spontaneous outings alike. Stretch waistband adapts for a just-right fit as you move or unwind Deep side pockets keep essentials close without bulk Inspirational tag inside the hem offers a hidden moment of affirmation",
+    "images": {
+     "nodes": [
+      {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/5045b294c2557547fe3cd38dfc21fbcc.png?v=14572682",
+       "altText": "Olive Mist lounge shorts, 3/4 angle shots on a neutral 'Soft Stone' backdrop; garments arranged with careful attention to..."
+      }
+     ]
+    },
+    "options": [
+     {
+      "name": "Color",
+      "optionValues": [
+       {
+        "name": "Sand"
+       },
+       {
+        "name": "Olive"
+       }
+      ]
+     }
+    ],
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/29002",
+       "title": "Sand",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Sand"
+        }
+       ],
+       "price": {
+        "amount": "68.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      },
+      {
+       "id": "gid://shopify/ProductVariant/29003",
+       "title": "Olive",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Olive"
+        }
+       ],
+       "price": {
+        "amount": "68.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      }
+     ]
+    }
+   },
+   "productRecommendations": [
+    {
+     "id": "gid://shopify/Product/4870",
+     "handle": "lightweight-cotton-shorts",
+     "title": "Lightweight Cotton Shorts",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/a27e556eedb86ff9e097526925129fda.png?v=13156289",
+      "altText": "Photograph a pair of lightweight cotton shorts from the Coastal Calm collection, perfectly centered in the frame. The..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "45.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4871",
+     "handle": "men-s-linen-shorts",
+     "title": "Men's Linen Shorts",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/fe5b42c65eb31c6a7ae4dbbef46484bb.png?v=12921246",
+      "altText": "Casual men's linen shorts from City Linen, centered against a neutral 'Concrete Gray' backdrop. The shorts' breathable..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "45.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "58.5",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4872",
+     "handle": "jogger-shorts-in-sandfarben",
+     "title": "Jogger Shorts in Sand",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/ae9ab2b2e9babd5c31cc6da70a566d00.png?v=14834193",
+      "altText": "Soft Sand Jogger Shorts, Primary angle: straight-on eye-level or slight 3/4 to capture garment shape and material quality..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "49.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "63.7",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4873",
+     "handle": "lightweight-beach-shorts",
+     "title": "Lightweight Beach Shorts",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/bb0c940cbfd6609e03de1c0ce1fabea6.png?v=13230724",
+      "altText": "A pair of lightweight beach shorts in Sandy Shore color, set against a Driftwood Beige background. The shorts are centered..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "35.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "45.5",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4874",
+     "handle": "women-s-shorts",
+     "title": "Women's Shorts",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/1eee1abdfb352ed0abb36e4ae3b1729c.png?v=12552758",
+      "altText": "A front-facing, perfectly centered image of Warm Sand women's shorts. The soft, shadowless illumination highlights the..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "35.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4875",
+     "handle": "saddle-brown-linen-shorts",
+     "title": "Saddle Brown Linen Shorts",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/d68d3632e4a870a4f11ea2634c753035.png?v=12714255",
+      "altText": "A perfectly centered, straight-on view of saddle brown linen shorts on a neutral, minimalist background. The shorts are..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "45.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4876",
+     "handle": "sunny-sand-relaxed-linen-shorts",
+     "title": "Sunny Sand Relaxed Linen Shorts",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/06ffac0e61c4ef7e4d9e962912e3c0e3.png?v=14724821",
+      "altText": "Sunny sand relaxed linen shorts, perfectly centered horizontally and vertically with equal negative space above and below,..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "44.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4877",
+     "handle": "relaxed-fit-lounge-shorts",
+     "title": "Relaxed Fit Lounge Shorts",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/df2c016060e2b4ea484040489a2d9f0c.png?v=12459122",
+      "altText": "A perfectly centered product shot of Warm Sand lounge shorts on a simple, solid-colored background. Soft, with a subtle..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "45.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "58.5",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4878",
+     "handle": "warm-clay-linen-cotton-shorts",
+     "title": "Warm Clay Linen-Cotton Shorts",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/7360bb06bfc43a75be7192b5994e08af.png?v=12274230",
+      "altText": "Perfectly centered, a pair of Warm Clay linen-cotton shorts is presented with a straight-on front view against a Pebble..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4879",
+     "handle": "breathable-loungewear-shorts",
+     "title": "Breathable Loungewear Shorts",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/9c5e88128d0942f1f3fb75a7eda84590.png?v=13214663",
+      "altText": "A pair of breathable loungewear shorts, centered on a warm beige cream background. The shorts are captured with a..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "35.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    }
+   ]
+  }
+ }
+}

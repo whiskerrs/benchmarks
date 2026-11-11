@@ -1,0 +1,305 @@
+{
+ "operationName": "Product",
+ "variables": {
+  "handle": "cropped-technical-top-blush-ember"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "product": {
+    "id": "gid://shopify/Product/5763",
+    "handle": "cropped-technical-top-blush-ember",
+    "title": "Cropped Technical Top\u2014Blush Ember",
+    "description": "The Blush Ember cropped top elevates your early routine with breathable coverage and refined lines. Designed to move with you, wherever morning leads. Featherlight technical fabric enhances ventilation during high-intensity intervals Sculpted cropped silhouette layers effortlessly over bras or under jackets Soft blush tone channels warmth, resilience, and understated confidence",
+    "images": {
+     "nodes": [
+      {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/baeae78a6c66231a2a47bd4497635747.png?v=14938463",
+       "altText": "Blush Ember cropped technical top, 3/4 angle as default; garments displayed on model against seamless pale backdrop with..."
+      }
+     ]
+    },
+    "options": [
+     {
+      "name": "Size",
+      "optionValues": [
+       {
+        "name": "XS"
+       },
+       {
+        "name": "S"
+       },
+       {
+        "name": "M"
+       }
+      ]
+     }
+    ],
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/28661",
+       "title": "XS",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ],
+       "price": {
+        "amount": "64.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      },
+      {
+       "id": "gid://shopify/ProductVariant/28662",
+       "title": "S",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ],
+       "price": {
+        "amount": "64.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      },
+      {
+       "id": "gid://shopify/ProductVariant/28663",
+       "title": "M",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ],
+       "price": {
+        "amount": "64.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      }
+     ]
+    }
+   },
+   "productRecommendations": [
+    {
+     "id": "gid://shopify/Product/4828",
+     "handle": "sustainable-activewear-top",
+     "title": "Sustainable Activewear Top",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/5c3bbd89c48bf6d11e761c55b68eae1a.png?v=13014385",
+      "altText": "A sustainable activewear top in Ivory Sand is centered on a Misty Gray background, with soft, shadowless illumination..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "45.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4829",
+     "handle": "performance-top-in-tomato-red",
+     "title": "Performance Top in Tomato Red",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/d99ea4084343f201f4a6b2e19d13328b.png?v=13034647",
+      "altText": "An IHAMORA performance top in Tomato Red, captured on a clean, neutral backdrop. The top is centered in the frame, with..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "45.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4830",
+     "handle": "layered-workout-set-in-blushed-sand",
+     "title": "Layered Workout Set in Blushed Sand",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/0da95c606f94356f5f2b79427adb0614.png?v=14759979",
+      "altText": "Layered workout tank and bra set in Blushed Sand, 3/4 angle on garments laid flat or elegantly draped over a minimalist..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "86.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4831",
+     "handle": "streamlined-moisture-wicking-crop-top",
+     "title": "Streamlined Moisture-Wicking Crop Top",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/35b837ffc4fe3d7d90ba611aa6c01854.png?v=14794407",
+      "altText": "Streamlined moisture-wicking crop top, Product-only shots use a clean 3/4 angle on seamless blush taupe or ivory..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "68.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4832",
+     "handle": "naadloos-compressieshirt-unisex",
+     "title": "Seamless compression shirt unisex",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/98250c66b746e33cbd3d02fb41597b5c.png?v=14798620",
+      "altText": "Unisex seamless compression top, Default arrangement: single item centered on a geometric white plinth or matte neutral..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "78.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4833",
+     "handle": "spandex-athleisure-top",
+     "title": "Spandex Athleisure Top",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/cda41290620830b8dd3e8f3020012ca0.png?v=12901579",
+      "altText": "A premium spandex athleisure top displayed against a plain Soft Blush background. The top is centered in the frame,..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "45.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4834",
+     "handle": "slate-cropped-performance-tank",
+     "title": "Slate Cropped Performance Tank",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/98564cb258a367b664032defd03b9cef.png?v=14787155",
+      "altText": "Slate cropped performance tank, 3/4 angle product shots on seamless backgrounds echoing the palette\u2019s porcelain or soft..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "68.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4835",
+     "handle": "seamless-tank-top",
+     "title": "Seamless Tank Top",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/06262d9add5c76466e0c33c556ef2b34.png?v=13178951",
+      "altText": "Gentle Rose tank top, opt for a clean 3/4 angle to showcase the fit and fabric texture of the activewear. Use a softly..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "35.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4836",
+     "handle": "sculpt-sports-bra-in-blush-coral",
+     "title": "Sculpt Sports Bra in Blush Coral",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/17c05f02aa03ab76cacf7b56ee166db2.png?v=14777473",
+      "altText": "Blush Coral sculpt sports bra, Default is a clean 3/4 angle at chest-to-hip height for leggings or eye-level for sports..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "58.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4837",
+     "handle": "eco-friendly-activewear-top",
+     "title": "Eco-Friendly Activewear Top",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/f035ebfaa19ce68cc5d9264b2f172e11.png?v=12798976",
+      "altText": "An eco-friendly activewear top, precisely centered and softly illuminated, with the focus on the product's comfort and..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "45.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    }
+   ]
+  }
+ }
+}

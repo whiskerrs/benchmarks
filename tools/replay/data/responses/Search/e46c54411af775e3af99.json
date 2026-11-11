@@ -1,0 +1,525 @@
+{
+ "operationName": "Search",
+ "variables": {
+  "first": 24,
+  "query": "ja"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "search": {
+    "totalCount": 100,
+    "pageInfo": {
+     "hasNextPage": true,
+     "endCursor": "eyJjIjoiaWQiLCJ2Ijo1NDk1LCJpIjo1NDk1fQ"
+    },
+    "nodes": [
+     {
+      "id": "gid://shopify/Product/4744",
+      "handle": "linen-blend-jacket",
+      "title": "Linen Blend Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/679f951ee6dd6d2dfec6073edb67ec5c.png?v=12702595",
+       "altText": "With soft, even, shadowless illumination. The product is perfectly centered with subtle soft shadow beneath for grounding...."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "75.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4745",
+      "handle": "organic-cotton-jacket",
+      "title": "Organic Cotton Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/91fdd7c32c1b8fb546313e016569c372.png?v=13105984",
+       "altText": "Saddle brown organic cotton jacket, 3/4 angle shots to capture the full silhouette and texture of the apparel. Use of..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "120.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4746",
+      "handle": "taupe-jacket",
+      "title": "Taupe Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/8353926d88dc935d0ae7b01037e02716.png?v=13166193",
+       "altText": "Taupe Jacket, Focus on a 3/4 angle to showcase the silhouette and fabric texture of each piece. Use a seamless white or..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "120.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4747",
+      "handle": "unisex-cotton-blend-jacket",
+      "title": "Unisex Cotton Blend Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/f910aa7e9ed2942816e53275701c547b.png?v=13089481",
+       "altText": "A unisex cotton blend jacket, emphasizing breathability and style, perfectly centered with soft, ensuring a contemporary..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "75.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4748",
+      "handle": "minimalist-linen-trench-coat-in-mushroom",
+      "title": "Minimalist linen trench coat in mushroom",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/1955e047651cbca3a0c3d03e34ec3d8d.png?v=14942365",
+       "altText": "Mushroom minimalist linen trench coat, Garment elegantly draped over a matte plaster block or hung from a simple wooden..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "264.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4749",
+      "handle": "casual-relaxed-fit-jacket",
+      "title": "Casual Relaxed Fit Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/089f56a1023b28c5992af211b2681f03.png?v=13012593",
+       "altText": "A casual jacket in Slate Blue, centered on a Soft Gray background, highlighting its relaxed fit and minimalist design. The..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "75.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4750",
+      "handle": "relaxed-fit-cotton-jacket",
+      "title": "Relaxed-Fit Cotton Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/85d8c4c545619b9dcc3142713b48da09.png?v=12759486",
+       "altText": "A relaxed-fit cotton jacket in warm taupe, perfectly centered on a solid sand beige background. The jacket is illuminated..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "75.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4751",
+      "handle": "oversized-cotton-jacket",
+      "title": "Oversized Cotton Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/50d4f5635d2318a0b3f870c566ecbafd.png?v=13187185",
+       "altText": "With soft, even illumination and a subtle soft shadow beneath it. The focus is on the jacket\u2019s layering and texture..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "120.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4752",
+      "handle": "contemporary-jacket",
+      "title": "Contemporary Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/58542dbff004fcae71619b84d1c7bf6e.png?v=13085761",
+       "altText": "Contemporary jacket, Focus on 3/4 camera angle to highlight the contours and details of the outfits. Use a clean,..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "120.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4753",
+      "handle": "terracotta-coat",
+      "title": "Terracotta Coat",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/931fbfbf002e582ad9a0d89b719894bc.png?v=13082865",
+       "altText": "Terracotta coat, Use a 3/4 angle to capture the complete silhouette and structure of the outerwear, showcasing key details..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "120.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4754",
+      "handle": "riverbank-taupe-heavy-cotton-field-coat",
+      "title": "Riverbank Taupe Heavy Cotton Field Coat",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/651c215c5e95fbcc503475378fe95e83.png?v=14816156",
+       "altText": "Riverbank Taupe heavy cotton field coat, Outerwear displayed on model at a three-quarter angle standing against a clean..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "265.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4782",
+      "handle": "women-s-silk-pajama-set",
+      "title": "Women's Silk Pajama Set",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/a951dda36784d8cb7a35caa39fb545f1.png?v=13102614",
+       "altText": "Nightwear, Capture products in a 3/4 angle to highlight craftsmanship and material quality. Use a soft, emphasizing the..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "89.99",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4801",
+      "handle": "terracotta-summer-suiting-set",
+      "title": "Terracotta Summer Suiting Set",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/dd20f367b49f2b2bf765f96517e1ce06.png?v=13676080",
+       "altText": "Terracotta Rooftop summer suiting set, perfectly centered horizontally and vertically with equal negative space above and..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "195.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "253.5",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4808",
+      "handle": "pullover-im-lagenlook-aus-sandstein-strick",
+      "title": "Layered-look pullover in sandstone knit",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/fc1af225a95cefb1aa123c9f9e403ac4.png?v=14828250",
+       "altText": "Sandstone Layered Knit Pullover, Default to a 3/4 angle for apparel on-body shots\u2014model standing or seated casually in a..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "32.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4831",
+      "handle": "streamlined-moisture-wicking-crop-top",
+      "title": "Streamlined Moisture-Wicking Crop Top",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/35b837ffc4fe3d7d90ba611aa6c01854.png?v=14794407",
+       "altText": "Streamlined moisture-wicking crop top, Product-only shots use a clean 3/4 angle on seamless blush taupe or ivory..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "68.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4917",
+      "handle": "eco-friendly-pajama-shorts",
+      "title": "Eco-friendly Pajama Shorts",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/abfe1bc555a47adcf29078667fe8d0f9.png?v=13165638",
+       "altText": "Eco-friendly pajama shorts, Opt for a 3/4 angle to showcase the fabric's texture and craftsmanship. Arrange sleepwear sets..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "35.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "45.5",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4926",
+      "handle": "heathered-fleece-hoodie-with-kangaroo-pocket",
+      "title": "Heathered Fleece Hoodie with Kangaroo Pocket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/782186acd4d6b6440edfda77af4ca920.png?v=14825037",
+       "altText": "Heathered fleece hoodie, Default angle is a clean 3/4 front shot on tabletop or draped over a back of a chair\u2014shows..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "68.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "88.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4933",
+      "handle": "latte-suede-mesh-40mm-watch",
+      "title": "Latte suede mesh 40mm watch",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/5282a65d35f64616ebe009b01a4e411e.png?v=15080892",
+       "altText": "Latte Suede Mesh 40mm watch, Watch product shots use a 3/4 wrist angle on a neutral-toned surface or worn on a wrist..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "560.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4950",
+      "handle": "thinline-watch-with-gold-plated-case",
+      "title": "Thinline watch with gold-plated case",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/9450afc7db06a9f30aa9bd2260408602.png?v=14736196",
+       "altText": "Hamilton Jazzmaster Thinline watch, Default: three-quarter angle on single watch elevated on a linen pad or marble plinth..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "780.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4971",
+      "handle": "marine-slate-soy-candle",
+      "title": "Marine Slate Soy Candle",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/a8a34dfc3becd69012c492701fd869a0.png?v=15081713",
+       "altText": "Marine Slate scented candle in matte glass jar, Primary angle is a clean 3/4 view at eye-level to slightly above \u2014 this..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "44.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "57.2",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4983",
+      "handle": "charcoal-brown-textured-jacket",
+      "title": "Charcoal Brown Textured Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/b2eb5ae5e5d427718df6bb57d6d1da1a.png?v=13170651",
+       "altText": "A Charcoal Brown jacket perfectly centered on an earthy-toned backdrop. Soft, with the 50mm lens capturing a detailed and..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "120.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/4993",
+      "handle": "soft-cotton-chore-jacket-indigo-wash",
+      "title": "Soft Cotton Chore Jacket Indigo Wash",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/5b583291083e413a4d50d75fabd9f5e7.png?v=15055989",
+       "altText": "Soft cotton chore jacket, Default: 3/4 angle product portraits on seamless backgrounds in Wheat Flour or Sage..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "129.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5494",
+      "handle": "oversized-cotton-coat-in-shadowed-bark",
+      "title": "Oversized Cotton Coat in Shadowed Bark",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/22ce6fb8cf0609e570446b62426df513.png?v=15023385",
+       "altText": "Shadowed Bark oversized cotton coat, Hero angle: 45-degree product portraits or close-up flat lays on textured neutral..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "249.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5495",
+      "handle": "tan-trend-jacket",
+      "title": "Tan Trend Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/991ea6fa820679fd87421abbda9a4314.png?v=13184660",
+       "altText": "Tan Trend Jacket, Focus on a 3/4 angle shot for clothing items, like Urban Slate, to provide contrast and make the product..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "75.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

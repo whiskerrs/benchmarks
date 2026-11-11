@@ -1,0 +1,526 @@
+{
+ "operationName": "Search",
+ "variables": {
+  "after": "eyJjIjoiaWQiLCJ2Ijo1NzU3LCJpIjo1NzU3fQ",
+  "first": 24,
+  "query": "j"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "search": {
+    "totalCount": 252,
+    "pageInfo": {
+     "hasNextPage": true,
+     "endCursor": "eyJjIjoiaWQiLCJ2Ijo1ODk3LCJpIjo1ODk3fQ"
+    },
+    "nodes": [
+     {
+      "id": "gid://shopify/Product/5758",
+      "handle": "minimalist-athletic-top-with-gold-accent",
+      "title": "Minimalist Athletic Top With Gold Accent",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/691a72ffccc42cc35d2484cc5c733dd9.png?v=14830727",
+       "altText": "Minimalist athletic top with gold accent, Angle: Straight-on or slight 3/4 hero angle for apparel and journals; focus..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "54.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5763",
+      "handle": "cropped-technical-top-blush-ember",
+      "title": "Cropped Technical Top\u2014Blush Ember",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/baeae78a6c66231a2a47bd4497635747.png?v=14938463",
+       "altText": "Blush Ember cropped technical top, 3/4 angle as default; garments displayed on model against seamless pale backdrop with..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "64.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5768",
+      "handle": "flexfit-technical-workout-top",
+      "title": "FlexFit Technical Workout Top",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/05d1fdc2f6ed7fa2d300abc5c06bfe56.png?v=14980658",
+       "altText": "Stretch FlexFit Technical Workout Top, Hero product shots at 3/4 angle on waist-high plinth or simple bench in..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5773",
+      "handle": "muted-sunrise-cropped-tank",
+      "title": "Muted Sunrise Cropped Tank",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/8d8fb9c882931d431647f0ad647a50fd.png?v=14832036",
+       "altText": "Muted Sunrise cropped tank, Product-focused shots use a single item centered on a seamless backdrop in 'Soft Fog' or..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "38.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "49.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5776",
+      "handle": "regata-cropped-de-performance-leve",
+      "title": "Lightweight performance cropped tank top",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/63980c8729b6dc604783b447393beb28.png?v=14916881",
+       "altText": "Cropped performance tank top, perfectly centered horizontally and vertically with equal negative space above and below,..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "54.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5803",
+      "handle": "leggings-tecnicos-compresion-suave",
+      "title": "Soft compression technical leggings",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/76812e0e2c945b5105e8e87bdbe2d63c.png?v=14986503",
+       "altText": "Premium technical leggings, 3/4 angle as default for apparel: garments draped on simple matte forms or on-body against..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "68.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5808",
+      "handle": "high-rise-performance-leggings-with-sunrise-stretch",
+      "title": "High-rise performance leggings with sunrise stretch",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/337f336fffb989f48ba11181d54fc427.png?v=14836076",
+       "altText": "High-rise performance leggings, Three-quarter angle as default; garments draped or worn naturally on mannequin or model..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "88.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "114.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5810",
+      "handle": "alpargata-clasica-de-lona-urbana",
+      "title": "Classic urban canvas espadrille",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/25a4efd4cf7748fedeca338879bf1274.png?v=14738971",
+       "altText": "Classic canvas slip-on espadrille, perfectly centered horizontally and vertically with equal negative space above and..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "72.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5812",
+      "handle": "men-s-canvas-sneaker-with-cushioned-insole",
+      "title": "Men's canvas sneaker with cushioned insole",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/64f0765eba835a1b517426ae3024f390.png?v=14997605",
+       "altText": "Men's canvas sneaker, Shoe-focused shots use a 3/4 angle at table or shelf height to capture form and texture (leather..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "32.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "41.6",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5816",
+      "handle": "stone-blue-canvas-sneaker",
+      "title": "Stone Blue Canvas Sneaker",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/0288fe83a931bafc46de7e8f2edeca89.png?v=15024026",
+       "altText": "Men's Stone Blue canvas sneaker, Default angle is 3/4 front-left for shoes and bags\u2014captures both profile and material..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "68.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5820",
+      "handle": "stone-slip-on-sneaker-with-elastic-side-panels",
+      "title": "Stone slip-on sneaker with elastic side panels",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/a9d4a5498e4057294f4ca9799dd9fb38.png?v=14771207",
+       "altText": "Stone slip-on sneaker, Three-quarter angle for each sneaker style\u2014shows upper material texture and sole profile naturally...."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "74.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5824",
+      "handle": "cream-linen-minimalist-sneaker",
+      "title": "Cream Linen Minimalist Sneaker",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/fba19510b4834c7d1381d9d9310ab74d.png?v=14830937",
+       "altText": "Cream linen minimalist sneaker, Primary angle is a three-quarter view at low table height to showcase shoe shape and..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "159.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "206.7",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5833",
+      "handle": "men-s-cocoa-linen-espadrille-loafer",
+      "title": "Men's Cocoa Linen Espadrille Loafer",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/e4f16bebd30f129af9ea58ed8b9e4eb6.png?v=14774455",
+       "altText": "Men's cocoa linen espadrille loafer, Three-quarter angle as default\u2014footwear positioned elegantly on textured neutral..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "135.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5836",
+      "handle": "soft-ivory-slip-on-comfort",
+      "title": "Soft Ivory slip-on comfort",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/c1c74eb214be0b3124c3bac5745494a5.png?v=14855467",
+       "altText": "Soft Ivory slip-on barefoot shoe, Three-quarter angle product on a low wooden plinth or linen-draped surface, shot at..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "69.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5846",
+      "handle": "earthy-red-canvas-lace-up-sneaker",
+      "title": "Earthy Red Canvas Lace-Up Sneaker",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/f4b025c452b3377681134fb1a1fc02cb.png?v=14994422",
+       "altText": "Earthy red canvas lace-up sneaker, Three-quarter angle as default\u2014captures shoe profile and top details elegantly while..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "85.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "110.5",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5857",
+      "handle": "stone-taupe-canvas-low-top-sneaker",
+      "title": "Stone Taupe Canvas Low-Top Sneaker",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/2c833bde3bceb37ea6b9d9b22ec1124f.png?v=14994422",
+       "altText": "Stone taupe canvas low-top sneaker, Three-quarter angle as default\u2014captures shoe profile and top details elegantly while..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "79.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5860",
+      "handle": "baskets-basses-lin-creme",
+      "title": "Cream linen low-top sneakers",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/ac823dd4d927dcc2000d535b5b3efa05.png?v=14900973",
+       "altText": "Cream Linen low-top sneaker, Hero sneaker shots at a gentle three-quarter angle placed on elegant surfaces (marble..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "495.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5879",
+      "handle": "olive-mist-lounge-shorts",
+      "title": "Olive Mist Lounge Shorts",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/5045b294c2557547fe3cd38dfc21fbcc.png?v=14572682",
+       "altText": "Olive Mist lounge shorts, 3/4 angle shots on a neutral 'Soft Stone' backdrop; garments arranged with careful attention to..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "68.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5883",
+      "handle": "minimal-branding-weekend-shorts",
+      "title": "Minimal branding weekend shorts",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/2e2f3b736f6cecfdf0766efda8c9e586.png?v=15026503",
+       "altText": "Minimal branding weekend shorts, Default to a 3/4 angle at chest or waist level for apparel\u2014captures fabric drape and..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "48.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5891",
+      "handle": "high-waist-linen-shorts-with-drawstring",
+      "title": "High-Waist Linen Shorts with Drawstring",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/d3e4215e331bd700ac6ec8b90e64f8ff.png?v=14961127",
+       "altText": "High-waist linen shorts, 3/4 angle tabletop shots: garments folded neatly on textured surfaces (weathered wood or..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "54.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5892",
+      "handle": "relaxed-linen-shorts-with-drawstring",
+      "title": "Relaxed Linen Shorts with Drawstring",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/3bfa6b6fa5d4b1ff0d4615ca7207de53.png?v=14579488",
+       "altText": "Relaxed linen shorts, Default product shots are 3/4 angles on torsos (or full-body for shorts) against matte stone or pale..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "48.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5894",
+      "handle": "bermuda-clasica-unisex-algodon-suave",
+      "title": "Classic unisex soft cotton Bermuda shorts",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/291e166a5acddd62bbf5ed99bb788509.png?v=14713598",
+       "altText": "Unisex classic bermuda shorts, 3/4 angle product shots on textured neutral surfaces (e.g., sunlit linen draped over a..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "39.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5895",
+      "handle": "tailored-linen-shorts-in-sand",
+      "title": "Tailored Linen Shorts in Sand",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/543b395cc8242e5705f0a8b83ccdc7cc.png?v=15010966",
+       "altText": "Tailored linen shorts in sun-bleached sand, perfectly centered horizontally and vertically with equal negative space above..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "160.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5897",
+      "handle": "linen-lounge-shorts-in-warm-stone",
+      "title": "Linen Lounge Shorts in Warm Stone",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/288b1b6b03819e50bc86cf38ddb74185.png?v=14850723",
+       "altText": "Linen lounge shorts in Warm Stone, 3/4 angle for apparel laid flat or gently draped over a chair/sofa\u2014never stiffly..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

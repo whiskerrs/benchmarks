@@ -1,0 +1,47 @@
+{
+  "app_dir": "nsh",
+  "workspace": "/Users/itome/shopbench-runs/nsh",
+  "command": [
+    "claude",
+    "-p",
+    "Read spec/PROMPT.md and follow it.",
+    "--model",
+    "claude-opus-5-5",
+    "--effort",
+    "high",
+    "--permission-mode",
+    "bypassPermissions",
+    "--setting-sources",
+    "project",
+    "--strict-mcp-config",
+    "--disable-slash-commands",
+    "--output-format",
+    "stream-json",
+    "--verbose"
+  ],
+  "claude_version": "2.1.316 (Claude Code)",
+  "started_utc": "2026-11-10T07:07:06Z",
+  "ended_utc": "2026-11-10T08:40:42Z",
+  "wall_seconds": 5495.7,
+  "exit_code": 0,
+  "result": {
+    "results": 1,
+    "final_subtype": "success",
+    "is_error": false,
+    "total_cost_usd": 17.937244199999995,
+    "num_turns": 219,
+    "duration_api_ms": 1869678,
+    "usage": {
+      "input_tokens": 408,
+      "cache_creation_input_tokens": 442455,
+      "cache_read_input_tokens": 55759061,
+      "output_tokens": 162208
+    },
+    "tool_calls": {
+      "Bash": 184,
+      "Read": 14,
+      "Write": 19
+    },
+    "final_message": "The Everbloom app is built with Native Shell 0.4.0, written entirely in Rust. Every item on the spec's done checklist passes except one I couldn't test here: the signed iOS device build.\n\n**Verified**\n- **BUILD.md from a clean copy:** the unsigned iOS device build, the simulator build and the Android release APK all succeed. Both iOS builds use the Release configuration.\n- **iOS Simulator, via UI tests I added (`ios/EverbloomUITests`):**\n  - Home loads with all its identifiers.\n  - A collection scrolls through 84 products across several pages, and each sort reloads it.\n  - Search returns results and scrolls to the end (67 results for \"shirt\").\n  - On a product, the option pills switch the variant and recommendations open another product. No product in the first 100 best sellers has different prices per variant, so I couldn't see the price itself change; it follows the selected variant.\n  - Add to cart switches to Cart with badge \"1\"; the steppers change quantity and subtotal; going to 0 shows the empty state.\n  - Check out opens Safari.\n  - With the endpoint unreachable, Home shows the error state, and Retry works once a local plain-HTTP server comes up.\n- **Log marker:** `SHOPBENCH home_ready` appears exactly once per launch.\n- **Android emulator:** Home loads, and a build-time `SHOP_API_URL` over plain HTTP reaches a local server. The emulator's DNS failed at first; restarting it with `-dns-server` fixed that, and the app wasn't at fault.\n\n**Not verified:** the signed build with `DEVELOPMENT_TEAM`. This Mac's Xcode account login is rejected, so automatic provisioning fails here. The command in BUILD.md is the standard one.\n\n**Things that differ from a stock NSH setup**\n- **NSH comes from its GitHub tag `v0.4.0`, not crates.io.** The published `nsh-platform-ios 0.4.0` doesn't compile because it includes a file outside the crate. The Git tag is the same release, unmodified.\n- **iOS uses my own Xcode project instead of `nsh package`.** It wraps the Rust code as a static library and starts NSH's own UIKit runner. `nsh package` can't set what the spec needs: plain HTTP (App Transport Security), portrait only, `DEVELOPMENT_TEAM` signing, and the `os_log` marker. The release binary is 27 MB, against 44 MB from `nsh package`.\n- **Android uses `nsh package`, then `android/package.sh` re-links the manifest** to allow plain HTTP and lock portrait. NSH only allows plain HTTP in development builds.\n- **Check out opens the system browser**, because NSH has no in-app browser (the spec's stated fallback).\n- **The end-of-list loading indicator is the text \"Loading\u2026\"**, because NSH has no spinner control.\n- **The tab bar hides while the keyboard is up.** The search results then end at the keyboard's top, and a tap on a result works without first dismissing the keyboard. Without this, swiping the results with the keyboard up didn't scroll in the UI tests.\n- **Dependencies added:** only `serde` and `serde_json`.\n\nEverything else I decided where the spec was silent is in `NOTES.md`, and build commands and toolchain versions are in `BUILD.md`."
+  }
+}

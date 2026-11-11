@@ -1,0 +1,280 @@
+{
+ "operationName": "CollectionProducts",
+ "variables": {
+  "after": "eyJjIjoicHJpY2UiLCJ2IjoiNzUuMCIsImkiOjQ3NDR9",
+  "first": 24,
+  "handle": "urban-transit-essentials",
+  "reverse": true,
+  "sortKey": "PRICE"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "collection": {
+    "id": "gid://shopify/Collection/653",
+    "title": "Urban Transit Essentials",
+    "description": "Functional layers crafted with earthy muted tones, a minimalist mood, and organic linen and cotton material language for daily commutes.",
+    "products": {
+     "pageInfo": {
+      "hasNextPage": false,
+      "endCursor": "eyJjIjoicHJpY2UiLCJ2IjoiMzQuMCIsImkiOjU1Mzl9"
+     },
+     "nodes": [
+      {
+       "id": "gid://shopify/Product/5531",
+       "handle": "minimalist-expedition-utility-vest",
+       "title": "Minimalist Expedition Utility Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/21c082224ad1f8f7866a6feeebe95c5f.png?v=14962795",
+        "altText": "Minimalist Expedition Utility Vest, Default arrangement: product laid flat or hung against a neutral stone grey or..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "74.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4763",
+       "handle": "utility-vest-in-faded-terracotta",
+       "title": "Utility vest in faded terracotta",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/c91400682c642b79095a4f6a7b85845c.png?v=14595230",
+        "altText": "Faded Terracotta utility vest, Three-quarter product portraits on textured matte surfaces in daylight \u2014 each garment..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "72.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5534",
+       "handle": "reinforced-canvas-vest",
+       "title": "Reinforced Canvas Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/eb47659cb16039da2461742183062edd.png?v=15049626",
+        "altText": "Reinforced canvas vest, 3/4 angle as default, capturing both garment shape and tactile details (collar structure,..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "69.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5538",
+       "handle": "contemporary-hunting-vest",
+       "title": "Contemporary Hunting Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/a8480589c68f860bb9921febbe6b13cf.png?v=14907022",
+        "altText": "Contemporary hunting vest, Default to three-quarter angle product shots on seamless Soft Sage or Pale Olive backgrounds..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "64.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "83.2",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5541",
+       "handle": "workwear-vest-with-tool-pockets",
+       "title": "Workwear Vest with Tool Pockets",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/fa05273ac65e97d0889363a050f1da97.png?v=12788259",
+        "altText": "A straight-on, centered shot of a clay-colored workwear vest with tool pockets on a neutral stone grey background. The..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "45.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4761",
+       "handle": "unisex-cotton-vest",
+       "title": "Unisex Cotton Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/ce99e8fd60bcb98355b9b73a7c43c76c.png?v=13025976",
+        "altText": "A versatile, unisex cotton vest in chestnut brown, positioned centrally against an ivory mist backdrop. Soft, even..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "45.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4760",
+       "handle": "heavyweight-cotton-workwear-vest",
+       "title": "Heavyweight Cotton Workwear Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/298e1456515e99c1fb962eee6a93215e.png?v=12669998",
+        "altText": "A versatile workwear vest, made from heavyweight cotton, displayed on a simple teal green background. The vest is..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "45.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4756",
+       "handle": "saddle-brown-cotton-vest",
+       "title": "Saddle Brown Cotton Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/5caed4340e67f5e1047a39b2dd3a6652.png?v=13012536",
+        "altText": "A Saddle Brown cotton vest perfectly centered in the frame against a neutral light beige background. The vest is..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "45.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/4755",
+       "handle": "earth-beige-vest",
+       "title": "Earth Beige Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/2a7e1fd4540d1c4f39b7a5886d956b50.png?v=13154273",
+        "altText": "Earth Beige vest, For product shots, use a 3/4 angle to capture the vest's texture and details. Backgrounds should be..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "45.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5532",
+       "handle": "abrasion-resistant-tool-vest",
+       "title": "Abrasion-Resistant Tool Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/8426d54de612237363943e29df99d64e.png?v=14680673",
+        "altText": "Abrasion-resistant tool vest, Single-garment focus at 3/4 angle on a workbench or hung on a nail in context (e.g., against..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "42.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5548",
+       "handle": "hi-vis-ochre-safety-vest",
+       "title": "Hi-Vis Ochre Safety Vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/138e714402abcf963d4af64ddb587f66.png?v=14722007",
+        "altText": "Field-Tested Collective hi-vis ochre construction vest, 3/4 angle product shots on neutral Dust White backdrops with..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "38.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      },
+      {
+       "id": "gid://shopify/Product/5539",
+       "handle": "chaleco-trabajo-minimalista-termico",
+       "title": "Minimalist thermal work vest",
+       "featuredImage": {
+        "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/ac12397f4f80b0a2ac6eb29d2f5b27ea.png?v=14585041",
+        "altText": "Minimalist work vest, Default: 3/4 angle from slightly above eye-level\u2014shows garment fit and texture while allowing..."
+       },
+       "priceRange": {
+        "minVariantPrice": {
+         "amount": "34.0",
+         "currencyCode": "USD"
+        }
+       },
+       "compareAtPriceRange": {
+        "minVariantPrice": {
+         "amount": "0.0",
+         "currencyCode": "USD"
+        }
+       }
+      }
+     ]
+    }
+   }
+  }
+ }
+}

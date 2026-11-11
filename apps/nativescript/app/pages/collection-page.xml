@@ -1,0 +1,61 @@
+<Page actionBarHidden="true" navigatingTo="onNavigatingTo" xmlns:ui="components/icon">
+  <GridLayout rows="auto, auto, auto, *">
+    <GridLayout row="0" columns="44, *, 44" class="navbar">
+      <GridLayout col="0" class="nav-back" testID="back" tap="onBack" accessibilityLabel="Back" accessibilityRole="button">
+        <ui:Icon name="back" width="24" height="24" horizontalAlignment="center" verticalAlignment="middle" />
+      </GridLayout>
+      <Label col="1" text="{{ title }}" class="nav-title" />
+    </GridLayout>
+    <Label row="1" text="{{ description }}" visibility="{{ descriptionVisibility }}" padding="4 16 0 16" fontSize="14" lineHeight="3" class="muted" textWrap="true" />
+    <ScrollView row="2" orientation="horizontal" scrollBarIndicatorVisible="false">
+      <StackLayout orientation="horizontal" padding="12 8 12 16">
+        <Button text="Featured" testID="sort-featured" class="{{ sortFeaturedClass }}" tap="onSort" sortKey="featured" />
+        <Button text="Best selling" testID="sort-best-selling" class="{{ sortBestClass }}" tap="onSort" sortKey="best" />
+        <Button text="Price: low to high" testID="sort-price-asc" class="{{ sortAscClass }}" tap="onSort" sortKey="asc" />
+        <Button text="Price: high to low" testID="sort-price-desc" class="{{ sortDescClass }}" tap="onSort" sortKey="desc" />
+      </StackLayout>
+    </ScrollView>
+
+    <ListView row="3" iosOverflowSafeArea="false" id="grid" testID="product-grid" items="{{ rows }}" itemLoading="onItemLoading"
+              separatorColor="transparent" loaded="onGridLoaded" unloaded="onGridUnloaded">
+      <ListView.itemTemplates>
+        <template key="row">
+          <GridLayout columns="*, 12, *" padding="0 16 20 16">
+            <StackLayout col="0" id="l-card" tap="onCardTap" accessible="true">
+              <Image id="l-img" stretch="aspectFill" loadMode="async" loaded="onListImageLoaded" />
+              <Label id="l-title" class="card-title" maxLines="2" textWrap="true" />
+              <StackLayout orientation="horizontal" marginTop="8">
+                <Label id="l-price" class="price" />
+                <Label id="l-compare" class="compare" visibility="collapsed" verticalAlignment="bottom" marginBottom="1" />
+              </StackLayout>
+            </StackLayout>
+            <StackLayout col="2" id="r-card" tap="onCardTap" accessible="true">
+              <Image id="r-img" stretch="aspectFill" loadMode="async" loaded="onListImageLoaded" />
+              <Label id="r-title" class="card-title" maxLines="2" textWrap="true" />
+              <StackLayout orientation="horizontal" marginTop="8">
+                <Label id="r-price" class="price" />
+                <Label id="r-compare" class="compare" visibility="collapsed" verticalAlignment="bottom" marginBottom="1" />
+              </StackLayout>
+            </StackLayout>
+          </GridLayout>
+        </template>
+        <template key="loader">
+          <GridLayout>
+            <ActivityIndicator busy="true" width="24" height="24" color="#6E6A63" verticalAlignment="top" marginTop="16" />
+          </GridLayout>
+        </template>
+      </ListView.itemTemplates>
+    </ListView>
+
+    <GridLayout row="3" visibility="{{ skeletonVisibility }}" backgroundColor="#FFFFFF">
+      <ActivityIndicator busy="true" color="#6E6A63" verticalAlignment="top" marginTop="48" />
+    </GridLayout>
+
+    <StackLayout row="1" rowSpan="3" class="state" visibility="{{ errorVisibility }}" backgroundColor="#FFFFFF">
+      <ui:Icon name="alert" stroke="1.25" iconColor="#6E6A63" width="48" height="48" horizontalAlignment="center" />
+      <Label text="Couldn’t load products" class="state-title" />
+      <Label text="Check your connection and try again." class="state-text" textWrap="true" />
+      <Button text="Retry" testID="error-retry" class="btn-secondary" tap="onRetry" horizontalAlignment="center" marginTop="20" />
+    </StackLayout>
+  </GridLayout>
+</Page>

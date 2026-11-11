@@ -1,0 +1,48 @@
+{
+  "app_dir": "nativescript",
+  "workspace": "/Users/itome/shopbench-runs/nativescript",
+  "command": [
+    "claude",
+    "-p",
+    "Read spec/PROMPT.md and follow it.",
+    "--model",
+    "claude-opus-5-5",
+    "--effort",
+    "high",
+    "--permission-mode",
+    "bypassPermissions",
+    "--setting-sources",
+    "project",
+    "--strict-mcp-config",
+    "--disable-slash-commands",
+    "--output-format",
+    "stream-json",
+    "--verbose"
+  ],
+  "claude_version": "2.1.316 (Claude Code)",
+  "started_utc": "2026-11-10T08:40:42Z",
+  "ended_utc": "2026-11-10T10:40:55Z",
+  "wall_seconds": 6437.9,
+  "exit_code": 0,
+  "result": {
+    "results": 3,
+    "final_subtype": "success",
+    "is_error": false,
+    "total_cost_usd": 20.720782000000025,
+    "num_turns": 283,
+    "duration_api_ms": 7166625,
+    "usage": {
+      "input_tokens": 528,
+      "cache_creation_input_tokens": 386655,
+      "cache_read_input_tokens": 67899750,
+      "output_tokens": 202274
+    },
+    "tool_calls": {
+      "Bash": 214,
+      "Read": 31,
+      "Write": 2,
+      "Monitor": 26
+    },
+    "final_message": "That's another leftover build monitor expiring; it needs nothing from you. The work is complete as described in the summary above."
+  }
+}

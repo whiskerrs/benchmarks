@@ -1,0 +1,314 @@
+{
+ "operationName": "Product",
+ "variables": {
+  "handle": "ribbed-knit-crewneck-top"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "product": {
+    "id": "gid://shopify/Product/5694",
+    "handle": "ribbed-knit-crewneck-top",
+    "title": "Ribbed Knit Crewneck Top",
+    "description": "This ribbed knit crewneck is your new everyday go-to\u2014layer it up or wear solo for effortless style. Stretchy knit hugs softly without clinging Slim silhouette tucks easily into high-waisted jeans or skirts Subtly textured finish adds dimension to neutral looks",
+    "images": {
+     "nodes": [
+      {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/22e4ae41b11f6af99521b118aef707c1.png?v=14920279",
+       "altText": "Knit crewneck top, Default to a three-quarter angle on a matte neutral surface (Pebble or Warm Linen tone), using soft..."
+      }
+     ]
+    },
+    "options": [
+     {
+      "name": "Size",
+      "optionValues": [
+       {
+        "name": "S"
+       },
+       {
+        "name": "M"
+       },
+       {
+        "name": "L"
+       }
+      ]
+     }
+    ],
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/28454",
+       "title": "S",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ],
+       "price": {
+        "amount": "46.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": {
+        "amount": "59.8",
+        "currencyCode": "USD"
+       }
+      },
+      {
+       "id": "gid://shopify/ProductVariant/28455",
+       "title": "M",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ],
+       "price": {
+        "amount": "46.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": {
+        "amount": "59.8",
+        "currencyCode": "USD"
+       }
+      },
+      {
+       "id": "gid://shopify/ProductVariant/28456",
+       "title": "L",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ],
+       "price": {
+        "amount": "46.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": {
+        "amount": "59.8",
+        "currencyCode": "USD"
+       }
+      }
+     ]
+    }
+   },
+   "productRecommendations": [
+    {
+     "id": "gid://shopify/Product/4807",
+     "handle": "lightweight-knit-sweatshirt-everyday-layer",
+     "title": "Lightweight Knit Sweatshirt Everyday Layer",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/424310510d384aa9bd115c6f1485f1fa.png?v=14777993",
+      "altText": "Lightweight knit sweatshirt, 3/4 angle shots on neutral oatmeal or soft apricot backdrops to echo warmth and tactility of..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "48.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4808",
+     "handle": "pullover-im-lagenlook-aus-sandstein-strick",
+     "title": "Layered-look pullover in sandstone knit",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/fc1af225a95cefb1aa123c9f9e403ac4.png?v=14828250",
+      "altText": "Sandstone Layered Knit Pullover, Default to a 3/4 angle for apparel on-body shots\u2014model standing or seated casually in a..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "32.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4809",
+     "handle": "cotton-sweater",
+     "title": "Cotton Sweater",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/f42360235baee7bb35e5bc509b53254c.png?v=13069260",
+      "altText": "Ocean Breeze Sweater, use a 3/4 angle that captures the texture and detail of the cotton garments. Backgrounds will be..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "45.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "58.5",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4810",
+     "handle": "lightweight-knit-pullover-in-oatmeal",
+     "title": "Lightweight Knit Pullover in Oatmeal",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/e921893434e3ea5fe3484e900e182e2b.png?v=14647302",
+      "altText": "Lightweight knit pullover, Default angle is relaxed three-quarter (standing or seated), softly out of focus to keep..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "49.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4811",
+     "handle": "relaxed-fit-knit-sweater-in-mango-glow",
+     "title": "Relaxed-Fit Knit Sweater in Mango Glow",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/6f4cece1b5dc691f02eb69727eebd5dc.png?v=14648321",
+      "altText": "Mango Glow relaxed-fit knit sweater, Three-quarter angle is default to showcase apparel drape and texture; garments are..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "68.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "88.4",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4812",
+     "handle": "cotton-cashmere-lounge-top",
+     "title": "Cotton Cashmere Lounge Top",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/230165d6961ed7a504353a6a589dd352.png?v=12422467",
+      "altText": "Cotton cashmere lounge top, perfectly centered in the frame. The background is a neutral soft linen color, enhancing the..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "78.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "101.4",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4813",
+     "handle": "honey-linen-knit-sweater",
+     "title": "Honey Linen Knit Sweater",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/bc4f0378f3e12e9a187e24dd744c1be7.png?v=14893176",
+      "altText": "Honey linen knit sweater, Default to 3/4 angle for textiles on simple matte surfaces (beige or sage backgrounds) \u2014 allows..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "129.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4814",
+     "handle": "casual-knit-top",
+     "title": "Casual Knit Top",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/72b8a9cc26c2102c16943c672658fda6.png?v=12379724",
+      "altText": "A casual knit top in Bisque is centered in the frame, captured with a 50mm lens to showcase its texture and fit. The..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "45.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4815",
+     "handle": "saddle-brown-cotton-sweater",
+     "title": "Saddle Brown Cotton Sweater",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/d61a2dc97d6b64aabef7f57422b24652.png?v=13024985",
+      "altText": "Perfectly centered with soft, ensuring it appears naturally placed. No logos, no brand names, no text, no trademarks"
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "45.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4816",
+     "handle": "crewneck-sweater",
+     "title": "Crewneck Sweater",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/8b8b76cf6899a2628fae06c25d8ae020.png?v=13207327",
+      "altText": "Toasted Almond crewneck sweater, Focus on 3/4 angles that highlight the sweater's texture and fit. Use a neutral, soft..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "45.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    }
+   ]
+  }
+ }
+}

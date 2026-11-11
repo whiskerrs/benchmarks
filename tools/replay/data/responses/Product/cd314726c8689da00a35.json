@@ -1,0 +1,313 @@
+{
+ "operationName": "Product",
+ "variables": {
+  "handle": "relaxed-stone-linen-trousers"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "product": {
+    "id": "gid://shopify/Product/4786",
+    "handle": "relaxed-stone-linen-trousers",
+    "title": "Relaxed Stone Linen Trousers",
+    "description": "These stone-colored linen trousers are a nod to sun-drenched escapes and unhurried afternoons\u2014cut with a fluid, relaxed leg for movement that feels as effortless as it looks. Breathable linen fabric keeps you cool on the go Minimalist tailoring balances structure with freedom Muted tone pairs easily for endless styling possibilities",
+    "images": {
+     "nodes": [
+      {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/a1426a7eca10acb87cae018d702945c7.png?v=15074586",
+       "altText": "Relaxed Stone linen trousers, Single-product shots at a clean 3/4 angle on seamless Porcelain white or Stone backdrops;..."
+      },
+      {
+       "url": "https://cdn.shopify.com/mock-shop-production-media/apparel-large-catalog/15337ecf-076d-418a-8c6d-b80e5a008764.png",
+       "altText": "Alternate angle view of Relaxed Stone Linen Trousers"
+      },
+      {
+       "url": "https://cdn.shopify.com/mock-shop-production-media/apparel-large-catalog/f7a35b73-b324-4081-8ebe-1f7aeec78923.png",
+       "altText": "Relaxed Stone Linen Trousers in use"
+      }
+     ]
+    },
+    "options": [
+     {
+      "name": "Size",
+      "optionValues": [
+       {
+        "name": "2"
+       },
+       {
+        "name": "4"
+       },
+       {
+        "name": "6"
+       }
+      ]
+     }
+    ],
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/26587",
+       "title": "2",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "2"
+        }
+       ],
+       "price": {
+        "amount": "142.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      },
+      {
+       "id": "gid://shopify/ProductVariant/26588",
+       "title": "4",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "4"
+        }
+       ],
+       "price": {
+        "amount": "142.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      },
+      {
+       "id": "gid://shopify/ProductVariant/26589",
+       "title": "6",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "6"
+        }
+       ],
+       "price": {
+        "amount": "142.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      }
+     ]
+    }
+   },
+   "productRecommendations": [
+    {
+     "id": "gid://shopify/Product/4787",
+     "handle": "classic-cut-linen-pants",
+     "title": "Classic Cut Linen Pants",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/ceafec02c967ae3a4df51279a2d369f6.png?v=12343178",
+      "altText": "A pair of classic cut linen pants is perfectly centered in the frame against a simple, even, shadowless light that..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "97.5",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4788",
+     "handle": "terra-cotta-straight-leg-pants",
+     "title": "Terra Cotta Straight-Leg Pants",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/94d5da4f9ab7b09da310b98cfeb9ac4f.png?v=12399609",
+      "altText": "A perfectly centered shot of Terra Cotta straight-leg pants, displayed at a 3/4 angle to showcase fit and silhouette. The..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "45.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4789",
+     "handle": "pantalon-urbano-taupe-corte-relajado",
+     "title": "Taupe relaxed-fit city pants",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/7c3f56c5e83328ef39244a06820f054d.png?v=14955038",
+      "altText": "Taupe relaxed-fit city pants, Default: 3/4 angle on torso-to-knee framing for apparel; garments arranged on body or form..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "48.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4790",
+     "handle": "relaxed-straight-leg-trousers-in-clay-gray",
+     "title": "Relaxed Straight-Leg Trousers in Clay Gray",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/334406b23f02757ac7eac68eb92b797d.png?v=14618822",
+      "altText": "Relaxed straight-leg trousers in Clay Gray, Default to 3/4 angle product shots on seamless backdrops in Crisp White..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "98.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "127.4",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4791",
+     "handle": "sandstone-linen-pants",
+     "title": "Sandstone Linen Pants",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/dea9169c8db25fc680222f5682c14ab6.png?v=12696549",
+      "altText": "Sandstone linen pants perfectly centered in the frame, captured with soft, with a subtle shadow grounding the product. The..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4792",
+     "handle": "modern-taupe-high-waist-tailored-trousers",
+     "title": "Modern taupe high-waist tailored trousers",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/631a68a8ec4440ce766db1af8483a359.png?v=15084636",
+      "altText": "Modern taupe high-waist tailored trousers, 3/4 angle as default\u2014garment draped naturally on hanger or mannequin against..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "145.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4793",
+     "handle": "olive-green-linen-pants",
+     "title": "Olive Green Linen Pants",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/b1d8c0dfaf8df568f566354d14d0ee7c.png?v=12525975",
+      "altText": "Olive green linen pants, centered against a simple, unobtrusive background. Soft, with a subtle shadow beneath. The warm,..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4794",
+     "handle": "linen-trousers",
+     "title": "Linen Trousers",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/925dcf3ff2615c18e03c814417e846d4.png?v=13040622",
+      "altText": "A pair of linen trousers presented in a straight-on, highlighting the texture and craftsmanship. The trousers are in a..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "97.5",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4795",
+     "handle": "honey-linen-fluid-trousers",
+     "title": "Honey Linen Fluid Trousers",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/a6b7e12e13fb2a10faa48f0e5a3a9723.png?v=14732879",
+      "altText": "Honey Linen fluid trousers, Default product angle is 3/4 view on invisible mannequin or flat lay with subtle garment folds..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "132.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4796",
+     "handle": "vintage-style-sand-colored-pants",
+     "title": "Vintage Style Sand Colored Pants",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/429e92b2021f16e103fbd8f74014496f.png?v=12782759",
+      "altText": "A pair of eco-friendly vintage pants in muted sand color, the pants are illuminated with soft, no brand names, no text, no..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    }
+   ]
+  }
+ }
+}

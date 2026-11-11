@@ -1,0 +1,5 @@
+Query chain:
+ →Find: Application 'dev.whiskerrs.shopbench.nativescript'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"tab-search" IN identifiers'
+      ↪︎Find: First Match

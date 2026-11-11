@@ -1,0 +1,305 @@
+{
+ "operationName": "Product",
+ "variables": {
+  "handle": "tan-jumpsuit"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "product": {
+    "id": "gid://shopify/Product/4984",
+    "handle": "tan-jumpsuit",
+    "title": "Tan Jumpsuit",
+    "description": "A tan jumpsuit designed for comfort and utility, featuring hidden pockets and adjustable fits. The fabric's texture and quality are highlighted by soft, even lighting.",
+    "images": {
+     "nodes": [
+      {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/81eb59b39e0067af4f5a9aece6fa8cdc.png?v=13147761",
+       "altText": "Tan jumpsuit, Use a 3/4 camera angle to capture the jumpsuit's silhouette and innovative features like hidden pockets and..."
+      }
+     ]
+    },
+    "options": [
+     {
+      "name": "Size",
+      "optionValues": [
+       {
+        "name": "S"
+       },
+       {
+        "name": "M"
+       },
+       {
+        "name": "L"
+       }
+      ]
+     }
+    ],
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/27137",
+       "title": "S",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ],
+       "price": {
+        "amount": "75.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      },
+      {
+       "id": "gid://shopify/ProductVariant/27138",
+       "title": "M",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ],
+       "price": {
+        "amount": "75.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      },
+      {
+       "id": "gid://shopify/ProductVariant/27139",
+       "title": "L",
+       "availableForSale": true,
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ],
+       "price": {
+        "amount": "75.0",
+        "currencyCode": "USD"
+       },
+       "compareAtPrice": null
+      }
+     ]
+    }
+   },
+   "productRecommendations": [
+    {
+     "id": "gid://shopify/Product/4975",
+     "handle": "combinaison-de-travail-coton-renforce",
+     "title": "Reinforced cotton work coverall",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/f4730d2f9a72f2609dac401f7fe703b8.png?v=14939436",
+      "altText": "Workwear coverall, Default to 3/4 angle shots that show garment structure and fit clearly on body forms or live models;..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "34.5",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4976",
+     "handle": "tan-work-shirt-and-pants-set",
+     "title": "Tan Work Shirt and Pants Set",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/1aa7e2a3e4818e60a45c506beb60cc7e.png?v=13688554",
+      "altText": "Toolbelt tan work shirt with matching pants, Single uniform displayed flat lay or on hanger against Canvas White backdrop..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4977",
+     "handle": "taupe-cotton-chore-coat",
+     "title": "Taupe cotton chore coat",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/344c7111d9236e2ff218f4056be4992f.png?v=14714944",
+      "altText": "Taupe cotton chore coat, Default: single piece on mannequin or model, three-quarter angle emphasizing garment architecture..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "128.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4978",
+     "handle": "workwear-coverall",
+     "title": "Workwear Coverall",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/ad43d8ca85d6593ce9ce006e4859dad8.png?v=13194762",
+      "altText": "While a subtle shadow grounds the product. The clean and minimal presentation focuses solely on the coverall's durable and..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4979",
+     "handle": "steel-jumpsuit",
+     "title": "Steel Jumpsuit",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/e17d7c9ffb8abb8fb4754771dfd3675b.png?v=13100292",
+      "altText": "Steel jumpsuit, For product shots, use a three-quarter angle to showcase the jumpsuits' tailoring and detailing. The..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "97.5",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4980",
+     "handle": "cleaning-staff-uniform-set-with-easy-care-fabric",
+     "title": "Cleaning Staff Uniform Set with Easy-Care Fabric",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/0f185e0c785dc39d9500fac6b67c31c6.png?v=14785939",
+      "altText": "Cleaning staff uniform set (shirt, trousers, jacket, cap), Three-quarter angle is default for showing uniform sets as..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "62.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "80.6",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4981",
+     "handle": "uniforme-de-mecanico-minimalista-con-logo-bordado",
+     "title": "Minimalist mechanic uniform with embroidered logo",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/68dd05fccbb976b1e65a7460a1a5cceb.png?v=15076306",
+      "altText": "Branded mechanic uniform, Default angle: Slightly elevated 3/4 view of products (e.g., OEM part on a clean surface) with..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "72.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "93.6",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4982",
+     "handle": "flame-resistant-work-coveralls",
+     "title": "Flame-Resistant Work Coveralls",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/e9178cb7cf1723274e215b3ea9a60a98.png?v=13016046",
+      "altText": "Flame-resistant coveralls showcased on a neutral concrete background, perfectly centered with soft, such as pockets and..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "75.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4983",
+     "handle": "charcoal-brown-textured-jacket",
+     "title": "Charcoal Brown Textured Jacket",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/b2eb5ae5e5d427718df6bb57d6d1da1a.png?v=13170651",
+      "altText": "A Charcoal Brown jacket perfectly centered on an earthy-toned backdrop. Soft, with the 50mm lens capturing a detailed and..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "120.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    },
+    {
+     "id": "gid://shopify/Product/4985",
+     "handle": "canvas-tan-chore-coat",
+     "title": "Canvas Tan chore coat",
+     "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/2ad13ad40a633d0ed3b726356405b6f4.png?v=14595217",
+      "altText": "Canvas Tan chore coat, Default hero angle is straight-on or subtle 3/4 view at chest height for jackets/shirts, waist..."
+     },
+     "priceRange": {
+      "minVariantPrice": {
+       "amount": "98.0",
+       "currencyCode": "USD"
+      }
+     },
+     "compareAtPriceRange": {
+      "minVariantPrice": {
+       "amount": "0.0",
+       "currencyCode": "USD"
+      }
+     }
+    }
+   ]
+  }
+ }
+}

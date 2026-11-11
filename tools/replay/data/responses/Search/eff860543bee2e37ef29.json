@@ -1,0 +1,526 @@
+{
+ "operationName": "Search",
+ "variables": {
+  "after": "eyJjIjoiaWQiLCJ2Ijo1NzUzLCJpIjo1NzUzfQ",
+  "first": 24,
+  "query": "ja"
+ },
+ "query": "fragment ProductCard on Product {\n  id\n  handle\n  title\n  featuredImage { url altText }\n  priceRange { minVariantPrice { amount currencyCode } }\n  compareAtPriceRange { minVariantPrice { amount currencyCode } }\n}\n\nfragment CartFields on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  cost { subtotalAmount { amount currencyCode } }\n  lines(first: 100) {\n    nodes {\n      id\n      quantity\n      cost { totalAmount { amount currencyCode } }\n      merchandise {\n        ... on ProductVariant {\n          id\n          title\n          image { url altText }\n          product { handle title featuredImage { url altText } }\n        }\n      }\n    }\n  }\n}\n\nquery Home {\n  collections(first: 20) {\n    nodes { id handle title image { url altText } }\n  }\n  products(first: 10, sortKey: BEST_SELLING) {\n    nodes { ...ProductCard }\n  }\n}\n\nquery CollectionProducts($handle: String!, $first: Int!, $after: String, $sortKey: ProductCollectionSortKeys!, $reverse: Boolean!) {\n  collection(handle: $handle) {\n    id\n    title\n    description\n    products(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n      pageInfo { hasNextPage endCursor }\n      nodes { ...ProductCard }\n    }\n  }\n}\n\nquery Search($query: String!, $first: Int!, $after: String) {\n  search(query: $query, first: $first, after: $after, types: PRODUCT) {\n    totalCount\n    pageInfo { hasNextPage endCursor }\n    nodes { ... on Product { ...ProductCard } }\n  }\n}\n\nquery Product($handle: String!) {\n  product(handle: $handle) {\n    id\n    handle\n    title\n    description\n    images(first: 10) { nodes { url altText } }\n    options { name optionValues { name } }\n    variants(first: 100) {\n      nodes {\n        id\n        title\n        availableForSale\n        selectedOptions { name value }\n        price { amount currencyCode }\n        compareAtPrice { amount currencyCode }\n      }\n    }\n  }\n  productRecommendations(productHandle: $handle) { ...ProductCard }\n}\n\nmutation CartCreate($lines: [CartLineInput!]!) {\n  cartCreate(input: { lines: $lines }) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n\nmutation CartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $lines) {\n    cart { ...CartFields }\n    userErrors { field message }\n  }\n}\n",
+ "response": {
+  "data": {
+   "search": {
+    "totalCount": 100,
+    "pageInfo": {
+     "hasNextPage": true,
+     "endCursor": "eyJjIjoiaWQiLCJ2Ijo2MjEyLCJpIjo2MjEyfQ"
+    },
+    "nodes": [
+     {
+      "id": "gid://shopify/Product/5757",
+      "handle": "performance-tank-top-with-mesh-back",
+      "title": "Performance Tank Top with Mesh Back",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/e255a27eda499a56a7ac37561862099b.png?v=14820455",
+       "altText": "Performance tank top, Three-quarter angle as default\u2014product worn by model standing naturally near window or seated..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "52.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5763",
+      "handle": "cropped-technical-top-blush-ember",
+      "title": "Cropped Technical Top\u2014Blush Ember",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/baeae78a6c66231a2a47bd4497635747.png?v=14938463",
+       "altText": "Blush Ember cropped technical top, 3/4 angle as default; garments displayed on model against seamless pale backdrop with..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "64.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5768",
+      "handle": "flexfit-technical-workout-top",
+      "title": "FlexFit Technical Workout Top",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/05d1fdc2f6ed7fa2d300abc5c06bfe56.png?v=14980658",
+       "altText": "Stretch FlexFit Technical Workout Top, Hero product shots at 3/4 angle on waist-high plinth or simple bench in..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5808",
+      "handle": "high-rise-performance-leggings-with-sunrise-stretch",
+      "title": "High-rise performance leggings with sunrise stretch",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/337f336fffb989f48ba11181d54fc427.png?v=14836076",
+       "altText": "High-rise performance leggings, Three-quarter angle as default; garments draped or worn naturally on mannequin or model..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "88.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "114.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5923",
+      "handle": "silver-taupe-japanese-cotton-dress",
+      "title": "Silver Taupe Japanese Cotton Dress",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/bc635349c8a42f244e4aebeb48b001b4.png?v=14665066",
+       "altText": "Silver Taupe Japanese cotton dress, Three-quarter angle for apparel on invisible mannequin or model, straight-on for..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "490.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/5940",
+      "handle": "austen-inspired-linen-scarf",
+      "title": "Austen-Inspired Linen Scarf",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/999f738256e9a9fecb27038acddf0295.png?v=15009316",
+       "altText": "Austen-inspired linen scarf, Three-quarter angle or front-on product shots placed on parchment-toned linen surfaces or..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "48.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6020",
+      "handle": "cashmere-crewneck-with-ribbed-cuffs",
+      "title": "Cashmere crewneck with ribbed cuffs",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/5011a588d013c19e17c42fbef15d712a.png?v=15005665",
+       "altText": "Olive sage cotton romper for children, Single garment presented heroically on linen-draped form or lay-flat atop a..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "149.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6121",
+      "handle": "slate-blue-designer-watch",
+      "title": "Slate Blue Designer Watch",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/b904d8eccfe04a8e6c8cdfad360c9198.png?v=14596500",
+       "altText": "Unisex slate blue designer watch, Default angle: 3/4 front for apparel, slightly above eye-level for shoes/bags/watches to..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "220.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6126",
+      "handle": "shaving-cream-jar-with-shea-butter",
+      "title": "Shaving Cream Jar With Shea Butter",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/4e29b82112db7a442eacf9adffb6c5ba.png?v=14978810",
+       "altText": "Elegant shaving cream jar, Default shot is 3/4 angle at slight elevation\u2014shows product form and premium finishes clearly...."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "44.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6159",
+      "handle": "matte-ceramic-candle-with-sandalwood-aroma",
+      "title": "Matte Ceramic Candle with Sandalwood Aroma",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/68f6f287aa395d23bad8ba2cbf6c36ba.png?v=14753342",
+       "altText": "Matte ceramic designer candle, Single-object focus at a slight angle (3/4 or overhead as appropriate), centered within..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "72.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6162",
+      "handle": "luxury-candle-in-sandstone-jar",
+      "title": "Luxury Candle in Sandstone Jar",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/6e21c24fcf82a0662ef9d6b4be609338.png?v=12723956",
+       "altText": "A portrait shot of an Eco-Luxe Escape luxury candle in a sophisticated sandstone jar. The candle is perfectly centered..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "75.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6164",
+      "handle": "vela-aromatica-de-soja-en-tarro-de-barro",
+      "title": "Scented soy candle in clay jar",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/e41fed9860689d36ed882b63af179bde.png?v=15002216",
+       "altText": "Scented soy candle in clay jar, Three-quarter angle as the default: products presented on matte wood or linen surfaces..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "32.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6165",
+      "handle": "bougie-parfumee-cire-vegetale",
+      "title": "Vegetable wax scented candle",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/81e68dc89e62163539d312bc14ea34d9.png?v=15069861",
+       "altText": "Artisan scented candle, Product-focused shots at a natural three-quarter angle on neutral matte surfaces (linen cloth or..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6171",
+      "handle": "stoneware-scented-candle",
+      "title": "Stoneware Scented Candle",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/45dfd0fb267f28c965cb86149c026638.png?v=14981662",
+       "altText": "Stoneware scented candle, Front-facing or gentle 3/4 angles at product height for throws and cushions; candles and..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "38.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "49.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6176",
+      "handle": "bare-sand-scented-soy-candle-in-minimalist-ceramic-jar",
+      "title": "Bare Sand Scented Soy Candle in Minimalist Ceramic Jar",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/1615afe9e60c9e97401b39966f70128b.png?v=14659714",
+       "altText": "Bare Sand Scented Soy Candle in Minimalist Ceramic Jar, Single-product shots at a gentle 3/4 angle (slightly above table..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "36.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "46.8",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6184",
+      "handle": "vela-relaxante-em-porcelana-fosca",
+      "title": "Relaxing candle in matte porcelain",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/0c255e884e4dbe7dfc786bbb58b4d034.png?v=14731019",
+       "altText": "Relaxation candle in matte porcelain vessel, Default: 3/4 angle that flatters the product\u2019s form without distortion,..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "64.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6193",
+      "handle": "chore-jacket-tobacco-tan-duck-canvas",
+      "title": "Chore Jacket Tobacco Tan Duck Canvas",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/d22391ad3b338bcb304d79d8dad32f7d.png?v=14698772",
+       "altText": "Tobacco tan chore jacket, Single-garment shots styled as if naturally set down between use: shirt draped on workbench..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "128.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "166.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6199",
+      "handle": "branded-ripstop-workwear-set",
+      "title": "Branded ripstop workwear set",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/7d153294f2817cfc1a470aca45aaa525.png?v=14655510",
+       "altText": "Branded workwear set (jacket and pants), Single product/equipment shots at 3/4 angle on clean yet contextually relevant..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "179.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6202",
+      "handle": "reinforced-cotton-canvas-work-jacket",
+      "title": "Reinforced Cotton Canvas Work Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/1f25a9405c5a8af9962b57b87b5a0cb6.png?v=14932424",
+       "altText": "Reinforced cotton canvas work jacket, Three-quarter angle emphasizing product's contour and material texture; product..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "119.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "154.7",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6204",
+      "handle": "canvas-chore-jacket-in-heavyweight",
+      "title": "Canvas Chore Jacket in Heavyweight",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/25c17eea2d45f37cb27c92e59d89303e.png?v=14982475",
+       "altText": "Heavyweight canvas chore jacket, Default to 3/4 angle product shots on neutral Dawn Canvas backdrops with subtle texture..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "168.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "218.4",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6205",
+      "handle": "stone-beige-chore-jacket",
+      "title": "Stone Beige Chore Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/add3527569932a2d02f622e7cb57f8d0.png?v=14855083",
+       "altText": "Stone beige chore jacket, 3/4 angle is default \u2014 captures the front and side profile in one view, showing key design..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "119.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "154.7",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6206",
+      "handle": "hand-stitched-chore-jacket-in-antique-gold",
+      "title": "Hand-Stitched Chore Jacket in Antique Gold",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/34748bd960c4f2b16a739966ebd7fe53.png?v=14716827",
+       "altText": "Antique gold hand-stitched chore jacket, Single jacket per shot on a softly textured neutral surface (like undyed linen),..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "325.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6208",
+      "handle": "duck-canvas-chore-jacket",
+      "title": "Duck Canvas Chore Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/5994/1398/files/65d535add0f2c4689943359b54cab3b2.png?v=15049626",
+       "altText": "Duck canvas chore jacket, 3/4 angle as default, capturing both garment shape and tactile details (collar structure,..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "119.0",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     },
+     {
+      "id": "gid://shopify/Product/6212",
+      "handle": "heavy-canvas-chore-jacket",
+      "title": "Heavy Canvas Chore Jacket",
+      "featuredImage": {
+       "url": "https://cdn.shopify.com/s/files/1/0926/4031/3366/files/ae5e5206edf4076974fc44a78dbd129d.png?v=14855079",
+       "altText": "Heavy canvas chore jacket, 3/4 angle product shots on sturdy wood or raw concrete surfaces that highlight garment..."
+      },
+      "priceRange": {
+       "minVariantPrice": {
+        "amount": "129.95",
+        "currencyCode": "USD"
+       }
+      },
+      "compareAtPriceRange": {
+       "minVariantPrice": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

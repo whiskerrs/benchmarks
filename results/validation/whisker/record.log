@@ -1,0 +1,140 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun tools/runner/build/sim/Build/Products/ShopBenchRunner_iphonesimulator27.2-arm64-x86_64.xctestrun -destination id=C280378B-BDC3-4F47-AB83-CB7D85C11EB9 "-only-testing:ShopBenchUITests/JourneyTests/testJourney" -resultBundlePath results/validation/whisker/record.xcresult
+
+Writing result bundle at path:
+	/Users/itome/Projects/github.com/whiskerrs/benchmarks/results/validation/whisker/record.xcresult
+
+2026-11-10 23:06:32.684061+0900 ShopBenchUITests-Runner[64350:331185] [Default] Running tests...
+    t =      nans Interface orientation changed to Portrait
+Test Suite 'Selected tests' started at 2026-11-10 23:06:34.767.
+Test Suite 'ShopBenchUITests.xctest' started at 2026-11-10 23:06:34.767.
+Test Suite 'JourneyTests' started at 2026-11-10 23:06:34.767.
+Test Case '-[ShopBenchUITests.JourneyTests testJourney]' started.
+    t =     0.00s Start Test at 2026-11-10 23:06:34.771
+    t =     0.03s Set Up
+2026-11-10 23:06:34.794822+0900 ShopBenchUITests-Runner[64350:331185] [phase] SHOPBENCH_RUNNER thermal 0
+2026-11-10 23:06:34.795014+0900 ShopBenchUITests-Runner[64350:331185] [phase] SHOPBENCH_RUNNER begin launch
+    t =     0.03s Open dev.whiskerrs.shopbench.whisker
+    t =     0.03s     Launch dev.whiskerrs.shopbench.whisker
+    t =     0.05s         Setting up automation session
+objc[64350]: Class UIAccessibilityLoaderWebShared is implemented in both /private/var/run/com.apple.security.cryptexd/mnt/com.apple.iPhoneOS.SimulatorRuntime-v24.2.8117.0.nOOlAg/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x104630310) and /private/var/run/com.apple.security.cryptexd/mnt/com.apple.iPhoneOS.SimulatorRuntime-v24.2.8117.0.nOOlAg/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x104664398). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+    t =     1.74s         Wait for dev.whiskerrs.shopbench.whisker to idle
+    t =     1.76s Unable to monitor event loop
+    t =     2.77s Waiting 30.0s for "best-seller-0" Any to exist
+    t =     3.81s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =     3.81s         Checking existence of `"best-seller-0" Any`
+    t =     3.81s         Capturing element debug description
+    t =     4.84s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =     4.85s         Checking existence of `"best-seller-0" Any`
+    t =     4.85s         Capturing element debug description
+    t =     5.78s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =     5.78s         Checking existence of `"best-seller-0" Any`
+    t =     5.78s         Capturing element debug description
+    t =     6.81s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =     6.81s         Checking existence of `"best-seller-0" Any`
+    t =     6.82s         Capturing element debug description
+    t =     7.85s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =     7.85s         Checking existence of `"best-seller-0" Any`
+    t =     7.86s         Capturing element debug description
+    t =     8.79s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =     8.79s         Checking existence of `"best-seller-0" Any`
+    t =     8.79s         Capturing element debug description
+    t =     9.82s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =     9.83s         Checking existence of `"best-seller-0" Any`
+    t =     9.83s         Capturing element debug description
+    t =    10.86s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    10.86s         Checking existence of `"best-seller-0" Any`
+    t =    10.86s         Capturing element debug description
+    t =    11.80s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    11.80s         Checking existence of `"best-seller-0" Any`
+    t =    11.80s         Capturing element debug description
+    t =    12.83s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    12.83s         Checking existence of `"best-seller-0" Any`
+    t =    12.83s         Capturing element debug description
+    t =    13.77s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    13.77s         Checking existence of `"best-seller-0" Any`
+    t =    13.77s         Capturing element debug description
+    t =    14.80s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    14.80s         Checking existence of `"best-seller-0" Any`
+    t =    14.80s         Capturing element debug description
+    t =    15.84s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    15.84s         Checking existence of `"best-seller-0" Any`
+    t =    15.84s         Capturing element debug description
+    t =    16.86s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    16.86s         Checking existence of `"best-seller-0" Any`
+    t =    16.86s         Capturing element debug description
+    t =    17.78s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    17.78s         Checking existence of `"best-seller-0" Any`
+    t =    17.78s         Capturing element debug description
+    t =    18.81s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    18.81s         Checking existence of `"best-seller-0" Any`
+    t =    18.81s         Capturing element debug description
+    t =    19.84s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    19.85s         Checking existence of `"best-seller-0" Any`
+    t =    19.85s         Capturing element debug description
+    t =    20.78s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    20.78s         Checking existence of `"best-seller-0" Any`
+    t =    20.78s         Capturing element debug description
+    t =    21.81s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    21.81s         Checking existence of `"best-seller-0" Any`
+    t =    21.81s         Capturing element debug description
+    t =    22.85s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    22.85s         Checking existence of `"best-seller-0" Any`
+    t =    22.85s         Capturing element debug description
+    t =    23.78s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    23.78s         Checking existence of `"best-seller-0" Any`
+    t =    23.78s         Capturing element debug description
+    t =    24.81s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    24.81s         Checking existence of `"best-seller-0" Any`
+    t =    24.81s         Capturing element debug description
+    t =    25.85s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    25.85s         Checking existence of `"best-seller-0" Any`
+    t =    25.85s         Capturing element debug description
+    t =    26.78s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    26.78s         Checking existence of `"best-seller-0" Any`
+    t =    26.79s         Capturing element debug description
+    t =    27.82s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    27.82s         Checking existence of `"best-seller-0" Any`
+    t =    27.82s         Capturing element debug description
+    t =    28.86s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    28.86s         Checking existence of `"best-seller-0" Any`
+    t =    28.86s         Capturing element debug description
+    t =    29.80s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    29.80s         Checking existence of `"best-seller-0" Any`
+    t =    29.80s         Capturing element debug description
+    t =    30.83s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    30.83s         Checking existence of `"best-seller-0" Any`
+    t =    30.83s         Capturing element debug description
+    t =    31.87s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    31.87s         Checking existence of `"best-seller-0" Any`
+    t =    31.87s         Capturing element debug description
+    t =    32.77s     Checking `Expect predicate `existsNoRetry == 1` for object "best-seller-0" Any`
+    t =    32.77s         Checking existence of `"best-seller-0" Any`
+    t =    32.77s         Capturing element debug description
+    t =    32.78s     Checking existence of `"best-seller-0" Any`
+    t =    33.78s     Checking existence of `"best-seller-0" Any` (retry 1)
+    t =    34.79s     Checking existence of `"best-seller-0" Any` (retry 2)
+    t =    34.79s Collecting debug information to assist test failure triage
+/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/runner/UITests/JourneyTests.swift:130: error: -[ShopBenchUITests.JourneyTests testJourney] : XCTAssertTrue failed - missing best-seller-0
+    t =    34.83s Tear Down
+    t =    34.87s Checking for reports corresponding to termination of 1 app(s).
+Test Case '-[ShopBenchUITests.JourneyTests testJourney]' failed (54.880 seconds).
+Test Suite 'JourneyTests' failed at 2026-11-10 23:07:29.652.
+	 Executed 1 test, with 1 failure (0 unexpected) in 54.880 (54.885) seconds
+Test Suite 'ShopBenchUITests.xctest' failed at 2026-11-10 23:07:29.652.
+	 Executed 1 test, with 1 failure (0 unexpected) in 54.880 (54.885) seconds
+Test Suite 'Selected tests' failed at 2026-11-10 23:07:29.653.
+	 Executed 1 test, with 1 failure (0 unexpected) in 54.880 (54.886) seconds
+2026-11-10 23:07:39.733 xcodebuild[64349:331069] [MT] IDETestOperationsObserverDebug: 68.020 elapsed -- Testing started completed.
+2026-11-10 23:07:39.733 xcodebuild[64349:331069] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-10 23:07:39.733 xcodebuild[64349:331069] [MT] IDETestOperationsObserverDebug: 68.020 sec, +68.020 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/itome/Projects/github.com/whiskerrs/benchmarks/results/validation/whisker/record.xcresult
+
+Failing tests:
+	JourneyTests.testJourney()
+
+** TEST EXECUTE FAILED **
+
+Testing started
