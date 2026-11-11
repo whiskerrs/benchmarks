@@ -12,3 +12,6 @@ __pycache__/
 .DS_Store
 # Identifies the test iPhone (serial, ECID)
 device.json
+tools/launch-video.py
+tools/tap-launch.sh
+tools/device-journey.sh
