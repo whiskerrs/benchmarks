@@ -22,7 +22,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNNER = ROOT / "tools" / "runner"
-TEMPLATES = {"activity": "Activity Monitor", "hitches": "Animation Hitches", "power": "Power Profiler"}
+# The Power Profiler template adds Location Energy Model, which refuses --all-processes, so power records the instrument alone.
+RECORD = {
+    "activity": ["--template", "Activity Monitor"],
+    "hitches": ["--template", "Animation Hitches"],
+    "power": ["--instrument", "Power Profiler"],
+}
 
 
 def run(cmd, timeout=600, env=None, log=None):
@@ -72,21 +77,30 @@ def cmd_launch(a):
     replay(a.api, "/_reset", "POST")
     for n in range(a.runs + 1):
         trace = out / ("launch-warmup.trace" if n == 0 else f"launch-{n}.trace")
-        time.sleep(5)
-        run(
-            [
-                "xcrun", "xctrace", "record",
-                "--device", a.udid,
-                "--template", "App Launch",
-                "--instrument", "os_log",
-                "--time-limit", f"{a.seconds}s",
-                "--env", f"SHOP_API_URL={a.api}",
-                "--output", trace,
-                "--launch", "--", a.launch_target or a.bundle_id,
-            ],
-            timeout=a.seconds + 120,
-            log=trace.with_suffix(".log"),
-        )
+        for attempt in range(1, 4):
+            time.sleep(5)
+            try:
+                run(
+                    [
+                        "xcrun", "xctrace", "record",
+                        "--device", a.udid,
+                        "--template", "App Launch",
+                        "--instrument", "os_log",
+                        "--time-limit", f"{a.seconds}s",
+                        "--env", f"SHOP_API_URL={a.api}",
+                        "--output", trace,
+                        "--launch", "--", a.launch_target or a.bundle_id,
+                    ],
+                    timeout=a.seconds + 120,
+                    log=trace.with_suffix(".log"),
+                )
+                break
+            except (RuntimeError, subprocess.TimeoutExpired) as e:
+                if attempt == 3:
+                    raise
+                print(f"launch {n}: attempt {attempt} failed, retrying: {str(e)[:200]}", flush=True)
+                subprocess.run(["pkill", "-f", f"xctrace record.*{trace.name}"])
+                shutil.rmtree(trace, ignore_errors=True)
         print(f"launch {n}/{a.runs}: {trace.name}", flush=True)
     stats = replay(a.api, "/_stats")
     write_json(out / "replay-stats.json", stats)
@@ -137,35 +151,49 @@ def cmd_journey(a):
     out.mkdir(parents=True, exist_ok=True)
     write_json(out / "device.json", device_info(a.udid))
     for n in range(1, a.runs + 1):
-        trial = out / f"{a.instrument}-{n}"
-        trial.mkdir(exist_ok=True)
-        replay(a.api, "/_reset", "POST")
-        trace_log = open(trial / "xctrace.log", "w")
-        recorder = subprocess.Popen(
-            [
-                "xcrun", "xctrace", "record",
-                "--device", a.udid,
-                "--template", TEMPLATES[a.instrument],
-                "--instrument", "os_log",
-                "--all-processes",
-                "--output", trial / "journey.trace",
-            ],
-            stdout=trace_log,
-            stderr=subprocess.STDOUT,
-        )
-        try:
-            time.sleep(5)
-            run_test(a, "testJourney", trial / "runner.xcresult", trial / "runner.log", 900)
-        finally:
-            recorder.send_signal(signal.SIGINT)
-            recorder.wait(timeout=600)
-            trace_log.close()
-        stats = replay(a.api, "/_stats")
-        write_json(trial / "replay-stats.json", stats)
-        if stats["misses"]:
-            raise SystemExit(f"replay misses, run invalid: {stats['misses'][:5]}")
-        print(f"journey {a.instrument} {n}/{a.runs}: {stats['requests']} requests, {stats['bytes']} bytes", flush=True)
+        for attempt in range(1, a.attempts + 1):
+            try:
+                journey_trial(a, out / f"{a.instrument}-{n}")
+                break
+            except RuntimeError as e:
+                if attempt == a.attempts:
+                    raise
+                print(f"journey {a.instrument} {n}: attempt {attempt} failed, retrying: {str(e)[:200]}", flush=True)
+                shutil.move(out / f"{a.instrument}-{n}", out / f"{a.instrument}-{n}-failed-{attempt}")
+                time.sleep(a.cooldown)
         time.sleep(a.cooldown)
+
+
+def journey_trial(a, trial):
+    trial.mkdir(exist_ok=True)
+    replay(a.api, "/_reset", "POST")
+    trace_log = open(trial / "xctrace.log", "w")
+    recorder = subprocess.Popen(
+        [
+            "xcrun", "xctrace", "record",
+            "--device", a.udid,
+            *RECORD[a.instrument],
+            "--instrument", "os_log",
+            "--all-processes",
+            "--output", trial / "journey.trace",
+        ],
+        stdout=trace_log,
+        stderr=subprocess.STDOUT,
+    )
+    try:
+        time.sleep(5)
+        run_test(a, "testJourney", trial / "runner.xcresult", trial / "runner.log", 900)
+    finally:
+        recorder.send_signal(signal.SIGINT)
+        recorder.wait(timeout=600)
+        trace_log.close()
+    if "SHOPBENCH_RUNNER begin launch" not in run(["python3", ROOT / "tools" / "extract.py", "--marks", trial / "journey.trace"]):
+        raise RuntimeError(f"{trial / 'journey.trace'} has no runner phase marks")
+    stats = replay(a.api, "/_stats")
+    write_json(trial / "replay-stats.json", stats)
+    if stats["misses"]:
+        raise SystemExit(f"replay misses, run invalid: {stats['misses'][:5]}")
+    print(f"journey {a.instrument} {trial.name}: {stats['requests']} requests, {stats['bytes']} bytes", flush=True)
 
 
 def main():
@@ -189,9 +217,10 @@ def main():
             s.add_argument("--seconds", type=int, default=10)
             s.add_argument("--launch-target", help="what xctrace --launch receives; defaults to the bundle id")
         else:
-            s.add_argument("--instrument", choices=TEMPLATES, required=True)
+            s.add_argument("--instrument", choices=RECORD, required=True)
             s.add_argument("--runs", type=int, default=3)
             s.add_argument("--cooldown", type=int, default=60)
+            s.add_argument("--attempts", type=int, default=3, help="tries per trial; a failed journey is kept as <trial>-failed-<n>")
     a = p.parse_args()
     {"size": cmd_size, "prepare": cmd_prepare, "launch": cmd_launch, "journey": cmd_journey}[a.cmd](a)
 

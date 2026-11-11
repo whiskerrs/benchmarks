@@ -1,0 +1,14 @@
+Starting recording with the Activity Monitor template and os_log Instrument. Targeting All Processes. 
+Ctrl-C to stop the recording
+Stopping recording...
+Timeline modification failed -- dylibs overlap by 0x64000:
+    0x104b80000-0x104ba4000 [0x24000] (285156795240-285157260217) /usr/libexec/xpcproxy
+    0x104b68000-0x104bcc000 [0x64000] (0-9223372036854775807) /System/Library/PrivateFrameworks/MobileAssetDaemon.framework/XPCServices/com.apple.MobileAsset.DownloadService.Builtin.xpc/com.apple.MobileAsset.DownloadService.Builtin
+Timeline modification failed -- dylibs overlap by 0x650000:
+    0x104670000-0x104694000 [0x24000] (286465617543-286466082735) /usr/libexec/xpcproxy
+    0x1040f0000-0x104740000 [0x650000] (0-9223372036854775807) /usr/libexec/fairplaydeviceidentityd
+Run issues were detected (trace is still ready to be viewed):
+* [Warning] Data stream: 63 log/signpost messages lost due to high rates. Try target specific process.
+
+Recording completed. Saving output file...
+Output file saved as: journey.trace

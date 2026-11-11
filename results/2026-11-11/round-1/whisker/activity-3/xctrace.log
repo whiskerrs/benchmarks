@@ -1,0 +1,17 @@
+Starting recording with the Activity Monitor template and os_log Instrument. Targeting All Processes. 
+Ctrl-C to stop the recording
+Stopping recording...
+Timeline modification failed -- dylibs overlap by 0x3a1c60:
+    0x1ef9a4000-0x1ef9a50d0 [0x10d0] (293219110629-293219591399) /Users/itome/Library/Developer/Xcode/iOS DeviceSupport/iPhone13,2 27.2.1 (24B156)/arm64e/Symbols/usr/lib/objc/libobjcMsgSend10.dylib
+    0x1ef7d8ef0-0x1efb7ab50 [0x3a1c60] (0-9223372036854775807) /System/Library/PrivateFrameworks/UIKitCore.framework/UIKitCore
+Timeline modification failed -- dylibs overlap by 0x88c000:
+    0x10288c000-0x1028b0000 [0x24000] (293329842771-293330521187) /usr/libexec/xpcproxy
+    0x1022cc000-0x102b58000 [0x88c000] (0-9223372036854775807) /System/Library/Frameworks/StoreKit.framework/Support/storekitd
+Timeline modification failed -- dylibs overlap by 0x7a31:
+    0x280786940-0x280786950 [0x10] (293219110974-293219591399) /Users/itome/Library/Developer/Xcode/iOS DeviceSupport/iPhone13,2 27.2.1 (24B156)/arm64e/Symbols/usr/lib/objc/libobjcMsgSend18.dylib
+    0x2807859e0-0x28078d411 [0x7a31] (0-9223372036854775807) /System/Library/PrivateFrameworks/MediaAnalysis.framework/MediaAnalysis
+Run issues were detected (trace is still ready to be viewed):
+* [Warning] Data stream: 63 log/signpost messages lost due to high rates. Try target specific process.
+
+Recording completed. Saving output file...
+Output file saved as: journey.trace

@@ -163,6 +163,22 @@ def journey_hitches(trace):
     return {"pid": pid, "F1_ms_per_s": f1, "F2_count": f2, "F3_ms_per_s": f3, "hitches_total": len(hitches), "thermal": thermal(trace)}
 
 
+def journey_power(trace):
+    """E1: mean system power (battery %/hour) over the journey, weighted by interval length."""
+    ph = phases(marks(trace))
+    start, end = ph["launch"][0], ph["idle-after-journey"][1]
+    spans = [(num(r["start"]), num(r["duration"]), num(r["power-usage"])) for r in table(trace, "SystemPowerLevel")]
+    within = [(d, p) for t, d, p in spans if p is not None and start <= t <= end]
+    total = sum(d for d, _ in within)
+    # Power usage reads 0 %/hour for as long as the device is charging.
+    charging = bool(table(trace, "DeviceChargingState"))
+    return {
+        "E1_pct_per_hour": sum(d * p for d, p in within) / total if total and not charging else None,
+        "charging": charging,
+        "thermal": sorted({(r.get("thermal-state") or (None, "?", []))[1] for r in table(trace, "SystemThermalState")}),
+    }
+
+
 def launch(trace):
     periods = table(trace, "life-cycle-period")
     if not periods:
@@ -191,6 +207,7 @@ KEYS = {
     "launch": ["L1_ms", "L2_ms"],
     "activity": ["M1_mb", "M2_mb", "M3_mb", "C1_s", "C2_avg_pct", "C2_peak_pct", "N1_requests", "N1_bytes"],
     "hitches": ["F1_ms_per_s", "F2_count", "F3_ms_per_s"],
+    "power": ["E1_pct_per_hour"],
 }
 
 
@@ -200,11 +217,17 @@ def summarize(result):
 
 def extract(out):
     out = Path(out)
-    result = {"launch": [], "activity": [], "hitches": []}
+    result = {"launch": [], "activity": [], "hitches": [], "power": []}
     for t in sorted(out.glob("launch-[0-9]*.trace")):
         result["launch"].append(launch(t) or {"trace": t.name, "error": "no life-cycle periods"})
-    for kind, fn in (("activity", journey_activity), ("hitches", journey_hitches)):
+    for kind, fn in (("activity", journey_activity), ("hitches", journey_hitches), ("power", journey_power)):
         for t in sorted(out.glob(f"{kind}-*/journey.trace")):
+            if not re.fullmatch(rf"{kind}-\d+", t.parent.name):
+                continue
+            if "launch" not in phases(marks(t)):
+                # The os_log stream sometimes records nothing for a whole trial.
+                result[kind].append({"trace": str(t.relative_to(out)), "error": "no runner phase marks"})
+                continue
             m = fn(t)
             stats = t.parent / "replay-stats.json"
             if stats.exists():
@@ -223,7 +246,12 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("dir")
     p.add_argument("--summary", action="store_true", help="dir holds result dirs per app (optionally under round-*); print a table of medians")
+    p.add_argument("--marks", action="store_true", help="dir is one trace; print its SHOPBENCH log lines")
     a = p.parse_args()
+    if a.marks:
+        for t, pid, msg in marks(a.dir):
+            print(t, pid, msg)
+        return
     if not a.summary:
         print(json.dumps(extract(a.dir)["summary"], indent=2))
         return

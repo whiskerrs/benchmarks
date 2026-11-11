@@ -1,0 +1,11 @@
+Starting recording with the Activity Monitor template and os_log Instrument. Targeting All Processes. 
+Ctrl-C to stop the recording
+Stopping recording...
+Timeline modification failed -- dylibs overlap by 0x8d8000:
+    0x10214c000-0x102170000 [0x24000] (858427479244-858427716952) /usr/libexec/xpcproxy
+    0x1020e8000-0x1029c0000 [0x8d8000] (0-9223372036854775807) /System/Library/Frameworks/ManagedAppDistribution.framework/Support/managedappdistributiond
+Timeline modification failed -- dylibs overlap by 0x670000:
+    0x104abc000-0x104ae0000 [0x24000] (853677473412-853677663741) /usr/libexec/xpcproxy
+    0x104908000-0x104f78000 [0x670000] (0-9223372036854775807) /System/Library/PrivateFrameworks/ContextKit.framework/XPCServices/ContextService.xpc/ContextService
+Recording completed. Saving output file...
+Output file saved as: journey.trace

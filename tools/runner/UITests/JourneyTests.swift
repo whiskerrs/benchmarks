@@ -183,16 +183,19 @@ final class JourneyTests: XCTestCase {
     /// On a device the replay server is on the LAN, so a fresh install first asks for Local Network
     /// access; the app's first requests fail while the prompt is up, so it is relaunched once allowed.
     private func allowLocalNetwork() {
-        let alert = XCUIApplication(bundleIdentifier: "com.apple.springboard").alerts.firstMatch
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        let alert = springboard.alerts.firstMatch
         guard alert.waitForExistence(timeout: 10) else { return }
-        for label in ["許可", "Allow"] where alert.buttons[label].exists {
-            alert.buttons[label].tap()
-            _ = alert.waitForNonExistence(timeout: 5)
-            sleep(2)
-            app.terminate()
-            app.launch()
-            return
-        }
+        sleep(1)
+        let allow = alert.buttons.matching(NSPredicate(format: "label IN %@", ["許可", "Allow"])).firstMatch
+        guard allow.exists else { return }
+        // Tapping the element re-resolves the alert, which fails if it is still animating in.
+        let f = allow.frame
+        springboard.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: f.midX, dy: f.midY)).tap()
+        _ = alert.waitForNonExistence(timeout: 5)
+        sleep(2)
+        app.terminate()
+        app.launch()
     }
 
     private func swipeLeft(_ e: XCUIElement) {

@@ -1,0 +1,8 @@
+Starting recording with the Activity Monitor template and os_log Instrument. Targeting All Processes. 
+Ctrl-C to stop the recording
+Stopping recording...
+Timeline modification failed -- dylibs overlap by 0x558000:
+    0x102574000-0x102598000 [0x24000] (827164290865-827164692430) /usr/libexec/xpcproxy
+    0x102488000-0x1029e0000 [0x558000] (0-9223372036854775807) /usr/libexec/transparencyd
+Recording completed. Saving output file...
+Output file saved as: journey.trace

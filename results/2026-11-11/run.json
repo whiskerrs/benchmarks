@@ -1,0 +1,13 @@
+{
+  "rounds": 2,
+  "apps": [
+    "react-native",
+    "flutter",
+    "whisker",
+    "nsh",
+    "nativescript",
+    "exact"
+  ],
+  "note": "round 3 skipped: rounds 1 and 2 agreed",
+  "finished_utc": "2026-11-11T23:09:36Z"
+}
