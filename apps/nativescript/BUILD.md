@@ -139,7 +139,7 @@ Toolchain used:
 | Node.js / npm | 26.13.0 / 11.20.0 |
 | NativeScript CLI (`nativescript`) | 9.1.2 |
 | `@nativescript/core` | 9.1.3 |
-| `@nativescript/ios` runtime | 9.1.0 |
+| `@nativescript/ios` runtime | 9.1.1 |
 | `@nativescript/android` runtime | 9.1.1 |
 | `@nativescript/webpack` | 5.0.39 |
 | TypeScript | 5.9.3 |
