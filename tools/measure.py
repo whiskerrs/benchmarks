@@ -3,6 +3,7 @@
 
   measure.py --udid UDID --host MAC_LAN_IP [--rounds 3] [--launch-runs 10] [--journey-runs 3]
              [--instruments activity,hitches,power] [--apps react-native,flutter,...] [--out results/<date>]
+             [--app-path APP=PATH.app ...]
 
 Round r starts at app r in APPS and wraps, so no framework always runs first. Each app is installed
 alone, measured, extracted, and uninstalled. The replay server is started here and must not already run.
@@ -47,9 +48,17 @@ def main():
     p.add_argument("--apps", default=",".join(APPS))
     p.add_argument("--settle", type=int, default=180, help="seconds idle after install, before measuring")
     p.add_argument("--out", default=str(ROOT / "results" / datetime.date.today().isoformat()))
+    p.add_argument("--app-path", action="append", default=[], metavar="APP=PATH",
+                   help="measure this .app instead of the default build of APP; repeatable")
     a = p.parse_args()
 
     apps = a.apps.split(",")
+    paths = {app: path for app, (_, path) in APPS.items()}
+    for item in a.app_path:
+        app, _, path = item.partition("=")
+        if app not in APPS or not path:
+            p.error(f"--app-path expects APP=PATH with APP in {', '.join(APPS)}")
+        paths[app] = Path(path).expanduser()
     api = f"http://{a.host}:8787/api"
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -63,7 +72,7 @@ def main():
             order = apps[(r - 1) % len(apps):] + apps[:(r - 1) % len(apps)]
             log(f"round {r}: {' → '.join(order)}")
             for app in order:
-                suffix, path = APPS[app]
+                suffix, path = APPS[app][0], paths[app]
                 bundle = f"dev.whiskerrs.shopbench.{suffix}"
                 dest = out / f"round-{r}" / app
                 if (dest / "metrics.json").exists():

@@ -6,14 +6,14 @@ git-ignored.
 
 ## 1. Install dependencies
 
-Prerequisites: macOS with Xcode 26 (command line tools selected), Android
+Prerequisites: macOS with Xcode 27 (command line tools selected), Android
 Studio (Android SDK, NDK 27.x and its bundled JDK; Whisker finds them under
 `~/Library/Android/sdk` without `ANDROID_HOME`/`JAVA_HOME`), and rustup.
 
 ```sh
 rustup toolchain install stable
 rustup target add aarch64-apple-ios aarch64-apple-ios-sim aarch64-linux-android
-cargo install whisker-cli --version 0.16.0 --locked
+cargo install whisker-cli --version 0.17.0 --locked
 whisker doctor            # every check should pass
 cargo fetch               # Rust dependencies (pinned by Cargo.lock)
 ```
@@ -146,7 +146,16 @@ adb shell am start -n dev.whiskerrs.shopbench.whisker/.MainActivity
 | iOS Simulator | Xcode `Release`, `iphonesimulator`, Rust release profile with LTO |
 | Android | Gradle `release`, arm64-v8a, Rust release profile with LTO, debug-keystore signing |
 
-Versions used:
+Versions of the benchmarked build (2026-11-11), after the move to Xcode 27
+described in `results/xcode27/README.md`:
+
+- Xcode 27.2, iOS 27.2
+- Whisker 0.17.0 (`whisker`, `whisker-cli`, `whisker-cng`), whisker-router
+  0.14.4, whisker-image / -svg / -input / -keyboard / -safe-area /
+  -web-browser 0.14.5;
+  Whisker iOS SwiftPM package 0.1.20 (`shop-native/Package.swift`)
+
+Versions the AI run used:
 
 - macOS 26.5.1, Xcode 26.6 (17F113), iOS Simulator runtime 26.5 (iPhone 17 Pro)
 - Rust 1.96.0 (stable), cargo 1.96.0
