@@ -16,3 +16,10 @@ Order of work:
 1. Build each app with the AI (`prompt/README.md`).
 2. Record replay data: `tools/replay/replay.py crawl`, then each app's journey once against `record`.
 3. Measure each app against `serve` with `tools/bench.py` (`tools/README.md`, `measurement/README.md`).
+
+## License
+
+MIT, see `LICENSE`. Not covered:
+
+- `design/img/` and `tools/replay/data/`: product images and API responses from Shopify's [mock.shop](https://mock.shop), kept as reference and replay data.
+- Files the framework templates and toolchains generated under `apps/` keep the license stated in them.
