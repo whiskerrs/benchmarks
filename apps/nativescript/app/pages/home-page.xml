@@ -66,20 +66,20 @@
           <Repeater items="{{ bestSellers }}">
             <Repeater.itemTemplate>
               <GridLayout columns="*, 12, *" padding="0 16 20 16">
-                <StackLayout col="0" testID="{{ lTestID }}" tap="onCardTap" side="l" accessible="true" accessibilityLabel="{{ lTitle }}" visibility="{{ lVisibility }}">
-                  <Image src="{{ lImage }}" height="{{ lImageHeight }}" stretch="aspectFill" class="img" loadMode="async" />
-                  <Label text="{{ lTitle }}" class="card-title" maxLines="2" textWrap="true" />
+                <StackLayout col="0" testID="{{ l.testID }}" tap="onCardTap" side="l" accessible="true" accessibilityLabel="{{ l.title }}" visibility="{{ l.visibility }}">
+                  <Image src="{{ l.image }}" height="{{ l.imageHeight }}" stretch="aspectFill" class="img" loadMode="async" />
+                  <Label text="{{ l.title }}" class="card-title" maxLines="2" textWrap="true" />
                   <StackLayout orientation="horizontal" marginTop="8">
-                    <Label text="{{ lPrice }}" class="{{ lPriceClass }}" />
-                    <Label text="{{ lCompare }}" class="compare" visibility="{{ lCompareVisibility }}" verticalAlignment="bottom" marginBottom="1" />
+                    <Label text="{{ l.price }}" class="{{ l.priceClass }}" />
+                    <Label text="{{ l.compare }}" class="compare" visibility="{{ l.compareVisibility }}" verticalAlignment="bottom" marginBottom="1" />
                   </StackLayout>
                 </StackLayout>
-                <StackLayout col="2" testID="{{ rTestID }}" tap="onCardTap" side="r" accessible="true" accessibilityLabel="{{ rTitle }}" visibility="{{ rVisibility }}">
-                  <Image src="{{ rImage }}" height="{{ rImageHeight }}" stretch="aspectFill" class="img" loadMode="async" />
-                  <Label text="{{ rTitle }}" class="card-title" maxLines="2" textWrap="true" />
+                <StackLayout col="2" testID="{{ r.testID }}" tap="onCardTap" side="r" accessible="true" accessibilityLabel="{{ r.title }}" visibility="{{ r.visibility }}">
+                  <Image src="{{ r.image }}" height="{{ r.imageHeight }}" stretch="aspectFill" class="img" loadMode="async" />
+                  <Label text="{{ r.title }}" class="card-title" maxLines="2" textWrap="true" />
                   <StackLayout orientation="horizontal" marginTop="8">
-                    <Label text="{{ rPrice }}" class="{{ rPriceClass }}" />
-                    <Label text="{{ rCompare }}" class="compare" visibility="{{ rCompareVisibility }}" verticalAlignment="bottom" marginBottom="1" />
+                    <Label text="{{ r.price }}" class="{{ r.priceClass }}" />
+                    <Label text="{{ r.compare }}" class="compare" visibility="{{ r.compareVisibility }}" verticalAlignment="bottom" marginBottom="1" />
                   </StackLayout>
                 </StackLayout>
               </GridLayout>

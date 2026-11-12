@@ -5,17 +5,18 @@
 - `app/app.ts`, `app/app-root.xml|ts`: root layout = one `Frame` per tab plus a custom tab bar.
 - `app/pages/*`: Home, Collection, Product, Search, Cart (XML + TypeScript code-behind, core `Observable` view models).
 - `app/lib/api.ts`: endpoint resolution and the GraphQL documents (copied verbatim from `spec/storefront.graphql`), sent with core `Http.request`.
-- `app/lib/cart.ts`: in-memory cart store; `app/lib/paged-list.ts`: infinite scroll for `ListView`; `app/lib/grid.ts`: 2-column grid rows.
+- `app/lib/cart.ts`: in-memory cart store; `app/lib/paged-list.ts`: infinite scroll for `ListView`; `app/lib/format.ts`: card view models and 2-column grid rows.
 - `app/components/icon.ts`: the design's stroke icons drawn natively (CAShapeLayer / Android ShapeDrawable).
 - `App_Resources/iOS/src/SBNative.{h,m}`: small Objective-C helper for `os_log` (benchmark marker) and `SFSafariViewController`.
 
 ## Dependencies added
 
-None beyond the NativeScript project itself. `package.json` contains only
-`@nativescript/core` (runtime) and the NativeScript toolchain packages
-(`nativescript` CLI, `@nativescript/ios`, `@nativescript/android`,
-`@nativescript/webpack`, `@nativescript/types`, `typescript`). The template's
-`@nativescript/theme` was removed.
+`package.json` contains `@nativescript/core` (runtime), the NativeScript
+toolchain packages (`nativescript` CLI, `@nativescript/ios`,
+`@nativescript/android`, `@nativescript/webpack`, `@nativescript/types`,
+`typescript`) and `patch-package` (dev only), which applies
+`patches/@nativescript+core+9.1.3.patch` on `npm ci` (see "ListView on iOS"
+below). The template's `@nativescript/theme` was removed.
 
 Build-time only: the Ruby `xcodeproj` gem, which the NativeScript CLI itself
 requires to merge xcconfig files; it is installed into `./.gems` by
@@ -51,16 +52,12 @@ linked via `App_Resources/iOS/build.xcconfig`) instead of a plugin.
 - **Portrait only, iPhone only** (`UIDeviceFamily` 1); light appearance forced (`UIUserInterfaceStyle` Light) since dark mode is out of scope.
 - **Logging**: the only log written by app code is `SHOPBENCH home_ready` via `os_log` (default level), once per process, scheduled right after the loaded Home content is bound. Release webpack builds also strip any `console.*` calls. The NativeScript iOS runtime prints one "Runtime initialization took …" line to stdout at startup; that is NativeScript's own output and does not go to the unified log.
 
-## NativeScript ListView workarounds (iOS)
-
-Getting the lazily rendered lists to behave under scrolling and XCUITest needed some care; these are worth knowing when reading `app/lib/paged-list.ts` and `app/lib/grid.ts`:
+## ListView on iOS
 
 1. **Fixed `rowHeight`.** Without it, NativeScript measures rows with a separate measurement pass that re-binds views and left cells with stale data/identifiers.
-2. **Rows are filled imperatively in `itemLoading`** (no `{{ }}` bindings inside the row templates). Bindings inside recycled cells were unreliable for some properties (image `src`, `testID`).
-3. **Cell views are kept attached to their cells.** When a `UITableViewCell` leaves the window NativeScript tears down its item view and rebuilds it when the cell is reused; that rebuild threw inside `cellForRowAtIndexPath` and UIKit aborted the app. The app overrides `_removeContainer` on its own `ListView` instances (no change to NativeScript itself) so each item view simply stays with its reusable cell.
-4. **Paging is driven by scroll position, not by `itemLoading`.** The accessibility snapshot XCUITest takes makes UITableView build cells for off-screen rows, which would otherwise fetch every page at once.
-5. **List images are styled natively** (layer background color and corner radius set in the image's `loaded` event) for the same rebuild reason as in point 3.
-6. **Accessibility identifiers inside cells**: cards and search rows are marked `accessible="true"` so XCUITest exposes their identifiers (it hides nested non-accessible views inside table cells). Their accessibility label is the product title.
+2. **`@nativescript/core` 9.1.3 is patched** (`patches/@nativescript+core+9.1.3.patch`). Its `ListViewCell.willMoveToSuperview` tears down a cell's item view whenever UIKit takes the cell out of the table (for example on `reloadData` after a sort change) and rebuilds it when the cell is reused. In release builds that rebuild either aborts in `cellForRowAtIndexPath` (`-[DictionaryAdapter CGColor]` / `_resolvedMaterialWithTraitCollection:` unrecognized selector, then a nil-cell assertion) or leaves the screen no longer redrawing. The patch removes that teardown, so each item view stays with its reusable cell; the `ListView` still owns and disposes every item view.
+3. **Paging is driven by scroll position, not by `itemLoading`.** The accessibility snapshot XCUITest takes makes UITableView build cells for off-screen rows, which would otherwise fetch every page at once.
+4. **Accessibility identifiers inside cells**: cards and search rows are marked `accessible="true"` so XCUITest exposes their identifiers (it hides nested non-accessible views inside table cells). Their accessibility label is the product title.
 
 ## Spec items not met / caveats
 

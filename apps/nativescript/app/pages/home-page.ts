@@ -1,6 +1,6 @@
 import { Observable, type EventData, type NavigatedData, type Page, type View } from '@nativescript/core';
 import { gql, type Collection, type ProductCard } from '../lib/api';
-import { imageUrl, toCard, toFlatRows } from '../lib/format';
+import { imageUrl, toCard, toRows } from '../lib/format';
 import { logHomeReady } from '../lib/log';
 import { openCollection, reportPage } from '../lib/nav';
 import { setLoadState } from '../lib/state';
@@ -32,7 +32,7 @@ async function load() {
     vm.set('collections', collections);
     vm.set('featuredTitle', first?.title ?? '');
     vm.set('featuredImage', imageUrl(first?.image?.url, 1080));
-    vm.set('bestSellers', toFlatRows(data.products.nodes.map((p, i) => toCard(p, `best-seller-${i}`))));
+    vm.set('bestSellers', toRows(data.products.nodes.map((p, i) => toCard(p, `best-seller-${i}`))));
     setLoadState(vm, 'loaded');
     setTimeout(logHomeReady, 0);
   } catch (e) {

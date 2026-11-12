@@ -16,25 +16,28 @@
       </StackLayout>
     </ScrollView>
 
-    <ListView row="3" iosOverflowSafeArea="false" id="grid" testID="product-grid" items="{{ rows }}" itemLoading="onItemLoading"
-              separatorColor="transparent" loaded="onGridLoaded" unloaded="onGridUnloaded">
+    <ListView row="3" iosOverflowSafeArea="false" testID="product-grid" items="{{ rows }}" rowHeight="{{ rowHeight }}"
+              itemTemplateSelector="selectTemplate" itemLoading="onItemLoading" separatorColor="transparent"
+              loaded="onGridLoaded" unloaded="onGridUnloaded">
       <ListView.itemTemplates>
         <template key="row">
           <GridLayout columns="*, 12, *" padding="0 16 20 16">
-            <StackLayout col="0" id="l-card" tap="onCardTap" accessible="true">
-              <Image id="l-img" stretch="aspectFill" loadMode="async" loaded="onListImageLoaded" />
-              <Label id="l-title" class="card-title" maxLines="2" textWrap="true" />
+            <StackLayout col="0" side="l" testID="{{ l.testID }}" visibility="{{ l.visibility }}" tap="onCardTap"
+                         accessible="true" accessibilityLabel="{{ l.title }}">
+              <Image src="{{ l.image }}" height="{{ l.imageHeight }}" stretch="aspectFill" loadMode="async" class="img" />
+              <Label text="{{ l.title }}" class="card-title" maxLines="2" textWrap="true" />
               <StackLayout orientation="horizontal" marginTop="8">
-                <Label id="l-price" class="price" />
-                <Label id="l-compare" class="compare" visibility="collapsed" verticalAlignment="bottom" marginBottom="1" />
+                <Label text="{{ l.price }}" class="{{ l.priceClass }}" />
+                <Label text="{{ l.compare }}" visibility="{{ l.compareVisibility }}" class="compare" verticalAlignment="bottom" marginBottom="1" />
               </StackLayout>
             </StackLayout>
-            <StackLayout col="2" id="r-card" tap="onCardTap" accessible="true">
-              <Image id="r-img" stretch="aspectFill" loadMode="async" loaded="onListImageLoaded" />
-              <Label id="r-title" class="card-title" maxLines="2" textWrap="true" />
+            <StackLayout col="2" side="r" testID="{{ r.testID }}" visibility="{{ r.visibility }}" tap="onCardTap"
+                         accessible="true" accessibilityLabel="{{ r.title }}">
+              <Image src="{{ r.image }}" height="{{ r.imageHeight }}" stretch="aspectFill" loadMode="async" class="img" />
+              <Label text="{{ r.title }}" class="card-title" maxLines="2" textWrap="true" />
               <StackLayout orientation="horizontal" marginTop="8">
-                <Label id="r-price" class="price" />
-                <Label id="r-compare" class="compare" visibility="collapsed" verticalAlignment="bottom" marginBottom="1" />
+                <Label text="{{ r.price }}" class="{{ r.priceClass }}" />
+                <Label text="{{ r.compare }}" visibility="{{ r.compareVisibility }}" class="compare" verticalAlignment="bottom" marginBottom="1" />
               </StackLayout>
             </StackLayout>
           </GridLayout>

@@ -1,9 +1,8 @@
 import { Observable, type ListView, type EventData, type ItemEventData, type NavigatedData, type Page, type View } from '@nativescript/core';
 import { gql, type PageInfo, type ProductCard } from '../lib/api';
-import { GRID_ROW_HEIGHT, toCard } from '../lib/format';
-import { fillGridItem, toRows, type GridRow } from '../lib/grid';
+import { GRID_ROW_HEIGHT, toCard, toRows, type GridRow } from '../lib/format';
 import { reportPage } from '../lib/nav';
-import { PagedList, selectTemplate } from '../lib/paged-list';
+import { PagedList } from '../lib/paged-list';
 import { setLoadState } from '../lib/state';
 
 const SORTS = {
@@ -108,21 +107,17 @@ export function onSort(args: EventData) {
 }
 
 export function onItemLoading(args: ItemEventData) {
-  const vm = (args.object as View).page?.bindingContext as CollectionVM;
-  if (!vm) return;
-  fillGridItem(args, vm.list.items);
-  vm.list.onItemLoading(args.index);
+  ((args.object as View).page?.bindingContext as CollectionVM)?.list.onItemLoading(args.index);
 }
-export { onCardTap } from '../lib/card-tap';
 
 export function onGridLoaded(args: EventData) {
   const list = args.object as ListView;
-  list.itemTemplateSelector = selectTemplate;
-  list.rowHeight = GRID_ROW_HEIGHT;
   (list.page.bindingContext as CollectionVM)?.list.attach(list);
 }
 
 export function onGridUnloaded(args: EventData) {
   ((args.object as View).page?.bindingContext as CollectionVM)?.list.detach();
 }
-export { onListImageLoaded } from '../lib/grid';
+
+export { onCardTap } from '../lib/card-tap';
+export { selectTemplate } from '../lib/paged-list';

@@ -1,0 +1,17 @@
+diff --git a/node_modules/@nativescript/core/ui/list-view/index.ios.js b/node_modules/@nativescript/core/ui/list-view/index.ios.js
+index eeceb31..b4d5c2d 100644
+--- a/node_modules/@nativescript/core/ui/list-view/index.ios.js
++++ b/node_modules/@nativescript/core/ui/list-view/index.ios.js
+@@ -34,12 +34,6 @@ var ListViewCell = (function (_super) {
+         cell.backgroundColor = UIColor.clearColor;
+         return cell;
+     };
+-    ListViewCell.prototype.willMoveToSuperview = function (newSuperview) {
+-        var parent = (this.view ? this.view.parent : null);
+-        if (parent && !newSuperview) {
+-            parent._removeContainer(this);
+-        }
+-    };
+     Object.defineProperty(ListViewCell.prototype, "view", {
+         get: function () {
+             return this.owner ? this.owner.deref() : null;

@@ -24,7 +24,8 @@ locally from `package.json`) and `xcodebuild`.
 ./scripts/setup.sh
 ```
 
-(This runs `npm ci` and `gem install --install-dir .gems xcodeproj -v 1.28.1`.)
+(This runs `npm ci`, whose `postinstall` applies `patches/` with `patch-package`,
+and `gem install --install-dir .gems xcodeproj -v 1.28.1`.)
 
 ## 2. iOS device release build (benchmarked)
 

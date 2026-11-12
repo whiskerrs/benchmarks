@@ -30,6 +30,7 @@ export interface CardVM {
   compare: string;
   compareVisibility: string;
   testID: string;
+  visibility: string;
 }
 
 export function toCard(p: ProductCard, testID: string, width = 480): CardVM {
@@ -47,35 +48,34 @@ export function toCard(p: ProductCard, testID: string, width = 480): CardVM {
     compare: onSale ? formatMoney(compareMoney) : '',
     compareVisibility: onSale ? 'visible' : 'collapsed',
     testID,
+    visibility: 'visible',
   };
 }
 
-export interface FlatRow {
-  [key: string]: unknown;
+/** Fills the right-hand slot of a final row with an odd card count. */
+const EMPTY_CARD: CardVM = {
+  id: '',
+  handle: '',
+  title: '',
+  image: '',
+  imageHeight: GRID_IMAGE_HEIGHT,
+  price: '',
+  priceClass: 'price',
+  compare: '',
+  compareVisibility: 'collapsed',
+  testID: '',
+  visibility: 'hidden',
+};
+
+export interface GridRow {
+  kind: 'row' | 'loader';
+  l?: CardVM;
+  r?: CardVM;
 }
 
-/** Groups cards into 2-column rows with flat l-/r-prefixed fields for XML bindings (Home). */
-export function toFlatRows(cards: CardVM[]): FlatRow[] {
-  const rows: FlatRow[] = [];
-  for (let i = 0; i < cards.length; i += 2) {
-    const row: FlatRow = {};
-    const pairs: [string, CardVM | undefined][] = [
-      ['l', cards[i]],
-      ['r', cards[i + 1]],
-    ];
-    for (const [side, c] of pairs) {
-      row[`${side}Handle`] = c?.handle ?? '';
-      row[`${side}TestID`] = c?.testID ?? '';
-      row[`${side}Image`] = c?.image ?? '';
-      row[`${side}ImageHeight`] = GRID_IMAGE_HEIGHT;
-      row[`${side}Title`] = c?.title ?? '';
-      row[`${side}Price`] = c?.price ?? '';
-      row[`${side}PriceClass`] = c?.priceClass ?? 'price';
-      row[`${side}Compare`] = c?.compare ?? '';
-      row[`${side}CompareVisibility`] = c?.compareVisibility ?? 'collapsed';
-      row[`${side}Visibility`] = c ? 'visible' : 'hidden';
-    }
-    rows.push(row);
-  }
+/** Groups cards into 2-column rows. */
+export function toRows(cards: CardVM[]): GridRow[] {
+  const rows: GridRow[] = [];
+  for (let i = 0; i < cards.length; i += 2) rows.push({ kind: 'row', l: cards[i], r: cards[i + 1] ?? EMPTY_CARD });
   return rows;
 }

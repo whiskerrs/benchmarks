@@ -107,13 +107,6 @@ export class PagedList<T extends { kind: string }> {
   attach(listView: ListView) {
     this.listView = listView;
     if (__APPLE__) {
-      // When a UITableViewCell leaves the window, NativeScript tears down its
-      // item view and rebuilds it when the cell is reused; that rebuild
-      // re-applies stale native default values and throws inside
-      // cellForRowAtIndexPath (UIKit then aborts). Keeping each item view
-      // attached to its cell avoids the teardown; the view is reused with the
-      // cell, which is the normal recycling path.
-      (listView as any)._removeContainer = () => undefined;
       (listView.nativeViewProtected as UITableView).keyboardDismissMode = UIScrollViewKeyboardDismissMode.OnDrag;
     }
     if (__APPLE__ && !this.observer) {
