@@ -24,6 +24,12 @@ requires to merge xcconfig files; it is installed into `./.gems` by
 The in-app browser uses the system `SFSafariViewController` (SafariServices,
 linked via `App_Resources/iOS/build.xcconfig`) instead of a plugin.
 
+`App_Resources/iOS/native-api-usage.json` blacklists the `Matter` framework
+(`Matter` and its `Matter.*` submodules) from the metadata the NativeScript
+CLI generates into the app binary. The app doesn't use it, and leaving it out
+saves about 3.6 MB of the app executable. `MatterSupport` is a separate
+framework and is kept.
+
 ## Decisions where the spec is silent
 
 - **Tab bar**: a custom bar (NativeScript `GridLayout`) over three `Frame`s instead of the core `TabView`, because it needs a badge, the design's vector icons, accessibility identifiers per tab, and must hide on the Product screen. The Search and Cart frames are created on first use so that launch only builds Home. Tab switching keeps each frame's stack.
