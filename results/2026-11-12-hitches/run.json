@@ -1,0 +1,13 @@
+{
+  "udid": "<device-udid>",
+  "rounds": 1,
+  "apps": [
+    "react-native",
+    "flutter",
+    "whisker",
+    "nsh",
+    "nativescript",
+    "exact"
+  ],
+  "finished_utc": "2026-11-12T01:27:44Z"
+}

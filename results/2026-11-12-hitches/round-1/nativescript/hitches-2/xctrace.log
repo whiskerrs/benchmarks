@@ -1,0 +1,8 @@
+Starting recording with the Blank template and Hitches, os_log Instruments. Targeting All Processes. 
+Ctrl-C to stop the recording
+Stopping recording...
+Timeline modification failed -- dylibs overlap by 0x570000:
+    0x102d60000-0x102d84000 [0x24000] (254210072099-254210720627) /usr/libexec/xpcproxy
+    0x102a88000-0x102ff8000 [0x570000] (0-9223372036854775807) /usr/libexec/softposreaderd
+Recording completed. Saving output file...
+Output file saved as: journey.trace

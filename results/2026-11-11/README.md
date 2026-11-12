@@ -26,7 +26,7 @@ Median, with the interquartile range in parentheses, pooled over both rounds.
 
 Rounds 1 and 2 agree within a few percent for every app and metric except Whisker's L2 (see "Run-to-run variance"), so the planned third round was not run. Per-round values are in `round-*/<app>/metrics.json`.
 
-Not measured in this run: F1–F3 (an earlier Animation Hitches trial produced traces without kernel-trace data, so hitches were left out until recording is fixed) and E1 (the device was charging, and the system power level reads 0 %/hour while charging).
+Not measured in this run: F1–F3, measured the next day with a shorter journey (`results/2026-11-12-hitches/`), and E1 (the device was charging, and the system power level reads 0 %/hour while charging).
 
 ## How this run differs from `measurement/README.md`
 

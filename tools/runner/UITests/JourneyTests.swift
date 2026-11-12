@@ -117,6 +117,36 @@ final class JourneyTests: XCTestCase {
         phase("idle-after-journey") { sleep(5) }
     }
 
+    /// A short journey for hitch recording, which loses its kernel-trace data over a full journey.
+    func testHitches() {
+        phase("launch") {
+            app.launch()
+            wait("best-seller-0", timeout: 30)
+        }
+        sleep(2)
+        phase("scroll-home") {
+            let scroll = wait("home-scroll")
+            flings(scroll, count: 8, up: true)
+            flings(scroll, count: 8, up: false)
+        }
+        tap("collection-chip-0")
+        let grid = wait("product-grid")
+        wait("product-card-0")
+        phase("scroll-collection-1") {
+            flings(grid, count: 20, up: true)
+            flings(grid, count: 20, up: false)
+        }
+        backToTop(grid, until: "product-card-1")
+        for n in 0..<3 {
+            phase("product-\(n)") {
+                tap("product-card-\(n % 2)")
+                wait("product-carousel")
+                tapBack()
+                wait("product-grid")
+            }
+        }
+    }
+
     // MARK: Helpers
 
     private func mark(_ message: String) {

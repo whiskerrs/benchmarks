@@ -41,7 +41,6 @@ python3 tools/bench.py journey ... --instrument power
 
 - Extracting metrics from the traces (`xctrace export`) needs the table schemas from a real device trace; written once the first device run exists.
 - `bench.py launch`: on the simulator, xctrace accepts `App Launch` + `--instrument os_log` + `--launch -- <bundle id>` but never finishes the recording (also with the `.app` path). Confirm on the device.
-- `bench.py journey`: confirm xctrace accepts Animation Hitches with `--all-processes` on the device.
 - `bench.py` itself has not run yet.
 
 ## Validated

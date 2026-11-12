@@ -1,0 +1,87 @@
+{
+  "launch": [],
+  "activity": [],
+  "hitches": [
+    {
+      "F1_ms_per_s": 2.4665755055883247,
+      "F2_count": 23,
+      "F3_ms_per_s": 35.73383017944116,
+      "hitches_total": 51,
+      "phase_s": {
+        "launch": 3.001193708,
+        "scroll-home": 38.539414792,
+        "scroll-collection-1": 117.43435375,
+        "product-0": 6.250559917,
+        "product-1": 6.596318417,
+        "product-2": 6.293049
+      },
+      "N1_requests": 88,
+      "N1_bytes": 3713644
+    },
+    {
+      "F1_ms_per_s": 4.149034427021494,
+      "F2_count": 39,
+      "F3_ms_per_s": 41.4340434364075,
+      "hitches_total": 72,
+      "phase_s": {
+        "launch": 4.150594458,
+        "scroll-home": 38.497783333,
+        "scroll-collection-1": 118.45865375,
+        "product-0": 6.532622125,
+        "product-1": 6.46473875,
+        "product-2": 6.730248458
+      },
+      "N1_requests": 9,
+      "N1_bytes": 70569
+    },
+    {
+      "F1_ms_per_s": 6.400381053687268,
+      "F2_count": 60,
+      "F3_ms_per_s": 40.350506103662866,
+      "hitches_total": 94,
+      "phase_s": {
+        "launch": 4.07978175,
+        "scroll-home": 38.620538833,
+        "scroll-collection-1": 117.911390375,
+        "product-0": 6.526622834,
+        "product-1": 6.177881875,
+        "product-2": 6.310173125
+      },
+      "N1_requests": 9,
+      "N1_bytes": 70569
+    }
+  ],
+  "power": [],
+  "summary": {
+    "L1_ms": null,
+    "L2_ms": null,
+    "M1_mb": null,
+    "M2_mb": null,
+    "M3_mb": null,
+    "C1_s": null,
+    "C2_avg_pct": null,
+    "C2_peak_pct": null,
+    "N1_requests": null,
+    "N1_bytes": null,
+    "F1_ms_per_s": {
+      "median": 4.149034427021494,
+      "q1": 2.4665755055883247,
+      "q3": 6.400381053687268,
+      "n": 3
+    },
+    "F2_count": {
+      "median": 39,
+      "q1": 23.0,
+      "q3": 60.0,
+      "n": 3
+    },
+    "F3_ms_per_s": {
+      "median": 40.350506103662866,
+      "q1": 35.73383017944116,
+      "q3": 41.4340434364075,
+      "n": 3
+    },
+    "E1_pct_per_hour": null,
+    "S2_app_bytes": 5604793
+  }
+}

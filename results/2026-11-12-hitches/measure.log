@@ -1,0 +1,127 @@
+08:47:22 round 1: react-native → flutter → whisker → nsh → nativescript → exact
+{"app": "/Users/itome/shopbench-runs/react-native/ios/build/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 23769282}
+prepared dev.whiskerrs.shopbench.reactnative
+08:47:44 react-native: settling 60 s
+08:48:44 react-native: journey hitches × 3
+journey hitches hitches-1: 149 requests, 6210938 bytes
+journey hitches hitches-2: 149 requests, 6210938 bytes
+journey hitches hitches-3: 149 requests, 6210938 bytes
+09:02:28 react-native: extracting
+09:03:25 react-native: done
+{"app": "/Users/itome/shopbench-runs/flutter/build/ios-device/Build/Products/Release-iphoneos/Runner.app", "app_bytes": 16464543}
+prepared dev.whiskerrs.shopbench.flutter
+09:03:48 flutter: settling 60 s
+09:04:48 flutter: journey hitches × 3
+journey hitches hitches-1: 119 requests, 4656861 bytes
+journey hitches hitches-2: 119 requests, 4656861 bytes
+journey hitches hitches-3: 119 requests, 4656861 bytes
+09:15:46 flutter: extracting
+09:16:44 flutter: done
+{"app": "/Users/itome/shopbench-runs/whisker/build/device/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 5604793}
+Traceback (most recent call last):
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 230, in <module>
+    main()
+    ~~~~^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 226, in main
+    {"size": cmd_size, "prepare": cmd_prepare, "launch": cmd_launch, "journey": cmd_journey}[a.cmd](a)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 145, in cmd_prepare
+    run_test(a, "testPrepare", tmp / "prepare.xcresult", None, 300)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 127, in run_test
+    run(
+    ~~~^
+        [
+        ^
+    ...<8 lines>...
+        log=log,
+        ^^^^^^^^
+    )
+    ^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 39, in run
+    raise RuntimeError(f"{' '.join(map(str, cmd))} failed ({r.returncode}):\n{r.stderr[-2000:]}")
+RuntimeError: xcodebuild test-without-building -xctestrun /Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/runner/build/device/Build/Products/measure.xctestrun -destination id=<device-udid> -only-testing:ShopBenchUITests/JourneyTests/testPrepare -resultBundlePath /var/folders/zb/1m3_cb_x6js16w5z3j43bwk40000gn/T/shopbench-prepare-2196/prepare.xcresult failed (65):
+0286E3A51003A, name:<device-name> }
+2026-11-12 09:17:27.677 xcodebuild[2206:5137579]  IDETestOperationsObserverDebug: Failure collecting diagnostics from devices: Process exited with error 1:
+ ERROR: The operation couldn?t be completed. (CoreDeviceCLISupport.DiagnoseError error 0.)
+This tool generates files that allow Apple to investigate issues with your
+computer and help improve Apple products. The files might contain personal
+information found on your device or associated with your Apple Account(s),
+including but not limited to your name, serial numbers of your device,
+your device name, your device's location over the last one to two days,
+your attached peripheral devices, your user name, your email address and
+email settings, file paths, file names, Siri suggestions, your computer's
+IP addresses, and network connection information.
+
+This information is used by Apple in accordance with its privacy policy
+(www.apple.com/privacy) and is not shared with any other company. By using
+this tool and sending the results to Apple, you consent to Apple using the
+contents of these files to improve Apple products.
+
+An error occurred while running devicectl diagnose. Will archive the diagnostics collected thus far.
+Wrote file to /var/folders/zb/1m3_cb_x6js16w5z3j43bwk40000gn/T/shopbench-prepare-2196/prepare.xcresult/Staging/1_Test/Diagnostics/devicectl_diagnostics.zip
+Partial devicectl diagnose bundle located here: /var/folders/zb/1m3_cb_x6js16w5z3j43bwk40000gn/T/shopbench-prepare-2196/prepare.xcresult/Staging/1_Test/Diagnostics/devicectl_diagnostics.zip
+
+2026-11-12 09:17:27.684 xcodebuild[2206:5135910] [MT] IDETestOperationsObserverDebug: 38.827 elapsed -- Testing started completed.
+2026-11-12 09:17:27.684 xcodebuild[2206:5135910] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-12 09:17:27.684 xcodebuild[2206:5135910] [MT] IDETestOperationsObserverDebug: 38.827 sec, +38.827 sec -- end
+Failing tests:
+	JourneyTests.testPrepare()
+
+** TEST EXECUTE FAILED **
+
+
+Traceback (most recent call last):
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 98, in <module>
+    main()
+    ~~~~^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 78, in main
+    bench("prepare", "--app", path, *common)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 31, in bench
+    subprocess.run([sys.executable, str(ROOT / "tools" / "bench.py"), *map(str, args)], check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/opt/homebrew/opt/python@3.14/bin/python3.14', '/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py', 'prepare', '--app', '/Users/itome/shopbench-runs/whisker/build/device/Build/Products/Release-iphoneos/Everbloom.app', '--bundle-id', 'dev.whiskerrs.shopbench.whisker', '--udid', '<device-udid>', '--api', 'http://192.168.11.35:8787/api']' returned non-zero exit status 1.
+09:17:39 restart
+09:17:41 round 1: react-native → flutter → whisker → nsh → nativescript → exact
+09:17:41 react-native: already measured, skipping
+09:17:41 flutter: already measured, skipping
+{"app": "/Users/itome/shopbench-runs/whisker/build/device/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 5604793}
+prepared dev.whiskerrs.shopbench.whisker
+09:18:02 whisker: settling 60 s
+09:19:02 whisker: journey hitches × 3
+journey hitches hitches-1: 88 requests, 3713644 bytes
+journey hitches hitches-2: 9 requests, 70569 bytes
+journey hitches hitches-3: 9 requests, 70569 bytes
+09:33:57 whisker: extracting
+09:35:26 whisker: done
+{"app": "/Users/itome/shopbench-runs/nsh/build/ios-device/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 27573965}
+prepared dev.whiskerrs.shopbench.nsh
+09:35:47 nsh: settling 60 s
+09:36:47 nsh: journey hitches × 3
+journey hitches hitches-1: 122 requests, 5123728 bytes
+journey hitches hitches-2: 122 requests, 5123728 bytes
+journey hitches hitches-3: 122 requests, 5123728 bytes
+09:51:01 nsh: extracting
+09:52:11 nsh: done
+{"app": "/Users/itome/shopbench-runs/nativescript/build/ios-device/Everbloom.app", "app_bytes": 47234451}
+prepared dev.whiskerrs.shopbench.nativescript
+09:53:26 nativescript: settling 60 s
+09:54:26 nativescript: journey hitches × 3
+journey hitches hitches-1: 218 requests, 9091728 bytes
+journey hitches hitches-2: 218 requests, 9091728 bytes
+journey hitches hitches-3: 218 requests, 9091728 bytes
+10:09:22 nativescript: extracting
+10:10:40 nativescript: done
+{"app": "/Users/itome/shopbench-runs/exact/build/ios-device/Everbloom.app", "app_bytes": 34654278}
+prepared dev.whiskerrs.shopbench.exact
+10:11:03 exact: settling 60 s
+10:12:03 exact: journey hitches × 3
+journey hitches hitches-1: 114 requests, 4825742 bytes
+journey hitches hitches-2: 114 requests, 4809929 bytes
+journey hitches hitches-3: 114 requests, 4825742 bytes
+10:26:25 exact: extracting
+10:27:44 exact: done

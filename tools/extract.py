@@ -143,13 +143,12 @@ def journey_activity(trace):
 
 
 def journey_hitches(trace):
-    log = marks(trace)
-    ph = phases(log)
-    pid = app_pid(log, ph["launch"][0])
+    """The app's hitches are those charged to a process other than SpringBoard; system rows have none."""
+    ph = phases(marks(trace))
     hitches = [
         (num(r["start"]), num(r["duration"]))
         for r in table(trace, "hitches")
-        if pid_of(r["process"]) == pid
+        if r.get("process") and r["process"][1] and not r["process"][1].startswith("SpringBoard")
     ]
 
     def rate(pattern):
@@ -160,7 +159,8 @@ def journey_hitches(trace):
 
     f1, f2 = rate(SCROLL)
     f3, _ = rate(NAV)
-    return {"pid": pid, "F1_ms_per_s": f1, "F2_count": f2, "F3_ms_per_s": f3, "hitches_total": len(hitches), "thermal": thermal(trace)}
+    return {"F1_ms_per_s": f1, "F2_count": f2, "F3_ms_per_s": f3, "hitches_total": len(hitches),
+            "phase_s": {k: (e - b) / 1e9 for k, (b, e) in ph.items()}}
 
 
 def journey_power(trace):

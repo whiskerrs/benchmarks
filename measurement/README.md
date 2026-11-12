@@ -19,7 +19,7 @@ What is measured, how, and under which conditions. Every app is the release buil
 | M1 | Memory after launch | MB | Physical footprint 5 s after `home_ready` |
 | M2 | Peak memory over the journey | MB | Maximum physical footprint during the journey scenario |
 | M3 | Memory after the journey | MB | Physical footprint after returning to Home and idling 5 s (retention / leaks) |
-| F1 | Hitch time ratio while scrolling | ms/s | Instruments **Animation Hitches**, scroll phases only |
+| F1 | Hitch time ratio while scrolling | ms/s | Instruments **Hitches** instrument, scroll phases only |
 | F2 | Hitch count while scrolling | count | Same trace |
 | F3 | Hitch time ratio during navigation | ms/s | Same trace, push/pop phases |
 | C1 | CPU time over the journey | s | Instruments **Activity Monitor**, process CPU time delta |
@@ -70,7 +70,7 @@ One run takes about 7–8 minutes (React Native on the simulator: 441 s). XCUITe
 7. **Cart**: open `search-result-0`, `add-to-cart`; repeat for two more results; tap `qty-inc-0` twice and `qty-dec-1` until the line disappears.
 8. Tap `tab-home`, idle 5 s → sample M3.
 
-The journey is run three times under each of: Activity Monitor (M, C), Animation Hitches (F), and Power Profiler (E). Separate traces keep one instrument's overhead out of another's numbers. The runner writes a timeline of phase boundaries so traces can be cut into phases.
+The journey is run three times under each of: Activity Monitor (M, C) and Power Profiler (E). Hitches (F) are recorded three times over a shorter journey (`testHitches`: launch, Home and Collection scrolling, three Product push/pops), with the Hitches instrument alone: a full journey under the Animation Hitches template loses its kernel-trace data. The app's hitches are those charged to a process other than SpringBoard. Separate traces keep one instrument's overhead out of another's numbers. The runner writes a timeline of phase boundaries so traces can be cut into phases.
 
 ## Repetitions and reporting
 

@@ -23,9 +23,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 RUNNER = ROOT / "tools" / "runner"
 # The Power Profiler template adds Location Energy Model, which refuses --all-processes, so power records the instrument alone.
+# The Animation Hitches template's time profiler makes traces too large to save, so hitches records the instrument alone.
 RECORD = {
     "activity": ["--template", "Activity Monitor"],
-    "hitches": ["--template", "Animation Hitches"],
+    "hitches": ["--instrument", "Hitches"],
     "power": ["--instrument", "Power Profiler"],
 }
 
@@ -182,7 +183,7 @@ def journey_trial(a, trial):
     )
     try:
         time.sleep(5)
-        run_test(a, "testJourney", trial / "runner.xcresult", trial / "runner.log", 900)
+        run_test(a, "testHitches" if a.instrument == "hitches" else "testJourney", trial / "runner.xcresult", trial / "runner.log", 900)
     finally:
         recorder.send_signal(signal.SIGINT)
         recorder.wait(timeout=600)

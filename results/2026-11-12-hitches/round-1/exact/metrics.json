@@ -1,0 +1,87 @@
+{
+  "launch": [],
+  "activity": [],
+  "hitches": [
+    {
+      "F1_ms_per_s": 0.0,
+      "F2_count": 0,
+      "F3_ms_per_s": 0.0,
+      "hitches_total": 1,
+      "phase_s": {
+        "launch": 2.954314416,
+        "scroll-home": 37.007720958,
+        "scroll-collection-1": 113.049209958,
+        "product-0": 6.396409583,
+        "product-1": 6.579267917,
+        "product-2": 6.567660209
+      },
+      "N1_requests": 114,
+      "N1_bytes": 4825742
+    },
+    {
+      "F1_ms_per_s": 0.223978566839673,
+      "F2_count": 2,
+      "F3_ms_per_s": 1.6896377717208522,
+      "hitches_total": 7,
+      "phase_s": {
+        "launch": 4.104742959,
+        "scroll-home": 36.672036875,
+        "scroll-collection-1": 112.145774,
+        "product-0": 6.490325042,
+        "product-1": 6.704551375,
+        "product-2": 6.5485565
+      },
+      "N1_requests": 114,
+      "N1_bytes": 4809929
+    },
+    {
+      "F1_ms_per_s": 0.0,
+      "F2_count": 0,
+      "F3_ms_per_s": 0.0,
+      "hitches_total": 1,
+      "phase_s": {
+        "launch": 3.981124875,
+        "scroll-home": 36.559354375,
+        "scroll-collection-1": 111.229738834,
+        "product-0": 6.370336791,
+        "product-1": 6.524472167,
+        "product-2": 6.426408792
+      },
+      "N1_requests": 114,
+      "N1_bytes": 4825742
+    }
+  ],
+  "power": [],
+  "summary": {
+    "L1_ms": null,
+    "L2_ms": null,
+    "M1_mb": null,
+    "M2_mb": null,
+    "M3_mb": null,
+    "C1_s": null,
+    "C2_avg_pct": null,
+    "C2_peak_pct": null,
+    "N1_requests": null,
+    "N1_bytes": null,
+    "F1_ms_per_s": {
+      "median": 0.0,
+      "q1": 0.0,
+      "q3": 0.223978566839673,
+      "n": 3
+    },
+    "F2_count": {
+      "median": 0,
+      "q1": 0.0,
+      "q3": 2.0,
+      "n": 3
+    },
+    "F3_ms_per_s": {
+      "median": 0.0,
+      "q1": 0.0,
+      "q3": 1.6896377717208522,
+      "n": 3
+    },
+    "E1_pct_per_hour": null,
+    "S2_app_bytes": 34654278
+  }
+}
