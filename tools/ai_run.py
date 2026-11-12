@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Runs one AI build per prompt/README.md: prepares a fresh workspace and runs Claude Code headless.
 
-  ai_run.py <app dir name, e.g. react-native> [--runs-root ~/shopbench-runs] [--effort high]
+  ai_run.py <app dir name, e.g. react-native> [--runs-root ~/shopbench-runs] [--effort high] [--run-name NAME]
 """
 import argparse
 import json
@@ -27,7 +27,7 @@ def framework_values(app_dir):
 
 def summarize(transcript):
     """A headless session emits one `result` per turn it ends (e.g. again after a background task
-    finishes); `total_cost_usd` is cumulative, the other counters are per result."""
+    finishes); `total_cost_usd` and `duration_api_ms` are cumulative, the other counters are per result."""
     results, tools = [], {}
     for line in Path(transcript).read_text().splitlines():
         try:
@@ -47,7 +47,7 @@ def summarize(transcript):
         "is_error": any(r.get("is_error") for r in results),
         "total_cost_usd": results[-1].get("total_cost_usd") if results else None,
         "num_turns": sum(r.get("num_turns") or 0 for r in results),
-        "duration_api_ms": sum(r.get("duration_api_ms") or 0 for r in results),
+        "duration_api_ms": results[-1].get("duration_api_ms") if results else None,
         "usage": {k: sum((r.get("usage") or {}).get(k) or 0 for r in results) for k in usage_keys},
         "tool_calls": tools,
         "final_message": results[-1].get("result") if results else None,
@@ -67,7 +67,7 @@ def session_id(transcript):
 
 def resume(a, workspace):
     """Continues the session in place and records the intervention next to the original run."""
-    out = ROOT / "results" / "ai-runs" / a.app_dir
+    out = ROOT / "results" / "ai-runs" / a.run_name
     meta = json.loads((out / "run.json").read_text())
     sid = session_id(out / "transcript.jsonl")
     n = len(meta.get("interventions", [])) + 1
@@ -91,10 +91,12 @@ def main():
     p.add_argument("--runs-root", default=str(Path.home() / "shopbench-runs"))
     p.add_argument("--effort", default="high")
     p.add_argument("--resume-message", help="continue the recorded session with this human message (counts as an intervention)")
+    p.add_argument("--run-name", help="workspace and results/ai-runs/ directory name for a repeat run (default: app dir)")
     a = p.parse_args()
+    a.run_name = a.run_name or a.app_dir
 
     values = framework_values(a.app_dir)
-    workspace = Path(a.runs_root) / a.app_dir
+    workspace = Path(a.runs_root) / a.run_name
     if a.resume_message:
         resume(a, workspace)
         return
@@ -111,7 +113,9 @@ def main():
     shutil.copy2(ROOT / "prompt" / "storefront.graphql", spec)
     shutil.copytree(ROOT / "design", spec / "design")
 
-    out = ROOT / "results" / "ai-runs" / a.app_dir
+    out = ROOT / "results" / "ai-runs" / a.run_name
+    if (out / "run.json").exists():
+        raise SystemExit(f"{out} already holds a run; pass a new --run-name")
     out.mkdir(parents=True, exist_ok=True)
     cmd = [
         "claude", "-p", MESSAGE,
@@ -126,6 +130,7 @@ def main():
     ]
     meta = {
         "app_dir": a.app_dir,
+        "run_name": a.run_name,
         "workspace": str(workspace),
         "command": cmd,
         "claude_version": subprocess.run(["claude", "--version"], capture_output=True, text=True).stdout.strip(),

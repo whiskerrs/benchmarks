@@ -30,7 +30,7 @@
     "is_error": false,
     "total_cost_usd": 5.039752254999999,
     "num_turns": 76,
-    "duration_api_ms": 1612644,
+    "duration_api_ms": 814574,
     "usage": {
       "input_tokens": 144,
       "cache_creation_input_tokens": 202512,
