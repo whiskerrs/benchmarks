@@ -2698,8 +2698,8 @@ Test session results, code coverage, and logs:
 
 Testing started
 --- xcodebuild: WARNING: Using the first of multiple matching destinations:
-{ platform:iOS, arch:arm64e, id:<device-udid>, name:☃️ (3) }
-{ platform:iOS, arch:arm64, id:<device-udid>, name:☃️ (3) }
+{ platform:iOS, arch:arm64e, id:<device-udid>, name:<device-name> }
+{ platform:iOS, arch:arm64, id:<device-udid>, name:<device-name> }
 2026-11-11 17:01:41.863 xcodebuild[53637:2877093] [MT] IDETestOperationsObserverDebug: 475.186 elapsed -- Testing started completed.
 2026-11-11 17:01:41.863 xcodebuild[53637:2877093] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
 2026-11-11 17:01:41.863 xcodebuild[53637:2877093] [MT] IDETestOperationsObserverDebug: 475.186 sec, +475.186 sec -- end
