@@ -1,0 +1,83 @@
+name: Everbloom
+options:
+  bundleIdPrefix: dev.whiskerrs.shopbench
+  deploymentTarget:
+    iOS: "18.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  Everbloom:
+    type: application
+    platform: iOS
+    sources:
+      - path: Everbloom
+    info:
+      path: Everbloom/Info.plist
+      properties:
+        CFBundleDisplayName: Everbloom
+        CFBundleName: Everbloom
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        UILaunchScreen:
+          UIColorName: ""
+        UIUserInterfaceStyle: Light
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UIRequiresFullScreen: true
+        CADisableMinimumFrameDurationOnPhone: true
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
+          NSAllowsLocalNetworking: true
+        NSLocalNetworkUsageDescription: Everbloom connects to a product server on your local network.
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+    settings:
+      base:
+        PRODUCT_NAME: Everbloom
+        PRODUCT_BUNDLE_IDENTIFIER: dev.whiskerrs.shopbench.swiftui
+        TARGETED_DEVICE_FAMILY: "1"
+        CODE_SIGN_STYLE: Automatic
+        INFOPLIST_FILE: Everbloom/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        ENABLE_PREVIEWS: NO
+        ASSETCATALOG_COMPILER_APPICON_NAME: ""
+        SUPPORTED_PLATFORMS: "iphoneos iphonesimulator"
+        SUPPORTS_MACCATALYST: NO
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD: NO
+      configs:
+        Release:
+          SWIFT_OPTIMIZATION_LEVEL: "-O"
+          SWIFT_COMPILATION_MODE: wholemodule
+          DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+  EverbloomUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: EverbloomUITests
+    dependencies:
+      - target: Everbloom
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: dev.whiskerrs.shopbench.swiftui.uitests
+        TEST_TARGET_NAME: Everbloom
+        TARGETED_DEVICE_FAMILY: "1"
+        CODE_SIGN_STYLE: Automatic
+schemes:
+  Everbloom:
+    build:
+      targets:
+        Everbloom: all
+    run:
+      config: Release
+    test:
+      config: Release
+      targets:
+        - EverbloomUITests
+    archive:
+      config: Release

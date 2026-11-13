@@ -1,0 +1,76 @@
+name: Everbloom
+options:
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+targets:
+  Everbloom:
+    type: application
+    platform: iOS
+    sources:
+      - path: Everbloom
+    info:
+      path: Everbloom/Info.plist
+      properties:
+        CFBundleDisplayName: Everbloom
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        LSRequiresIPhoneOS: true
+        UILaunchScreen: {}
+        UIRequiresFullScreen: true
+        UIUserInterfaceStyle: Light
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        CADisableMinimumFrameDurationOnPhone: true
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
+          NSAllowsLocalNetworking: true
+        NSLocalNetworkUsageDescription: Everbloom connects to a product server on your local network.
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+          UISceneConfigurations:
+            UIWindowSceneSessionRoleApplication:
+              - UISceneConfigurationName: Default Configuration
+                UISceneDelegateClassName: $(PRODUCT_MODULE_NAME).SceneDelegate
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.whiskerrs.shopbench.uikit
+        PRODUCT_NAME: Everbloom
+        TARGETED_DEVICE_FAMILY: "1"
+        CODE_SIGN_STYLE: Automatic
+        SUPPORTS_MACCATALYST: NO
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        ENABLE_PREVIEWS: NO
+      configs:
+        Release:
+          SWIFT_OPTIMIZATION_LEVEL: "-O"
+          SWIFT_COMPILATION_MODE: wholemodule
+  EverbloomUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: EverbloomUITests
+    dependencies:
+      - target: Everbloom
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.whiskerrs.shopbench.uikit.uitests
+        TARGETED_DEVICE_FAMILY: "1"
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_TARGET_NAME: Everbloom
+schemes:
+  Everbloom:
+    build:
+      targets:
+        Everbloom: all
+        EverbloomUITests: [test]
+    test:
+      config: Release
+      targets:
+        - EverbloomUITests
+    run:
+      config: Release
+    archive:
+      config: Release

@@ -77,3 +77,4 @@ Device conditions change from day to day, so measure the current and the new Whi
 
 - iOS Simulator, React Native (Release), 2026-11-10: the runner completes the whole journey (441 s), first against `record`, then against `serve` with zero misses.
 - iPhone 12, iOS 27.2, all six apps, 2026-11-11 and 2026-11-12: `measure.py` as above.
+- iPhone 12, iOS 27.2, UIKit, SwiftUI, and NativePHP, 2026-11-13: `measure.py` as above, restarted several times (`results/2026-11-13/README.md`).

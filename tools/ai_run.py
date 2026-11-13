@@ -17,12 +17,47 @@ MODEL = "claude-opus-5-5"
 MESSAGE = "Read spec/PROMPT.md and follow it."
 
 
+# Edits to PROMPT.md for frameworks that cannot meet it as written (prompt/frameworks.md, "Variant").
+# Each pair is (text in PROMPT.md, replacement); every text must occur exactly once.
+VARIANTS = {
+    "ios-only": [
+        ("for iOS and Android with", "for iOS with"),
+        ("build for both platforms", "build for iOS"),
+        ("- Android: the same variable as a build-time setting is sufficient. Document how to set it in `BUILD.md`.\n", ""),
+        ("on both platforms (iOS App Transport Security, Android cleartext traffic)", "(iOS App Transport Security)"),
+        ("- **Android:** a release APK (debug signing is fine).\n", ""),
+        ("  5. Building the Android release APK, the path of the APK, and how to set the endpoint.\n  6. The build mode", "  5. The build mode"),
+        ("(iOS `accessibilityIdentifier`, Android test tag / resource-id, or", "(iOS `accessibilityIdentifier`, or"),
+        ("(with signing disabled), iOS Simulator, and Android builds", "(with signing disabled) and iOS Simulator builds"),
+        ("- [ ] The app launches on an Android emulator and Home loads.\n", ""),
+    ],
+    "webview": [
+        ("Do not embed the design HTML or use a WebView for any screen.", "Do not embed the design HTML."),
+    ],
+}
+
+
 def framework_values(app_dir):
     for line in (ROOT / "prompt" / "frameworks.md").read_text().splitlines():
         cells = [c.strip() for c in line.strip("|").split("|")]
-        if len(cells) == 4 and cells[3].strip("`") == f"apps/{app_dir}/":
-            return {"FRAMEWORK_NAME": cells[0], "FRAMEWORK_REPO": cells[1], "APP_ID_SUFFIX": cells[2].strip("`")}
+        if len(cells) == 5 and cells[3].strip("`") == f"apps/{app_dir}/":
+            values = {"FRAMEWORK_NAME": cells[0], "FRAMEWORK_REPO": cells[1], "APP_ID_SUFFIX": cells[2].strip("`")}
+            return values, cells[4].strip("`")
     raise SystemExit(f"{app_dir} is not in prompt/frameworks.md")
+
+
+def render_prompt(app_dir):
+    values, variant = framework_values(app_dir)
+    prompt = (ROOT / "prompt" / "PROMPT.md").read_text()
+    for old, new in VARIANTS[variant] if variant else []:
+        if prompt.count(old) != 1:
+            raise SystemExit(f"variant {variant}: expected exactly one {old!r} in PROMPT.md")
+        prompt = prompt.replace(old, new)
+    for k, v in values.items():
+        prompt = prompt.replace("{{" + k + "}}", v)
+    if re.search(r"\{\{[A-Z_]+\}\}", prompt):
+        raise SystemExit("unsubstituted placeholder in PROMPT.md")
+    return prompt
 
 
 def summarize(transcript):
@@ -95,7 +130,7 @@ def main():
     a = p.parse_args()
     a.run_name = a.run_name or a.app_dir
 
-    values = framework_values(a.app_dir)
+    prompt = render_prompt(a.app_dir)
     workspace = Path(a.runs_root) / a.run_name
     if a.resume_message:
         resume(a, workspace)
@@ -104,11 +139,6 @@ def main():
         raise SystemExit(f"{workspace} already exists; every run needs a fresh directory")
     spec = workspace / "spec"
     spec.mkdir(parents=True)
-    prompt = (ROOT / "prompt" / "PROMPT.md").read_text()
-    for k, v in values.items():
-        prompt = prompt.replace("{{" + k + "}}", v)
-    if re.search(r"\{\{[A-Z_]+\}\}", prompt):
-        raise SystemExit("unsubstituted placeholder in PROMPT.md")
     (spec / "PROMPT.md").write_text(prompt)
     shutil.copy2(ROOT / "prompt" / "storefront.graphql", spec)
     shutil.copytree(ROOT / "design", spec / "design")

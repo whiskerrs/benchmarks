@@ -1,0 +1,49 @@
+{
+  "app_dir": "nativephp",
+  "run_name": "nativephp",
+  "workspace": "/Users/itome/shopbench-runs/nativephp",
+  "command": [
+    "claude",
+    "-p",
+    "Read spec/PROMPT.md and follow it.",
+    "--model",
+    "claude-opus-5-5",
+    "--effort",
+    "high",
+    "--permission-mode",
+    "bypassPermissions",
+    "--setting-sources",
+    "project",
+    "--strict-mcp-config",
+    "--disable-slash-commands",
+    "--output-format",
+    "stream-json",
+    "--verbose"
+  ],
+  "claude_version": "2.1.316 (Claude Code)",
+  "started_utc": "2026-11-13T00:58:08Z",
+  "ended_utc": "2026-11-13T01:56:33Z",
+  "wall_seconds": 3505.0,
+  "exit_code": 0,
+  "result": {
+    "results": 1,
+    "final_subtype": "success",
+    "is_error": false,
+    "total_cost_usd": 24.252747200000023,
+    "num_turns": 266,
+    "duration_api_ms": 2033256,
+    "usage": {
+      "input_tokens": 520,
+      "cache_creation_input_tokens": 473375,
+      "cache_read_input_tokens": 86660936,
+      "output_tokens": 156574
+    },
+    "tool_calls": {
+      "Bash": 236,
+      "Read": 22,
+      "Write": 5,
+      "ToolSearch": 1
+    },
+    "final_message": "The Everbloom app is built with NativePHP v4 (native SwiftUI/Compose, no web view), and every Done item checks out except the signed iOS device build. That one can't run on this Mac because there's no Apple developer account for the team (Xcode stops at \"No Account for Team\"). The unsigned device build (`CODE_SIGNING_ALLOWED=NO`) succeeds.\n\n**What I verified**\n- **Clean checkout:** I copied the project without git-ignored files and ran the `BUILD.md` commands. The iOS device build (unsigned, arm64 Release), the iOS Simulator build and the Android release APK all succeeded.\n- **iOS Simulator flows** all work: Home; a collection scrolled to its last product (all 84); all four sorts; search with infinite scroll (81 results for \"jacket\"); options; a recommendation opening another product; add to cart switching to Cart with the badge; the stepper and subtotal; quantity 0 showing the empty cart; Check out opening the in-app browser.\n- **Option switching** is only partly verified. No product in the mock catalog has variants with different prices, so I could only confirm the label and pill selection change; the price update is checked in code.\n- **Error state:** pointing `SHOP_API_URL` at a dead local server shows the error screen. Retry loads Home once the server is up.\n- **Log marker:** `SHOPBENCH home_ready` appears once per launch in the simulator log (and in Android logcat). On a warm launch it arrives about 1.8 s after launch.\n- **Android emulator:** the APK launches and Home loads.\n- **Accessibility IDs:** all are present in the iOS accessibility tree (checked with the AXe CLI, a dev-only tool). `cart-badge` and `cart-subtotal` come through as generic elements whose label is the displayed value.\n\n**Deviations from the spec (all recorded in `NOTES.md`)**\n- **No native push/pop animation or iOS swipe-back.** NativePHP's built-in tabs don't keep each tab's screens when you switch, expose no accessibility IDs, and on iOS hide the tab bar on every pushed screen. So the whole app is one screen that manages the three tab stacks itself and draws its own tab bar. Going back returns you to the row you tapped in a collection or search.\n- **Extra framework logging.** NativePHP itself writes `[NativePHP] \u2026` lines to the iOS log in release builds, and starts a queue worker and async pool at launch. Neither can be changed without modifying NativePHP. The app adds only the `home_ready` line.\n- **The Simulator build uses Xcode's Debug configuration.** That's the only option NativePHP's simulator scheme offers; the bundled app code is in release mode.\n- **Not implemented: the \"See all\" link** next to Collections in the design. The spec doesn't list it and gives it no destination.\n- **Android scrim colour:** the banner caption scrim showed the wrong colour on Android. I fixed it and confirmed it on the clean Android build only; the iOS app was last built before the fix.\n\n**Added beyond the framework itself**\n- **`nativephp/mobile-browser`:** the in-app browser for Check out.\n- **`packages/shopbench-native`:** a small local plugin. It provides the NSLog/logcat bridge for the log marker and the Android setting that allows plain HTTP.\n- **`phpunit/phpunit` (dev only):** needed by NativePHP's in-process component test harness; not shipped in release bundles.\n\nBuild commands, output paths, build modes and toolchain versions are in `BUILD.md`. The builds are wrapped in `scripts/build-ios.sh` and `scripts/build-android.sh`."
+  }
+}

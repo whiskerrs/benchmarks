@@ -1,0 +1,560 @@
+=== driver run 1 of 10 ===
+12:56:59 round 1: uikit → swiftui → nativephp
+{"app": "/Users/itome/shopbench-runs/uikit/build/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 990437}
+prepared dev.whiskerrs.shopbench.uikit
+12:57:21 uikit: settling 180 s
+13:00:21 uikit: launch × 10
+launch 0/10: launch-warmup.trace
+launch 1/10: launch-1.trace
+launch 2/10: launch-2.trace
+launch 3/10: launch-3.trace
+launch 4/10: launch-4.trace
+launch 5/10: launch-5.trace
+launch 6/10: launch-6.trace
+launch 7/10: launch-7.trace
+launch 8/10: launch-8.trace
+launch 9/10: launch-9.trace
+launch 10/10: launch-10.trace
+13:05:02 uikit: journey activity × 3
+journey activity activity-1: 304 requests, 9940804 bytes
+journey activity 2: attempt 1 failed, retrying: results/2026-11-13/round-1/uikit/activity-2/journey.trace has no runner phase marks
+journey activity activity-2: 304 requests, 9940804 bytes
+journey activity 3: attempt 1 failed, retrying: results/2026-11-13/round-1/uikit/activity-3/journey.trace has no runner phase marks
+journey activity 3: attempt 2 failed, retrying: xcodebuild test-without-building -xctestrun /Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/runner/build/device/Build/Products/measure.xctestrun -destination id=<device-udid> -
+Traceback (most recent call last):
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 230, in <module>
+    main()
+    ~~~~^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 226, in main
+    {"size": cmd_size, "prepare": cmd_prepare, "launch": cmd_launch, "journey": cmd_journey}[a.cmd](a)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 157, in cmd_journey
+    journey_trial(a, out / f"{a.instrument}-{n}")
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 186, in journey_trial
+    run_test(a, "testHitches" if a.instrument == "hitches" else "testJourney", trial / "runner.xcresult", trial / "runner.log", 900)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 127, in run_test
+    run(
+    ~~~^
+        [
+        ^
+    ...<8 lines>...
+        log=log,
+        ^^^^^^^^
+    )
+    ^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 39, in run
+    raise RuntimeError(f"{' '.join(map(str, cmd))} failed ({r.returncode}):\n{r.stderr[-2000:]}")
+RuntimeError: xcodebuild test-without-building -xctestrun /Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/runner/build/device/Build/Products/measure.xctestrun -destination id=<device-udid> -only-testing:ShopBenchUITests/JourneyTests/testJourney -resultBundlePath results/2026-11-13/round-1/uikit/activity-3/runner.xcresult failed (65):
+codebuild[41759:8805709]  IDETestOperationsObserverDebug: Failure collecting diagnostics from devices: Process exited with error 1:
+ ERROR: The operation couldn?t be completed. (CoreDeviceCLISupport.DiagnoseError error 0.)
+This tool generates files that allow Apple to investigate issues with your
+computer and help improve Apple products. The files might contain personal
+information found on your device or associated with your Apple Account(s),
+including but not limited to your name, serial numbers of your device,
+your device name, your device's location over the last one to two days,
+your attached peripheral devices, your user name, your email address and
+email settings, file paths, file names, Siri suggestions, your computer's
+IP addresses, and network connection information.
+
+This information is used by Apple in accordance with its privacy policy
+(www.apple.com/privacy) and is not shared with any other company. By using
+this tool and sending the results to Apple, you consent to Apple using the
+contents of these files to improve Apple products.
+
+An error occurred while running devicectl diagnose. Will archive the diagnostics collected thus far.
+Wrote file to /Users/itome/Projects/github.com/whiskerrs/benchmarks/results/2026-11-13/round-1/uikit/activity-3/runner.xcresult/Staging/1_Test/Diagnostics/devicectl_diagnostics.zip
+Partial devicectl diagnose bundle located here: /Users/itome/Projects/github.com/whiskerrs/benchmarks/results/2026-11-13/round-1/uikit/activity-3/runner.xcresult/Staging/1_Test/Diagnostics/devicectl_diagnostics.zip
+
+2026-11-13 13:54:05.127 xcodebuild[41759:8805641] [MT] IDETestOperationsObserverDebug: 13.664 elapsed -- Testing started completed.
+2026-11-13 13:54:05.127 xcodebuild[41759:8805641] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-13 13:54:05.127 xcodebuild[41759:8805641] [MT] IDETestOperationsObserverDebug: 13.664 sec, +13.664 sec -- end
+Failing tests:
+	JourneyTests.testJourney()
+
+** TEST EXECUTE FAILED **
+
+
+Traceback (most recent call last):
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 110, in <module>
+    main()
+    ~~~~^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 98, in main
+    bench("journey", *common, "--instrument", inst, "--out", dest, "--runs", a.journey_runs)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 35, in bench
+    subprocess.run([sys.executable, str(ROOT / "tools" / "bench.py"), *map(str, args)], check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/opt/homebrew/opt/python@3.14/bin/python3.14', '/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py', 'journey', '--bundle-id', 'dev.whiskerrs.shopbench.uikit', '--udid', '<device-udid>', '--api', 'http://192.168.11.35:8787/api', '--instrument', 'activity', '--out', 'results/2026-11-13/round-1/uikit', '--runs', '3']' returned non-zero exit status 1.
+=== driver run 2 of 10 ===
+15:23:22 round 1: uikit → swiftui → nativephp
+{"app": "/Users/itome/shopbench-runs/uikit/build/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 990437}
+prepared dev.whiskerrs.shopbench.uikit
+=== driver run 3 of 10 ===
+16:12:33 round 1: uikit → swiftui → nativephp
+{"app": "/Users/itome/shopbench-runs/uikit/build/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 990437}
+prepared dev.whiskerrs.shopbench.uikit
+16:12:55 uikit: settling 180 s
+16:15:55 uikit: launch × 10
+launch 0/10: launch-warmup.trace
+launch 1/10: launch-1.trace
+launch 2/10: launch-2.trace
+launch 3/10: launch-3.trace
+launch 4/10: launch-4.trace
+launch 5/10: launch-5.trace
+launch 6/10: launch-6.trace
+launch 7/10: launch-7.trace
+launch 8/10: launch-8.trace
+launch 9/10: launch-9.trace
+launch 10/10: launch-10.trace
+16:21:00 uikit: journey activity × 3
+journey activity activity-1: 303 requests, 9893757 bytes
+journey activity activity-2: 303 requests, 9893757 bytes
+journey activity 3: attempt 1 failed, retrying: results/2026-11-13/round-1/uikit/activity-3/journey.trace has no runner phase marks
+journey activity activity-3: 304 requests, 9940804 bytes
+17:04:53 uikit: extracting
+17:09:04 uikit: done
+{"app": "/Users/itome/shopbench-runs/swiftui/build/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 2097946}
+prepared dev.whiskerrs.shopbench.swiftui
+17:09:31 swiftui: settling 180 s
+17:12:31 swiftui: launch × 10
+launch 0/10: launch-warmup.trace
+launch 1/10: launch-1.trace
+launch 2/10: launch-2.trace
+launch 3/10: launch-3.trace
+launch 4/10: launch-4.trace
+launch 5/10: launch-5.trace
+launch 6/10: launch-6.trace
+launch 7/10: launch-7.trace
+launch 8/10: launch-8.trace
+launch 9/10: launch-9.trace
+launch 10/10: launch-10.trace
+17:17:14 swiftui: journey activity × 3
+journey activity activity-1: 392 requests, 13212820 bytes
+journey activity 2: attempt 1 failed, retrying: results/2026-11-13/round-1/swiftui/activity-2/journey.trace has no runner phase marks
+journey activity 2: attempt 2 failed, retrying: results/2026-11-13/round-1/swiftui/activity-2/journey.trace has no runner phase marks
+Traceback (most recent call last):
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 230, in <module>
+    s.add_argument("--bundle-id", required=True)
+    ^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 226, in main
+    s.add_argument("--thinning-report")
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 157, in cmd_journey
+    try:
+    
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 192, in journey_trial
+    failure.append(e)
+    ~~~~~~~~~~~~~~^^^
+RuntimeError: results/2026-11-13/round-1/swiftui/activity-2/journey.trace has no runner phase marks
+Traceback (most recent call last):
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 110, in <module>
+    main()
+    ~~~~^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 98, in main
+    bench("journey", *common, "--instrument", inst, "--out", dest, "--runs", a.journey_runs)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 35, in bench
+    subprocess.run([sys.executable, str(ROOT / "tools" / "bench.py"), *map(str, args)], check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/opt/homebrew/opt/python@3.14/bin/python3.14', '/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py', 'journey', '--bundle-id', 'dev.whiskerrs.shopbench.swiftui', '--udid', '<device-udid>', '--api', 'http://192.168.11.35:8787/api', '--instrument', 'activity', '--out', 'results/2026-11-13/round-1/swiftui', '--runs', '3']' returned non-zero exit status 1.
+=== driver run 4 of 10 ===
+18:28:47 round 1: uikit → swiftui → nativephp
+18:28:47 uikit: already measured, skipping
+{"app": "/Users/itome/shopbench-runs/swiftui/build/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 2097946}
+prepared dev.whiskerrs.shopbench.swiftui
+18:29:29 swiftui: settling 180 s
+18:32:29 swiftui: launch × 10
+launch 0/10: launch-warmup.trace
+launch 1/10: launch-1.trace
+launch 2/10: launch-2.trace
+launch 3/10: launch-3.trace
+launch 4/10: launch-4.trace
+launch 5/10: launch-5.trace
+launch 6/10: launch-6.trace
+launch 7/10: launch-7.trace
+launch 8/10: launch-8.trace
+launch 9/10: launch-9.trace
+launch 10/10: launch-10.trace
+18:37:17 swiftui: journey activity × 3
+journey activity activity-1: 389 requests, 13041930 bytes
+journey activity 2: attempt 1 failed, retrying: results/2026-11-13/round-1/swiftui/activity-2/journey.trace: xctrace stopped recording during the journey
+journey activity 2: attempt 2 failed, retrying: results/2026-11-13/round-1/swiftui/activity-2/journey.trace: xctrace stopped recording during the journey
+=== driver run 5 of 10 ===
+19:40:33 round 1: uikit → swiftui → nativephp
+19:40:33 uikit: already measured, skipping
+{"app": "/Users/itome/shopbench-runs/swiftui/build/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 2097946}
+prepared dev.whiskerrs.shopbench.swiftui
+19:40:54 swiftui: settling 180 s
+19:43:54 swiftui: launch × 10
+launch 0/10: launch-warmup.trace
+launch 1/10: launch-1.trace
+launch 2/10: launch-2.trace
+launch 3/10: launch-3.trace
+launch 4/10: launch-4.trace
+launch 5/10: launch-5.trace
+launch 6/10: launch-6.trace
+launch 7/10: launch-7.trace
+launch 8/10: launch-8.trace
+launch 9/10: launch-9.trace
+launch 10/10: launch-10.trace
+19:48:33 swiftui: journey activity × 3
+journey activity activity-1: 389 requests, 13058306 bytes
+journey activity 2: attempt 1 failed, retrying: results/2026-11-13/round-1/swiftui/activity-2/journey.trace: xctrace stopped recording during the journey
+journey activity 2: attempt 2 failed, retrying: results/2026-11-13/round-1/swiftui/activity-2/journey.trace: xctrace stopped recording during the journey
+journey activity activity-2: 402 requests, 13630476 bytes
+journey activity activity-3: 404 requests, 13693477 bytes
+20:24:28 swiftui: extracting
+20:28:38 swiftui: done
+{"app": "/Users/itome/shopbench-runs/nativephp/nativephp/ios/build/Build/Products/Release-iphoneos/NativePHP.app", "app_bytes": 49506901}
+prepared dev.whiskerrs.shopbench.nativephp
+20:29:02 nativephp: settling 180 s
+20:32:02 nativephp: launch × 10
+launch 0/10: launch-warmup.trace
+launch 1/10: launch-1.trace
+launch 2/10: launch-2.trace
+launch 3/10: launch-3.trace
+launch 4/10: launch-4.trace
+launch 5/10: launch-5.trace
+launch 6/10: launch-6.trace
+launch 7/10: launch-7.trace
+launch 8/10: launch-8.trace
+launch 9/10: launch-9.trace
+launch 10/10: launch-10.trace
+20:38:08 nativephp: journey activity × 3
+journey activity 1: attempt 1 failed, retrying: xcodebuild test-without-building -xctestrun /Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/runner/build/device/Build/Products/measure.xctestrun -destination id=<device-udid> -
+journey activity 1: attempt 2 failed, retrying: xcodebuild test-without-building -xctestrun /Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/runner/build/device/Build/Products/measure.xctestrun -destination id=<device-udid> -
+journey activity activity-1: 442 requests, 15776436 bytes
+journey activity activity-2: 485 requests, 17875047 bytes
+journey activity activity-3: 485 requests, 16605439 bytes
+21:16:35 nativephp: extracting
+21:20:27 nativephp: done
+21:20:27 round 2: swiftui → nativephp → uikit
+{"app": "/Users/itome/shopbench-runs/swiftui/build/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 2097946}
+prepared dev.whiskerrs.shopbench.swiftui
+21:20:48 swiftui: settling 180 s
+21:23:48 swiftui: launch × 10
+launch 0/10: launch-warmup.trace
+launch 1/10: launch-1.trace
+launch 2/10: launch-2.trace
+launch 3/10: launch-3.trace
+launch 4/10: launch-4.trace
+launch 5/10: launch-5.trace
+launch 6/10: launch-6.trace
+launch 7/10: launch-7.trace
+launch 8/10: launch-8.trace
+launch 9/10: launch-9.trace
+launch 10/10: launch-10.trace
+21:28:15 swiftui: journey activity × 3
+journey activity activity-1: 407 requests, 13826294 bytes
+journey activity 2: attempt 1 failed, retrying: results/2026-11-13/round-2/swiftui/activity-2/journey.trace: xctrace stopped recording during the journey
+journey activity 2: attempt 2 failed, retrying: python3 /Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/extract.py --marks results/2026-11-13/round-2/swiftui/activity-2/journey.trace failed (1):
+Traceback (most recent call last):
+  File
+Traceback (most recent call last):
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 158, in cmd_journey
+    journey_trial(a, out / f"{a.instrument}-{n}")
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 212, in journey_trial
+    if "SHOPBENCH_RUNNER begin launch" not in run(["python3", ROOT / "tools" / "extract.py", "--marks", trial / "journey.trace"]):
+                                              ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 40, in run
+    raise RuntimeError(f"{' '.join(map(str, cmd))} failed ({r.returncode}):\n{r.stderr[-2000:]}")
+RuntimeError: python3 /Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/extract.py --marks results/2026-11-13/round-2/swiftui/activity-2/journey.trace failed (1):
+Traceback (most recent call last):
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/extract.py", line 284, in <module>
+    main()
+    ~~~~^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/extract.py", line 252, in main
+    for t, pid, msg in marks(a.dir):
+                       ~~~~~^^^^^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/extract.py", line 65, in marks
+    for r in table(trace, "os-log"):
+             ~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/extract.py", line 26, in table
+    subprocess.run(
+    ~~~~~~~~~~~~~~^
+        ["xcrun", "xctrace", "export", "--input", str(trace), "--output", f.name,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         "--xpath", f'/trace-toc/run[@number="1"]/data/table[@schema="{schema}"]'],
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        check=True, capture_output=True,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['xcrun', 'xctrace', 'export', '--input', 'results/2026-11-13/round-2/swiftui/activity-2/journey.trace', '--output', '/var/folders/zb/1m3_cb_x6js16w5z3j43bwk40000gn/T/tmpu5tq15pv.xml', '--xpath', '/trace-toc/run[@number="1"]/data/table[@schema="os-log"]']' returned non-zero exit status 40.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/shutil.py", line 918, in move
+    os.rename(src, real_dst)
+    ~~~~~~~~~^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device: 'results/2026-11-13/round-2/swiftui/activity-2' -> 'results/2026-11-13/round-2/swiftui/activity-2-failed-2'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 251, in <module>
+    main()
+    ~~~~^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 247, in main
+    {"size": cmd_size, "prepare": cmd_prepare, "launch": cmd_launch, "journey": cmd_journey}[a.cmd](a)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 164, in cmd_journey
+    shutil.move(out / f"{a.instrument}-{n}", out / f"{a.instrument}-{n}-failed-{attempt}")
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/shutil.py", line 934, in move
+    copytree(src, real_dst, copy_function=copy_function,
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             symlinks=True)
+             ^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/shutil.py", line 654, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+                     ignore=ignore, copy_function=copy_function,
+                     ignore_dangling_symlinks=ignore_dangling_symlinks,
+                     dirs_exist_ok=dirs_exist_ok)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/shutil.py", line 552, in _copytree
+    os.makedirs(dst, exist_ok=dirs_exist_ok)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen os>", line 236, in makedirs
+OSError: [Errno 28] No space left on device: 'results/2026-11-13/round-2/swiftui/activity-2-failed-2'
+Traceback (most recent call last):
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 110, in <module>
+    main()
+    ~~~~^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 98, in main
+    bench("journey", *common, "--instrument", inst, "--out", dest, "--runs", a.journey_runs)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 35, in bench
+    subprocess.run([sys.executable, str(ROOT / "tools" / "bench.py"), *map(str, args)], check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/opt/homebrew/opt/python@3.14/bin/python3.14', '/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py', 'journey', '--bundle-id', 'dev.whiskerrs.shopbench.swiftui', '--udid', '<device-udid>', '--api', 'http://192.168.11.35:8787/api', '--instrument', 'activity', '--out', 'results/2026-11-13/round-2/swiftui', '--runs', '3']' returned non-zero exit status 1.
+=== driver run 6 of 10 ===
+21:56:13 round 1: uikit → swiftui → nativephp
+21:56:13 uikit: already measured, skipping
+21:56:13 swiftui: already measured, skipping
+21:56:13 nativephp: already measured, skipping
+21:56:13 round 2: swiftui → nativephp → uikit
+{"app": "/Users/itome/shopbench-runs/swiftui/build/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 2097946}
+prepared dev.whiskerrs.shopbench.swiftui
+21:56:38 swiftui: settling 180 s
+21:59:38 swiftui: launch × 10
+=== driver run 7 of 10 ===
+23:58:17 round 1: uikit → swiftui → nativephp
+23:58:17 uikit: already measured, skipping
+23:58:17 swiftui: already measured, skipping
+23:58:17 nativephp: already measured, skipping
+23:58:17 round 2: swiftui → nativephp → uikit
+{"app": "/Users/itome/shopbench-runs/swiftui/build/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 2097946}
+prepared dev.whiskerrs.shopbench.swiftui
+23:58:39 swiftui: settling 180 s
+00:01:39 swiftui: launch × 10
+launch 0/10: launch-warmup.trace
+launch 1/10: launch-1.trace
+launch 2/10: launch-2.trace
+launch 3/10: launch-3.trace
+launch 4/10: launch-4.trace
+launch 5/10: launch-5.trace
+launch 6/10: launch-6.trace
+launch 7/10: launch-7.trace
+launch 8/10: launch-8.trace
+launch 9/10: launch-9.trace
+launch 10/10: launch-10.trace
+00:06:47 swiftui: journey activity × 3
+journey activity activity-1: 408 requests, 13909099 bytes
+journey activity activity-2: 409 requests, 13921563 bytes
+journey activity activity-3: 408 requests, 13909099 bytes
+00:40:20 swiftui: extracting
+00:44:10 swiftui: done
+{"app": "/Users/itome/shopbench-runs/nativephp/nativephp/ios/build/Build/Products/Release-iphoneos/NativePHP.app", "app_bytes": 49506901}
+prepared dev.whiskerrs.shopbench.nativephp
+00:44:34 nativephp: settling 180 s
+00:47:34 nativephp: launch × 10
+launch 0/10: launch-warmup.trace
+launch 1/10: launch-1.trace
+launch 2/10: launch-2.trace
+launch 3/10: launch-3.trace
+launch 4/10: launch-4.trace
+launch 5/10: launch-5.trace
+launch 6/10: launch-6.trace
+launch 7/10: launch-7.trace
+launch 8/10: launch-8.trace
+launch 9/10: launch-9.trace
+launch 10/10: launch-10.trace
+00:52:55 nativephp: journey activity × 3
+journey activity activity-1: 445 requests, 15877446 bytes
+journey activity activity-2: 470 requests, 17191291 bytes
+journey activity activity-3: 481 requests, 16475319 bytes
+01:26:17 nativephp: extracting
+01:29:41 nativephp: done
+{"app": "/Users/itome/shopbench-runs/uikit/build/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 990437}
+prepared dev.whiskerrs.shopbench.uikit
+01:30:02 uikit: settling 180 s
+01:33:02 uikit: launch × 10
+launch 0: attempt 1 failed, retrying: Command '['xcrun', 'xctrace', 'record', '--device', '<device-udid>', '--template', 'App Launch', '--instrument', 'os_log', '--time-limit', '10s', '--env', 'SHOP_API_URL=http://192.168.11.3
+launch 0: attempt 2 failed, retrying: Command '['xcrun', 'xctrace', 'record', '--device', '<device-udid>', '--template', 'App Launch', '--instrument', 'os_log', '--time-limit', '10s', '--env', 'SHOP_API_URL=http://192.168.11.3
+Traceback (most recent call last):
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 251, in <module>
+    main()
+    ~~~~^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 247, in main
+    {"size": cmd_size, "prepare": cmd_prepare, "launch": cmd_launch, "journey": cmd_journey}[a.cmd](a)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 85, in cmd_launch
+    run(
+    ~~~^
+        [
+        ^
+    ...<10 lines>...
+        log=trace.with_suffix(".log"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 36, in run
+    r = subprocess.run([str(c) for c in cmd], capture_output=True, text=True, timeout=timeout, env=env)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1220, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 2153, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1267, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['xcrun', 'xctrace', 'record', '--device', '<device-udid>', '--template', 'App Launch', '--instrument', 'os_log', '--time-limit', '10s', '--env', 'SHOP_API_URL=http://192.168.11.35:8787/api', '--output', 'results/2026-11-13/round-2/uikit/launch-warmup.trace', '--launch', '--', 'dev.whiskerrs.shopbench.uikit']' timed out after 130 seconds
+Traceback (most recent call last):
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 110, in <module>
+    main()
+    ~~~~^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 95, in main
+    bench("launch", *common, "--out", dest, "--runs", a.launch_runs)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 35, in bench
+    subprocess.run([sys.executable, str(ROOT / "tools" / "bench.py"), *map(str, args)], check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/opt/homebrew/opt/python@3.14/bin/python3.14', '/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py', 'launch', '--bundle-id', 'dev.whiskerrs.shopbench.uikit', '--udid', '<device-udid>', '--api', 'http://192.168.11.35:8787/api', '--out', 'results/2026-11-13/round-2/uikit', '--runs', '10']' returned non-zero exit status 1.
+=== driver run 8 of 10 ===
+01:40:08 round 1: uikit → swiftui → nativephp
+01:40:08 uikit: already measured, skipping
+01:40:08 swiftui: already measured, skipping
+01:40:08 nativephp: already measured, skipping
+01:40:08 round 2: swiftui → nativephp → uikit
+01:40:08 swiftui: already measured, skipping
+01:40:08 nativephp: already measured, skipping
+{"app": "/Users/itome/shopbench-runs/uikit/build/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 990437}
+Traceback (most recent call last):
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 251, in <module>
+    main()
+    ~~~~^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 247, in main
+    {"size": cmd_size, "prepare": cmd_prepare, "launch": cmd_launch, "journey": cmd_journey}[a.cmd](a)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 146, in cmd_prepare
+    run_test(a, "testPrepare", tmp / "prepare.xcresult", None, 300)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 128, in run_test
+    run(
+    ~~~^
+        [
+        ^
+    ...<8 lines>...
+        log=log,
+        ^^^^^^^^
+    )
+    ^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py", line 40, in run
+    raise RuntimeError(f"{' '.join(map(str, cmd))} failed ({r.returncode}):\n{r.stderr[-2000:]}")
+RuntimeError: xcodebuild test-without-building -xctestrun /Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/runner/build/device/Build/Products/measure.xctestrun -destination id=<device-udid> -only-testing:ShopBenchUITests/JourneyTests/testPrepare -resultBundlePath /var/folders/zb/1m3_cb_x6js16w5z3j43bwk40000gn/T/shopbench-prepare-89286/prepare.xcresult failed (65):
+d thus far.
+Wrote file to /var/folders/zb/1m3_cb_x6js16w5z3j43bwk40000gn/T/shopbench-prepare-89286/prepare.xcresult/Staging/1_Test/Diagnostics/devicectl_diagnostics.zip
+Partial devicectl diagnose bundle located here: /var/folders/zb/1m3_cb_x6js16w5z3j43bwk40000gn/T/shopbench-prepare-89286/prepare.xcresult/Staging/1_Test/Diagnostics/devicectl_diagnostics.zip
+
+2026-11-14 01:40:14.489 xcodebuild[89347:10688387] [MT] IDETestOperationsObserverDebug: 1.994 elapsed -- Testing started completed.
+2026-11-14 01:40:14.489 xcodebuild[89347:10688387] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-14 01:40:14.489 xcodebuild[89347:10688387] [MT] IDETestOperationsObserverDebug: 1.994 sec, +1.994 sec -- end
+Testing failed:
+	The application could not be launched because the Developer App Certificate is not trusted.
+	ShopBenchUITests-Runner encountered an error (Failed to install or launch the test runner. (Underlying Error: The application could not be launched because the Developer App Certificate is not trusted. Verify that the Developer App certificate for your account is trusted on your device. Open Settings on the device and navigate to General -> VPN & Device Management, then select your Developer App certificate to trust it. (Underlying Error: The application failed to launch. (Underlying Error: The request to open "dev.whiskerrs.shopbench.runner.ShopBenchUITests.xctrunner" failed. The request was denied by service delegate (SBMainWorkspace) for reason: Security ("Unable to launch dev.whiskerrs.shopbench.runner.ShopBenchUITests.xctrunner because it has an invalid code signature, inadequate entitlements or its profile has not been explicitly trusted by the user"). (Underlying Error: The operation couldn’t be completed. Unable to launch dev.whiskerrs.shopbench.runner.ShopBenchUITests.xctrunner because it has an invalid code signature, inadequate entitlements or its profile has not been explicitly trusted by the user.)))))
+
+** TEST EXECUTE FAILED **
+
+
+Traceback (most recent call last):
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 110, in <module>
+    main()
+    ~~~~^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 90, in main
+    bench("prepare", "--app", path, *common)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/measure.py", line 35, in bench
+    subprocess.run([sys.executable, str(ROOT / "tools" / "bench.py"), *map(str, args)], check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/opt/homebrew/opt/python@3.14/bin/python3.14', '/Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/bench.py', 'prepare', '--app', '/Users/itome/shopbench-runs/uikit/build/Build/Products/Release-iphoneos/Everbloom.app', '--bundle-id', 'dev.whiskerrs.shopbench.uikit', '--udid', '<device-udid>', '--api', 'http://192.168.11.35:8787/api']' returned non-zero exit status 1.
+=== driver run 9 of 10 ===
+01:40:36 round 1: uikit → swiftui → nativephp
+01:40:36 uikit: already measured, skipping
+01:40:36 swiftui: already measured, skipping
+01:40:36 nativephp: already measured, skipping
+01:40:36 round 2: swiftui → nativephp → uikit
+01:40:36 swiftui: already measured, skipping
+01:40:36 nativephp: already measured, skipping
+{"app": "/Users/itome/shopbench-runs/uikit/build/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 990437}
+prepared dev.whiskerrs.shopbench.uikit
+01:40:56 uikit: settling 180 s
+01:43:56 uikit: launch × 10
+launch 0: attempt 1 failed, retrying: Command '['xcrun', 'xctrace', 'record', '--device', '<device-udid>', '--template', 'App Launch', '--instrument', 'os_log', '--time-limit', '10s', '--env', 'SHOP_API_URL=http://192.168.11.3
+launch 0: attempt 2 failed, retrying: Command '['xcrun', 'xctrace', 'record', '--device', '<device-udid>', '--template', 'App Launch', '--instrument', 'os_log', '--time-limit', '10s', '--env', 'SHOP_API_URL=http://192.168.11.3
+=== driver run 10 of 10 ===
+01:55:55 round 1: uikit → swiftui → nativephp
+01:55:55 uikit: already measured, skipping
+01:55:55 swiftui: already measured, skipping
+01:55:55 nativephp: already measured, skipping
+01:55:55 round 2: swiftui → nativephp → uikit
+01:55:55 swiftui: already measured, skipping
+01:55:55 nativephp: already measured, skipping
+{"app": "/Users/itome/shopbench-runs/uikit/build/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 990437}
+prepared dev.whiskerrs.shopbench.uikit
+01:56:15 uikit: settling 180 s
+01:59:15 uikit: launch × 10
+launch 0/10: launch-warmup.trace
+launch 1/10: launch-1.trace
+launch 2/10: launch-2.trace
+launch 3/10: launch-3.trace
+launch 4/10: launch-4.trace
+launch 5/10: launch-5.trace
+launch 6/10: launch-6.trace
+launch 7/10: launch-7.trace
+launch 8/10: launch-8.trace
+launch 9/10: launch-9.trace
+launch 10/10: launch-10.trace
+02:04:10 uikit: journey activity × 3
+journey activity activity-1: 304 requests, 9940804 bytes
+journey activity activity-2: 304 requests, 9940804 bytes
+journey activity activity-3: 304 requests, 9926390 bytes
+02:38:18 uikit: extracting
+02:42:14 uikit: done

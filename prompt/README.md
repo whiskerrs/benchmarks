@@ -1,7 +1,7 @@
 # Prompt and run protocol
 
 - `PROMPT.md`: the specification given to the AI, with three placeholders.
-- `frameworks.md`: the values for each framework.
+- `frameworks.md`: the values for each framework, and the prompt variant for frameworks that cannot meet the specification as written.
 - `storefront.graphql`: the GraphQL operations every app sends (validated against mock.shop on 2026-11-10).
 - The design is in `../design/`.
 
@@ -13,7 +13,7 @@ Every run uses the same setup so that only the framework differs.
 
 1. Create an empty directory outside any repository and outside any directory with a `CLAUDE.md`, for example `~/shopbench-runs/<app dir>/`. Use a path that has never been used with Claude Code, so no project memory is loaded.
 2. Populate `spec/` in it:
-   - `spec/PROMPT.md`: `PROMPT.md` with the placeholders substituted from `frameworks.md`.
+   - `spec/PROMPT.md`: `PROMPT.md` with the placeholders substituted, and the variant applied, from `frameworks.md`.
    - `spec/storefront.graphql`: copied as is.
    - `spec/design/`: a copy of `../design/`.
 3. Start Claude Code in that directory with:

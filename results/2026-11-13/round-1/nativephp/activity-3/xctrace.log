@@ -1,0 +1,11 @@
+Starting recording with the Activity Monitor template and os_log Instrument. Targeting All Processes. 
+Ctrl-C to stop the recording
+Stopping recording...
+Timeline modification failed -- dylibs overlap by 0xcc000:
+    0x100188000-0x1001ac000 [0x24000] (2944246797827-2944247143192) /usr/libexec/xpcproxy
+    0x100118000-0x1001e4000 [0xcc000] (0-9223372036854775807) /System/Library/PrivateFrameworks/UsageTracking.framework/UsageTrackingAgent
+Run issues were detected (trace is still ready to be viewed):
+* [Warning] Data stream: 63 log/signpost messages lost due to high rates. Try target specific process.
+
+Recording completed. Saving output file...
+Output file saved as: journey.trace

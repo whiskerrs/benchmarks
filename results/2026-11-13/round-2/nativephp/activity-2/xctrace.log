@@ -1,0 +1,11 @@
+Starting recording with the Activity Monitor template and os_log Instrument. Targeting All Processes. 
+Ctrl-C to stop the recording
+Stopping recording...
+Timeline modification failed -- dylibs overlap by 0xf9a00:
+    0x1fde56000-0x1fde572c8 [0x12c8] (3282715133774-3282715981829) /Users/itome/Library/Developer/Xcode/iOS DeviceSupport/iPhone13,2 27.2.1 (24B156)/arm64e/Symbols/usr/lib/system/libdispatch.dylib
+    0x1fde34138-0x1fdf2db38 [0xf9a00] (0-9223372036854775807) /System/Library/PrivateFrameworks/Message.framework/Message
+Timeline modification failed -- dylibs overlap by 0x24248:
+    0x1ff4e7218-0x1ff4e7b90 [0x978] (3282715134031-3282715981829) /Users/itome/Library/Developer/Xcode/iOS DeviceSupport/iPhone13,2 27.2.1 (24B156)/arm64e/Symbols/usr/lib/system/libsystem_c.dylib
+    0x1ff4d1430-0x1ff4f5678 [0x24248] (0-9223372036854775807) /System/Library/PrivateFrameworks/Email.framework/Email
+Recording completed. Saving output file...
+Output file saved as: journey.trace

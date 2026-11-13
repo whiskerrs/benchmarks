@@ -1,0 +1,12 @@
+Starting recording with the Blank template and Hitches, os_log Instruments. Targeting All Processes. 
+Ctrl-C to stop the recording
+Stopping recording...
+Run issues were detected (trace is still ready to be viewed):
+* [Warning] Data stream: 1 log/signpost messages lost due to high rates. Try target specific process.
+
+* [Warning] Data stream: 1 log/signpost messages lost due to high rates. Try target specific process.
+
+* [Warning] Data stream: 1 log/signpost messages lost due to high rates. Try target specific process.
+
+Recording completed. Saving output file...
+Output file saved as: journey.trace

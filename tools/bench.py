@@ -16,6 +16,7 @@ import os
 import shutil
 import signal
 import subprocess
+import threading
 import time
 import urllib.request
 from pathlib import Path
@@ -181,11 +182,31 @@ def journey_trial(a, trial):
         stdout=trace_log,
         stderr=subprocess.STDOUT,
     )
+    test = "testHitches" if a.instrument == "hitches" else "testJourney"
+    failure = []
+
+    def drive():
+        try:
+            run_test(a, test, trial / "runner.xcresult", trial / "runner.log", 900)
+        except (RuntimeError, subprocess.TimeoutExpired) as e:
+            failure.append(e)
+
+    runner = threading.Thread(target=drive, daemon=True)
     try:
         time.sleep(5)
-        run_test(a, "testHitches" if a.instrument == "hitches" else "testJourney", trial / "runner.xcresult", trial / "runner.log", 900)
+        runner.start()
+        while runner.is_alive():
+            runner.join(2)
+            # xctrace stops recording when the device connection drops, which leaves a trace without the journey.
+            if runner.is_alive() and recorder.poll() is not None:
+                subprocess.run(["pkill", "-f", f"xcodebuild test-without-building.*{trial / 'runner.xcresult'}"])
+                runner.join(60)
+                raise RuntimeError(f"{trial / 'journey.trace'}: xctrace stopped recording during the journey")
+        if failure:
+            raise RuntimeError(str(failure[0]))
     finally:
-        recorder.send_signal(signal.SIGINT)
+        if recorder.poll() is None:
+            recorder.send_signal(signal.SIGINT)
         recorder.wait(timeout=600)
         trace_log.close()
     if "SHOPBENCH_RUNNER begin launch" not in run(["python3", ROOT / "tools" / "extract.py", "--marks", trial / "journey.trace"]):
@@ -221,7 +242,7 @@ def main():
             s.add_argument("--instrument", choices=RECORD, required=True)
             s.add_argument("--runs", type=int, default=3)
             s.add_argument("--cooldown", type=int, default=60)
-            s.add_argument("--attempts", type=int, default=3, help="tries per trial; a failed journey is kept as <trial>-failed-<n>")
+            s.add_argument("--attempts", type=int, default=6, help="tries per trial; a failed journey is kept as <trial>-failed-<n>")
     a = p.parse_args()
     {"size": cmd_size, "prepare": cmd_prepare, "launch": cmd_launch, "journey": cmd_journey}[a.cmd](a)
 

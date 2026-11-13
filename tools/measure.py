@@ -25,6 +25,9 @@ APPS = {
     "nsh": ("nsh", RUNS / "nsh/build/ios-device/Build/Products/Release-iphoneos/Everbloom.app"),
     "nativescript": ("nativescript", RUNS / "nativescript/build/ios-device/Everbloom.app"),
     "exact": ("exact", RUNS / "exact/build/ios-device/Everbloom.app"),
+    "uikit": ("uikit", RUNS / "uikit/build/Build/Products/Release-iphoneos/Everbloom.app"),
+    "swiftui": ("swiftui", RUNS / "swiftui/build/Build/Products/Release-iphoneos/Everbloom.app"),
+    "nativephp": ("nativephp", RUNS / "nativephp/nativephp/ios/build/Build/Products/Release-iphoneos/NativePHP.app"),
 }
 
 

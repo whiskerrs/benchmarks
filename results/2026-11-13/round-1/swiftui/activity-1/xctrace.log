@@ -1,0 +1,8 @@
+Starting recording with the Activity Monitor template and os_log Instrument. Targeting All Processes. 
+Ctrl-C to stop the recording
+Stopping recording...
+Run issues were detected (trace is still ready to be viewed):
+* [Warning] Data stream: 62 log/signpost messages lost due to high rates. Try target specific process.
+
+Recording completed. Saving output file...
+Output file saved as: journey.trace

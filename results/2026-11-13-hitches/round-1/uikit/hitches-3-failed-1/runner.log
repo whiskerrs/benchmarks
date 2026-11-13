@@ -1,0 +1,10 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /Users/itome/Projects/github.com/whiskerrs/benchmarks/tools/runner/build/device/Build/Products/measure.xctestrun -destination id=<device-udid> "-only-testing:ShopBenchUITests/JourneyTests/testHitches" -resultBundlePath results/2026-11-13-hitches/round-1/uikit/hitches-3/runner.xcresult
+
+Writing result bundle at path:
+	/Users/itome/Projects/github.com/whiskerrs/benchmarks/results/2026-11-13-hitches/round-1/uikit/hitches-3/runner.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:iOS, arch:arm64e, id:<device-udid>, name:<device-name> }
+{ platform:iOS, arch:arm64, id:<device-udid>, name:<device-name> }
+** BUILD INTERRUPTED **

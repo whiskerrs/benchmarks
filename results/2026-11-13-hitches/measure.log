@@ -1,0 +1,43 @@
+=== driver run 1 of 2 ===
+13:54:07 round 1: uikit → swiftui → nativephp
+{"app": "/Users/itome/shopbench-runs/uikit/build/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 990437}
+prepared dev.whiskerrs.shopbench.uikit
+13:54:29 uikit: settling 180 s
+13:57:29 uikit: journey hitches × 3
+journey hitches hitches-1: 134 requests, 5596157 bytes
+journey hitches hitches-2: 134 requests, 5596157 bytes
+journey hitches hitches-3: 134 requests, 5596157 bytes
+14:25:03 uikit: extracting
+14:38:57 uikit: done
+{"app": "/Users/itome/shopbench-runs/swiftui/build/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 2097946}
+prepared dev.whiskerrs.shopbench.swiftui
+14:39:43 swiftui: settling 180 s
+14:42:43 swiftui: journey hitches × 3
+journey hitches 1: attempt 1 failed, retrying: results/2026-11-13-hitches/round-1/swiftui/hitches-1/journey.trace has no runner phase marks
+journey hitches hitches-1: 146 requests, 5750110 bytes
+journey hitches hitches-2: 140 requests, 5472619 bytes
+journey hitches hitches-3: 140 requests, 5472619 bytes
+15:01:15 swiftui: extracting
+15:02:44 swiftui: done
+{"app": "/Users/itome/shopbench-runs/nativephp/nativephp/ios/build/Build/Products/Release-iphoneos/NativePHP.app", "app_bytes": 49506901}
+prepared dev.whiskerrs.shopbench.nativephp
+15:03:11 nativephp: settling 180 s
+15:06:11 nativephp: journey hitches × 3
+journey hitches hitches-1: 150 requests, 6312312 bytes
+journey hitches hitches-2: 144 requests, 6046433 bytes
+journey hitches hitches-3: 146 requests, 6127239 bytes
+15:20:08 nativephp: extracting
+15:21:12 nativephp: done
+=== driver run 2 of 2 ===
+17:57:15 round 1: uikit
+{"app": "/Users/itome/shopbench-runs/uikit/build/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 990437}
+prepared dev.whiskerrs.shopbench.uikit
+17:57:40 uikit: settling 180 s
+18:00:40 uikit: journey hitches × 3
+journey hitches hitches-1: 134 requests, 5596157 bytes
+journey hitches hitches-2: 134 requests, 5596157 bytes
+journey hitches 3: attempt 1 failed, retrying: results/2026-11-13-hitches/round-1/uikit/hitches-3/journey.trace: xctrace stopped recording during the journey
+journey hitches 3: attempt 2 failed, retrying: results/2026-11-13-hitches/round-1/uikit/hitches-3/journey.trace: xctrace stopped recording during the journey
+journey hitches hitches-3: 134 requests, 5596157 bytes
+18:18:18 uikit: extracting
+18:28:15 uikit: done

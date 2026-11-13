@@ -1,6 +1,6 @@
 # Shop app benchmark
 
-The same Shopify storefront app, built by an AI from one identical prompt with each of React Native, Flutter, Whisker, Native Shell, NativeScript, and Exact, then measured on a physical iPhone.
+The same Shopify storefront app, built by an AI from one identical prompt with each of React Native, Flutter, Whisker, Native Shell, NativeScript, and Exact, then measured on a physical iPhone. UIKit, SwiftUI, NativePHP, and DartNative were added two days later, some with a prompt variant (`prompt/frameworks.md`); DartNative was built but not measured (`results/2026-11-13/README.md`).
 
 | Directory | Contents |
 |---|---|

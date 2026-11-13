@@ -1,0 +1,30 @@
+{
+    "namespace": "Shopbench",
+    "bridge_functions": [
+        {
+            "name": "Shopbench.Log",
+            "ios": "ShopbenchFunctions.Log",
+            "android": "dev.whiskerrs.shopbench.plugin.ShopbenchFunctions.Log",
+            "description": "Write one line to the platform log (os_log/NSLog on iOS, logcat on Android)"
+        }
+    ],
+    "android": {
+        "permissions": [],
+        "dependencies": {
+            "implementation": []
+        }
+    },
+    "ios": {
+        "info_plist": {},
+        "dependencies": {
+            "swift_packages": [],
+            "pods": []
+        }
+    },
+    "assets": {
+        "android": {
+            "android-res/network_security_config.xml": "res/xml/network_security_config.xml"
+        }
+    },
+    "events": []
+}

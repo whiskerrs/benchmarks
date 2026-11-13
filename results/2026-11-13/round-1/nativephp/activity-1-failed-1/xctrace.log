@@ -1,0 +1,8 @@
+Starting recording with the Activity Monitor template and os_log Instrument. Targeting All Processes. 
+Ctrl-C to stop the recording
+Stopping recording...
+Timeline modification failed -- dylibs overlap by 0x74000:
+    0x100058000-0x10007c000 [0x24000] (2900510019775-2900513525185) /usr/libexec/xpcproxy
+    0x100008000-0x10005c000 [0x54000] (0-9223372036854775807) /System/Library/Frameworks/CallKit.framework/XPCServices/com.apple.CallKit.CallDirectoryMaintenance.xpc/com.apple.CallKit.CallDirectoryMaintenance
+Recording completed. Saving output file...
+Output file saved as: journey.trace

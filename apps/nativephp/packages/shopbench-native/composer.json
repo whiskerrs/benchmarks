@@ -1,0 +1,26 @@
+{
+    "name": "shopbench/native",
+    "description": "Everbloom app-local NativePHP plugin: unified-log marker and Android cleartext config",
+    "type": "nativephp-plugin",
+    "license": "MIT",
+    "version": "1.0.0",
+    "require": {
+        "php": "^8.3",
+        "nativephp/mobile": "^4.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Shopbench\\Native\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Shopbench\\Native\\ShopbenchNativeServiceProvider"
+            ]
+        },
+        "nativephp": {
+            "manifest": "nativephp.json"
+        }
+    }
+}
