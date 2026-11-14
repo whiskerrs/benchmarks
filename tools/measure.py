@@ -28,6 +28,7 @@ APPS = {
     "uikit": ("uikit", RUNS / "uikit/build/Build/Products/Release-iphoneos/Everbloom.app"),
     "swiftui": ("swiftui", RUNS / "swiftui/build/Build/Products/Release-iphoneos/Everbloom.app"),
     "nativephp": ("nativephp", RUNS / "nativephp/nativephp/ios/build/Build/Products/Release-iphoneos/NativePHP.app"),
+    "dartnative": ("dartnative", RUNS / "dartnative/build/ios/iphoneos/Runner.app"),
 }
 
 
