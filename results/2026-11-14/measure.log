@@ -1,0 +1,88 @@
+10:38:46 round 1: whisker → nativescript
+{"app": "/Users/itome/shopbench-runs/whisker/build/device/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 5751625}
+prepared dev.whiskerrs.shopbench.whisker
+10:40:10 whisker: settling 180 s
+10:43:10 whisker: launch × 10
+launch 0/10: launch-warmup.trace
+launch 1/10: launch-1.trace
+launch 2/10: launch-2.trace
+launch 3/10: launch-3.trace
+launch 4/10: launch-4.trace
+launch 5/10: launch-5.trace
+launch 6/10: launch-6.trace
+launch 7/10: launch-7.trace
+launch 8/10: launch-8.trace
+launch 9/10: launch-9.trace
+launch 10/10: launch-10.trace
+10:57:16 whisker: journey activity × 3
+journey activity activity-1: 206 requests, 5683487 bytes
+journey activity activity-2: 41 requests, 274631 bytes
+journey activity activity-3: 41 requests, 274631 bytes
+11:35:27 whisker: extracting
+11:39:31 whisker: done
+{"app": "/Users/itome/shopbench-runs/nativescript/build/ios-device/Everbloom.app", "app_bytes": 43596906}
+prepared dev.whiskerrs.shopbench.nativescript
+11:40:17 nativescript: settling 180 s
+11:43:17 nativescript: launch × 10
+launch 0/10: launch-warmup.trace
+launch 1/10: launch-1.trace
+launch 2/10: launch-2.trace
+launch 3/10: launch-3.trace
+launch 4/10: launch-4.trace
+launch 5/10: launch-5.trace
+launch 6/10: launch-6.trace
+launch 7/10: launch-7.trace
+launch 8/10: launch-8.trace
+launch 9/10: launch-9.trace
+launch 10/10: launch-10.trace
+11:48:25 nativescript: journey activity × 3
+journey activity activity-1: 700 requests, 23551131 bytes
+journey activity activity-2: 689 requests, 24216738 bytes
+journey activity activity-3: 777 requests, 26432884 bytes
+12:23:10 nativescript: extracting
+12:27:44 nativescript: done
+12:27:44 round 2: nativescript → whisker
+{"app": "/Users/itome/shopbench-runs/nativescript/build/ios-device/Everbloom.app", "app_bytes": 43596906}
+prepared dev.whiskerrs.shopbench.nativescript
+12:28:05 nativescript: settling 180 s
+12:31:05 nativescript: launch × 10
+launch 0/10: launch-warmup.trace
+launch 1/10: launch-1.trace
+launch 2/10: launch-2.trace
+launch 3/10: launch-3.trace
+launch 4/10: launch-4.trace
+launch 5/10: launch-5.trace
+launch 6/10: launch-6.trace
+launch 7/10: launch-7.trace
+launch 8/10: launch-8.trace
+launch 9/10: launch-9.trace
+launch 10/10: launch-10.trace
+12:36:11 nativescript: journey activity × 3
+journey activity activity-1: 696 requests, 23370893 bytes
+journey activity activity-2: 734 requests, 24897888 bytes
+journey activity activity-3: 673 requests, 23465964 bytes
+13:10:57 nativescript: extracting
+13:15:34 nativescript: done
+{"app": "/Users/itome/shopbench-runs/whisker/build/device/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 5751625}
+prepared dev.whiskerrs.shopbench.whisker
+13:15:55 whisker: settling 180 s
+13:18:55 whisker: launch × 10
+launch 0/10: launch-warmup.trace
+launch 1/10: launch-1.trace
+launch 2/10: launch-2.trace
+launch 3/10: launch-3.trace
+launch 4/10: launch-4.trace
+launch 5/10: launch-5.trace
+launch 6/10: launch-6.trace
+launch 7: attempt 1 failed, retrying: Command '['xcrun', 'xctrace', 'record', '--device', '<device-udid>', '--template', 'App Launch', '--instrument', 'os_log', '--time-limit', '10s', '--env', 'SHOP_API_URL=http://192.168.11.3
+launch 7: attempt 2 failed, retrying: Command '['xcrun', 'xctrace', 'record', '--device', '<device-udid>', '--template', 'App Launch', '--instrument', 'os_log', '--time-limit', '10s', '--env', 'SHOP_API_URL=http://192.168.11.3
+launch 7/10: launch-7.trace
+launch 8/10: launch-8.trace
+launch 9/10: launch-9.trace
+launch 10/10: launch-10.trace
+13:28:48 whisker: journey activity × 3
+journey activity activity-1: 206 requests, 5683487 bytes
+journey activity activity-2: 41 requests, 274631 bytes
+journey activity activity-3: 41 requests, 274631 bytes
+14:08:26 whisker: extracting
+14:26:13 whisker: done

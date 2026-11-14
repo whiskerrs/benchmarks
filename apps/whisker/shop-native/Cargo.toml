@@ -24,7 +24,7 @@ bench = false
 doc = false
 
 [dependencies]
-whisker = "0.17"
-whisker-plugin = "0.17"
+whisker = "0.18"
+whisker-plugin = "0.18"
 serde = { version = "1", features = ["derive"] }
 anyhow = "1"

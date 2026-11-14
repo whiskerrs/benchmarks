@@ -138,10 +138,10 @@ Toolchain used:
 | Xcode | 26.6 (17F113), iOS SDK 26.5, Simulator iOS 26.5 (iPhone 17 Pro) |
 | Node.js / npm | 26.13.0 / 11.20.0 |
 | NativeScript CLI (`nativescript`) | 9.1.2 |
-| `@nativescript/core` | 9.1.3 |
+| `@nativescript/core` | 9.1.4 |
 | `@nativescript/ios` runtime | 9.1.1 |
 | `@nativescript/android` runtime | 9.1.1 |
-| `@nativescript/webpack` | 5.0.39 |
+| `@nativescript/webpack` | 5.0.41 |
 | TypeScript | 5.9.3 |
 | Ruby (system) / xcodeproj gem | 2.6.10 / 1.28.1 |
 | JDK | OpenJDK 21.0.6 (Android Studio JBR) |

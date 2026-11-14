@@ -8,7 +8,7 @@ let package = Package(
         .library(name: "ShopNative", targets: ["ShopNative"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/whiskerrs/whisker.git", exact: "0.1.20"),
+        .package(url: "https://github.com/whiskerrs/whisker.git", exact: "0.1.22"),
     ],
     targets: [
         .target(

@@ -1,0 +1,15 @@
+<!doctype html><meta charset="utf-8"><style>
+body{margin:0;width:1200px;height:675px;background:#111214;color:#eceef1;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;display:flex;align-items:center;justify-content:center}
+.wrap{width:1080px}
+.head{display:flex;justify-content:space-between;align-items:baseline;font-size:20px;color:#8b9099;margin-bottom:14px}
+.key{font-size:16px;color:#a3a8b0}.key span{margin-left:20px}
+.key i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:7px}
+.row{display:flex;align-items:center;padding:18px 0;border-top:1px solid #24262b}
+.row:last-of-type{border-bottom:1px solid #24262b}
+.name{width:340px;font-size:26px;font-weight:700}
+.b{display:flex;align-items:center;height:30px;margin:1px 0}
+.seg{flex-shrink:0;height:24px;border-radius:2px}
+.v{font-size:20px;font-weight:600;margin-left:9px;white-space:nowrap}
+.foot{margin-top:12px;font-size:15px;color:#8b9099}
+.lab{width:100px;flex-shrink:0;font-size:20px;font-weight:700}
+</style><div class="wrap"><div class="head"><span>Hitches on iPhone 12 (median of 3; full bar = 10 ms/s or 10 hitches)</span></div><div class="row"><div class="name">Hitch time while scrolling</div><div class="bars"><div class="b"><span class="lab" style="color:#e8a33d">UIKit</span><span class="seg" style="width:5.1px;background:#e8a33d"></span><span class="v">0.1 ms/s</span></div><div class="b"><span class="lab" style="color:#4fbf8a">SwiftUI</span><span class="seg" style="width:2.5px;background:#4fbf8a"></span><span class="v">0.0 ms/s</span></div><div class="b"><span class="lab" style="color:#5b8def">Whisker</span><span class="seg" style="width:10.6px;background:#5b8def"></span><span class="v">0.2 ms/s</span></div></div></div><div class="row"><div class="name">Hitches while scrolling</div><div class="bars"><div class="b"><span class="lab" style="color:#e8a33d">UIKit</span><span class="seg" style="width:45.9px;background:#e8a33d"></span><span class="v">1</span></div><div class="b"><span class="lab" style="color:#4fbf8a">SwiftUI</span><span class="seg" style="width:2.5px;background:#4fbf8a"></span><span class="v">0</span></div><div class="b"><span class="lab" style="color:#5b8def">Whisker</span><span class="seg" style="width:91.8px;background:#5b8def"></span><span class="v">2</span></div></div></div><div class="row"><div class="name">Hitch time on push/pop</div><div class="bars"><div class="b"><span class="lab" style="color:#e8a33d">UIKit</span><span class="seg" style="width:205.2px;background:#e8a33d"></span><span class="v">4.5 ms/s</span></div><div class="b"><span class="lab" style="color:#4fbf8a">SwiftUI</span><span class="seg" style="width:82.7px;background:#4fbf8a"></span><span class="v">1.8 ms/s</span></div><div class="b"><span class="lab" style="color:#5b8def">Whisker</span><span class="seg" style="width:313.6px;background:#5b8def"></span><span class="v">6.8 ms/s</span></div></div></div><div class="foot">Apple: under 5 ms/s good · 5–10 warning · over 10 critical. UIKit and SwiftUI measured 2026-11-13, Whisker 0.18.1 on 2026-11-14.</div></div>

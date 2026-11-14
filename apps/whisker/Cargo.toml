@@ -22,8 +22,8 @@ bench = false
 whisker-config = ["whisker-cng/generate"]
 
 [dependencies]
-whisker = "0.17"
-whisker-cng = { version = "0.17.0", default-features = false }
+whisker = "0.18"
+whisker-cng = { version = "0.18.1", default-features = false }
 whisker-router = "0.14"
 whisker-image = "0.14"
 whisker-svg = "0.14"

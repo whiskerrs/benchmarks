@@ -13,7 +13,7 @@ Studio (Android SDK, NDK 27.x and its bundled JDK; Whisker finds them under
 ```sh
 rustup toolchain install stable
 rustup target add aarch64-apple-ios aarch64-apple-ios-sim aarch64-linux-android
-cargo install whisker-cli --version 0.17.0 --locked
+cargo install whisker-cli --version 0.18.1 --locked
 whisker doctor            # every check should pass
 cargo fetch               # Rust dependencies (pinned by Cargo.lock)
 ```
@@ -146,7 +146,15 @@ adb shell am start -n dev.whiskerrs.shopbench.whisker/.MainActivity
 | iOS Simulator | Xcode `Release`, `iphonesimulator`, Rust release profile with LTO |
 | Android | Gradle `release`, arm64-v8a, Rust release profile with LTO, debug-keystore signing |
 
-Versions of the benchmarked build (2026-11-11), after the move to Xcode 27
+Versions of the benchmarked build (2026-11-14):
+
+- Xcode 27.2, iOS 27.2
+- Whisker 0.18.1 (`whisker`, `whisker-cli`, `whisker-cng`, `whisker-plugin`),
+  whisker-router 0.14.6, whisker-image / -svg / -input / -keyboard /
+  -safe-area / -web-browser 0.14.7;
+  Whisker iOS SwiftPM package 0.1.22 (`shop-native/Package.swift`)
+
+Versions of the build benchmarked on 2026-11-11, after the move to Xcode 27
 described in `results/xcode27/README.md`:
 
 - Xcode 27.2, iOS 27.2

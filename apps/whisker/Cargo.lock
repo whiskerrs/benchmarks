@@ -99,9 +99,9 @@ dependencies = [
 
 [[package]]
 name = "cc"
-version = "1.11.1"
+version = "1.11.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4ff2a8126fff0f8c839080d619675a585e61720bb12d2baceae45769fd66f155"
+checksum = "33ef9e3e8154a45c7a95cff4c1299702106ad94062d7bb85fdc5d3a5afd91d45"
 dependencies = [
  "find-msvc-tools",
  "shlex",
@@ -710,9 +710,9 @@ checksum = "0b928f33d975fc6ad9f86c8f283853ad26bdd5b10b7f1542aa2fa15e2289105a"
 
 [[package]]
 name = "whisker"
-version = "0.17.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "18da0c4a98995159890f273f5e258e4eb75770181acde54593a379fd3e7de342"
+checksum = "47a283e3141cbeda5966355ba468a9d17e984659bda856c701c3356448ac2785"
 dependencies = [
  "serde",
  "serde_json",
@@ -728,9 +728,9 @@ dependencies = [
 
 [[package]]
 name = "whisker-animation"
-version = "0.17.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ac18ab91cf2836fc2abd6efb95ba1d3131e6b0e02fa341b82e117826b481fa9e"
+checksum = "4aafeb2c14ac2eed2735a0a1c27503c0df2c8028a64e17bc0efca6150eb38635"
 dependencies = [
  "whisker-css",
  "whisker-runtime",
@@ -738,9 +738,9 @@ dependencies = [
 
 [[package]]
 name = "whisker-cng"
-version = "0.17.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c889b5b96b2d272e0927919159e2c5cd09b41757043dc78b0146c84416a548a3"
+checksum = "5fa963d2fdb57f2cbbf8f1afdcd2daa5b928a959ec2092bffc8124d9dd3821dc"
 dependencies = [
  "anyhow",
  "cargo_metadata",
@@ -756,9 +756,9 @@ dependencies = [
 
 [[package]]
 name = "whisker-config"
-version = "0.17.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2672bc7e3c2befdcbda1fad8cc5bd7337b480147cf805e6866a52c697d84b59a"
+checksum = "578cc270153752946438d131225e995ae71badcccc93679472d3a34b9c29325c"
 dependencies = [
  "anyhow",
  "serde",
@@ -768,9 +768,9 @@ dependencies = [
 
 [[package]]
 name = "whisker-css"
-version = "0.17.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8a9ade2ddceb44d8c99a3dbe47804b81c83096579b136668dbeecda089223a2a"
+checksum = "724bc330ea5ff0523e2254293d42682911241f657ddab51376b45dc3aced2d71"
 dependencies = [
  "whisker-macros",
  "whisker-style",
@@ -778,9 +778,9 @@ dependencies = [
 
 [[package]]
 name = "whisker-driver"
-version = "0.17.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9075e3a523a3707298b876fe77c39155120a43387f5d9d8ff7835a3a6093f7b8"
+checksum = "63a3ea8b3c1ae4cf1f00992481619a9883e2e80dd2d8dd90aeb6e25c25d884e2"
 dependencies = [
  "whisker-driver-sys",
  "whisker-engine",
@@ -789,18 +789,18 @@ dependencies = [
 
 [[package]]
 name = "whisker-driver-sys"
-version = "0.17.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "948785f926621c4623ddc1bcd8144bbf53130ec6e45a3bce7897738ae5da50cc"
+checksum = "bbf2344c2089050b1cc8144b7c4ba8cca475de2253298c559b4d3b18d089f2d5"
 dependencies = [
  "cc",
 ]
 
 [[package]]
 name = "whisker-engine"
-version = "0.17.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0540f9fbb87a04a160d2d7025019486ba411a145ac737e2f147d15a3a9b1990e"
+checksum = "c19c42b3d68decb284cb45990256a9460d10a900ff6637978a8c372cf973c836"
 dependencies = [
  "whisker-layout",
  "whisker-protocol",
@@ -809,9 +809,9 @@ dependencies = [
 
 [[package]]
 name = "whisker-image"
-version = "0.14.5"
+version = "0.14.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d02b6aea41489aea49bc28e1e21f95d489ef6837b1d51762222e9fb0bc8c9f61"
+checksum = "0781aeac758ec4059d62f27508ee491d7760b93aed89d2066243cfdc264afde1"
 dependencies = [
  "serde",
  "whisker",
@@ -819,9 +819,9 @@ dependencies = [
 
 [[package]]
 name = "whisker-input"
-version = "0.14.5"
+version = "0.14.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "24f256bc4c63d955bff7fb9638a201b419c09cf96062d236e1d27a3ab54136f8"
+checksum = "de2e39c636c2145c780d38d4a08c9d0f4402a1da47f73c8c3a5d1d676acd097c"
 dependencies = [
  "serde",
  "whisker",
@@ -829,18 +829,18 @@ dependencies = [
 
 [[package]]
 name = "whisker-keyboard"
-version = "0.14.5"
+version = "0.14.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "38c1ee7b87917e9fdc519f72744ab959d3599ff2dd734eaa3aa122a29d8f93ae"
+checksum = "3d6d6a58f0be59b741d515e82ed460d3b40bc635e16ac6683ee7ee1580ac826f"
 dependencies = [
  "whisker",
 ]
 
 [[package]]
 name = "whisker-layout"
-version = "0.17.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "207484cf269e6f72a50d4633169cc53ad3c990fba593db4a6ca6b79ce80dabe7"
+checksum = "763ba5a9bf0fb291b8b89d5b0a628cfcaa1849408fa936593a74f874292556b3"
 dependencies = [
  "taffy",
  "whisker-protocol",
@@ -849,9 +849,9 @@ dependencies = [
 
 [[package]]
 name = "whisker-macro-syntax"
-version = "0.17.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8eaa890248f3b44943feefc0843028bba626b9f5a4b79240c929d530046d6bc9"
+checksum = "bcba979e194ccfda8a54c0f504cb300b75d495a5d8915cbe7635ef51a78a3e68"
 dependencies = [
  "proc-macro2",
  "syn 2.0.119",
@@ -859,9 +859,9 @@ dependencies = [
 
 [[package]]
 name = "whisker-macros"
-version = "0.17.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9c3bec26ec1bcc8e8358521afb5370eaa27793ac4c663c9e4de6cfc916e32350"
+checksum = "3c3909d444a6ed17de87eec5868f5b0800b2e87ac296f1123bbd2d985790bed3"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -871,9 +871,9 @@ dependencies = [
 
 [[package]]
 name = "whisker-plugin"
-version = "0.17.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "538898a4ca3a38c74d227e0241313d6357e1d7d4019a4e38f92534dd2cb75305"
+checksum = "bb369dbe010174ff275ab328a0957df45f74903d46d2d82ca63438257d891808"
 dependencies = [
  "anyhow",
  "serde",
@@ -882,18 +882,18 @@ dependencies = [
 
 [[package]]
 name = "whisker-protocol"
-version = "0.17.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6565ab61d07ef804877bd4f975fbf46251d4311055dba028ee4b7031a06f2c79"
+checksum = "30ed6f215e9527b1ef27f6a0c960203b0c9f4d59bdd07f56e00f30eb419d79df"
 dependencies = [
  "whisker-value",
 ]
 
 [[package]]
 name = "whisker-router"
-version = "0.14.4"
+version = "0.14.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "54874875a9d6765465037a011e376aae1e0c7630a12da57d92facf556a957e74"
+checksum = "335ee305e51747437bf007fda58db0df2b82aa5f4472175e9762e0858d1b22f1"
 dependencies = [
  "anyhow",
  "serde",
@@ -904,9 +904,9 @@ dependencies = [
 
 [[package]]
 name = "whisker-runtime"
-version = "0.17.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a7e54ae665cde27b29e5b0fd6f6b40088de73d5b039a2a56582d3a5ec87c68b3"
+checksum = "f5e9cbc327360365a3ded503b54b0b55897cb8ced522b3753834bb0788ae09c8"
 dependencies = [
  "futures-channel",
  "futures-executor",
@@ -922,24 +922,24 @@ dependencies = [
 
 [[package]]
 name = "whisker-safe-area"
-version = "0.14.5"
+version = "0.14.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9e6a9903ce88534dc286f65e5a1588df06cac2de6c1e4045157953bf8a08a2b9"
+checksum = "23979c68781535410f74974aef3709033990e504acdcb76b6d38c42f67bf5cc1"
 dependencies = [
  "whisker",
 ]
 
 [[package]]
 name = "whisker-style"
-version = "0.17.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f7cdf4e4c1d8c32fae1be428b40567559b3074b9bcbd9833b8cab8e059d538ae"
+checksum = "4fd08ab2dcd886fbc6993bdfd03adaad5560eafc5dc8d9ed3a10899ad9ffb4cb"
 
 [[package]]
 name = "whisker-svg"
-version = "0.14.5"
+version = "0.14.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "81df790d90eb088623e227a957cf1c834d1e810c288f05d74ab0ce272445e9c9"
+checksum = "06abe3243529026debc78a61d3f6137d8261ab0ccd0472ab000bba5546ecd49b"
 dependencies = [
  "base64 0.22.1",
  "roxmltree",
@@ -948,9 +948,9 @@ dependencies = [
 
 [[package]]
 name = "whisker-value"
-version = "0.17.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3ceffa0c5cefaff32a0d4b7ca2de71f11cc5d8ed1f7e27355d343f143e2d2c1f"
+checksum = "94a4113cbbed0136abb3fe27b5369d037a6229a266ffb62d8d03ae6a96a42386"
 dependencies = [
  "serde",
  "serde_json",
@@ -958,9 +958,9 @@ dependencies = [
 
 [[package]]
 name = "whisker-web-browser"
-version = "0.14.5"
+version = "0.14.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bdd5be4e7cc9ce1239c0be7847ff7facde0ceae200d92b350c7b3397eaee82d0"
+checksum = "c047f976c9b5de617bbdf4e711fce1dfca369b0cca843faa7eaee6c34743e15c"
 dependencies = [
  "futures-channel",
  "whisker",

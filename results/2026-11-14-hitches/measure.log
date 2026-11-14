@@ -1,0 +1,19 @@
+14:26:57 round 1: whisker → nativescript
+{"app": "/Users/itome/shopbench-runs/whisker/build/device/Build/Products/Release-iphoneos/Everbloom.app", "app_bytes": 5751625}
+prepared dev.whiskerrs.shopbench.whisker
+14:27:27 whisker: settling 180 s
+14:30:27 whisker: journey hitches × 3
+journey hitches hitches-1: 88 requests, 3713644 bytes
+journey hitches hitches-2: 9 requests, 70569 bytes
+journey hitches hitches-3: 9 requests, 70569 bytes
+14:45:22 whisker: extracting
+14:46:28 whisker: done
+{"app": "/Users/itome/shopbench-runs/nativescript/build/ios-device/Everbloom.app", "app_bytes": 43596906}
+prepared dev.whiskerrs.shopbench.nativescript
+14:48:58 nativescript: settling 180 s
+14:51:58 nativescript: journey hitches × 3
+journey hitches hitches-1: 206 requests, 8534244 bytes
+journey hitches hitches-2: 206 requests, 8534244 bytes
+journey hitches hitches-3: 208 requests, 8611539 bytes
+15:06:13 nativescript: extracting
+15:07:32 nativescript: done

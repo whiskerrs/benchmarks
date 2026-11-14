@@ -1,0 +1,8 @@
+Starting recording with the App Launch template and os_log Instrument. Launching process: dev.whiskerrs.shopbench.nativescript. Time limit: 10.0 s
+Ctrl-C to stop the recording
+Reached specified time limit, ending recording...
+Recording completed. Saving output file...
+Output file saved as: launch-warmup.trace
+Run issues were detected (trace is still ready to be viewed):
+* [Warning] Warning while binding 'time-sample' table: requested sampling period (1000000ns) differs from configured (5000000ns)
+
