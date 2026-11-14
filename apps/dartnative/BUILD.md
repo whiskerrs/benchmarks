@@ -1,130 +1,131 @@
-# Build
+# Building Everbloom (DartNative)
 
-All commands run from the project root on a clean checkout, in zsh/bash on
-macOS.
+All commands run from the project root. `dn` is the DartNative tool (Flutter-like commands).
 
-> **Licence first.** DartNative refuses to run any app that is not one of
-> its official demos unless the build carries a DartNative licence key (see
-> `NOTES.md`). Without a key every build below still succeeds, but the app
-> shows DartNative's licence card instead of Everbloom.
+## Toolchain used
+
+| Tool | Version |
+|---|---|
+| DartNative | 1.7.0 |
+| Plugins | dartnative_http 1.1, dartnative_url_launcher 1.0 |
+| Xcode | 27.2 (27B5028f), iOS 27.2 SDK; simulator iPhone 17 Pro, iOS 27.2 |
+| CocoaPods | 1.16.2 |
+| JDK | OpenJDK 17.0.8.1 |
+| Android | compileSdk / minSdk / NDK from the DartNative Gradle plugin (`dartnative.compileSdkVersion` etc.) |
+
+## Build modes
+
+| Target | Mode |
+|---|---|
+| iOS device (benchmarked) | **Release** (Dart AOT, arm64, optimizations on, no VM service or hot reload) |
+| iOS Simulator | **Debug** (Dart JIT). DartNative, like Flutter, builds only debug for the simulator: `--profile` and `--release` stop with "Profile/Release mode is not supported for simulators". |
+| Android | **Release** APK (AOT), signed with the debug key |
+
+## Licence
+
+No licence key is needed to build and run this app. Any machine can build and run DartNative's
+official demos with no account and no key, and this app's bundle id,
+`dev.whiskerrs.shopbench.dartnative`, is on that list, for debug and release builds alike. To build
+your own apps, get a license at dartpub.dev/framework; the Community license is free.
 
 ## 1. Install dependencies
 
-Toolchain: Xcode 26.3 or newer with an iOS platform installed, CocoaPods,
-Android SDK 36 (platform + build-tools) with an NDK, JDK 17+.
-
 ```sh
-# DartNative CLI (dn) into ~/zero; then put it on PATH for this shell
-curl -fsSL https://cdn.dartnative.com/install.sh | sh
-export PATH="$PATH:$HOME/zero/bin"
-dn --version                              # first run downloads the engine
-
-# DartNative licence key (needed for the app to run, see above)
-dn config --license-key dnk_...
-
-# Dart and plugin packages
 dn pub get
 ```
 
-`dn` runs `pod install` and Gradle itself during the builds below.
+`dn pub get` fetches the DartNative packages and the two plugins' native artifacts, and writes
+`lib/dartnative_plugin_registrant.dart` and `ios/DartNative/Generated.xcconfig`. CocoaPods runs as part
+of the iOS builds below.
 
-Optional check of the off-device logic: `dn test`.
+## 2. iOS device release build
 
-## 2. iOS device release (signed)
-
-```sh
-DEVELOPMENT_TEAM=ABCDE12345 scripts/build-ios-device.sh
-```
-
-Result: `build/ios-device/Build/Products/Release-iphoneos/Runner.app`
-
-The script runs `dn build ios --release --config-only` (writes the Xcode
-configuration, Dart defines and licence) and then `xcodebuild` for the
-`Runner` scheme, `Release` configuration, `generic/platform=iOS` (arm64),
-with automatic signing for `$DEVELOPMENT_TEAM`.
-
-Without `DEVELOPMENT_TEAM` the same command builds with code signing
-disabled (`CODE_SIGNING_ALLOWED=NO`), to the same path:
+The build that was measured. `dn` signs it with your development certificate, as `flutter build ios`
+does:
 
 ```sh
-scripts/build-ios-device.sh
+dn build ios --release
 ```
+
+Output: `build/ios/iphoneos/Runner.app` (13.9 MB), where `tools/measure.py` reads it.
+
+Signed with the Apple team in `DEVELOPMENT_TEAM` (automatic signing), through `xcodebuild`:
+
+```sh
+dn build ios --release --config-only
+xcodebuild -workspace ios/Runner.xcworkspace -scheme Runner -configuration Release \
+  -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath build/ios-device \
+  -allowProvisioningUpdates DEVELOPMENT_TEAM="$DEVELOPMENT_TEAM" CODE_SIGN_STYLE=Automatic build
+```
+
+Output: `build/ios-device/Build/Products/Release-iphoneos/Runner.app`.
+
+With `DEVELOPMENT_TEAM` unset, the build runs with code signing disabled (`CODE_SIGNING_ALLOWED=NO`):
+
+```sh
+dn build ios --release --no-codesign
+```
+
+Output: `build/ios/iphoneos/Runner.app`, unsigned. Both were built with DartNative 1.7.0.
 
 ## 3. Install and launch on a connected iPhone
 
 ```sh
-xcrun devicectl list devices              # note the device identifier
-DEVICE=<device identifier>
-
+xcrun devicectl list devices
+DEVICE=<identifier from the list>
 xcrun devicectl device install app --device "$DEVICE" \
-  build/ios-device/Build/Products/Release-iphoneos/Runner.app
-
-xcrun devicectl device process launch --device "$DEVICE" \
+  build/ios/iphoneos/Runner.app
+xcrun devicectl device process launch --device "$DEVICE" --terminate-existing \
   --environment-variables '{"SHOP_API_URL":"http://192.168.1.20:8787/api"}' \
   dev.whiskerrs.shopbench.dartnative
 ```
 
-Leave out `--environment-variables` to use the default endpoint
-(`https://apparel-large-catalog.mock.shop/api`).
+Leave out `--environment-variables` to use the default endpoint (`https://apparel-large-catalog.mock.shop/api`).
+The `SHOPBENCH home_ready` line appears in Console.app for the device (process `Runner`, message
+`dartnative: SHOPBENCH home_ready`).
 
-## 4. iOS Simulator
+## 4. iOS Simulator build
 
 ```sh
 dn build ios --simulator --debug
 ```
 
-Result: `build/ios/iphonesimulator/Runner.app`
+Output: `build/ios/iphonesimulator/Runner.app`
 
 ```sh
 xcrun simctl boot "iPhone 17 Pro" 2>/dev/null || true
 xcrun simctl install booted build/ios/iphonesimulator/Runner.app
 SIMCTL_CHILD_SHOP_API_URL=http://127.0.0.1:8787/api \
-  xcrun simctl launch booted dev.whiskerrs.shopbench.dartnative
+  xcrun simctl launch --terminate-running-process booted dev.whiskerrs.shopbench.dartnative
+```
 
-# the launch marker
+Leave out `SIMCTL_CHILD_SHOP_API_URL=…` to use the default endpoint. To watch the log marker:
+
+```sh
 xcrun simctl spawn booted log stream --predicate 'eventMessage CONTAINS "SHOPBENCH"'
 ```
 
-Leave out `SIMCTL_CHILD_SHOP_API_URL=...` to use the default endpoint.
-
 ## 5. Android release APK
+
+Default endpoint:
 
 ```sh
 dn build apk --release
 ```
 
-Result: `build/app/outputs/dn-apk/app-release.apk` (signed with the
-debug key).
-
-The endpoint is a build-time setting on Android:
+Custom endpoint (a build-time setting, read with `String.fromEnvironment`):
 
 ```sh
-dn build apk --release --dart-define=SHOP_API_URL=http://10.0.2.2:8787/api
+dn build apk --release --dart-define=SHOP_API_URL=http://192.168.1.20:8787/api
 ```
 
-(`10.0.2.2` is the host machine as seen from the Android emulator.) Install
-and launch:
+From the Android emulator, the host Mac is `10.0.2.2` (for example `--dart-define=SHOP_API_URL=http://10.0.2.2:8787/api`).
+
+Output: `build/app/outputs/dn-apk/app-release.apk`. Built and run on a Xiaomi 11 Lite 5G NE
+(Android 14): Home loads from the replay server, and the line reaches logcat as
+`I dartnative: SHOPBENCH home_ready`.
 
 ```sh
 adb install -r build/app/outputs/dn-apk/app-release.apk
 adb shell am start -n dev.whiskerrs.shopbench.dartnative/.MainActivity
 ```
-
-## 6. Build modes and toolchain
-
-| Build | Mode |
-|---|---|
-| iOS device | Release: Dart AOT, optimisations on, no dev server or hot reload, arm64 |
-| iOS Simulator | Debug (JIT), self-contained, no dev server needed. DartNative supports only debug mode on the simulator: `--release` and `--profile` fail with "Release mode is not supported for simulators". |
-| Android | Release APK: Dart AOT, debug-key signing |
-
-Versions used:
-
-- DartNative 1.6.0 (`dn` framework revision b33b3be79eb, engine ed0d71411e),
-  Dart 3.12.0-192.0.dev (bundled with `dn`)
-- Plugins: dartnative_http 1.1.0, dartnative_url_launcher 1.0.1
-  (`dn_plugins.lock`)
-- Xcode 27.2 (27B52), iOS Simulator runtime 27.2, CocoaPods 1.16.2,
-  macOS 27.2.1
-- Android SDK platform 36, build-tools 36.0.0, NDK 28.2.13676358,
-  Android Gradle Plugin 8.11.1, Kotlin 2.2.20, OpenJDK 21.0.6

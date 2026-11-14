@@ -1,131 +1,99 @@
 # Notes
 
-Everbloom, built with DartNative 1.6.0 (`dn` CLI, UIKit / Android Views
-driven from Dart). Build commands are in `BUILD.md`.
-
-## Blocker: DartNative needs a paid licence to run this app
-
-DartNative checks a licence inside `runApp()`. Without a subscriber key, the
-free trial token that `dn` injects only unlocks the official demos (the
-DartNative playground, tutorials and plugin examples, identified by their
-bundle ids). Any other bundle id, including
-`dev.whiskerrs.shopbench.dartnative`, shows a full-screen "DartNative
-License - This app is not an official Dart Native demo ... subscribe at
-dartpub.dev" card instead of the app's UI, on the simulator, on devices and on
-Android alike.
-
-No licence key was available in this environment and buying a subscription
-was out of scope, and running the app under a demo bundle id or patching the
-check would mean working around the licence (and modifying DartNative, which
-the spec forbids). So:
-
-- Every build in `BUILD.md` compiles and links (iOS device release, iOS
-  simulator, Android release APK), and the Dart code passes `dn analyze`.
-- The logic that can run off-device (GraphQL documents vs. the spec, money
-  formatting, image URLs, variant selection, response parsing) is covered by
-  `dn test` (`test/models_test.dart`).
-- **Nothing in the UI could be exercised at runtime.** On the simulator the
-  app shows the licence card. The "Done" items that need the running app
-  (navigating the screens, `SHOPBENCH home_ready` in the log, the
-  accessibility identifiers in XCUITest, the error/retry check, Android Home
-  loading) are unverified.
-
-To run it, configure a DartNative licence key before building:
-
-```sh
-dn config --license-key dnk_...
-```
-
-or add `--dart-define=DN_LICENSE_KEY=dnk_...` to every `dn build` command
-in `BUILD.md`. `scripts/build-ios-device.sh` picks the configured key up
-automatically (it runs `dn build ios --config-only`, which writes the key
-into the Xcode build's Dart defines).
-
-## Decisions where the spec is silent
-
-- **Navigation.** DartNative's `Navigator` is one native stack for the whole
-  app, so a pushed route covers the tab bar and cannot keep a stack per tab.
-  The app keeps one stack per tab in Dart (`lib/state/app_state.dart`) and
-  shows the top screen of the selected tab; every screen of every stack stays
-  mounted (`IndexedStack`), so switching tabs or going back keeps state and
-  scroll positions. Pushes and pops have no transition animation and there is
-  no edge-swipe back on iOS; the back buttons and Android's system back
-  (through `PopScope`) pop the current tab's stack.
-- **Tab bar.** Drawn from DartNative widgets (`Row`, `Container`,
-  `CustomPaint`) instead of `BottomNavigationBar`, because the native tab bar
-  only takes font glyph icons (the design's icons would need a bundled icon
-  font) and renders as the iOS 26+ floating glass pill rather than the
-  design's white bar. It is shown on Home, Collection, Search and Cart and
-  hidden while a Product screen is on top.
-- **Icons.** The design's SVG paths (home, search, cart, back, plus the
-  stepper minus/plus and the error-state alert circle) are drawn as vector
-  paths with `CustomPaint`.
-- **"See all"** next to the Collections heading on Home is in the mockup but
-  not in the spec and has no defined target; it is left out.
-- **Empty cart** shows the States design's "Start shopping" button, which
-  switches to the Home tab.
-- **Product back button** floats over the top-left of the screen (it does not
-  scroll away with the carousel), so it is always reachable.
-- **Page dots** show the current image; they are not tappable (the carousel
-  is swiped). Dots are hidden when a product has a single image.
-- **Option selection.** Tapping a pill keeps the other selected options and
-  changes that one; if no variant has that exact combination, the first
-  variant with the tapped value is selected.
-- **Prices.** Product cards (Home best sellers, Collection grid) and the
-  product price show the sale colour plus the struck-through compare-at
-  price when it is higher. Search rows and recommendation cards show the
-  price only, as in the design.
-- **Variables.** `after` is omitted from the variables of the first page of
-  `CollectionProducts` / `Search` (it is optional) and set to `endCursor` for
-  later pages. The search query is sent trimmed.
-- **Infinite scroll errors.** A failed first page shows the error state with
-  Retry. A failed later page stops the spinner; scrolling near the end again
-  retries it.
-- **Cart errors.** `userErrors` show the first message in an alert. A
-  network or server failure of a cart operation shows an alert "Couldn't add
-  to cart" / "Couldn't update cart". Add to cart switches to the Cart tab only
-  when the operation succeeds without user errors.
-- **Stepper.** While a cart operation is in flight, further stepper taps are
-  ignored, so operations never race.
-- **Loading states.** Home shows the skeleton from the States design;
-  Collection, Search and Product show a small spinner or skeleton while their
-  first request runs; all show the shared error state with Retry.
-- **HTTP.** Requests time out after 20 s; HTTP caching and cookies are off.
-- **Image placeholder.** Every image sits on a `surface`-coloured box, which
-  shows until the image loads (and stays if it fails).
-- **App icon.** None: the template's icon set was removed. On Android the
-  launcher shows the system default icon.
-- **Android 12+ splash** is plain white with no icon.
+This app is a port of the Flutter app (`apps/flutter`) to DartNative: the same screens, operations,
+variables, image `width` values, identifiers and decisions, on DartNative's native views. Where the
+Flutter app's decision is kept, it is not repeated here; see its `NOTES.md`. This file lists what is
+DartNative-specific and what differs.
 
 ## Dependencies added
 
-All are DartNative's own first-party plugins:
+| Package | Why |
+|---|---|
+| `dartnative_http` 1.1.0 | GraphQL over HTTP on NSURLSession (iOS) and OkHttp (Android). Every request is `client.post(endpoint, headers: {'content-type': 'application/json'}, body: <UTF-8 JSON bytes>)`; the body bytes carry their own length, so no chunked encoding. Brings package:http (its `Client` interface) and package:web_socket as its own dependencies. |
+| `dartnative_url_launcher` 1.0.1 | Opens `checkoutUrl`. It has no in-app browser: it opens the system browser (see "Not met"). |
 
-- `dartnative_http` - HTTP client on NSURLSession / OkHttp, used for the
-  GraphQL POSTs (plain HTTP, no GraphQL client).
-- `dartnative_url_launcher` - opens the checkout URL. DartNative has no in-app
-  browser component (only a WebView widget, which the spec rules out for
-  screens), so checkout opens in the system browser.
+`dartnative`, `dartnative_ios` and `dartnative_android` are the framework itself. `lints` is a dev
+dependency from the project template, not part of the app binary. Nothing else: JSON is decoded with
+DartNative's `jsonDecodeNative`, state is `ChangeNotifier`/`ValueNotifier`, icons are `CustomPaint`.
 
-(`package:http`, `package:web_socket` and similar come in transitively with
-`dartnative_http`.)
+## DartNative mechanism for each Flutter construct
 
-## Not met, or met differently
+| Flutter app | This app | Why |
+|---|---|---|
+| `MaterialApp`, `MaterialPageRoute` | `App`; no routes (see Navigation) | DartNative names |
+| `IndexedStack` of three nested `Navigator`s, own tab bar | `IndexedStack` of three tab stacks, own tab bar; each tab stack is an `IndexedStack` of its screens kept in Dart (`lib/nav.dart`) | DartNative's `Navigator` is not a widget: it is one native stack for the whole app (UINavigationController / the Activity back stack), so a tab cannot hold a `Navigator` of its own. Screens below the top one stay mounted and hidden, so they keep their state and scroll position as routes do. |
+| Home: `CustomScrollView` of `SliverToBoxAdapter`s and a `SliverGrid` | the same | A `CustomScrollView` whose slivers are `SliverToBoxAdapter`, `SliverPadding` and a fixed-column `SliverGrid` is lazy in DartNative: it is built as rows on the platform's list (UICollectionView with cell recycling / RecyclerView), a row of two cards per grid row, built as they near the screen and let go off it. |
+| Collection grid (`CustomScrollView` + `SliverGrid`, `SliverLayoutBuilder` for the cell extent) | the same lazy `CustomScrollView`; the cell extent from `MediaQuery` width (`(width − 32 − 12) / 2 × 4/3 + 8 + 36 + 8 + 22`) | The description and sort chips scroll with the grid, which `FastGrid`/`GridView.builder` cannot hold (no header); the lazy `CustomScrollView` is the mechanism that recycles native cells for this layout. `SliverLayoutBuilder` is not needed: the cross extent is the screen width less the padding. |
+| Search results `ListView.builder` | `ListView.builder` (`padding: EdgeInsets.zero`) | Lowered by DartNative to `FastList`: UICollectionView / RecyclerView with cell recycling, rows built as they near the screen. The "N results" line stays fixed above it. |
+| Horizontal `ListView.separated` (chips, collections, sort chips, recommendations) | `ListView.separated` (horizontal lazy list) through `horizontalList()` in `lib/widgets.dart` | See "DartNative gaps": its `padding` is laid out by the helper. |
+| `Image.network` in `ColoredBox(surface)` + `ClipRRect` | the same; `fit: BoxFit.cover` | DartNative's native image pipeline caches in memory and on disk (NSURLCache-backed, honours `Cache-Control`). `cacheWidth` is not set, as in the Flutter app: the server already sizes each image with the spec's `width` (480 px for a ≈ 170 pt card, 240 px for 64–80 pt thumbnails, 1080 px for full-width images), so a decode size would change little. |
+| `CustomPainter` icons | `CustomPaint` with the same paths | DartNative's `CustomPaint` is native (Core Graphics on iOS, `android.graphics.Canvas` on Android) at no binary cost: the cheapest faithful option. Icon fonts do not have the design's glyphs, and `dartnative_svg` would add SVGKit / AndroidSVG. DartNative's `Path` has no `arcToPoint`, so the SVG arcs (`a1 1 …`, `a3 3 …`) are drawn with `arcTo` on the arc's circle, the same geometry. |
+| `dart:io` `HttpClient` + `jsonDecode` | `dartnative_http` `NativeHttpClient.post` + `jsonDecodeNative` | Native networking off the UI thread; native JSON decoding on the calling isolate (responses are 2–30 KB; `jsonDecodeInBackground` would add an isolate hop for no gain at that size). Timeout 15 s (the client's per-request idle timeout; the Flutter app had 15 s to connect and 30 s for the response). |
+| `Semantics(identifier: …)` | the same | Maps to `accessibilityIdentifier` (iOS) / resource-id (Android). DartNative's `Semantics` has no `explicitChildNodes`: a `Semantics` that sets only an identifier keeps its children as separate elements anyway. |
+| `SHOPBENCH home_ready` through a method channel to `NSLog` | `print('SHOPBENCH home_ready')` once per process, in a post-frame callback after Home's content is built | DartNative's engine writes `print` to the unified log in every build mode (`Logger_PrintString` → `FlutterLogger.logDirect` → `vsyslog`, not gated by build mode); the line reads `dartnative: SHOPBENCH home_ready`. No native code. |
+| Endpoint read natively in `AppDelegate` over a method channel | `Platform.environment`, then the C library's `getenv` over `dart:ffi` (iOS), then `String.fromEnvironment('SHOP_API_URL')`, then the default | The Dart VM's `Platform.environment` is always empty on iOS, so `SIMCTL_CHILD_SHOP_API_URL` / `devicectl --environment-variables` never reach it; `getenv` from `DynamicLibrary.process()` reads the launch environment with no native code in the Runner. |
+| `showAdaptiveDialog` | `showAlert` (UIAlertController / Material dialog) | DartNative's native alert. |
+| `CircularProgressIndicator.adaptive` | `CircularProgressIndicator` | UIActivityIndicatorView on iOS. |
+| `url_launcher` `LaunchMode.inAppBrowserView` | `DartNativeUrlLauncher.launch(checkoutUrl)` | System browser (see "Not met"). |
 
-- **Runtime verification** of everything: see the licence blocker above.
-- **Android test tags / resource-ids are not set.** DartNative exposes no
-  test-id API. On iOS the identifiers are set from Dart through the
-  Objective-C runtime on the native view that DartNative's view registry
-  returns for a widget (`lib/native/native_bridge.dart`, `AxId` in
-  `lib/ui/widgets.dart`). Android would need a JNI bridge into the app's
-  Kotlin code, which was not built; the benchmark only drives iOS.
-- **`SHOPBENCH home_ready`** is written with `NSLog` (called through FFI),
-  because DartNative release builds drop `print` output. It is written once
-  per process, after the first frame that shows loaded Home content. On
-  Android nothing is logged.
-- **Simulator build mode.** DartNative only supports debug mode on the iOS
-  Simulator ("Release/Profile mode is not supported for simulators"), so the
-  simulator app is a debug (JIT) build; it is self-contained and needs no dev
-  server. The device build is release (AOT).
-- **No iOS edge-swipe back and no push animation**, a consequence of the
-  per-tab stacks above.
+## Decisions where the spec is silent (DartNative-specific)
+
+- No push/pop transition: a tab's screens are shown and hidden in place (the tab stacks above), so
+  there is no slide animation and no edge-swipe back on iOS; the back button and Android's system back
+  pop the active tab's stack.
+- The tab bar is hidden while the active tab's top screen is a Product screen, as in the Flutter app.
+- The cart badge is laid beside the tab's element (not inside it) so XCUITest sees `cart-badge` as an
+  element of its own; touches on it reach the tab under it (`IgnorePointer`).
+- Light mode: `UIUserInterfaceStyle = Light`, `App(themeMode: ThemeMode.light)`,
+  `Scaffold(brightness: Brightness.light)`.
+- Project: from DartNative's tutorial skeleton (`tutorials/navigation`), with its splash logo removed
+  (plain white launch screen on both platforms), the default DartNative app icon, iPhone only
+  (`TARGETED_DEVICE_FAMILY = 1`), portrait only, `DEVELOPMENT_TEAM = ""` everywhere. `dn` raised the
+  iOS deployment target to 15.0 on the first build.
+- iOS: ATS `NSAllowsArbitraryLoads` and `NSAllowsLocalNetworking`, `NSLocalNetworkUsageDescription`,
+  `CADisableMinimumFrameDurationOnPhone = true`. Android: `INTERNET`, `usesCleartextTraffic="true"`,
+  `screenOrientation="portrait"`, an `https` VIEW query for the browser.
+
+## DartNative gaps met
+
+| What | Where | What the app does instead |
+|---|---|---|
+| No `Navigator` widget, so no nested navigators | Tab stacks | Dart-side stacks in `IndexedStack`s; no push transition, no edge-swipe back |
+| A horizontal lazy list ignores `ListView.padding` on iOS and gives each item the list's full height (`DNFlexSetPadding` handles the vertical list and the grid, not `DNHorizontalFastListDataSource`) | Home chips and collections, sort chips, recommendations | `horizontalList()`: the top and bottom padding outside the list (the list is the content's height), the start and end padding on the first and last items, where it scrolls with them as a list's padding does |
+| No in-app browser in `dartnative_url_launcher` | Check out | Opens the system browser, which the spec allows when the framework has none |
+| On iOS 27 with the iOS 27 SDK, UIKit draws the status bar's scroll edge effect over the top ≈ 102 pt of the screen on any scroll view there; DartNative offers its style (`automatic`, `soft`, `hard`) but no way to hide it | Home: the "Everbloom" header scrolls with the content, so at rest it sits partly under the fade | Left at the system's `automatic` (a light fade over the header's upper half); `hard` blurred the whole header |
+| `Platform.environment` empty on iOS (Dart VM) | Endpoint override | `getenv` over `dart:ffi` |
+| `Path.arcToPoint`, `InputDecoration.collapsed`, `TextField.enableSuggestions`, `Row.textBaseline`, `Semantics.explicitChildNodes`, `MediaQuery.textScalerOf`, `SliverLayoutBuilder` not available | Icons, search field, price rows | `arcTo`; `InputDecoration(border: InputBorder.none, contentPadding: EdgeInsets.zero)`; `autocorrect: false` only; `CrossAxisAlignment.baseline` alone; identifier-only `Semantics`; `textScaleFactor`; `MediaQuery` width |
+
+## Verification on the iOS Simulator (iPhone 17 Pro, iOS 27.2, debug build, replay server in `serve` mode)
+
+Driven by the benchmark's XCUITest runner (a scratch copy with extra checks added), against
+`replay.py serve`; no request missed the recordings.
+
+- Home loads; `SHOPBENCH home_ready` appears once per launch in `log stream`; the endpoint from
+  `SIMCTL_CHILD_SHOP_API_URL` is used.
+- Collection: scrolled to `product-card-83` (all 84 products, 4 pages); each of the four sorts reloads
+  page one and selects its chip (first cards: Linen Blend Jacket / Minimalist thermal work vest /
+  Oversized Sand Dune Blazer).
+- Product: option pills switch the selected variant (`option-Finish-Water-repellent` selected after a
+  tap); the tab bar is hidden; a recommendation pushes another product.
+- Add to cart switches to Cart with `cart-badge` 1; `qty-inc-0` makes it 2 and doubles the subtotal;
+  Check out opened the checkout URL (the replay server served `/checkout` to Safari); two `qty-dec-0`
+  remove the line and show the empty state.
+- The runner's `testJourney` passed launch, the Home scroll and the first collection scroll cycle before
+  the run was stopped (time).
+- Identifiers seen by XCUITest: all of the table's except `error-retry`, `search-input`,
+  `search-results` and `search-result-<i>`, which were not reached in the runs.
+
+Observed: images are served from DartNative's image cache across launches without revalidation, even
+after the replay server's `max-age=60` has passed (a journey after an earlier run requested only the
+API). The replay server's image request count (N1) will be lower after the first journey.
+
+## Not met or not verified
+
+- **iOS Simulator mode:** debug (JIT) only, as with Flutter. The benchmarked device build is release (AOT).
+- **In-app browser:** checkout opens Safari, not an in-app browser.
+- **Device:** the signed release build was launched and measured on an iPhone 16 Pro with the
+  benchmark's `tools/measure.py`, launch only; the walk through the app was not run on the device.
+- **Not checked:** search (results, scroll, stale-response discard), the error state and Retry against an
+  unreachable endpoint, the Android build and an Android emulator run (none was running).

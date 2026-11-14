@@ -1,20 +1,18 @@
 name: everbloom
-description: "Everbloom shop app built with DartNative."
+description: Everbloom shop app.
 publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.12.0-192.0.dev
+  sdk: ^3.5.0
 
+# `dn pub get` takes the dartnative packages from the SDK and dartpub.dev.
 dependencies:
   dartnative: ^1.0.0
   dartnative_ios: ^1.0.0
   dartnative_android: ^1.0.0
-  # HTTP over NSURLSession / OkHttp (first-party DartNative plugin).
   dartnative_http: ^1.1.0
-  # Opens the checkout URL in the system browser (first-party DartNative plugin).
-  dartnative_url_launcher: ^1.0.0
+  dartnative_url_launcher: ^1.0.1
 
 dev_dependencies:
   lints: ^6.0.0
-  test: ^1.25.0
