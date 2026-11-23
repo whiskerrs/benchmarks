@@ -14,6 +14,7 @@
 | SwiftUI | https://developer.apple.com/documentation/swiftui | `swiftui` | `apps/swiftui/` | `ios-only` |
 | DartNative | https://github.com/DartNative/dartnative | `dartnative` | `apps/dartnative/` | |
 | NativePHP | https://github.com/nativephp/mobile-air | `nativephp` | `apps/nativephp/` | `webview` |
+| Catalyst | https://github.com/tata1mg/catalyst-core | `catalyst` | `apps/catalyst/` | `webview` |
 
 ## Variants
 

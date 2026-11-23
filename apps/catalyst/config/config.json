@@ -1,0 +1,15 @@
+{
+    "NODE_SERVER_HOSTNAME": "localhost",
+    "NODE_SERVER_PORT": 3005,
+    "BUILD_OUTPUT_PATH": "build",
+    "PUBLIC_STATIC_ASSET_PATH": "/assets/",
+    "PUBLIC_STATIC_ASSET_URL": "",
+    "CLIENT_ENV_VARIABLES": [],
+    "WEBVIEW_CONFIG": {
+        "appId": "dev.whiskerrs.shopbench.catalyst",
+        "appName": "Everbloom",
+        "LOCAL_IP": "localhost",
+        "port": "3005",
+        "appInfo": ""
+    }
+}
